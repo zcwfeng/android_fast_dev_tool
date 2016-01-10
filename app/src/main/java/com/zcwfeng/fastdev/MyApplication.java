@@ -1,7 +1,6 @@
 package com.zcwfeng.fastdev;
 
-import android.app.Application;
-
+import com.zcwfeng.componentlibs.common.context.BaseApplication;
 import com.zcwfeng.httplibs.OkHttpUtils;
 
 import java.io.InputStream;
@@ -12,7 +11,7 @@ import okio.Buffer;
 /**
  * Created by zhy on 15/8/25.
  */
-public class MyApplication extends Application {
+public class MyApplication extends BaseApplication{
 
     private String CER_12306 = "-----BEGIN CERTIFICATE-----\n" +
             "MIICmjCCAgOgAwIBAgIIbyZr5/jKH6QwDQYJKoZIhvcNAQEFBQAwRzELMAkGA1UEBhMCQ04xKTAn\n" +
@@ -29,9 +28,12 @@ public class MyApplication extends Application {
             "og555S+C3eJAAVeNCTeMS3N/M5hzBRJAoffn3qoYdAO1Q8bTguOi+2849A==\n" +
             "-----END CERTIFICATE-----";
 
+
     @Override
     public void onCreate() {
         super.onCreate();
+
+
         OkHttpUtils.getInstance().setCertificates(new InputStream[]{
                 new Buffer()
                         .writeUtf8(CER_12306)

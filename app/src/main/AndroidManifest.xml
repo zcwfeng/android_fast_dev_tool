@@ -26,6 +26,13 @@
             android:screenOrientation="portrait">
 
         </activity>
+
+        <activity
+            android:name=".BindingData.MvvmDemoActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".MediaSample.MediaLibUseDemo"
+            android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>

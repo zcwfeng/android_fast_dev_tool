@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.Environment;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
@@ -15,6 +14,9 @@ import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.squareup.okhttp.Request;
+import com.zcwfeng.componentlibs.surport.inject.ContentView;
+import com.zcwfeng.componentlibs.surport.inject.ViewInject;
+import com.zcwfeng.componentlibs.ui.BaseActivity;
 import com.zcwfeng.fastdev.R;
 import com.zcwfeng.httplibs.OkHttpUtils;
 import com.zcwfeng.httplibs.callback.BitmapCallback;
@@ -25,8 +27,8 @@ import java.io.File;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-public class OkhttpUtilsMainActivity extends AppCompatActivity {
+@ContentView(value = R.layout.activity_okhttp_main)
+public class OkhttpUtilsMainActivity extends BaseActivity {
 
     public static void launch(Context context) {
         Intent intent = new Intent(context, OkhttpUtilsMainActivity.class);
@@ -37,8 +39,11 @@ public class OkhttpUtilsMainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
 
+    @ViewInject(id = R.id.id_textview)
     private TextView mTv;
+    @ViewInject(id = R.id.id_imageview)
     private ImageView mImageView;
+    @ViewInject(id = R.id.id_progress)
     private ProgressBar mProgressBar;
 
     public class MyStringCallback extends StringCallback {
@@ -75,11 +80,6 @@ public class OkhttpUtilsMainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_okhttp_main);
-
-        mTv = (TextView) findViewById(R.id.id_textview);
-        mImageView = (ImageView) findViewById(R.id.id_imageview);
-        mProgressBar = (ProgressBar) findViewById(R.id.id_progress);
         mProgressBar.setMax(100);
     }
 
