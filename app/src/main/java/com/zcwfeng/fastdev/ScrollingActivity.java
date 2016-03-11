@@ -16,6 +16,7 @@ import com.zcwfeng.fastdev.BindingData.MvvmDemoActivity;
 import com.zcwfeng.fastdev.MediaSample.MediaLibUseDemo;
 import com.zcwfeng.fastdev.intent_ref.IntentReferenceActivity;
 import com.zcwfeng.fastdev.sample_okhttp.OkhttpUtilsMainActivity;
+import com.zcwfeng.fastdev.ui.activity.CoordinatorLayoutTestActivity;
 import com.zcwfeng.fastdev.ui.activity.UserProfileActivity;
 import com.zcwfeng.fastdev.widgettest.TestWidgetActivity;
 
@@ -29,6 +30,8 @@ public class ScrollingActivity extends BaseActivity {
     Button testCalendar;
     @ViewInject(id = R.id.intent_test)
     Button testIntentRef;
+    @ViewInject(id = R.id.coordnator_layout_btn)
+    Button testCoordnatorLayotu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,7 +76,7 @@ public class ScrollingActivity extends BaseActivity {
     }
 
     public void doMediaSample(View view) {
-        MediaLibUseDemo.launch(this, null);
+        MediaLibUseDemo.launch(this, MediaLibUseDemo.class);
     }
 
     public void toUserProfileActivity(View v) {
@@ -86,4 +89,8 @@ public class ScrollingActivity extends BaseActivity {
 
     public void doTestIntent(View v){
         IntentReferenceActivity.launch(this);}
+
+    public void doTestCoordnator(View v) {
+        CoordinatorLayoutTestActivity.launch(ScrollingActivity.this,CoordinatorLayoutTestActivity.class);
+    }
 }

@@ -1,5 +1,7 @@
 package com.zcwfeng.componentlibs.ui.basic;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -22,6 +24,12 @@ public class BaseActivity extends AppCompatActivity {
     private static BaseActivity runningActivity;
 
     private BaseActivityHelper mHelper;
+
+    public static void launch(Context from,Class<?> clazz){
+        Intent intent = new Intent(from,clazz);
+        from.startActivity(intent);
+
+    }
 
 
     public static BaseActivity getRunningActivity() {

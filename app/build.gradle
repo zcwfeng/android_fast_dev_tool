@@ -34,11 +34,14 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
-    compile 'com.android.support:appcompat-v7:23.1.1'
+    compile 'com.android.support:appcompat-v7:23.2.0'
     compile 'com.android.support:design:23.1.1'
     compile 'com.squareup.okhttp:okhttp:2.7.0'
     compile 'com.google.code.gson:gson:2.4'
     compile project(':componentlibs')
     compile project(':wkvideoplayer')
     compile project(':httplibs')
+    //---------
+    compile 'com.android.support:recyclerview-v7:23.2.0'
+    compile 'com.facebook.fresco:fresco:0.8.1'
 }

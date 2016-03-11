@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f7f7f7"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="#ffff00"></LinearLayout>
+
+    <com.zcwfeng.fastdev.ui.widget.coordinatorlayout.CustomSwipeRefreshLayout
+        android:id="@+id/refresh_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.design.widget.CoordinatorLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <android.support.design.widget.AppBarLayout
+                android:id="@+id/appbar_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:theme="@style/AppTheme.AppBarOverlay">
+
+                <android.support.design.widget.CollapsingToolbarLayout
+                    android:id="@+id/collapse_toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fitsSystemWindows="true"
+                    app:collapsedTitleTextAppearance="@drawable/ic_launcher"
+                    app:contentScrim="#55000000"
+                    app:expandedTitleMarginEnd="64dp"
+                    app:expandedTitleMarginStart="48dp"
+                    app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+                    <com.zcwfeng.fastdev.ui.widget.CustomNestedScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                       <LinearLayout
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content" android:orientation="vertical">
+                           <TextView
+                               android:textColor="#f0f0f0"
+                               android:layout_width="match_parent"
+                               android:text="你老了\n你老了\n你老了\n你老了\n你老了\n你老了\n你老了\n你老了\n你老了\n你老了\n你老了\n你老了\n你老了\n你老了\n你老了\n你老了\n你老了\n你老了\n你老了你老了\n你老了\n你老了\n你老了\n你老了\n你老了\n你老了\n你老了\n你老了\n你老了\n你老了\n你老了\n你老了\n你老了\n你老了\n你老了\n你老了\n你老了\n你老了\n你老了\n\n你老了\n你老了\n"
+                               android:layout_height="wrap_content" />
+                           <ImageView
+                               android:layout_width="match_parent"
+                               android:layout_height="match_parent"
+                               android:background="@drawable/demo_p" />
+
+                           <TextView
+                               android:textColor="#f0f0f0"
+                               android:layout_width="match_parent"
+                               android:text="你老了\n你老了\n你老了\n你老了\n你老了\n你老了\n你老了\n你老了\n你老了\n你老了\n你老了\n你老了\n你老了\n你老了\n你老了\n你老了\n你老了\n你老了\n你老了你老了\n你老了\n你老了\n你老了\n你老了\n你老了\n你老了\n你老了\n你老了\n你老了\n你老了\n你老了\n你老了\n你老了\n你老了\n你老了\n你老了\n你老了\n你老了\n你老了\n\n你老了\n你老了\n"
+                               android:layout_height="wrap_content" />
+                       </LinearLayout>
+                    </com.zcwfeng.fastdev.ui.widget.CustomNestedScrollView>
+                    <android.support.v7.widget.Toolbar
+                        android:id="@+id/toolbar"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:minHeight="0dp"
+                        app:layout_scrollFlags="scroll|enterAlways" >
+
+                    </android.support.v7.widget.Toolbar>
+                </android.support.design.widget.CollapsingToolbarLayout>
+            </android.support.design.widget.AppBarLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:background="#ff0000"></LinearLayout>
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/fragment_footprint_rv"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/base_background"
+                    android:orientation="vertical" />
+
+            </LinearLayout>
+
+
+        </android.support.design.widget.CoordinatorLayout>
+    </com.zcwfeng.fastdev.ui.widget.coordinatorlayout.CustomSwipeRefreshLayout>
+</LinearLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+

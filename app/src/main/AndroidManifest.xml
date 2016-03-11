@@ -42,6 +42,9 @@
         <activity
             android:name=".intent_ref.IntentReferenceActivity"
             android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".ui.activity.CoordinatorLayoutTestActivity"
+            android:screenOrientation="portrait"/>
 
         <service
             android:name="com.zcwfeng.fastdev.service.RobMoney"

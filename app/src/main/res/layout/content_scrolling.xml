@@ -55,12 +55,20 @@
             android:onClick="doTestIntent"
             android:text="Intent测试" />
 
+        <Button
+            android:id="@+id/coordnator_layout_btn"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:onClick="doTestCoordnator"
+            android:text="Coordnatorlayout" />
+
         <TextView
             android:onClick="doTestIntent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/text_margin"
             android:text="@string/large_text" />
+
     </LinearLayout>
 
 
