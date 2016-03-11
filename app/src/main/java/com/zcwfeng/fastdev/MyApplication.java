@@ -1,6 +1,7 @@
 package com.zcwfeng.fastdev;
 
 import com.zcwfeng.componentlibs.common.context.BaseApplication;
+import com.zcwfeng.componentlibs.surport.utils.Logger;
 import com.zcwfeng.httplibs.OkHttpUtils;
 
 import java.io.InputStream;
@@ -32,7 +33,8 @@ public class MyApplication extends BaseApplication{
     @Override
     public void onCreate() {
         super.onCreate();
-
+        // 打开Debug日志
+        Logger.DEBUG = true;
 
         OkHttpUtils.getInstance().setCertificates(new InputStream[]{
                 new Buffer()

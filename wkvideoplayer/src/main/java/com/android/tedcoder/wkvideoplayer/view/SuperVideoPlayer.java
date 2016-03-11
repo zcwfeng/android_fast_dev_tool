@@ -25,6 +25,7 @@ import android.os.Message;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.Animation;
@@ -123,10 +124,13 @@ public class SuperVideoPlayer extends RelativeLayout {
     private View.OnTouchListener mOnTouchVideoListener = new OnTouchListener() {
         @Override
         public boolean onTouch(View view, MotionEvent motionEvent) {
-            if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
-                showOrHideController();
-            }
-            return mCurrPageType == MediaController.PageType.EXPAND;
+            return mGestureDetector.onTouchEvent(motionEvent);
+
+//            if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
+//                showOrHideController();
+//            }
+//            return mCurrPageType == MediaController.PageType.EXPAND;
+//            return false;
         }
     };
 
@@ -385,7 +389,7 @@ public class SuperVideoPlayer extends RelativeLayout {
         mDLNARootLayout = findViewById(R.id.rel_dlna_root_layout);
 
         mMediaController.setMediaControl(mMediaControl);
-        mSuperVideoView.setOnTouchListener(mOnTouchVideoListener);
+//        mSuperVideoView.setOnTouchListener(mOnTouchVideoListener);
 
         setDLNAButton(false);
         setCloseButton(false);
@@ -399,6 +403,9 @@ public class SuperVideoPlayer extends RelativeLayout {
         mProgressBarView.setOnClickListener(mOnClickListener);
 
         mAllVideo = new ArrayList<>();
+
+//        mGestureDetector = new GestureDetector(mContext, new MyGestureListener());
+
     }
 
     /**
@@ -688,6 +695,85 @@ public class SuperVideoPlayer extends RelativeLayout {
         void onSwitchPageType();
 
         void onPlayFinish();
+    }
+
+    // 手势
+    private GestureDetector mGestureDetector;
+    private boolean mIsScrollH = false;
+    private boolean mIsScrollV = false;
+
+    private class MyGestureListener extends GestureDetector.SimpleOnGestureListener {
+
+        @Override
+        public boolean onDown(MotionEvent e) {
+            return super.onDown(e);
+        }
+
+
+        @Override
+        public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
+            return super.onFling(e1, e2, velocityX, velocityY);
+        }
+
+
+
+        @Override
+        public boolean onSingleTapUp(MotionEvent e) {
+            return super.onSingleTapUp(e);
+        }
+
+        /**
+         * 双击
+         */
+        @Override
+        public boolean onDoubleTap(MotionEvent e) {
+            return super.onDoubleTap(e);
+        }
+
+        /**
+         * 滑动
+         */
+        @Override
+        public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
+            if (true) {
+                float mOldX = e1.getX();
+                float mOldY = e1.getY();
+                float x = e2.getX();
+                float y = e2.getY();
+//                if (mIsScrollH || (Math.abs(y - mOldY) > Math.abs(x - mOldX) && !mIsScrollV)) {//竖着滑动
+                Log.e("zcw","响应了垂直滑动事件~~~~~~~");
+                mIsScrollH = true;
+//                } else if (mIsScrollV || (Math.abs(y - mOldY) < Math.abs(x - mOldX) && !mIsScrollH)) {
+//
+//                    Log.e("zcw","响应了水平滑动事件~~~~~~~");
+//
+//                    mIsScrollV = true;
+//                    if (mPlayfastRl.getVisibility() == View.GONE) {
+//                        mPlayfastRl.setVisibility(View.VISIBLE);
+//                        mPlayTotalTime = mSuperVideoView.getDuration();
+//                        mPlayCurrentTime = mSuperVideoView.getCurrentPosition();
+//                        mPlayfastSeek = 0;
+//                        String totalTime = stringForTime((int) mPlayTotalTime);
+//                        mPlayfastRTv.setText("/" + totalTime);
+//
+//                        mHandler.sendEmptyMessageDelayed(HIDE_FASTER_SEEK, 500);
+//                        volumeSeekbar.setVisibility(View.GONE);
+//                        brightSeekbar.setVisibility(View.GONE);
+//
+//                    }
+//
+//                    mPlayfastSeek = (int) ((x - mOldX) / 20);
+//                    if (mPlayfastSeek >= 0) {
+//                        mPlayfastIv.setBackgroundResource(R.drawable.play_forward_arrow);
+//                    } else {
+//                        mPlayfastIv.setBackgroundResource(R.drawable.play_back_arrow);
+//                    }
+//
+//                }
+
+            }
+            return super.onScroll(e1,e2,distanceX,distanceY);
+        }
     }
 
 }

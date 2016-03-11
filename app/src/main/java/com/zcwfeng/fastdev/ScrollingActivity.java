@@ -7,27 +7,40 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 
 import com.zcwfeng.componentlibs.surport.inject.ContentView;
-import com.zcwfeng.componentlibs.ui.BaseActivity;
+import com.zcwfeng.componentlibs.surport.inject.ViewInject;
+import com.zcwfeng.componentlibs.ui.basic.BaseActivity;
 import com.zcwfeng.fastdev.BindingData.MvvmDemoActivity;
 import com.zcwfeng.fastdev.MediaSample.MediaLibUseDemo;
+import com.zcwfeng.fastdev.intent_ref.IntentReferenceActivity;
 import com.zcwfeng.fastdev.sample_okhttp.OkhttpUtilsMainActivity;
+import com.zcwfeng.fastdev.ui.activity.UserProfileActivity;
+import com.zcwfeng.fastdev.widgettest.TestWidgetActivity;
 
 @ContentView(value = R.layout.activity_scrolling)
 public class ScrollingActivity extends BaseActivity {
+    @ViewInject(id = R.id.to_test_okhttp)
+    Button okHttp;
+    @ViewInject(id = R.id.user_profile_common_Activity)
+    Button userProfileActivity;
+    @ViewInject(id = R.id.calendar_test)
+    Button testCalendar;
+    @ViewInject(id = R.id.intent_test)
+    Button testIntentRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.main_toolbar);
         setSupportActionBar(toolbar);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(view -> Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show());
     }
-
 
 
     @Override
@@ -62,4 +75,15 @@ public class ScrollingActivity extends BaseActivity {
     public void doMediaSample(View view) {
         MediaLibUseDemo.launch(this, null);
     }
+
+    public void toUserProfileActivity(View v) {
+        UserProfileActivity.launch(this);
+    }
+
+    public void doTestCalendar(View v){
+        TestWidgetActivity.launch(this);
+    }
+
+    public void doTestIntent(View v){
+        IntentReferenceActivity.launch(this);}
 }

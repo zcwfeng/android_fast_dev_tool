@@ -18,15 +18,14 @@
             android:id="@+id/to_test_okhttp"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:onClick="toSampleOkhttp"
             android:text="okhttp_sample" />
 
         <Button
             android:id="@+id/binding_data_mvvm"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:text="Data Binding"
-            android:onClick="doMvvmDemo"/>
+            android:onClick="doMvvmDemo"
+            android:text="Data Binding" />
 
         <Button
             android:id="@+id/media_sample"
@@ -35,7 +34,29 @@
             android:onClick="doMediaSample"
             android:text="Media Sample" />
 
+        <Button
+            android:id="@+id/user_profile_common_Activity"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:onClick="toUserProfileActivity"
+            android:text="用户信息" />
+
+        <Button
+            android:id="@+id/calendar_test"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:onClick="doTestCalendar"
+            android:text="日历" />
+
+        <Button
+            android:id="@+id/intent_test"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:onClick="doTestIntent"
+            android:text="Intent测试" />
+
         <TextView
+            android:onClick="doTestIntent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/text_margin"

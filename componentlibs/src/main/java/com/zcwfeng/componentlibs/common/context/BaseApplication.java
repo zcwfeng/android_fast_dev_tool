@@ -2,6 +2,13 @@ package com.zcwfeng.componentlibs.common.context;
 
 import android.app.Application;
 
+import com.zcwfeng.componentlibs.common.setting.SettingUtility;
+import com.zcwfeng.componentlibs.surport.utils.ActivityHelper;
+import com.zcwfeng.componentlibs.surport.utils.Logger;
+import com.zcwfeng.componentlibs.surport.utils.SdcardUtils;
+
+import java.io.File;
+
 /**
  * ==========================================
  * Created by David Zhang on 2015/08/30.
@@ -23,9 +30,30 @@ public class BaseApplication extends Application {
     public void onCreate() {
         super.onCreate();
         app = this;
+
+        // 初始化ActivityHelper
+        ActivityHelper.config(this);
+
+        // 初始化设置
+        SettingUtility.setSettingUtility();
+
+        Logger.DEBUG = SettingUtility.getBooleanSetting("debug");
     }
 
     public static BaseApplication getInstance(){
         return app;
+    }
+
+    /**
+     * 程序的文件目录，如果setting配置的是android，标志目录位于/sdcard/Application/PackageName/...下<br/>
+     * 否则，就是/sdcard/setting[root_path]/...目录
+     *
+     * @return
+     */
+    public String getAppPath() {
+        if ("android".equals(SettingUtility.getStringSetting("root_path")))
+            return getExternalCacheDir().getAbsolutePath() + File.separator;
+
+        return SdcardUtils.getSdcardPath() + File.separator + SettingUtility.getStringSetting("root_path") + File.separator;
     }
 }

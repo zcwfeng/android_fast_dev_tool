@@ -90,4 +90,9 @@
         "when a user tries to pick up one of cards.\n\n"
     </string>
     <string name="action_settings">Settings</string>
+
+    <string name="error_pic_load_faild">获取失败</string>
+    <string name="title_user_profile">用户信息</string>
+    <string name="desc">WebChat Get RedMoney</string>
+
 </resources>

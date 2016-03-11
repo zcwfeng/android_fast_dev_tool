@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">componentlibs</string>
+    <!--公共-->
+    <string name="comm_request_loading">加载中...</string>
+    <string name="comm_request_more">加载更多</string>
+    <string name="comm_request_disable">全部都加载完了</string>
+    <string name="comm_hint_exit">再按一次退出</string>
+    <string name="comm_reload_hint">刷新看看</string>
+    <string name="comm_dialog_hint">提示</string>
+    <string name="comm_hint_copied">已经复制 %s</string>
 </resources>

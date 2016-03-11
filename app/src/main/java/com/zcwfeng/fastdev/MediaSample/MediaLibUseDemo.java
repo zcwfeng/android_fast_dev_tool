@@ -5,6 +5,9 @@ import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.GestureDetector;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
 
@@ -17,7 +20,7 @@ import com.android.tedcoder.wkvideoplayer.view.MediaController;
 import com.android.tedcoder.wkvideoplayer.view.SuperVideoPlayer;
 import com.zcwfeng.componentlibs.surport.inject.ContentView;
 import com.zcwfeng.componentlibs.surport.inject.ViewInject;
-import com.zcwfeng.componentlibs.ui.BaseActivity;
+import com.zcwfeng.componentlibs.ui.basic.BaseActivity;
 import com.zcwfeng.fastdev.R;
 
 import java.util.ArrayList;
@@ -192,6 +195,9 @@ public class MediaLibUseDemo extends BaseActivity implements View.OnClickListene
         mPlayBtnView.setOnClickListener(this);
         mSuperVideoPlayer.setVideoPlayCallback(mVideoPlayCallback);
         startDLNAService();
+
+        mGestureDetector = new GestureDetector(this, new MyGestureListener());
+
     }
 
     /***
@@ -221,5 +227,59 @@ public class MediaLibUseDemo extends BaseActivity implements View.OnClickListene
         super.onBackPressed();
         mSuperVideoPlayer.close();
         finish();
+    }
+
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        mGestureDetector.onTouchEvent(event);
+        return super.onTouchEvent(event);
+    }
+    private GestureDetector mGestureDetector;
+
+    private class MyGestureListener extends GestureDetector.SimpleOnGestureListener {
+
+        @Override
+        public boolean onDown(MotionEvent e) {
+            return super.onDown(e);
+        }
+
+
+        @Override
+        public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
+            return super.onFling(e1, e2, velocityX, velocityY);
+        }
+
+
+
+        @Override
+        public boolean onSingleTapUp(MotionEvent e) {
+            return super.onSingleTapUp(e);
+        }
+
+        /**
+         * 双击
+         */
+        @Override
+        public boolean onDoubleTap(MotionEvent e) {
+            return super.onDoubleTap(e);
+        }
+
+        /**
+         * 滑动
+         */
+        @Override
+        public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
+            if (true) {
+                float mOldX = e1.getX();
+                float mOldY = e1.getY();
+                float x = e2.getX();
+                float y = e2.getY();
+//                if (mIsScrollH || (Math.abs(y - mOldY) > Math.abs(x - mOldX) && !mIsScrollV)) {//竖着滑动
+                Log.e("zcw","响应了垂直滑动事件~~~~~~~");
+
+            }
+            return super.onScroll(e1,e2,distanceX,distanceY);
+        }
     }
 }

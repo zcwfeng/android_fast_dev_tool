@@ -16,7 +16,7 @@ import com.google.gson.Gson;
 import com.squareup.okhttp.Request;
 import com.zcwfeng.componentlibs.surport.inject.ContentView;
 import com.zcwfeng.componentlibs.surport.inject.ViewInject;
-import com.zcwfeng.componentlibs.ui.BaseActivity;
+import com.zcwfeng.componentlibs.ui.basic.BaseActivity;
 import com.zcwfeng.fastdev.R;
 import com.zcwfeng.httplibs.OkHttpUtils;
 import com.zcwfeng.httplibs.callback.BitmapCallback;

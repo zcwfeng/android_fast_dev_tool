@@ -11,13 +11,13 @@ import com.zcwfeng.fastdev.R;
 import com.zcwfeng.fastdev.databinding.DatabindingLayoutBinding;
 
 /**
- * ==========================================
+ * =====================================================================================================
  * Created by David Zhang on 2015/08/30.
  * Description：
  * Copyright © 2015 张传伟. All rights reserved.
  * Modified by:
  * Modified Content:
- * ==========================================
+ * =====================================================================================================
  */
 public class MvvmDemoActivity extends AppCompatActivity {
 
@@ -33,7 +33,6 @@ public class MvvmDemoActivity extends AppCompatActivity {
         User user = new User("Test", "User");
         binding.setUser(user);
     }
-
 
 
 }

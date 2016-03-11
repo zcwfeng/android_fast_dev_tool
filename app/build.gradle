@@ -7,7 +7,7 @@ android {
 
     defaultConfig {
         applicationId "com.zcwfeng.fastdev"
-        minSdkVersion 16
+        minSdkVersion 14
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
@@ -38,7 +38,7 @@ dependencies {
     compile 'com.android.support:design:23.1.1'
     compile 'com.squareup.okhttp:okhttp:2.7.0'
     compile 'com.google.code.gson:gson:2.4'
-    compile project(':httplibs')
     compile project(':componentlibs')
     compile project(':wkvideoplayer')
+    compile project(':httplibs')
 }
