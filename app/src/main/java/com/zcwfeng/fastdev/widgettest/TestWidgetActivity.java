@@ -11,22 +11,24 @@ import android.widget.Toast;
 import com.zcwfeng.componentlibs.ui.basic.BaseActivity;
 import com.zcwfeng.fastdev.R;
 import com.zcwfeng.fastdev.ui.widget.CalendarView;
+import com.zcwfeng.fastdev.ui.widget.refresh.ZcwRefreshLayout;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Created by David.zhang on 16/1/19.
  * Description：
  */
-public class TestWidgetActivity extends BaseActivity{
+public class TestWidgetActivity extends BaseActivity {
+    com.zcwfeng.fastdev.ui.widget.refresh.ZcwRefreshLayout mRefreshLayout;
+    public static void launch(Context from) {
+        Intent intent = new Intent(from, TestWidgetActivity.class);
+        from.startActivity(intent);
 
-   public static void launch(Context from){
-       Intent intent = new Intent(from,TestWidgetActivity.class);
-       from.startActivity(intent);
-
-   }
+    }
 
 
     private CalendarView calendar;
@@ -34,19 +36,30 @@ public class TestWidgetActivity extends BaseActivity{
     private TextView calendarCenter;
     private ImageButton calendarRight;
     private SimpleDateFormat format;
+    private View animRelaLayout;
+    private View anim1;
+    private View anim2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test_widget);
 
+        mRefreshLayout = (ZcwRefreshLayout) findViewById(R.id.testrefresh);
+        mRefreshLayout.setRefreshing(true);
+
+
+
+
+
         format = new SimpleDateFormat("yyyy-MM-dd");
         //获取日历控件对象
-        calendar = (CalendarView)findViewById(R.id.calendar);
+        calendar = (CalendarView) findViewById(R.id.calendar);
         calendar.setSelectMore(false); //单选
 
-        calendarLeft = (ImageButton)findViewById(R.id.calendarLeft);
-        calendarCenter = (TextView)findViewById(R.id.calendarCenter);
-        calendarRight = (ImageButton)findViewById(R.id.calendarRight);
+        calendarLeft = (ImageButton) findViewById(R.id.calendarLeft);
+        calendarCenter = (TextView) findViewById(R.id.calendarCenter);
+        calendarRight = (ImageButton) findViewById(R.id.calendarRight);
         try {
             //设置日历日期
             Date date = format.parse("2015-01-01");
@@ -57,7 +70,7 @@ public class TestWidgetActivity extends BaseActivity{
 
         //获取日历中年月 ya[0]为年，ya[1]为月（格式大家可以自行在日历控件中改）
         String[] ya = calendar.getYearAndmonth().split("-");
-        calendarCenter.setText(ya[0]+"年"+ya[1]+"月");
+        calendarCenter.setText(ya[0] + "年" + ya[1] + "月");
         calendarLeft.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -65,7 +78,7 @@ public class TestWidgetActivity extends BaseActivity{
                 //点击上一月 同样返回年月
                 String leftYearAndmonth = calendar.clickLeftMonth();
                 String[] ya = leftYearAndmonth.split("-");
-                calendarCenter.setText(ya[0]+"年"+ya[1]+"月");
+                calendarCenter.setText(ya[0] + "年" + ya[1] + "月");
             }
         });
 
@@ -76,7 +89,7 @@ public class TestWidgetActivity extends BaseActivity{
                 //点击下一月
                 String rightYearAndmonth = calendar.clickRightMonth();
                 String[] ya = rightYearAndmonth.split("-");
-                calendarCenter.setText(ya[0]+"年"+ya[1]+"月");
+                calendarCenter.setText(ya[0] + "年" + ya[1] + "月");
             }
         });
 
@@ -86,13 +99,24 @@ public class TestWidgetActivity extends BaseActivity{
             @Override
             public void OnItemClick(Date selectedStartDate,
                                     Date selectedEndDate, Date downDate) {
-                if(calendar.isSelectMore()){
-                    Toast.makeText(getApplicationContext(), format.format(selectedStartDate)+"到"+format.format(selectedEndDate), Toast.LENGTH_SHORT).show();
-                }else{
+                if (calendar.isSelectMore()) {
+                    Toast.makeText(getApplicationContext(), format.format(selectedStartDate) + "到" + format.format(selectedEndDate), Toast.LENGTH_SHORT).show();
+                } else {
                     Toast.makeText(getApplicationContext(), format.format(downDate), Toast.LENGTH_SHORT).show();
                 }
             }
         });
-
+     test();
     }
+
+    private void test() {
+        try {
+            TimeUnit.SECONDS.sleep(2);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        mRefreshLayout.setRefreshScale();
+    }
+
+
 }

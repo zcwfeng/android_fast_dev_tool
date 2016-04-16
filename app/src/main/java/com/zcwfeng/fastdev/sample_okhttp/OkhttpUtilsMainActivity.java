@@ -282,6 +282,16 @@ public class OkhttpUtilsMainActivity extends BaseActivity {
                 });
     }
 
+    public void doCacheTest(View view){
+        String url = "http://www.csdn.net/";
+        OkHttpUtils
+                .get()
+                .url(url)
+                .build()
+                .execute(new MyStringCallback());
+
+    }
+
     @Override
     protected void onDestroy() {
         super.onDestroy();

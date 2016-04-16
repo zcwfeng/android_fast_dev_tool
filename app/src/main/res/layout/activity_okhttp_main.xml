@@ -69,6 +69,12 @@
             android:onClick="downloadFile"
             android:text="Download File" />
 
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="doCacheTest"
+            android:text="cache get html" />
+
     </com.zcwfeng.fastdev.sample_okhttp.FlowLayout>
 
     <ProgressBar

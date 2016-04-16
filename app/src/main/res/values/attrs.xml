@@ -1,48 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!--主题颜色-->
-    <attr name="theme_color" format="reference|color"/>
-    <attr name="theme_statusbar_color" format="reference|color"/>
+    <attr name="theme_color" format="reference|color" />
+    <attr name="theme_statusbar_color" format="reference|color" />
     <!--主题背景色-->
-    <attr name="theme_background" format="reference|color"/>
+    <attr name="theme_background" format="reference|color" />
     <!--flat样式的TextView-->
-    <attr name="flat_text" format="reference|color"/>
-    <attr name="fits_windows" format="boolean"/>
-    <attr name="text_title" format="reference|color"/>
-    <attr name="text_subhead" format="reference|color"/>
-    <attr name="text_body" format="reference|color"/>
+    <attr name="flat_text" format="reference|color" />
+    <attr name="fits_windows" format="boolean" />
+    <attr name="text_title" format="reference|color" />
+    <attr name="text_subhead" format="reference|color" />
+    <attr name="text_body" format="reference|color" />
     <!--timeline的分割线-->
-    <attr name="divider_timeline_item" format="reference|color"/>
+    <attr name="divider_timeline_item" format="reference|color" />
     <!--timeline的背景-->
-    <attr name="bg_timline_item" format="reference"/>
+    <attr name="bg_timline_item" format="reference" />
     <!--左侧菜单的Header的高度-->
-    <attr name="menu_header_height" format="dimension"/>
-
+    <attr name="menu_header_height" format="dimension" />
 
 
     <declare-styleable name="EasyCoordinatorView">
-        <attr name="dependsOn" format="reference"/>
+        <attr name="dependsOn" format="reference" />
         <attr name="dependType">
-            <enum name="height" value="0"/>
-            <enum name="width" value="1"/>
-            <enum name="x" value="2"/>
-            <enum name="y" value="3"/>
+            <enum name="height" value="0" />
+            <enum name="width" value="1" />
+            <enum name="x" value="2" />
+            <enum name="y" value="3" />
         </attr>
 
-        <attr name="dependTargetX" format="dimension"/>
-        <attr name="dependTargetY" format="dimension"/>
-        <attr name="dependTargetWidth" format="dimension"/>
-        <attr name="dependTargetHeight" format="dimension"/>
+        <attr name="dependTargetX" format="dimension" />
+        <attr name="dependTargetY" format="dimension" />
+        <attr name="dependTargetWidth" format="dimension" />
+        <attr name="dependTargetHeight" format="dimension" />
 
-        <attr name="targetX" format="dimension"/>
-        <attr name="targetY" format="dimension"/>
-        <attr name="targetWidth" format="dimension"/>
-        <attr name="targetHeight" format="dimension"/>
-        <attr name="targetBackgroundColor" format="color"/>
-        <attr name="targetAlpha" format="float"/>
-        <attr name="targetRotateX" format="float"/>
-        <attr name="targetRotateY" format="float"/>
+        <attr name="targetX" format="dimension" />
+        <attr name="targetY" format="dimension" />
+        <attr name="targetWidth" format="dimension" />
+        <attr name="targetHeight" format="dimension" />
+        <attr name="targetBackgroundColor" format="color" />
+        <attr name="targetAlpha" format="float" />
+        <attr name="targetRotateX" format="float" />
+        <attr name="targetRotateY" format="float" />
 
-        <attr name="animation" format="reference"/>
+        <attr name="animation" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="RefreshLayout">
+        <attr name="RefreshViewMaxHeight" format="float" />
+        <attr name="RefreshViewHeight" format="float" />
     </declare-styleable>
 </resources>

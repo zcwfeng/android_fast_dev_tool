@@ -7,6 +7,17 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+        <!--<com.zcwfeng.fastdev.ui.widget.refresh.ZcwRefreshLayout
+            android:id="@+id/testrefresh"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"/>-->
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp">
+            <include layout="@layout/refreshlayout_zcw" android:id="@+id/testrefresh"/>
+        </RelativeLayout>
+
 
         <RelativeLayout
             android:id="@+id/layout_calendar"
@@ -62,8 +73,8 @@
             android:paddingTop="1dip"
             android:progressDrawable="@drawable/mediaplayer_videoplayer_gesturebar"
             android:thumb="@drawable/mediaplayer_brightseek_thumb"
-            android:thumbOffset="0dip"
-            />
+            android:thumbOffset="0dip" />
+
 
     </LinearLayout>
 </ScrollView>

@@ -6,6 +6,7 @@ import com.zcwfeng.componentlibs.common.setting.SettingUtility;
 import com.zcwfeng.componentlibs.surport.utils.ActivityHelper;
 import com.zcwfeng.componentlibs.surport.utils.Logger;
 import com.zcwfeng.componentlibs.surport.utils.SdcardUtils;
+import com.zcwfeng.componentlibs.surport.utils.UIUtils;
 
 import java.io.File;
 
@@ -36,6 +37,9 @@ public class BaseApplication extends Application {
 
         // 初始化设置
         SettingUtility.setSettingUtility();
+
+        //
+        UIUtils.initScreenWH();
 
         Logger.DEBUG = SettingUtility.getBooleanSetting("debug");
     }

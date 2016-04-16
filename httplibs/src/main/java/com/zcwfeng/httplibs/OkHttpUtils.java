@@ -3,9 +3,11 @@ package com.zcwfeng.httplibs;
 import android.os.Handler;
 import android.os.Looper;
 
+import com.squareup.okhttp.Cache;
 import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Request;
 import com.squareup.okhttp.Response;
+import com.zcwfeng.componentlibs.common.context.BaseApplication;
 import com.zcwfeng.httplibs.builder.GetBuilder;
 import com.zcwfeng.httplibs.builder.PostFileBuilder;
 import com.zcwfeng.httplibs.builder.PostFormBuilder;
@@ -14,6 +16,7 @@ import com.zcwfeng.httplibs.callback.Callback;
 import com.zcwfeng.httplibs.https.HttpsUtils;
 import com.zcwfeng.httplibs.request.RequestCall;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.CookieManager;
@@ -39,7 +42,6 @@ public class OkHttpUtils
         mOkHttpClient.setCookieHandler(new CookieManager(null, CookiePolicy.ACCEPT_ORIGINAL_SERVER));
         mDelivery = new Handler(Looper.getMainLooper());
 
-
         if (false)
         {
             mOkHttpClient.setHostnameVerifier(new HostnameVerifier()
@@ -51,6 +53,13 @@ public class OkHttpUtils
                 }
             });
         }
+        int cacheSize = 10 * 1024 * 1024; // 10 MiB
+        String temp = BaseApplication.getInstance().getExternalCacheDir().getAbsolutePath() + File.separator + "cache_custom_okhttp/";
+        File file = new File(temp);
+        if(!file.exists()) file.mkdir();
+        Cache cache = new Cache(file, cacheSize);
+        if(cache != null)
+        mOkHttpClient.setCache(cache);
 
 
     }
