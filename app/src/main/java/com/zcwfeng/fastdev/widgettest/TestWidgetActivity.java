@@ -11,45 +11,32 @@ import android.widget.Toast;
 import com.zcwfeng.componentlibs.ui.basic.BaseActivity;
 import com.zcwfeng.fastdev.R;
 import com.zcwfeng.fastdev.ui.widget.CalendarView;
-import com.zcwfeng.fastdev.ui.widget.refresh.ZcwRefreshLayout;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.concurrent.TimeUnit;
 
 /**
  * Created by David.zhang on 16/1/19.
  * Description：
  */
 public class TestWidgetActivity extends BaseActivity {
-    com.zcwfeng.fastdev.ui.widget.refresh.ZcwRefreshLayout mRefreshLayout;
     public static void launch(Context from) {
         Intent intent = new Intent(from, TestWidgetActivity.class);
         from.startActivity(intent);
 
     }
 
-
     private CalendarView calendar;
     private ImageButton calendarLeft;
     private TextView calendarCenter;
     private ImageButton calendarRight;
     private SimpleDateFormat format;
-    private View animRelaLayout;
-    private View anim1;
-    private View anim2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test_widget);
-
-        mRefreshLayout = (ZcwRefreshLayout) findViewById(R.id.testrefresh);
-        mRefreshLayout.setRefreshing(true);
-
-
-
 
 
         format = new SimpleDateFormat("yyyy-MM-dd");
@@ -106,17 +93,9 @@ public class TestWidgetActivity extends BaseActivity {
                 }
             }
         });
-     test();
     }
 
-    private void test() {
-        try {
-            TimeUnit.SECONDS.sleep(2);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        mRefreshLayout.setRefreshScale();
-    }
+
 
 
 }

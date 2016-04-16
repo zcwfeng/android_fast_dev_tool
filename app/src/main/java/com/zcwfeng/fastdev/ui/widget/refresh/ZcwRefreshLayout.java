@@ -1,9 +1,10 @@
 package com.zcwfeng.fastdev.ui.widget.refresh;
 
 import android.content.Context;
-import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.util.TypedValue;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.ScaleAnimation;
 import android.view.animation.TranslateAnimation;
@@ -27,40 +28,41 @@ public class ZcwRefreshLayout extends RelativeLayout {
     private TranslateAnimation mBottomAnim;
     private ScaleAnimation mLeftAnim;
     private ScaleAnimation mRightAnim;
-    private boolean mRefreshing;// 是否处于刷新状态
 
     private LinearLayout mBottomView;
     private LinearLayout mTopView;
     private LinearLayout mCenterLeftView;
     private LinearLayout mCenterRightView;
+    private float mTransitionProgress;              // 动画进度 0.0 - 1.0
+    private LinearLayout mCenterLayout;
 
 
     public ZcwRefreshLayout(Context context, AttributeSet attrs) {
         super(context, attrs, 0);
-        if (attrs != null) {
-            TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.RefreshLayout, 0, 0);
-            mRefreshViewMaxHeight = (int) a.getDimension(R.styleable.RefreshLayout_RefreshViewMaxHeight, d2x(DEFAULT_REFRESH_VIEW_MAX_HEIGHT));
-            mRefreshViewHeight = (int) a.getDimension(R.styleable.RefreshLayout_RefreshViewHeight, d2x(DEFAULT_REFRESH_VIEW_HEIGHT));
+//        if (attrs != null) {
+//            TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.RefreshLayout, 0, 0);
+//            mRefreshViewMaxHeight = (int) a.getDimension(R.styleable.RefreshLayout_RefreshViewMaxHeight, d2x(DEFAULT_REFRESH_VIEW_MAX_HEIGHT));
+//            mRefreshViewHeight = (int) a.getDimension(R.styleable.RefreshLayout_RefreshViewHeight, d2x(DEFAULT_REFRESH_VIEW_HEIGHT));
+//
+//            a.recycle();
+//        }
 
-            a.recycle();
-        }
-
-        initRefreshView(context, attrs);
+        initRefreshView(context);
         initAnimation();
     }
 
     public ZcwRefreshLayout(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
 
-        if (attrs != null) {
-            TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.RefreshLayout, 0, 0);
-            mRefreshViewMaxHeight = (int) a.getDimension(R.styleable.RefreshLayout_RefreshViewMaxHeight, d2x(DEFAULT_REFRESH_VIEW_MAX_HEIGHT));
-            mRefreshViewHeight = (int) a.getDimension(R.styleable.RefreshLayout_RefreshViewHeight, d2x(DEFAULT_REFRESH_VIEW_HEIGHT));
+//        if (attrs != null) {
+//            TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.RefreshLayout, 0, 0);
+//            mRefreshViewMaxHeight = (int) a.getDimension(R.styleable.RefreshLayout_RefreshViewMaxHeight, d2x(DEFAULT_REFRESH_VIEW_MAX_HEIGHT));
+//            mRefreshViewHeight = (int) a.getDimension(R.styleable.RefreshLayout_RefreshViewHeight, d2x(DEFAULT_REFRESH_VIEW_HEIGHT));
+//
+//            a.recycle();
+//        }
 
-            a.recycle();
-        }
-
-        initRefreshView(context, attrs);
+        initRefreshView(context);
         initAnimation();
     }
 
@@ -86,70 +88,68 @@ public class ZcwRefreshLayout extends RelativeLayout {
 
     }
 
-    private void initRefreshView(Context context, AttributeSet attrs) {
-
-    }
-
-
-    public void setRefreshing(boolean refreshing) {
-
-//        if (refreshing && !mRefreshing) {
-//            mRefreshing = true;
-//            mListView.setTranslationY(mRefreshViewHeight);
-//            mRefreshInnerLayout.getLayoutParams().height = mRefreshViewHeight;
-//            requestLayout();
-//            mRefreshInnerLayout.setOnRefreshListener(null);
-//            mRefreshInnerLayout.setMode(RefreshView.MODE_SETUP_5);
-//        } else if (mRefreshing != refreshing) {
-//            mRefreshing = false;
-//            mPreListViewY = 0;
-//            startRefreshViewBackTopAnim();
-//        }
-
-        startRefreshViewBackTopAnim();
-
+    private void initRefreshView(Context context) {
+        View view = LayoutInflater.from(context).inflate(R.layout.refreshlayout_zcw, null);
+        if (mBottomView == null)
+            mBottomView = (LinearLayout) view.findViewById(R.id.progress_anim_view1);
+        if (mTopView == null)
+            mTopView = (LinearLayout) view.findViewById(R.id.progress_anim_view2);
+        if (mCenterLeftView == null)
+            mCenterLeftView = (LinearLayout) view.findViewById(R.id.scale_view1);
+        if (mCenterRightView == null)
+            mCenterRightView = (LinearLayout) view.findViewById(R.id.scale_view2);
+        if(mCenterLayout == null)
+            mCenterLayout = (LinearLayout) view.findViewById(R.id.center_layout);
+        this.addView(view);
     }
 
 
     public void setRefreshScale() {
-        mTopAnim.cancel();
-        mBottomAnim.cancel();
-
         mCenterLeftView.startAnimation(mLeftAnim);
         mCenterRightView.startAnimation(mRightAnim);
 
     }
 
-    private void startRefreshViewBackTopAnim() {
+
+    public void setVisible(int visible) {
+        mCenterLayout.setVisibility(visible);
+        mLeftAnim.cancel();
+        mRightAnim.cancel();
+    }
+
+    public void startRefreshViewAnim() {
         mBottomView.startAnimation(mBottomAnim);
         mTopView.startAnimation(mTopAnim);
     }
 
+    public void cancelRefreshViewAnim(){
+        mTopAnim.cancel();
+        mBottomAnim.cancel();
+    }
+
+    public void setOnRefreshListener(RefreshLayout.OnRefreshListener listener) {
+        mListener = listener;
+    }
 
     public interface OnRefreshListener {
         void onRefresh();
     }
 
-    private OnRefreshListener mListener;
+    private RefreshLayout.OnRefreshListener mListener;
 
-    public void setOnRefreshListener(OnRefreshListener listener) {
-        mListener = listener;
+
+
+
+    /**
+     * @param transitionProgress 进度，是一个0 ~ 1间的值
+     */
+    public void setTransitionProgress(float transitionProgress) {
+        mTransitionProgress = transitionProgress;
+//        postInvalidate();
     }
-
-
-    @Override
-    protected void onFinishInflate() {
-        super.onFinishInflate();
-        mBottomView = (LinearLayout) findViewById(R.id.progress_anim_view1);
-        mTopView = (LinearLayout) findViewById(R.id.progress_anim_view2);
-        mCenterLeftView = (LinearLayout) findViewById(R.id.scale_view1);
-        mCenterRightView = (LinearLayout) findViewById(R.id.scale_view2);
-
-    }
-
-
     private float d2x(float size) {
         return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, size, getContext().getResources().getDisplayMetrics());
     }
+
 
 }

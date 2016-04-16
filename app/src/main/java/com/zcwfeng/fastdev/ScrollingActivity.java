@@ -17,6 +17,7 @@ import com.zcwfeng.fastdev.MediaSample.MediaLibUseDemo;
 import com.zcwfeng.fastdev.intent_ref.IntentReferenceActivity;
 import com.zcwfeng.fastdev.sample_okhttp.OkhttpUtilsMainActivity;
 import com.zcwfeng.fastdev.ui.activity.CoordinatorLayoutTestActivity;
+import com.zcwfeng.fastdev.ui.activity.RefreshTestActivity;
 import com.zcwfeng.fastdev.ui.activity.UserProfileActivity;
 import com.zcwfeng.fastdev.widgettest.TestWidgetActivity;
 
@@ -32,6 +33,8 @@ public class ScrollingActivity extends BaseActivity {
     Button testIntentRef;
     @ViewInject(id = R.id.coordnator_layout_btn)
     Button testCoordnatorLayotu;
+    @ViewInject(id = R.id.testRefreshTestActivity)
+    Button testRefreshTestActivity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,5 +95,10 @@ public class ScrollingActivity extends BaseActivity {
 
     public void doTestCoordnator(View v) {
         CoordinatorLayoutTestActivity.launch(ScrollingActivity.this,CoordinatorLayoutTestActivity.class);
+    }
+
+
+    public void doTestRefreshTestActivity(View v) {
+        RefreshTestActivity.launch(ScrollingActivity.this);
     }
 }

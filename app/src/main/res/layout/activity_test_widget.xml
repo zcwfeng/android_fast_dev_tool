@@ -7,16 +7,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-        <!--<com.zcwfeng.fastdev.ui.widget.refresh.ZcwRefreshLayout
-            android:id="@+id/testrefresh"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"/>-->
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="200dp">
-            <include layout="@layout/refreshlayout_zcw" android:id="@+id/testrefresh"/>
-        </RelativeLayout>
 
 
         <RelativeLayout

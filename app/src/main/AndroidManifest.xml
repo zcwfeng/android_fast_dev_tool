@@ -48,6 +48,8 @@
             android:name=".ui.activity.CoordinatorLayoutTestActivity"
             android:screenOrientation="portrait"/>
 
+        <activity android:name=".ui.activity.RefreshTestActivity" android:screenOrientation="portrait"/>
+
         <service
             android:name="com.zcwfeng.fastdev.service.RobMoney"
             android:enabled="true"

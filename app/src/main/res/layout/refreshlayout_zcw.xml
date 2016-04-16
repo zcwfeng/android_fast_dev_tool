@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.zcwfeng.fastdev.ui.widget.refresh.ZcwRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/progress_anim_layout"
     android:layout_width="match_parent"
-    android:layout_height="200dip">
+    android:layout_height="40dp">
 
     <LinearLayout
         android:id="@+id/progress_anim_view1"
@@ -74,12 +74,13 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/center_layout"
         android:gravity="center"
         android:layout_centerHorizontal="true"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal"
-        android:visibility="visible">
+        android:visibility="gone">
         <LinearLayout
             android:layout_weight="1"
             android:layout_width="match_parent"
@@ -96,4 +97,4 @@
             android:layout_height="match_parent"
             android:background="#1ecfff"/>
     </LinearLayout>
-</com.zcwfeng.fastdev.ui.widget.refresh.ZcwRefreshLayout>
+</RelativeLayout>
