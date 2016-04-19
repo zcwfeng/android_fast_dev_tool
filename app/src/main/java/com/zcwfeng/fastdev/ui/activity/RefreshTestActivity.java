@@ -5,11 +5,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import com.zcwfeng.componentlibs.ui.basic.BaseActivity;
 import com.zcwfeng.fastdev.R;
-import com.zcwfeng.fastdev.ui.widget.CustomListView;
 import com.zcwfeng.fastdev.ui.widget.refresh.RefreshLayout;
 
 import java.util.ArrayList;
@@ -46,7 +46,7 @@ public class RefreshTestActivity extends BaseActivity {
             strings.add("我是" + i);
         }
 
-        CustomListView listView = (CustomListView) findViewById(R.id.listView);
+        ListView listView = (ListView) findViewById(R.id.listView);
         listView.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, strings));
 
 
