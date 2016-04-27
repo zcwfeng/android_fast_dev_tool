@@ -88,7 +88,7 @@ public class UserProfileActivity extends BaseActivity {
 //        searchFailed = savedInstanceState == null ? false : savedInstanceState.getBoolean("searchFailed");
 //        screenName = savedInstanceState == null ? null : savedInstanceState.getString("screenName");
 
-        txtLoadFailed.setText(R.string.error_pic_load_faild);
+//        txtLoadFailed.setText(getString(R.string.error_pic_load_faild));
 
         if (savedInstanceState == null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);

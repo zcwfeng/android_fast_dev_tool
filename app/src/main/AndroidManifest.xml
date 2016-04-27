@@ -51,6 +51,7 @@
         <activity android:name=".ui.activity.RefreshTestActivity" android:screenOrientation="portrait"/>
 
         <activity android:name=".ui.activity.NDKDemoActivity" android:screenOrientation="portrait"></activity>
+        <activity android:name=".ui.activity.RxJavaDemoActivity" android:screenOrientation="portrait"></activity>
         <service
             android:name="com.zcwfeng.fastdev.service.RobMoney"
             android:enabled="true"

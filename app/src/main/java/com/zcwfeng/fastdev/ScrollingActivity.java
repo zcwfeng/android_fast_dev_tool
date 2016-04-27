@@ -19,6 +19,7 @@ import com.zcwfeng.fastdev.sample_okhttp.OkhttpUtilsMainActivity;
 import com.zcwfeng.fastdev.ui.activity.CoordinatorLayoutTestActivity;
 import com.zcwfeng.fastdev.ui.activity.NDKDemoActivity;
 import com.zcwfeng.fastdev.ui.activity.RefreshTestActivity;
+import com.zcwfeng.fastdev.ui.activity.RxJavaDemoActivity;
 import com.zcwfeng.fastdev.ui.activity.UserProfileActivity;
 import com.zcwfeng.fastdev.widgettest.TestWidgetActivity;
 
@@ -38,6 +39,8 @@ public class ScrollingActivity extends BaseActivity {
     Button testRefreshTestActivity;
     @ViewInject(id = R.id.ndkdemo)
     Button testNdkDemo;
+    @ViewInject(id = R.id.rxjavademo)
+    Button testRxJava;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,7 +89,7 @@ public class ScrollingActivity extends BaseActivity {
     }
 
     public void toUserProfileActivity(View v) {
-        UserProfileActivity.launch(this);
+        UserProfileActivity.launch(this,UserProfileActivity.class);
     }
 
     public void doTestCalendar(View v){
@@ -106,5 +109,9 @@ public class ScrollingActivity extends BaseActivity {
     }
     public void testNdk(View v) {
         NDKDemoActivity.launch(ScrollingActivity.this);
+    }
+
+    public void doRxJava(View v) {
+        RxJavaDemoActivity.launch(ScrollingActivity.this);
     }
 }

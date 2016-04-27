@@ -20,6 +20,7 @@ import com.android.tedcoder.wkvideoplayer.view.MediaController;
 import com.android.tedcoder.wkvideoplayer.view.SuperVideoPlayer;
 import com.zcwfeng.componentlibs.surport.inject.ContentView;
 import com.zcwfeng.componentlibs.surport.inject.ViewInject;
+import com.zcwfeng.componentlibs.surport.utils.MediaUtils;
 import com.zcwfeng.componentlibs.ui.basic.BaseActivity;
 import com.zcwfeng.fastdev.R;
 
@@ -42,6 +43,8 @@ public class MediaLibUseDemo extends BaseActivity implements View.OnClickListene
     private SuperVideoPlayer mSuperVideoPlayer;
     @ViewInject(id = R.id.play_btn)
     private View mPlayBtnView;
+    @ViewInject(id = R.id.cover_video_bg)
+    private View mCoverBgView;
 
     public static void launch(Context context, Object... params) {
         Intent intent = new Intent(context, MediaLibUseDemo.class);
@@ -148,6 +151,8 @@ public class MediaLibUseDemo extends BaseActivity implements View.OnClickListene
         videoArrayList.add(video2);
 
         mSuperVideoPlayer.loadMultipleVideo(videoArrayList, 0, 0, 0);
+
+
     }
 
     @Override
@@ -197,7 +202,12 @@ public class MediaLibUseDemo extends BaseActivity implements View.OnClickListene
         startDLNAService();
 
         mGestureDetector = new GestureDetector(this, new MyGestureListener());
-
+        try {
+            MediaUtils.generateCover4Video("http://58.254.132.66/dd.yinyuetai.com/uploads/videos/common/D61E01478B129B2900ED167746C2BA81.mp4?sc=248154b5d767b8e2&br=576&rd=Android&uniqueId=ee343f05e05cf2b6748c1c77fcf3caeb",mCoverBgView);
+        } catch (Exception e) {
+            Log.e("zcw","获取封面异常");
+            e.printStackTrace();
+        }
     }
 
     /***

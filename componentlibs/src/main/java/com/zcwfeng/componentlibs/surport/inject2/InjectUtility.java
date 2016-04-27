@@ -133,7 +133,7 @@ public class InjectUtility {
 								.getDeclaredMethod("value");
 						//取出所有的viewId
 						int[] viewIds = (int[]) aMethod
-								.invoke(annotation, null);
+								.invoke(annotation);
 						//通过InvocationHandler设置代理
 						DynamicHandler handler = new DynamicHandler(activity);
 						handler.addMethod(methodName, method);

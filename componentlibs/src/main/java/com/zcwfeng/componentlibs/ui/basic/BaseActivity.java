@@ -4,8 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
-import android.view.ViewGroup;
 
 import com.zcwfeng.componentlibs.common.setting.SettingUtility;
 import com.zcwfeng.componentlibs.surport.inject.InjectUtility;
@@ -74,24 +72,24 @@ public class BaseActivity extends AppCompatActivity {
         return -1;
     }
 
-    @Override
-    public void setContentView(View view) {
-        super.setContentView(view, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
-        InjectUtility.inject(this);
-
-    }
-
-    @Override
-    public void setContentView(int layoutResID) {
-        setContentView(View.inflate(this, layoutResID, null));
-    }
-
-
-    @Override
-    public void setContentView(View view, ViewGroup.LayoutParams params) {
-        super.setContentView(view, params);
-        InjectUtility.inject(this);
-    }
+//    @Override
+//    public void setContentView(View view) {
+//        super.setContentView(view, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+//        InjectUtility.inject(this);
+//
+//    }
+//
+//    @Override
+//    public void setContentView(int layoutResID) {
+//        setContentView(View.inflate(this, layoutResID, null));
+//    }
+//
+//
+//    @Override
+//    public void setContentView(View view, ViewGroup.LayoutParams params) {
+//        super.setContentView(view, params);
+//        InjectUtility.inject(this);
+//    }
 
 
 }
