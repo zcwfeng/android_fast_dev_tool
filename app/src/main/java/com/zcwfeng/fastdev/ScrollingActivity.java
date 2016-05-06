@@ -210,6 +210,7 @@ public class ScrollingActivity extends BaseActivity implements PlayStorePurchase
         return true;
     }
 
+
 ////////////////////AD Begin//////////////////////////////////
 
     private List getOwnedProducts() throws RemoteException {
