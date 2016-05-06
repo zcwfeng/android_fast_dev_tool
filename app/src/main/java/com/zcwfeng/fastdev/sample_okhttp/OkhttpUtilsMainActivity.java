@@ -18,6 +18,7 @@ import com.zcwfeng.componentlibs.surport.inject.ContentView;
 import com.zcwfeng.componentlibs.surport.inject.ViewInject;
 import com.zcwfeng.componentlibs.ui.basic.BaseActivity;
 import com.zcwfeng.fastdev.R;
+import com.zcwfeng.fastdev.service.MyService;
 import com.zcwfeng.httplibs.OkHttpUtils;
 import com.zcwfeng.httplibs.callback.BitmapCallback;
 import com.zcwfeng.httplibs.callback.FileCallBack;
@@ -27,6 +28,7 @@ import java.io.File;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 @ContentView(value = R.layout.activity_okhttp_main)
 public class OkhttpUtilsMainActivity extends BaseActivity {
 
@@ -176,6 +178,17 @@ public class OkhttpUtilsMainActivity extends BaseActivity {
                 .execute(new MyStringCallback());
 
     }
+
+
+
+
+
+    public void getHttpsM3U8(View view) {
+        startService(new Intent(this, MyService.class));
+    }
+
+
+
 
     public void getImage(View view) {
         mTv.setText("");

@@ -1,6 +1,6 @@
 package com.zcwfeng.fastdev;
 
-import com.zcwfeng.componentlibs.common.context.BaseApplication;
+import com.zcwfeng.componentlibs.BaseApplication;
 import com.zcwfeng.componentlibs.surport.utils.Logger;
 import com.zcwfeng.httplibs.OkHttpUtils;
 

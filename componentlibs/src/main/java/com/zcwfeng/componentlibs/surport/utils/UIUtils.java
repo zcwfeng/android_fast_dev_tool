@@ -2,7 +2,7 @@ package com.zcwfeng.componentlibs.surport.utils;
 
 import android.util.DisplayMetrics;
 
-import com.zcwfeng.componentlibs.common.context.BaseApplication;
+import com.zcwfeng.componentlibs.BaseApplication;
 
 /**
  * ==========================================

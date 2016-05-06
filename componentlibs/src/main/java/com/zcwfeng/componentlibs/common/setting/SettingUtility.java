@@ -1,6 +1,6 @@
 package com.zcwfeng.componentlibs.common.setting;
 
-import com.zcwfeng.componentlibs.common.context.BaseApplication;
+import com.zcwfeng.componentlibs.BaseApplication;
 import com.zcwfeng.componentlibs.surport.utils.ActivityHelper;
 import com.zcwfeng.componentlibs.surport.utils.SdcardUtils;
 

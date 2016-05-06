@@ -1,6 +1,6 @@
 package com.zcwfeng.fastdev.basic;
 
-import com.zcwfeng.componentlibs.common.context.BaseApplication;
+import com.zcwfeng.componentlibs.BaseApplication;
 
 /**
  * Created by David.zhang on 16/3/18.

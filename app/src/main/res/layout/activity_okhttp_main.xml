@@ -75,6 +75,12 @@
             android:onClick="doCacheTest"
             android:text="cache get html" />
 
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="getHttpsM3U8"
+            android:text="m3u8"/>
+
     </com.zcwfeng.fastdev.sample_okhttp.FlowLayout>
 
     <ProgressBar
@@ -93,6 +99,8 @@
         android:id="@+id/id_imageview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
+
+
 
 
 </LinearLayout>

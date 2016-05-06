@@ -15,7 +15,7 @@ import android.provider.MediaStore;
 import android.support.annotation.AttrRes;
 import android.util.TypedValue;
 
-import com.zcwfeng.componentlibs.common.context.BaseApplication;
+import com.zcwfeng.componentlibs.BaseApplication;
 
 import java.util.List;
 

@@ -7,7 +7,7 @@ import com.squareup.okhttp.Cache;
 import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Request;
 import com.squareup.okhttp.Response;
-import com.zcwfeng.componentlibs.common.context.BaseApplication;
+import com.zcwfeng.componentlibs.BaseApplication;
 import com.zcwfeng.httplibs.builder.GetBuilder;
 import com.zcwfeng.httplibs.builder.PostFileBuilder;
 import com.zcwfeng.httplibs.builder.PostFormBuilder;

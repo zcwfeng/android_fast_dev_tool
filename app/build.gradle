@@ -7,7 +7,7 @@ android {
 
     defaultConfig {
         applicationId "com.zcwfeng.fastdev"
-        minSdkVersion 14
+        minSdkVersion 15
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
@@ -26,7 +26,12 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+
+        debug {
+            jniDebuggable true
+        }
     }
+
 
     dataBinding {
         enabled = true
@@ -67,5 +72,8 @@ dependencies {
     //---------
     compile 'com.squareup.retrofit:retrofit:1.9.0'
     compile 'com.squareup.okhttp:okhttp:2.7.0'
+    //---------
+    compile 'com.google.android.gms:play-services-ads:7.5.0'
+
 
 }

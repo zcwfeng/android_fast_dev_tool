@@ -13,7 +13,10 @@ extern "C" {
  * Signature: ()Ljava/lang/String;
  */
 JNIEXPORT jstring JNICALL Java_com_zcwfeng_fastdev_ndk_NdkJniUtils_getCLanguageString
-  (JNIEnv *, jobject);
+        (JNIEnv *, jobject);
+
+
+JNIEXPORT void JNICALL Java_com_zcwfeng_fastdev_ndk_NdkJniUtils_openServer(void);
 
 #ifdef __cplusplus
 }

@@ -3,6 +3,7 @@ package com.zcwfeng.fastdev.ui.activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 import com.zcwfeng.componentlibs.ui.basic.BaseActivity;
@@ -28,6 +29,13 @@ public class NDKDemoActivity extends BaseActivity {
         mTextView = (TextView) this.findViewById(R.id.test);
         NdkJniUtils jni = new NdkJniUtils();
         mTextView.setText(jni.getCLanguageString());
+
+        mTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                jni.openServer();
+            }
+        });
     }
 
     public static void launch(Context from) {

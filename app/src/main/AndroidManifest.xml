@@ -4,9 +4,10 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.CAMERA"></uses-permission>
-
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <!-- AD -->
+    <uses-permission android:name="com.android.vending.BILLING" />
     <application
         android:name=".basic.MyApplication"
         android:allowBackup="true"
@@ -14,6 +15,24 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+        <!-- ad refrence -->
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <!--Include the AdActivity configChanges and theme. -->
+        <activity
+            android:name="com.google.android.gms.ads.AdActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
+            android:theme="@android:style/Theme.Translucent" />
+
+        <!--应用内购买广告 -->
+        <activity
+            android:name="com.google.android.gms.ads.purchase.InAppPurchaseActivity"
+            android:theme="@style/Theme.IAPTheme" />
+        <!-- end -->
+
         <activity
             android:name=".ScrollingActivity"
             android:label="@string/app_name"
@@ -27,7 +46,6 @@
         <activity
             android:name=".sample_okhttp.OkhttpUtilsMainActivity"
             android:screenOrientation="portrait" />
-
         <activity
             android:name=".BindingData.MvvmDemoActivity"
             android:screenOrientation="portrait" />
@@ -40,20 +58,31 @@
         <activity
             android:name=".widgettest.TestWidgetActivity"
             android:screenOrientation="portrait" />
-
         <activity
             android:name=".intent_ref.IntentReferenceActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ui.activity.CoordinatorLayoutTestActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.RefreshTestActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.NDKDemoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.RxJavaDemoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".renderscript.RenderScriptTestActivity"
+            android:screenOrientation="portrait" />
 
-        <activity android:name=".ui.activity.RefreshTestActivity" android:screenOrientation="portrait"/>
+        <activity
+            android:name=".renderscript.EditPictureActivity"
+            android:screenOrientation="portrait" />
 
-        <activity android:name=".ui.activity.NDKDemoActivity" android:screenOrientation="portrait"></activity>
-        <activity android:name=".ui.activity.RxJavaDemoActivity" android:screenOrientation="portrait"></activity>
         <service
-            android:name="com.zcwfeng.fastdev.service.RobMoney"
+            android:name=".service.RobMoney"
             android:enabled="true"
             android:exported="true"
             android:label="@string/app_name"
@@ -66,7 +95,13 @@
                 android:name="android.accessibilityservice"
                 android:resource="@xml/accessibility" />
         </service>
+        <service
+            android:name=".service.MyIntentService"
+            android:exported="false" />
+        <service
+            android:name=".service.MyService"
+            android:enabled="true"
+            android:exported="true"></service>
     </application>
-
 
 </manifest>
