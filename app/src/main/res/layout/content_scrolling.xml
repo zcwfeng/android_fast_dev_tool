@@ -24,6 +24,8 @@
             app:adSize="BANNER"
             app:adUnitId="@string/banner_ad_unit_id"/>
 
+
+
         <Button
             android:id="@+id/newgame_button"
             android:layout_width="match_parent"
@@ -113,6 +115,12 @@
             android:layout_height="40dp"
             android:onClick="doRxJava"
             android:text="RX Android DEMO" />
+        <Button
+            android:id="@+id/binder_activity"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:onClick="doAIDLTest"
+            android:text="AIDL binder_activity" />
 
 
         <TextView

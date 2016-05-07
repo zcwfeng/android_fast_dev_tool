@@ -15,7 +15,7 @@ android {
         renderscriptSupportModeEnabled true
 
 
-        ndk{
+        ndk {
             moduleName "ZcwfengJniLibName"         //生成的so名字
             ldLibs "log", "z", "m"
             abiFilters "armeabi", "armeabi-v7a", "x86"  //输出指定三种abi体系结构下的so库。目前可有可无。
@@ -45,6 +45,7 @@ android {
     sourceSets {
         main {
             jniLibs.srcDirs = ['libs']
+            aidl.srcDirs = ['src/main/java']
         }
     }
 }
@@ -66,8 +67,8 @@ dependencies {
     //---------
     compile 'io.reactivex:rxjava:1.0.14'
     compile 'io.reactivex:rxandroid:1.0.1'
-    compile ('com.jakewharton.rxbinding:rxbinding:0.3.0'){
-        exclude module:'support-annotations'
+    compile('com.jakewharton.rxbinding:rxbinding:0.3.0') {
+        exclude module: 'support-annotations'
     }
     //---------
     compile 'com.squareup.retrofit:retrofit:1.9.0'

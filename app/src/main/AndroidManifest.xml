@@ -81,6 +81,16 @@
             android:name=".renderscript.EditPictureActivity"
             android:screenOrientation="portrait" />
 
+        <activity
+            android:name=".binder.AIDLTestActivity"
+            android:screenOrientation="portrait" />
+
+        <service android:name="com.zcwfeng.fastdev.binder.AIDLTestService">
+            <intent-filter>
+                <action android:name="com.zcwfeng.fastdev.binder.AIDLTestService"/>
+            </intent-filter>
+        </service>
+
         <service
             android:name=".service.RobMoney"
             android:enabled="true"

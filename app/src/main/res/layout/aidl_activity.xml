@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content">
+	<Button
+		android:id="@+id/btn_ok"
+		android:text="OK"
+		android:layout_width="200px"
+		android:layout_height="wrap_content">
+	</Button>
+	<Button
+		android:id="@+id/btn_cancel"
+		android:text="Cancel"
+		android:layout_width="200px"
+		android:layout_height="wrap_content">
+	</Button>
+	<Button
+		android:id="@+id/btn_call_back"
+		android:text="Call back"
+		android:layout_width="200px"
+		android:layout_height="wrap_content">
+	</Button>
+</LinearLayout>
