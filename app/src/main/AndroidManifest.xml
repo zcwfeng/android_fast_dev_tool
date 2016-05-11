@@ -85,9 +85,15 @@
             android:name=".binder.AIDLTestActivity"
             android:screenOrientation="portrait" />
 
+        <activity
+            android:name=".glide.GlideLibDemos"
+            android:screenOrientation="portrait">
+
+        </activity>
+
         <service android:name="com.zcwfeng.fastdev.binder.AIDLTestService">
             <intent-filter>
-                <action android:name="com.zcwfeng.fastdev.binder.AIDLTestService"/>
+                <action android:name="com.zcwfeng.fastdev.binder.AIDLTestService" />
             </intent-filter>
         </service>
 

@@ -121,6 +121,12 @@
             android:layout_height="40dp"
             android:onClick="doAIDLTest"
             android:text="AIDL binder_activity" />
+        <Button
+            android:id="@+id/glidelib_activity"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:onClick="doTestGlide"
+            android:text="GlideLib" />
 
 
         <TextView

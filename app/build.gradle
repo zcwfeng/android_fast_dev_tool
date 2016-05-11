@@ -44,7 +44,7 @@ android {
 
     sourceSets {
         main {
-            jniLibs.srcDirs = ['libs']
+            jniLibs.srcDirs = ['src/main/jniLibs']
             aidl.srcDirs = ['src/main/java']
         }
     }
@@ -61,6 +61,7 @@ dependencies {
     compile project(':componentlibs')
     compile project(':wkvideoplayer')
     compile project(':httplibs')
+    compile project(':glidlibrary')
     //---------
     compile 'com.android.support:recyclerview-v7:23.2.0'
     compile 'com.facebook.fresco:fresco:0.8.1'

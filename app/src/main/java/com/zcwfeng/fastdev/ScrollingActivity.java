@@ -23,6 +23,7 @@ import com.zcwfeng.componentlibs.ui.basic.BaseActivity;
 import com.zcwfeng.fastdev.BindingData.MvvmDemoActivity;
 import com.zcwfeng.fastdev.MediaSample.MediaLibUseDemo;
 import com.zcwfeng.fastdev.binder.AIDLTestActivity;
+import com.zcwfeng.fastdev.glide.GlideLibDemos;
 import com.zcwfeng.fastdev.intent_ref.IntentReferenceActivity;
 import com.zcwfeng.fastdev.renderscript.RenderScriptTestActivity;
 import com.zcwfeng.fastdev.sample_okhttp.OkhttpUtilsMainActivity;
@@ -60,6 +61,8 @@ public class ScrollingActivity extends BaseActivity implements PlayStorePurchase
     Button testRenderScript;
     @ViewInject(id = R.id.binder_activity)
     Button testAIDLBinder;
+    @ViewInject(id = R.id.glidelib_activity)
+    Button testGlide;
 
 
 
@@ -204,6 +207,11 @@ public class ScrollingActivity extends BaseActivity implements PlayStorePurchase
     public void doAIDLTest(View v){
         AIDLTestActivity.launch(ScrollingActivity.this);}
 
+
+    public void doTestGlide(View view) {
+        GlideLibDemos.launch(ScrollingActivity.this);
+    }
+
     @Override
     public boolean isValidPurchase(String sku) {
         try {
@@ -286,6 +294,8 @@ public class ScrollingActivity extends BaseActivity implements PlayStorePurchase
 //        }
 //        Log.i("Iap-Ad", "onInAppPurchaseFinished End");
     }
+
+
 
 ////////////////////AD END//////////////////////////////////
 
