@@ -91,6 +91,21 @@
 
         </activity>
 
+        <activity
+            android:name=".secure.skb.ExamplesRSA_DESActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".secure.skb.binding.ExamplesActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.activity.DampingScrollActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".flyrefresh.FlyRefreshActivity"
+            android:screenOrientation="portrait" />
+
         <service android:name="com.zcwfeng.fastdev.binder.AIDLTestService">
             <intent-filter>
                 <action android:name="com.zcwfeng.fastdev.binder.AIDLTestService" />

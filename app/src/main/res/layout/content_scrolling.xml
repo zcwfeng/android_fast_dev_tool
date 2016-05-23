@@ -22,8 +22,7 @@
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             app:adSize="BANNER"
-            app:adUnitId="@string/banner_ad_unit_id"/>
-
+            app:adUnitId="@string/banner_ad_unit_id" />
 
 
         <Button
@@ -41,9 +40,9 @@
 
         <Button
             android:id="@+id/render_script_btn"
-            android:onClick="doTestRenderscript"
             android:layout_width="match_parent"
             android:layout_height="40dp"
+            android:onClick="doTestRenderscript"
             android:text="RenderScript Test" />
 
         <Button
@@ -115,18 +114,49 @@
             android:layout_height="40dp"
             android:onClick="doRxJava"
             android:text="RX Android DEMO" />
+
         <Button
             android:id="@+id/binder_activity"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:onClick="doAIDLTest"
             android:text="AIDL binder_activity" />
+
         <Button
             android:id="@+id/glidelib_activity"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:onClick="doTestGlide"
             android:text="GlideLib" />
+
+        <Button
+            android:id="@+id/skb_activity"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:onClick="doSKBTest"
+            android:text="SKBTEST" />
+
+
+        <Button
+            android:id="@+id/store_start"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:onClick="doStoreTest"
+            android:text="store_start test" />
+
+        <Button
+            android:id="@+id/damping_scroll"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:onClick="doTestDampingScroll"
+            android:text="DampingScroll" />
+
+        <Button
+            android:id="@+id/flyrefresh"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:onClick="doTestFlyRefresh"
+            android:text="滑动NestScrollView" />
 
 
         <TextView
@@ -135,6 +165,7 @@
             android:layout_margin="@dimen/text_margin"
             android:onClick="doTestIntent"
             android:text="@string/large_text" />
+
 
     </LinearLayout>
 

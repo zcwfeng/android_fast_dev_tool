@@ -45,4 +45,41 @@
     <dimen name="sp_18">18sp</dimen>
     <dimen name="sp_19">19sp</dimen>
     <dimen name="sp_20">20sp</dimen>
+
+
+
+
+    <!-- 字体大小 -->
+    <dimen name="text_size_6">3sp</dimen>
+    <dimen name="text_size_10">5sp</dimen>
+    <dimen name="text_size_12">8sp</dimen>
+    <dimen name="text_size_14">7sp</dimen>
+    <dimen name="text_size_16">10sp</dimen>
+    <dimen name="text_size_18">11sp</dimen>
+    <dimen name="text_size_20">12sp</dimen>
+    <dimen name="text_size_22">13sp</dimen>
+    <dimen name="text_size_24">14sp</dimen>
+    <dimen name="text_size_26">15sp</dimen>
+    <dimen name="text_size_28">16sp</dimen>
+    <dimen name="text_size_30">17sp</dimen>
+    <dimen name="text_size_32">16sp</dimen>
+    <dimen name="text_size_34">19sp</dimen>
+    <dimen name="text_size_40">20sp</dimen>
+    <dimen name="text_size_60">30sp</dimen>
+    <dimen name="text_size_50">25sp</dimen>
+    <dimen name="text_size_36">18sp</dimen>
+    <dimen name="text_size_88">44sp</dimen>
+    <dimen name="text_size_108">54sp</dimen>
+    <dimen name="text_size_80">40sp</dimen>
+    <dimen name="text_size_70">35sp</dimen>
+    <dimen name="text_size_90">45sp</dimen>
+    <dimen name="text_size_130">75sp</dimen>
+    <dimen name="text_size_136">68sp</dimen>
+    <dimen name="text_size_148">79sp</dimen>
+    <dimen name="text_size_42">21sp</dimen>
+    <dimen name="text_size_172">86sp</dimen>
+    <dimen name="text_size_160">80sp</dimen>
+    <dimen name="text_size_98">49sp</dimen>
+    <dimen name="text_size_86">43sp</dimen>
+    <dimen name="text_size_416">208sp</dimen>
 </resources>

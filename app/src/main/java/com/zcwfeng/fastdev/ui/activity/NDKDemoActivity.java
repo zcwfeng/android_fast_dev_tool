@@ -16,9 +16,7 @@ import com.zcwfeng.fastdev.ndk.NdkJniUtils;
  */
 public class NDKDemoActivity extends BaseActivity {
 
-    static {
-        System.loadLibrary("ZcwfengJniLibName");   //defaultConfig.ndk.moduleName
-    }
+
 
     private TextView mTextView;
 
@@ -36,6 +34,9 @@ public class NDKDemoActivity extends BaseActivity {
                 jni.openServer();
             }
         });
+
+        jni.Authenticate();
+
     }
 
     public static void launch(Context from) {

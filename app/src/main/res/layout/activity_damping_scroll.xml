@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff" >
+
+
+
+        <ImageView
+            android:id="@+id/personal_background_image"
+            android:layout_width="match_parent"
+            android:layout_height="320dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="-100dp"
+            android:background="@drawable/bg" />
+
+        <com.zcwfeng.fastdev.ui.widget.MyScrollView
+            android:id="@+id/personal_scrollView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#00000000"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:orientation="vertical" >
+
+                </LinearLayout>
+
+
+
+
+
+                <android.support.design.widget.CoordinatorLayout
+                    android:id="@+id/parent"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <android.support.design.widget.AppBarLayout
+                        android:id="@+id/appbar_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:theme="@style/AppTheme.AppBarOverlay">
+
+                        <android.support.design.widget.CollapsingToolbarLayout
+                            android:id="@+id/collapse_toolbar"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fitsSystemWindows="true"
+                            app:collapsedTitleGravity="center"
+                            app:collapsedTitleTextAppearance="@style/channel_collapsedTitleTextAppearance"
+                            app:expandedTitleGravity="center_horizontal|bottom"
+                            app:expandedTitleTextAppearance="@style/channel_expandedTitleTextAppearance"
+                            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+
+
+                            <RelativeLayout
+                                android:id="@+id/top_layout"
+                                android:layout_width="match_parent"
+                                android:layout_height="330dp"
+                                app:layout_collapseMode="pin"
+                                app:layout_scrollFlags="scroll|enterAlways|enterAlwaysCollapsed">
+
+
+                                <RelativeLayout
+                                    android:id="@+id/bottom_color_layout"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="183dp"
+                                    android:layout_alignParentBottom="true" />
+
+                                <ImageView
+                                    android:id="@+id/channel_user_head"
+                                    android:layout_width="80dp"
+                                    android:layout_height="80dp"
+                                    android:layout_alignTop="@id/bottom_color_layout"
+                                    android:layout_centerHorizontal="true"
+                                    android:layout_marginTop="-40dp"
+                                    android:src="@drawable/ic_launcher"
+                                    />
+
+                                <TextView
+                                    android:id="@+id/channel_user_name"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/channel_user_head"
+                                    android:layout_centerHorizontal="true"
+                                    android:layout_marginTop="10dp"
+                                    android:textSize="32dp"
+                                    android:text="BIGBANG" />
+
+                                <!-- 60% 透明体 滑动消失-->
+                                <TextView
+                                    android:id="@+id/signature"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/channel_user_name"
+                                    android:layout_centerHorizontal="true"
+                                    android:layout_marginTop="5dp"
+                                    android:ellipsize="middle"
+                                    android:singleLine="true"
+                                    android:textColor="#99ffffff"
+                                    android:textSize="48dp"
+                                    android:text="我们一起改变世界！" />
+
+
+                                <LinearLayout
+                                    android:id="@+id/follow_level_layout"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/signature"
+                                    android:layout_centerHorizontal="true"
+                                    android:layout_marginTop="10dp"
+                                    android:orientation="horizontal">
+
+                                    <LinearLayout
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginRight="20dp"
+                                        android:background="@drawable/level_fans_bg">
+
+                                        <ImageView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center_vertical"
+                                            android:layout_marginLeft="10dp"
+                                            android:src="@drawable/channel_fans" />
+
+                                        <TextView
+                                            android:id="@+id/fans_num_tv"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center_vertical"
+                                            android:layout_marginLeft="5dp"
+                                            android:layout_marginRight="6dp"
+                                            android:ellipsize="middle"
+                                            android:singleLine="true"
+                                            android:textSize="48dp"
+                                            android:text="123,123" />
+
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:background="@drawable/level_fans_bg">
+
+                                        <ImageView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center_vertical"
+                                            android:layout_marginLeft="10dp"
+                                            android:src="@drawable/channel_level" />
+                                        <TextView
+                                            android:id="@+id/level_num_tv"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center"
+                                            android:layout_marginLeft="5dp"
+                                            android:layout_marginRight="6dp"
+                                            android:ellipsize="middle"
+                                            android:singleLine="true"
+                                            android:textSize="48dp"
+                                            android:text="123,123" />
+                                    </LinearLayout>
+                                </LinearLayout>
+
+                            </RelativeLayout>
+
+
+                            <android.support.v7.widget.Toolbar
+                                android:id="@+id/toolbar"
+                                android:layout_width="match_parent"
+                                android:layout_height="50dp"
+                                android:background="@color/colorPrimary"
+                                android:minHeight="?attr/actionBarSize"
+                                app:layout_collapseMode="pin"
+                                app:layout_scrollFlags="scroll|enterAlways" />
+
+
+                        </android.support.design.widget.CollapsingToolbarLayout>
+                    </android.support.design.widget.AppBarLayout>
+
+                    <LinearLayout
+                        android:id="@+id/show_child"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/ffffff"
+                        android:orientation="vertical"
+                        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+
+                        <android.support.design.widget.TabLayout
+                            android:id="@+id/sliding_tabs"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            app:tabTextAppearance="@style/tablayoutIcon" />
+
+
+                        <android.support.v4.view.ViewPager
+                            android:id="@+id/channel_detail_viewpager"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1" />
+
+                    </LinearLayout>
+
+
+                </android.support.design.widget.CoordinatorLayout>
+            </LinearLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </com.zcwfeng.fastdev.ui.widget.MyScrollView>
+
+
+
+
+
+
+
+
+
+
+
+
+</RelativeLayout>

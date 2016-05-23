@@ -1,5 +1,7 @@
 package com.zcwfeng.fastdev;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.RemoteException;
 import android.support.design.widget.FloatingActionButton;
@@ -23,11 +25,14 @@ import com.zcwfeng.componentlibs.ui.basic.BaseActivity;
 import com.zcwfeng.fastdev.BindingData.MvvmDemoActivity;
 import com.zcwfeng.fastdev.MediaSample.MediaLibUseDemo;
 import com.zcwfeng.fastdev.binder.AIDLTestActivity;
+import com.zcwfeng.fastdev.flyrefresh.FlyRefreshActivity;
 import com.zcwfeng.fastdev.glide.GlideLibDemos;
 import com.zcwfeng.fastdev.intent_ref.IntentReferenceActivity;
 import com.zcwfeng.fastdev.renderscript.RenderScriptTestActivity;
 import com.zcwfeng.fastdev.sample_okhttp.OkhttpUtilsMainActivity;
+import com.zcwfeng.fastdev.secure.skb.ExamplesRSA_DESActivity;
 import com.zcwfeng.fastdev.ui.activity.CoordinatorLayoutTestActivity;
+import com.zcwfeng.fastdev.ui.activity.DampingScrollActivity;
 import com.zcwfeng.fastdev.ui.activity.NDKDemoActivity;
 import com.zcwfeng.fastdev.ui.activity.RefreshTestActivity;
 import com.zcwfeng.fastdev.ui.activity.RxJavaDemoActivity;
@@ -63,11 +68,19 @@ public class ScrollingActivity extends BaseActivity implements PlayStorePurchase
     Button testAIDLBinder;
     @ViewInject(id = R.id.glidelib_activity)
     Button testGlide;
-
+    @ViewInject(id = R.id.skb_activity)
+    Button testSKB;
+    @ViewInject(id = R.id.store_start)
+    Button testStore;
+    @ViewInject(id = R.id.damping_scroll)
+    Button testDamping;
+    @ViewInject(id = R.id.flyrefresh)
+    Button testFlyRefresh;
 
 
     InterstitialAd mInterstitialAd;
     Button mNewGameButton;
+
     // 内置购买广告
 //    public static final int BILLING_RESPONSE_RESULT_OK = 0;
 //    private InterstitialAd interstitial;
@@ -140,6 +153,7 @@ public class ScrollingActivity extends BaseActivity implements PlayStorePurchase
 
         mInterstitialAd.loadAd(adRequest);
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -174,24 +188,26 @@ public class ScrollingActivity extends BaseActivity implements PlayStorePurchase
     }
 
     public void toUserProfileActivity(View v) {
-        UserProfileActivity.launch(this,UserProfileActivity.class);
+        UserProfileActivity.launch(this, UserProfileActivity.class);
     }
 
-    public void doTestCalendar(View v){
+    public void doTestCalendar(View v) {
         TestWidgetActivity.launch(this);
     }
 
-    public void doTestIntent(View v){
-        IntentReferenceActivity.launch(this);}
+    public void doTestIntent(View v) {
+        IntentReferenceActivity.launch(this);
+    }
 
     public void doTestCoordnator(View v) {
-        CoordinatorLayoutTestActivity.launch(ScrollingActivity.this,CoordinatorLayoutTestActivity.class);
+        CoordinatorLayoutTestActivity.launch(ScrollingActivity.this, CoordinatorLayoutTestActivity.class);
     }
 
 
     public void doTestRefreshTestActivity(View v) {
         RefreshTestActivity.launch(ScrollingActivity.this);
     }
+
     public void testNdk(View v) {
         NDKDemoActivity.launch(ScrollingActivity.this);
     }
@@ -200,16 +216,47 @@ public class ScrollingActivity extends BaseActivity implements PlayStorePurchase
         RxJavaDemoActivity.launch(ScrollingActivity.this);
     }
 
-    public void doTestRenderscript(View V){
-        RenderScriptTestActivity.launch(ScrollingActivity.this);}
+    public void doTestRenderscript(View V) {
+        RenderScriptTestActivity.launch(ScrollingActivity.this);
+    }
 
 
-    public void doAIDLTest(View v){
-        AIDLTestActivity.launch(ScrollingActivity.this);}
+    public void doAIDLTest(View v) {
+        AIDLTestActivity.launch(ScrollingActivity.this);
+    }
 
 
     public void doTestGlide(View view) {
         GlideLibDemos.launch(ScrollingActivity.this);
+    }
+
+    public void doSKBTest(View view) {
+        ExamplesRSA_DESActivity.launch(ScrollingActivity.this);
+    }
+
+    public void doTestFlyRefresh(View view) {
+        FlyRefreshActivity.launch(ScrollingActivity.this);
+    }
+
+
+    /**
+     * http://market.android.com/details?id=<java包名>
+     * 或者
+     * market://details?id=<java包名>
+     *
+     * @param view
+     */
+    public void doStoreTest(View view) {
+
+
+//        Uri uri = Uri.parse("market://details?id=" + "com.yinyuetai.ui");
+//        Uri uri = Uri.parse("market://search?q=pname:" + "com.yinyuetai.ui");
+//        Uri uri = Uri.parse("market://search?q=pub:" + "音悦台");
+//        Uri uri = Uri.parse("market://search?q=" + "音悦台");
+        Uri uri = Uri.parse("market://search?q=音 悦 pub:" + "音悦台");
+        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
     }
 
     @Override
@@ -223,6 +270,10 @@ public class ScrollingActivity extends BaseActivity implements PlayStorePurchase
             return false;
         }
         return true;
+    }
+
+    public void doTestDampingScroll(View view) {
+        launch(ScrollingActivity.this, DampingScrollActivity.class);
     }
 
 
@@ -270,6 +321,7 @@ public class ScrollingActivity extends BaseActivity implements PlayStorePurchase
         // Begin loading interstitial ad.
         mInterstitialAd.loadAd(adRequest);
     }
+
     @Override
     public void onInAppPurchaseFinished(InAppPurchaseResult result) {
         Log.i("Iap-Ad", "onInAppPurchaseFinished Start");
@@ -294,7 +346,6 @@ public class ScrollingActivity extends BaseActivity implements PlayStorePurchase
 //        }
 //        Log.i("Iap-Ad", "onInAppPurchaseFinished End");
     }
-
 
 
 ////////////////////AD END//////////////////////////////////
