@@ -1,4 +1,4 @@
-package com.zcwfeng.fastdev.secure.test;
+package com.zcwfeng.fastdev.utils;
 
 
 import android.util.Log;
@@ -8,6 +8,28 @@ import android.util.Log;
  */
 public class CE1Util {
 
+    public static String getResultecipher(int channelId,long videoId,String videoType) {
+
+        byte[] channelIdBytes = BytesUtil.toLH(channelId);
+        System.out.println("channelIdBytes : " + getStringFromBytes(channelIdBytes));
+
+        byte[] videoIdBytes = BytesUtil.toLH(videoId);
+        System.out.println("videoIdBytes : " + getStringFromBytes(videoIdBytes));
+
+        byte[] videoTypeBytes = videoType.getBytes();
+        System.out.println("videoTypeBytes : " + getStringFromBytes(videoTypeBytes));
+
+        byte[] initArr = BytesUtil.combineBytes(channelIdBytes, videoIdBytes);
+        System.out.println("initArr combine channelId and videoId : " + getStringFromBytes(initArr));
+
+        initArr = BytesUtil.combineBytes(initArr, videoTypeBytes);
+        System.out.println("initArr combine videoType : " + getStringFromBytes(initArr));
+
+        String md5 = md5Value(initArr);
+        System.out.println("md5 result : " + md5);
+
+        return md5;
+    }
 
     public static void main(String[] args){
         String sourceCode = "12-101-VOD";

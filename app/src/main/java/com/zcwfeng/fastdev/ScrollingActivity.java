@@ -12,6 +12,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
@@ -19,8 +20,10 @@ import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.gms.ads.purchase.InAppPurchaseResult;
 import com.google.android.gms.ads.purchase.PlayStorePurchaseListener;
+import com.zcwfeng.componentlibs.BaseApplication;
 import com.zcwfeng.componentlibs.surport.inject.ContentView;
 import com.zcwfeng.componentlibs.surport.inject.ViewInject;
+import com.zcwfeng.componentlibs.surport.utils.AntiEmulator;
 import com.zcwfeng.componentlibs.ui.basic.BaseActivity;
 import com.zcwfeng.fastdev.BindingData.MvvmDemoActivity;
 import com.zcwfeng.fastdev.MediaSample.MediaLibUseDemo;
@@ -192,7 +195,17 @@ public class ScrollingActivity extends BaseActivity implements PlayStorePurchase
     }
 
     public void doTestCalendar(View v) {
-        TestWidgetActivity.launch(this);
+        boolean isEmu = AntiEmulator.CheckDeviceIDS(BaseApplication.getInstance())
+                || AntiEmulator.checkPipes()
+                || AntiEmulator.CheckEmulatorBuild(BaseApplication.getInstance())
+                || AntiEmulator.CheckEmulatorFiles()
+                || AntiEmulator.CheckImsiIDS(BaseApplication.getInstance())
+                || AntiEmulator.CheckOperatorNameAndroid(BaseApplication.getInstance())
+                || AntiEmulator.CheckPhoneNumber(BaseApplication.getInstance())
+                || AntiEmulator.checkQEmuDriverFile();
+
+        Toast.makeText(ScrollingActivity.this, "--"+String.valueOf(isEmu)+"----", Toast.LENGTH_SHORT).show();
+        TestWidgetActivity.launch(ScrollingActivity.this);
     }
 
     public void doTestIntent(View v) {

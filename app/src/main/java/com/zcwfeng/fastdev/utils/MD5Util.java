@@ -1,4 +1,4 @@
-package com.zcwfeng.fastdev.secure.test;
+package com.zcwfeng.fastdev.utils;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;

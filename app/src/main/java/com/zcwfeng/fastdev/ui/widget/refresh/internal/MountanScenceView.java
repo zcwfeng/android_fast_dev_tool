@@ -14,6 +14,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.animation.Interpolator;
 
+import com.zcwfeng.fastdev.R;
 import com.zcwfeng.fastdev.ui.widget.refresh.IPullHeader;
 import com.zcwfeng.fastdev.ui.widget.refresh.PullHeaderLayout;
 
@@ -104,6 +105,8 @@ public class MountanScenceView extends View implements IPullHeader {
 
         updateMountainPath(mMoveFactor);
         updateTreePath(mMoveFactor, true);
+
+        setBackgroundResource(R.drawable.bg);
     }
 
     private void updateMountainPath(float factor) {
@@ -253,6 +256,8 @@ public class MountanScenceView extends View implements IPullHeader {
         canvas.drawPath(mBranch, mBoarderPaint);
 
         canvas.restore();
+
+
     }
 
     @Override

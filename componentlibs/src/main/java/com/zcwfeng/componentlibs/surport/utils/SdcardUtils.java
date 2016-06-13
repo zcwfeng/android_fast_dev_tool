@@ -1,6 +1,5 @@
 package com.zcwfeng.componentlibs.surport.utils;
 
-import android.annotation.SuppressLint;
 import android.os.Environment;
 import android.os.StatFs;
 
@@ -17,7 +16,6 @@ public class SdcardUtils {
         return mHasSDcard;
     }
 
-    @SuppressLint("SdCardPath")
     public static String getSdcardPath() {
         if (hasSDCard())
             return Environment.getExternalStorageDirectory().getAbsolutePath();

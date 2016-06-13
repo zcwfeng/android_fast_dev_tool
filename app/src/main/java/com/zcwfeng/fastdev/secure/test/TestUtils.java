@@ -6,6 +6,9 @@ import android.util.Log;
 
 import com.zcwfeng.fastdev.R;
 import com.zcwfeng.fastdev.secure.skb.rsa.DES;
+import com.zcwfeng.fastdev.utils.BytesUtil;
+import com.zcwfeng.fastdev.utils.CE1Util;
+import com.zcwfeng.fastdev.utils.MD5Util;
 
 import java.io.InputStream;
 import java.security.cert.CertificateFactory;
@@ -43,9 +46,11 @@ public class TestUtils {
         String key1 = "0000000c";
         String key2 = "0000000000000065";
         String key3 = "564f44";
-        getMd5AlgorimResult(key1 + key2 + key3);
+//        getMd5AlgorimResult(key1 + key2 + key3);
 
 
+
+        CE1Util.getResultecipher(12,101,"VOD");
     }
 
     /**
@@ -73,7 +78,7 @@ public class TestUtils {
         byte firstSort[] = BytesUtil.sortLH(hexStringToByteArray(inputMd5Str));
        byte[] firstMd5 = MD5Util.MD5Encrypt(firstSort);
 
-        Log.e("zcw","第一次MD5："+CE1Util.getStringFromBytes(firstMd5));
+        Log.e("zcw","第一次MD5："+ CE1Util.getStringFromBytes(firstMd5));
 
 
 
