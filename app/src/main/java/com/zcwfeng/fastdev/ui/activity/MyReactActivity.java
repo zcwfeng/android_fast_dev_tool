@@ -1,10 +1,12 @@
 package com.zcwfeng.fastdev.ui.activity;
 
-import android.app.Activity;
-import android.os.Bundle;
-
-import com.zcwfeng.fastdev.BuildConfig;
-
+//import com.facebook.react.LifecycleState;
+//import com.facebook.react.ReactInstanceManager;
+//import com.facebook.react.ReactRootView;
+//import com.facebook.react.modules.core.DefaultHardwareBackBtnHandler;
+//import com.facebook.react.shell.MainReactPackage;
+//import com.zcwfeng.fastdev.BuildConfig;
+//
 //public class MyReactActivity extends Activity implements DefaultHardwareBackBtnHandler {
 //    private ReactRootView mReactRootView;
 //    private ReactInstanceManager mReactInstanceManager;
@@ -57,6 +59,15 @@ import com.zcwfeng.fastdev.BuildConfig;
 //        } else {
 //            super.onBackPressed();
 //        }
+//    }
+//
+//    @Override
+//    public boolean onKeyUp(int keyCode, KeyEvent event) {
+//        if (keyCode == KeyEvent.KEYCODE_MENU && mReactInstanceManager != null) {
+//            mReactInstanceManager.showDevOptionsDialog();
+//            return true;
+//        }
+//        return super.onKeyUp(keyCode, event);
 //    }
 //
 //}

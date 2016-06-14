@@ -16,12 +16,13 @@ buildscript {
 allprojects {
     repositories {
         jcenter()
+//        maven {
+//            // All of React Native (JS, Android binaries) is installed from npm
+//            url "$rootProject/node_modules/react-native/android"
+//        }
     }
 
-//    maven {
-//        // All of React Native (JS, Android binaries) is installed from npm
-//        url "$rootProject/node_modules/react-native/android"
-//    }
+
 }
 
 task clean(type: Delete) {
@@ -31,7 +32,7 @@ task clean(type: Delete) {
 
 ext {
     // Sdk and tools
-    minSdkVersion = 15
+    minSdkVersion = 16
     targetSdkVersion = 22
     compileSdkVersion = 23
     buildToolsVersion = '23.0.2'
