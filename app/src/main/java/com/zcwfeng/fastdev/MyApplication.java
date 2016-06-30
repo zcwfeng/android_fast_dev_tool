@@ -2,7 +2,7 @@ package com.zcwfeng.fastdev;
 
 import com.zcwfeng.componentlibs.BaseApplication;
 import com.zcwfeng.componentlibs.surport.utils.Logger;
-import com.zcwfeng.httplibs.OkHttpUtils;
+import com.zcwfeng.httplibs.okhttp.OkHttpUtils;
 
 import java.io.InputStream;
 import java.util.concurrent.TimeUnit;

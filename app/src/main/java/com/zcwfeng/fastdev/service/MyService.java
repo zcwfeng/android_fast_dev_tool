@@ -6,8 +6,8 @@ import android.os.IBinder;
 import android.util.Log;
 
 import com.squareup.okhttp.Request;
-import com.zcwfeng.httplibs.OkHttpUtils;
-import com.zcwfeng.httplibs.callback.StringCallback;
+import com.zcwfeng.httplibs.okhttp.OkHttpUtils;
+import com.zcwfeng.httplibs.okhttp.callback.StringCallback;
 
 public class MyService extends Service {
     public MyService() {

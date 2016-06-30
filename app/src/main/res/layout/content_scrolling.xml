@@ -108,12 +108,6 @@
             android:onClick="testNdk"
             android:text="NDK DEMO" />
 
-        <Button
-            android:id="@+id/rxjavademo"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:onClick="doRxJava"
-            android:text="RX Android DEMO" />
 
         <Button
             android:id="@+id/binder_activity"
@@ -157,13 +151,25 @@
             android:layout_height="40dp"
             android:onClick="doTestFlyRefresh"
             android:text="滑动NestScrollView" />
+        <Button
+            android:id="@+id/http_request"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:onClick="doTestHttpRequest"
+            android:text="HttpRequestStudy" />
 
+        <Button
+            android:id="@+id/custom_recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:onClick="doTestRecyclerView"
+            android:text="RecyclerView" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/text_margin"
-            android:onClick="doTestIntent"
+            android:onClick="doTestHttpRequest"
             android:text="@string/large_text" />
 
 

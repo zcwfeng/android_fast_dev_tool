@@ -19,10 +19,10 @@ import com.zcwfeng.componentlibs.surport.inject.ViewInject;
 import com.zcwfeng.componentlibs.ui.basic.BaseActivity;
 import com.zcwfeng.fastdev.R;
 import com.zcwfeng.fastdev.service.MyService;
-import com.zcwfeng.httplibs.OkHttpUtils;
-import com.zcwfeng.httplibs.callback.BitmapCallback;
-import com.zcwfeng.httplibs.callback.FileCallBack;
-import com.zcwfeng.httplibs.callback.StringCallback;
+import com.zcwfeng.httplibs.okhttp.OkHttpUtils;
+import com.zcwfeng.httplibs.okhttp.callback.BitmapCallback;
+import com.zcwfeng.httplibs.okhttp.callback.FileCallBack;
+import com.zcwfeng.httplibs.okhttp.callback.StringCallback;
 
 import java.io.File;
 import java.util.HashMap;

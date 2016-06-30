@@ -48,4 +48,12 @@
     <color name="F5A0B3">#F5A0B3</color>
     <color name="ffffff">#ffffff</color>
 
+
+    <color name="red">#FF5C26</color>
+    <color name="orange">#FEA466</color>
+    <color name="green">#66BB00</color>
+    <color name="blue">#0080FF</color>
+    <color name="font_info">#999</color>
+    <color name="white">#fff</color>
+
 </resources>

@@ -20,6 +20,10 @@ import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.gms.ads.purchase.InAppPurchaseResult;
 import com.google.android.gms.ads.purchase.PlayStorePurchaseListener;
+import com.google.android.gms.appindexing.Action;
+import com.google.android.gms.appindexing.AppIndex;
+import com.google.android.gms.appindexing.Thing;
+import com.google.android.gms.common.api.GoogleApiClient;
 import com.zcwfeng.componentlibs.BaseApplication;
 import com.zcwfeng.componentlibs.surport.inject.ContentView;
 import com.zcwfeng.componentlibs.surport.inject.ViewInject;
@@ -36,9 +40,10 @@ import com.zcwfeng.fastdev.sample_okhttp.OkhttpUtilsMainActivity;
 import com.zcwfeng.fastdev.secure.skb.ExamplesRSA_DESActivity;
 import com.zcwfeng.fastdev.ui.activity.CoordinatorLayoutTestActivity;
 import com.zcwfeng.fastdev.ui.activity.DampingScrollActivity;
+import com.zcwfeng.fastdev.ui.activity.HttpRequestStudyActivity;
 import com.zcwfeng.fastdev.ui.activity.NDKDemoActivity;
 import com.zcwfeng.fastdev.ui.activity.RefreshTestActivity;
-import com.zcwfeng.fastdev.ui.activity.RxJavaDemoActivity;
+import com.zcwfeng.fastdev.ui.activity.SlideHRecyclerViewTestActivity;
 import com.zcwfeng.fastdev.ui.activity.UserProfileActivity;
 import com.zcwfeng.fastdev.widgettest.TestWidgetActivity;
 
@@ -63,8 +68,6 @@ public class ScrollingActivity extends BaseActivity implements PlayStorePurchase
     Button testRefreshTestActivity;
     @ViewInject(id = R.id.ndkdemo)
     Button testNdkDemo;
-    @ViewInject(id = R.id.rxjavademo)
-    Button testRxJava;
     @ViewInject(id = R.id.render_script_btn)
     Button testRenderScript;
     @ViewInject(id = R.id.binder_activity)
@@ -79,10 +82,19 @@ public class ScrollingActivity extends BaseActivity implements PlayStorePurchase
     Button testDamping;
     @ViewInject(id = R.id.flyrefresh)
     Button testFlyRefresh;
+    @ViewInject(id = R.id.http_request)
+    Button testHttpRequest;
+    @ViewInject(id = R.id.custom_recyclerview)
+    Button testRecyclerView;
 
 
     InterstitialAd mInterstitialAd;
     Button mNewGameButton;
+    /**
+     * ATTENTION: This was auto-generated to implement the App Indexing API.
+     * See https://g.co/AppIndexing/AndroidStudio for more information.
+     */
+    private GoogleApiClient client;
 
     // 内置购买广告
 //    public static final int BILLING_RESPONSE_RESULT_OK = 0;
@@ -147,6 +159,9 @@ public class ScrollingActivity extends BaseActivity implements PlayStorePurchase
         fab.setOnClickListener(view -> Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show());
 
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
     }
 
     private void requestNewInterstitial() {
@@ -204,7 +219,7 @@ public class ScrollingActivity extends BaseActivity implements PlayStorePurchase
                 || AntiEmulator.CheckPhoneNumber(BaseApplication.getInstance())
                 || AntiEmulator.checkQEmuDriverFile();
 
-        Toast.makeText(ScrollingActivity.this, "--"+String.valueOf(isEmu)+"----", Toast.LENGTH_SHORT).show();
+        Toast.makeText(ScrollingActivity.this, "--" + String.valueOf(isEmu) + "----", Toast.LENGTH_SHORT).show();
         TestWidgetActivity.launch(ScrollingActivity.this);
     }
 
@@ -225,9 +240,6 @@ public class ScrollingActivity extends BaseActivity implements PlayStorePurchase
         NDKDemoActivity.launch(ScrollingActivity.this);
     }
 
-    public void doRxJava(View v) {
-        RxJavaDemoActivity.launch(ScrollingActivity.this);
-    }
 
     public void doTestRenderscript(View V) {
         RenderScriptTestActivity.launch(ScrollingActivity.this);
@@ -251,6 +263,13 @@ public class ScrollingActivity extends BaseActivity implements PlayStorePurchase
         FlyRefreshActivity.launch(ScrollingActivity.this);
     }
 
+    public void doTestHttpRequest(View view) {
+        HttpRequestStudyActivity.launch(ScrollingActivity.this);
+    }
+
+    public void doTestRecyclerView(View view) {
+        SlideHRecyclerViewTestActivity.launch(ScrollingActivity.this, SlideHRecyclerViewTestActivity.class);
+    }
 
     /**
      * http://market.android.com/details?id=<java包名>
@@ -358,6 +377,42 @@ public class ScrollingActivity extends BaseActivity implements PlayStorePurchase
 //            Log.w("Iap-Ad", "Failed to purchase product: " + sku);
 //        }
 //        Log.i("Iap-Ad", "onInAppPurchaseFinished End");
+    }
+
+    /**
+     * ATTENTION: This was auto-generated to implement the App Indexing API.
+     * See https://g.co/AppIndexing/AndroidStudio for more information.
+     */
+    public Action getIndexApiAction() {
+        Thing object = new Thing.Builder()
+                .setName("Scrolling Page") // TODO: Define a title for the content shown.
+                // TODO: Make sure this auto-generated URL is correct.
+                .setUrl(Uri.parse("http://[ENTER-YOUR-URL-HERE]"))
+                .build();
+        return new Action.Builder(Action.TYPE_VIEW)
+                .setObject(object)
+                .setActionStatus(Action.STATUS_TYPE_COMPLETED)
+                .build();
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        client.connect();
+        AppIndex.AppIndexApi.start(client, getIndexApiAction());
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        AppIndex.AppIndexApi.end(client, getIndexApiAction());
+        client.disconnect();
     }
 
 

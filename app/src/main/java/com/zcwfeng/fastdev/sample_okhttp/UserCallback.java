@@ -2,7 +2,7 @@ package com.zcwfeng.fastdev.sample_okhttp;
 
 import com.google.gson.Gson;
 import com.squareup.okhttp.Response;
-import com.zcwfeng.httplibs.callback.Callback;
+import com.zcwfeng.httplibs.okhttp.callback.Callback;
 
 import java.io.IOException;
 
