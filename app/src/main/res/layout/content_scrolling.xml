@@ -164,6 +164,12 @@
             android:layout_height="40dp"
             android:onClick="doTestRecyclerView"
             android:text="RecyclerView" />
+        <Button
+            android:id="@+id/custom_image_ref"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:onClick="doTestImageRefView"
+            android:text="Image" />
 
         <TextView
             android:layout_width="wrap_content"

@@ -26,7 +26,7 @@ android {
         versionName rootProject.ext.versionName
         renderscriptTargetApi 18
         renderscriptSupportModeEnabled true
-
+//        vectorDrawables.useSupportLibrary = true
         ndk {
             moduleName "ZcwfengJniLibName"         //生成的so名字
             ldLibs "log", "z", "m"

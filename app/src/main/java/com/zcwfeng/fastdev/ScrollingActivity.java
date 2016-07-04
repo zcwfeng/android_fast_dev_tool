@@ -41,6 +41,7 @@ import com.zcwfeng.fastdev.secure.skb.ExamplesRSA_DESActivity;
 import com.zcwfeng.fastdev.ui.activity.CoordinatorLayoutTestActivity;
 import com.zcwfeng.fastdev.ui.activity.DampingScrollActivity;
 import com.zcwfeng.fastdev.ui.activity.HttpRequestStudyActivity;
+import com.zcwfeng.fastdev.ui.activity.ImageRefViewTestActivity;
 import com.zcwfeng.fastdev.ui.activity.NDKDemoActivity;
 import com.zcwfeng.fastdev.ui.activity.RefreshTestActivity;
 import com.zcwfeng.fastdev.ui.activity.SlideHRecyclerViewTestActivity;
@@ -86,6 +87,8 @@ public class ScrollingActivity extends BaseActivity implements PlayStorePurchase
     Button testHttpRequest;
     @ViewInject(id = R.id.custom_recyclerview)
     Button testRecyclerView;
+    @ViewInject(id = R.id.custom_image_ref)
+    Button testImage;
 
 
     InterstitialAd mInterstitialAd;
@@ -245,7 +248,6 @@ public class ScrollingActivity extends BaseActivity implements PlayStorePurchase
         RenderScriptTestActivity.launch(ScrollingActivity.this);
     }
 
-
     public void doAIDLTest(View v) {
         AIDLTestActivity.launch(ScrollingActivity.this);
     }
@@ -270,6 +272,11 @@ public class ScrollingActivity extends BaseActivity implements PlayStorePurchase
     public void doTestRecyclerView(View view) {
         SlideHRecyclerViewTestActivity.launch(ScrollingActivity.this, SlideHRecyclerViewTestActivity.class);
     }
+    public void doTestImageRefView(View view) {
+        ImageRefViewTestActivity.launch(this);
+    }
+
+
 
     /**
      * http://market.android.com/details?id=<java包名>
