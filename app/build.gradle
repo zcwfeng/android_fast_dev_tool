@@ -105,6 +105,7 @@ dependencies {
     compile 'com.facebook.fresco:fresco:0.8.1'
     compile 'com.google.android.gms:play-services-appindexing:8.4.0'
     compile 'jp.wasabeef:recyclerview-animators:2.2.3'
+    compile 'com.yinyuetai.android.lib:video_player:1.1.15'
 
     //    compile 'io.reactivex:rxandroid:1.0.1'
     //    compile('com.jakewharton.rxbinding:rxbinding:0.3.0') {

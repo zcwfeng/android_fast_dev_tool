@@ -89,7 +89,8 @@ public class ScrollingActivity extends BaseActivity implements PlayStorePurchase
     Button testRecyclerView;
     @ViewInject(id = R.id.custom_image_ref)
     Button testImage;
-
+    @ViewInject(id = R.id.new_yyt_video)
+    Button testYYTVideo;
 
     InterstitialAd mInterstitialAd;
     Button mNewGameButton;
@@ -272,10 +273,17 @@ public class ScrollingActivity extends BaseActivity implements PlayStorePurchase
     public void doTestRecyclerView(View view) {
         SlideHRecyclerViewTestActivity.launch(ScrollingActivity.this, SlideHRecyclerViewTestActivity.class);
     }
-    public void doTestImageRefView(View view) {
-        ImageRefViewTestActivity.launch(this);
-    }
+    public void doTest(View view) {
+        switch (view.getId()){
+            case R.id.custom_image_ref:
+                ImageRefViewTestActivity.launch(this);
+                break;
+            case R.id.new_yyt_video:
+                MediaLibUseDemo.launch(this, MediaLibUseDemo.class);
+                break;
 
+        }
+    }
 
 
     /**

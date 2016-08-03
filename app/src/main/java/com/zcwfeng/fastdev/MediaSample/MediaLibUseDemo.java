@@ -18,6 +18,9 @@ import com.android.tedcoder.wkvideoplayer.model.VideoUrl;
 import com.android.tedcoder.wkvideoplayer.util.DensityUtil;
 import com.android.tedcoder.wkvideoplayer.view.MediaController;
 import com.android.tedcoder.wkvideoplayer.view.SuperVideoPlayer;
+import com.google.android.exoplayer.util.Util;
+import com.yinyuetai.videolib.PlayerProxy;
+import com.yinyuetai.videolib.YYTVideoView;
 import com.zcwfeng.componentlibs.surport.inject.ContentView;
 import com.zcwfeng.componentlibs.surport.inject.ViewInject;
 import com.zcwfeng.componentlibs.surport.utils.MediaUtils;
@@ -45,7 +48,10 @@ public class MediaLibUseDemo extends BaseActivity implements View.OnClickListene
     private View mPlayBtnView;
     @ViewInject(id = R.id.cover_video_bg)
     private View mCoverBgView;
-
+    @ViewInject(id = R.id.video_player_item_2)
+    private YYTVideoView mYYTVideoView;
+//    @ViewInject(id = R.id.yyt_play_btn)
+//    private View mPlayBtnViewYyt;
     public static void launch(Context context, Object... params) {
         Intent intent = new Intent(context, MediaLibUseDemo.class);
         context.startActivity(intent);
@@ -146,9 +152,9 @@ public class MediaLibUseDemo extends BaseActivity implements View.OnClickListene
 
         ArrayList<Video> videoArrayList = new ArrayList<>();
         videoArrayList.add(video4);
-        videoArrayList.add(video3);
-        videoArrayList.add(video);
-        videoArrayList.add(video2);
+//        videoArrayList.add(video3);
+//        videoArrayList.add(video);
+//        videoArrayList.add(video2);
 
         mSuperVideoPlayer.loadMultipleVideo(videoArrayList, 0, 0, 0);
 
@@ -159,6 +165,8 @@ public class MediaLibUseDemo extends BaseActivity implements View.OnClickListene
     protected void onDestroy() {
         super.onDestroy();
         stopDLNAService();
+        mYYTVideoView.pause();
+        mYYTVideoView.destroyDrawingCache();
     }
 
     /***
@@ -198,6 +206,18 @@ public class MediaLibUseDemo extends BaseActivity implements View.OnClickListene
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mPlayBtnView.setOnClickListener(this);
+
+//        mPlayBtnViewYyt.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                mPlayBtnViewYyt.setVisibility(View.GONE);
+//                mYYTVideoView.setVisibility(View.VISIBLE);
+//                mYYTVideoView.playVideo(PlayerProxy.PLAYER_VR,"http://video-player.720yun.com/@/5c529czdwua/pc_1469596419.mp4", Util.TYPE_OTHER,0);
+//
+//            }
+//        });
+
+
         mSuperVideoPlayer.setVideoPlayCallback(mVideoPlayCallback);
         startDLNAService();
 
@@ -208,6 +228,10 @@ public class MediaLibUseDemo extends BaseActivity implements View.OnClickListene
             Log.e("zcw","获取封面异常");
             e.printStackTrace();
         }
+
+        mYYTVideoView.setVisibility(View.VISIBLE);
+        mYYTVideoView.playVideo(PlayerProxy.PLAYER_VR,"http://video-player.720yun.com/@/5c529czdwua/pc_1469596419.mp4", Util.TYPE_OTHER,0);
+
     }
 
     /***

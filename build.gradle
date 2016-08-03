@@ -14,10 +14,9 @@ buildscript {
 allprojects {
     repositories {
         jcenter()
-//        maven {
-//            // All of React Native (JS, Android binaries) is installed from npm
-//            url "$rootProject/node_modules/react-native/android"
-//        }
+        maven {
+            url "http://nexus.rd.yinyuetai.com/content/repositories/releases/"
+        }
     }
 
 

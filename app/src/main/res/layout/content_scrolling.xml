@@ -24,6 +24,12 @@
             app:adSize="BANNER"
             app:adUnitId="@string/banner_ad_unit_id" />
 
+        <Button
+            android:id="@+id/new_yyt_video"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:onClick="doTest"
+            android:text="YYT_VideoPlayer" />
 
         <Button
             android:id="@+id/newgame_button"
@@ -168,7 +174,7 @@
             android:id="@+id/custom_image_ref"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:onClick="doTestImageRefView"
+            android:onClick="doTest"
             android:text="Image" />
 
         <TextView

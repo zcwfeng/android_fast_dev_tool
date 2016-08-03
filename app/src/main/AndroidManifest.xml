@@ -55,7 +55,7 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".MediaSample.MediaLibUseDemo"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="sensorPortrait" />
         <activity
             android:name=".ui.activity.UserProfileActivity"
             android:screenOrientation="portrait" />
