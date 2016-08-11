@@ -1,4 +1,6 @@
-/*****************Copyright (C), 2010-2015, FORYOU Tech. Co., Ltd.********************/
+/*****************
+ * Copyright (C), 2010-2015, FORYOU Tech. Co., Ltd.
+ ********************/
 package com.zcwfeng.fastdev.binder;
 
 import android.app.Service;
@@ -15,7 +17,7 @@ import android.util.Log;
  * @Others: comments
  * @ModifyHistory:
  */
-public class AIDLTestService  extends Service {
+public class AIDLTestService extends Service {
 
     private IActivityAidl callback;
 

@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "147848096560",
+    "firebase_url": "https://zcwblog.firebaseio.com",
+    "project_id": "zcwblog",
+    "storage_bucket": "zcwblog.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:147848096560:android:8575b3c0f269e6a5",
+        "android_client_info": {
+          "package_name": "com.zcwfeng.fastdev"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "147848096560-hs9di21qterd36vsqb4p3k6fv95ield9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.zcwfeng.fastdev",
+            "certificate_hash": "7A7F16567A69959938BD41005B5DACBCFCDFC6D4"
+          }
+        },
+        {
+          "client_id": "147848096560-86k5hsg2ecuvls1du9lnguenkl6e3buq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCztTv8GvveQhPI8aKhGB7PzKIoJSRzTsg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "147848096560-86k5hsg2ecuvls1du9lnguenkl6e3buq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

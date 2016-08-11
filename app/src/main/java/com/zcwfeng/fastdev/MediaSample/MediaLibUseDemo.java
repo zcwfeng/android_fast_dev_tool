@@ -21,8 +21,6 @@ import com.android.tedcoder.wkvideoplayer.view.SuperVideoPlayer;
 import com.google.android.exoplayer.util.Util;
 import com.yinyuetai.videolib.PlayerProxy;
 import com.yinyuetai.videolib.YYTVideoView;
-import com.zcwfeng.componentlibs.surport.inject.ContentView;
-import com.zcwfeng.componentlibs.surport.inject.ViewInject;
 import com.zcwfeng.componentlibs.surport.utils.MediaUtils;
 import com.zcwfeng.componentlibs.ui.basic.BaseActivity;
 import com.zcwfeng.fastdev.R;
@@ -39,23 +37,66 @@ import java.util.ArrayList;
  * Modified Content:
  * ==========================================
  */
-@ContentView(value = R.layout.activity_media_sample)
+//@ContentView(value = R.layout.activity_media_sample)
 public class MediaLibUseDemo extends BaseActivity implements View.OnClickListener {
 
-    @ViewInject(id = R.id.video_player_item_1)
+//    @ViewInject(id = R.id.video_player_item_1)
+//    private SuperVideoPlayer mSuperVideoPlayer;
+//    @ViewInject(id = R.id.play_btn)
+//    private View mPlayBtnView;
+//    @ViewInject(id = R.id.cover_video_bg)
+//    private View mCoverBgView;
+//    @ViewInject(id = R.id.video_player_item_2)
+//    private YYTVideoView mYYTVideoView;
+
     private SuperVideoPlayer mSuperVideoPlayer;
-    @ViewInject(id = R.id.play_btn)
     private View mPlayBtnView;
-    @ViewInject(id = R.id.cover_video_bg)
     private View mCoverBgView;
-    @ViewInject(id = R.id.video_player_item_2)
     private YYTVideoView mYYTVideoView;
-//    @ViewInject(id = R.id.yyt_play_btn)
-//    private View mPlayBtnViewYyt;
+
     public static void launch(Context context, Object... params) {
         Intent intent = new Intent(context, MediaLibUseDemo.class);
         context.startActivity(intent);
     }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_media_sample);
+        mSuperVideoPlayer = (SuperVideoPlayer) findViewById(R.id.video_player_item_1);
+        mPlayBtnView = findViewById(R.id.play_btn);
+        mCoverBgView = findViewById(R.id.cover_video_bg);
+        mYYTVideoView = (YYTVideoView) findViewById(R.id.video_player_item_2);
+
+        mPlayBtnView.setOnClickListener(this);
+
+//        mPlayBtnViewYyt.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                mPlayBtnViewYyt.setVisibility(View.GONE);
+//                mYYTVideoView.setVisibility(View.VISIBLE);
+//                mYYTVideoView.playVideo(PlayerProxy.PLAYER_VR,"http://video-player.720yun.com/@/5c529czdwua/pc_1469596419.mp4", Util.TYPE_OTHER,0);
+//
+//            }
+//        });
+
+
+        mSuperVideoPlayer.setVideoPlayCallback(mVideoPlayCallback);
+        startDLNAService();
+
+        mGestureDetector = new GestureDetector(this, new MyGestureListener());
+        try {
+            MediaUtils.generateCover4Video("http://58.254.132.66/dd.yinyuetai.com/uploads/videos/common/D61E01478B129B2900ED167746C2BA81.mp4?sc=248154b5d767b8e2&br=576&rd=Android&uniqueId=ee343f05e05cf2b6748c1c77fcf3caeb",mCoverBgView);
+        } catch (Exception e) {
+            Log.e("zcw","获取封面异常");
+            e.printStackTrace();
+        }
+
+        mYYTVideoView.setVisibility(View.VISIBLE);
+        mYYTVideoView.playVideo(PlayerProxy.PLAYER_VR,"http://video-player.720yun.com/@/5c529czdwua/pc_1469596419.mp4", Util.TYPE_OTHER,0);
+
+    }
+
 
     private SuperVideoPlayer.VideoPlayCallbackImpl mVideoPlayCallback = new SuperVideoPlayer.VideoPlayCallbackImpl() {
         @Override
@@ -202,37 +243,7 @@ public class MediaLibUseDemo extends BaseActivity implements View.OnClickListene
     }
 
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        mPlayBtnView.setOnClickListener(this);
 
-//        mPlayBtnViewYyt.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                mPlayBtnViewYyt.setVisibility(View.GONE);
-//                mYYTVideoView.setVisibility(View.VISIBLE);
-//                mYYTVideoView.playVideo(PlayerProxy.PLAYER_VR,"http://video-player.720yun.com/@/5c529czdwua/pc_1469596419.mp4", Util.TYPE_OTHER,0);
-//
-//            }
-//        });
-
-
-        mSuperVideoPlayer.setVideoPlayCallback(mVideoPlayCallback);
-        startDLNAService();
-
-        mGestureDetector = new GestureDetector(this, new MyGestureListener());
-        try {
-            MediaUtils.generateCover4Video("http://58.254.132.66/dd.yinyuetai.com/uploads/videos/common/D61E01478B129B2900ED167746C2BA81.mp4?sc=248154b5d767b8e2&br=576&rd=Android&uniqueId=ee343f05e05cf2b6748c1c77fcf3caeb",mCoverBgView);
-        } catch (Exception e) {
-            Log.e("zcw","获取封面异常");
-            e.printStackTrace();
-        }
-
-        mYYTVideoView.setVisibility(View.VISIBLE);
-        mYYTVideoView.playVideo(PlayerProxy.PLAYER_VR,"http://video-player.720yun.com/@/5c529czdwua/pc_1469596419.mp4", Util.TYPE_OTHER,0);
-
-    }
 
     /***
      * 恢复屏幕至竖屏

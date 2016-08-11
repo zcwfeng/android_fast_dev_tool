@@ -1,5 +1,6 @@
 package com.zcwfeng.componentlibs;
 
+
 import android.app.Application;
 
 import com.zcwfeng.componentlibs.common.setting.SettingUtility;
@@ -36,7 +37,7 @@ public class BaseApplication extends Application {
         ActivityHelper.config(this);
 
         // 初始化设置
-        SettingUtility.setSettingUtility();
+//        SettingUtility.setSettingUtility();
 
         //
         UIUtils.initScreenWH();
@@ -47,6 +48,8 @@ public class BaseApplication extends Application {
     public static BaseApplication getInstance(){
         return app;
     }
+
+
 
     /**
      * 程序的文件目录，如果setting配置的是android，标志目录位于/sdcard/Application/PackageName/...下<br/>

@@ -14,8 +14,6 @@ import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.squareup.okhttp.Request;
-import com.zcwfeng.componentlibs.surport.inject.ContentView;
-import com.zcwfeng.componentlibs.surport.inject.ViewInject;
 import com.zcwfeng.componentlibs.ui.basic.BaseActivity;
 import com.zcwfeng.fastdev.R;
 import com.zcwfeng.fastdev.service.MyService;
@@ -29,7 +27,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@ContentView(value = R.layout.activity_okhttp_main)
+//@ContentView(value = R.layout.activity_okhttp_main)
 public class OkhttpUtilsMainActivity extends BaseActivity {
 
     public static void launch(Context context) {
@@ -41,11 +39,15 @@ public class OkhttpUtilsMainActivity extends BaseActivity {
 
     private static final String TAG = "MainActivity";
 
-    @ViewInject(id = R.id.id_textview)
+//    @ViewInject(id = R.id.id_textview)
+//    private TextView mTv;
+//    @ViewInject(id = R.id.id_imageview)
+//    private ImageView mImageView;
+//    @ViewInject(id = R.id.id_progress)
+//    private ProgressBar mProgressBar;
+
     private TextView mTv;
-    @ViewInject(id = R.id.id_imageview)
     private ImageView mImageView;
-    @ViewInject(id = R.id.id_progress)
     private ProgressBar mProgressBar;
 
     public class MyStringCallback extends StringCallback {
@@ -82,6 +84,10 @@ public class OkhttpUtilsMainActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_okhttp_main);
+        mTv = (TextView) findViewById(R.id.id_textview);
+        mImageView = (ImageView) findViewById(R.id.id_imageview);
+        mProgressBar = (ProgressBar) findViewById(R.id.id_progress);
         mProgressBar.setMax(100);
     }
 
@@ -180,14 +186,9 @@ public class OkhttpUtilsMainActivity extends BaseActivity {
     }
 
 
-
-
-
     public void getHttpsM3U8(View view) {
         startService(new Intent(this, MyService.class));
     }
-
-
 
 
     public void getImage(View view) {
@@ -295,7 +296,7 @@ public class OkhttpUtilsMainActivity extends BaseActivity {
                 });
     }
 
-    public void doCacheTest(View view){
+    public void doCacheTest(View view) {
         String url = "http://www.csdn.net/";
         OkHttpUtils
                 .get()

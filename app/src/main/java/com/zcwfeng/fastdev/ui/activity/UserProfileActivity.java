@@ -8,8 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.zcwfeng.componentlibs.surport.inject.ContentView;
-import com.zcwfeng.componentlibs.surport.inject.ViewInject;
 import com.zcwfeng.componentlibs.ui.basic.BaseActivity;
 import com.zcwfeng.fastdev.R;
 import com.zcwfeng.fastdev.utils.ProjectUtils;
@@ -23,7 +21,7 @@ import com.zcwfeng.fastdev.utils.ProjectUtils;
  * Modified Content:
  * ==========================================
  */
-@ContentView(value = R.layout.activity_user_profile)
+//@ContentView(value = R.layout.activity_user_profile)
 public class UserProfileActivity extends BaseActivity {
 
     public static void launch(Activity from) {
@@ -31,18 +29,24 @@ public class UserProfileActivity extends BaseActivity {
         from.startActivity(intent);
     }
 
-    @ViewInject(id = R.id.layContent)
-    View layoutContent;
-    @ViewInject(id = R.id.layoutLoadFailed)
-    View layoutLoadFailed;
-    @ViewInject(id = R.id.txtLoadFailed)
-    TextView txtLoadFailed;
-    @ViewInject(id = R.id.layoutReload, click = "reload")
-    View layoutReload;
-    @ViewInject(id = R.id.layToolbar)
-    ViewGroup layToolbar;
+    /*  @ViewInject(id = R.id.layContent)
+      View layoutContent;
+      @ViewInject(id = R.id.layoutLoadFailed)
+      View layoutLoadFailed;
+      @ViewInject(id = R.id.txtLoadFailed)
+      TextView txtLoadFailed;
+      @ViewInject(id = R.id.layoutReload, click = "reload")
+      View layoutReload;
+      @ViewInject(id = R.id.layToolbar)
+      ViewGroup layToolbar;
 
-    @ViewInject(id = R.id.viewToolbar)
+      @ViewInject(id = R.id.viewToolbar)
+      View viewToolbar;*/
+    View layoutContent;
+    View layoutLoadFailed;
+    TextView txtLoadFailed;
+    View layoutReload;
+    ViewGroup layToolbar;
     View viewToolbar;
 
 //    private boolean searchFailed = false;
@@ -53,8 +57,15 @@ public class UserProfileActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        ProjectUtils.setStatusBar(this);
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_user_profile);
+        ProjectUtils.setStatusBar(this);
+        layoutContent = findViewById(R.id.layContent);
+        layoutLoadFailed = findViewById(R.id.layoutLoadFailed);
+        txtLoadFailed = (TextView) findViewById(R.id.txtLoadFailed);
+        layoutReload = findViewById(R.id.layoutReload);
+        layToolbar = (ViewGroup) findViewById(R.id.layToolbar);
+        viewToolbar = findViewById(R.id.viewToolbar);
         getSupportActionBar().setDisplayShowHomeEnabled(false);
 //        layToolbar = (ViewGroup) findViewById(R.id.layToolbar);
 //        layoutContent = findViewById(R.id.layoutContent);
@@ -120,7 +131,6 @@ public class UserProfileActivity extends BaseActivity {
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
     }
-
 
 
 }

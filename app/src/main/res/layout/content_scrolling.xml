@@ -15,14 +15,7 @@
         android:orientation="vertical">
 
 
-        <com.google.android.gms.ads.AdView
-            android:id="@+id/adView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            app:adSize="BANNER"
-            app:adUnitId="@string/banner_ad_unit_id" />
+
 
         <Button
             android:id="@+id/new_yyt_video"
@@ -48,70 +41,70 @@
             android:id="@+id/render_script_btn"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:onClick="doTestRenderscript"
+            android:onClick="doTest"
             android:text="RenderScript Test" />
 
         <Button
             android:id="@+id/to_test_okhttp"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:onClick="toSampleOkhttp"
+            android:onClick="doTest"
             android:text="okhttp_sample" />
 
         <Button
             android:id="@+id/binding_data_mvvm"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:onClick="doMvvmDemo"
+            android:onClick="doTest"
             android:text="Data Binding" />
 
         <Button
             android:id="@+id/media_sample"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:onClick="doMediaSample"
+            android:onClick="doTest"
             android:text="Media Sample" />
 
         <Button
             android:id="@+id/user_profile_common_Activity"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:onClick="toUserProfileActivity"
+            android:onClick="doTest"
             android:text="用户信息" />
 
         <Button
             android:id="@+id/calendar_test"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:onClick="doTestCalendar"
+            android:onClick="doTest"
             android:text="日历" />
 
         <Button
             android:id="@+id/intent_test"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:onClick="doTestIntent"
+            android:onClick="doTest"
             android:text="Intent测试" />
 
         <Button
             android:id="@+id/coordnator_layout_btn"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:onClick="doTestCoordnator"
+            android:onClick="doTest"
             android:text="Coordnatorlayout" />
 
         <Button
             android:id="@+id/testRefreshTestActivity"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:onClick="doTestRefreshTestActivity"
+            android:onClick="doTest"
             android:text="testRefreshTestActivity" />
 
         <Button
             android:id="@+id/ndkdemo"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:onClick="testNdk"
+            android:onClick="doTest"
             android:text="NDK DEMO" />
 
 
@@ -119,21 +112,21 @@
             android:id="@+id/binder_activity"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:onClick="doAIDLTest"
+            android:onClick="doTest"
             android:text="AIDL binder_activity" />
 
         <Button
             android:id="@+id/glidelib_activity"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:onClick="doTestGlide"
+            android:onClick="doTest"
             android:text="GlideLib" />
 
         <Button
             android:id="@+id/skb_activity"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:onClick="doSKBTest"
+            android:onClick="doTest"
             android:text="SKBTEST" />
 
 
@@ -141,34 +134,34 @@
             android:id="@+id/store_start"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:onClick="doStoreTest"
+            android:onClick="doTest"
             android:text="store_start test" />
 
         <Button
             android:id="@+id/damping_scroll"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:onClick="doTestDampingScroll"
+            android:onClick="doTest"
             android:text="DampingScroll" />
 
         <Button
             android:id="@+id/flyrefresh"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:onClick="doTestFlyRefresh"
+            android:onClick="doTest"
             android:text="滑动NestScrollView" />
         <Button
             android:id="@+id/http_request"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:onClick="doTestHttpRequest"
+            android:onClick="doTest"
             android:text="HttpRequestStudy" />
 
         <Button
             android:id="@+id/custom_recyclerview"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:onClick="doTestRecyclerView"
+            android:onClick="doTest"
             android:text="RecyclerView" />
         <Button
             android:id="@+id/custom_image_ref"
@@ -177,11 +170,12 @@
             android:onClick="doTest"
             android:text="Image" />
 
+
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/text_margin"
-            android:onClick="doTestHttpRequest"
             android:text="@string/large_text" />
 
 

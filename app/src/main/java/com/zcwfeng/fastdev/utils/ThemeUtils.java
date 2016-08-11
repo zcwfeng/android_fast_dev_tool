@@ -1,8 +1,8 @@
 package com.zcwfeng.fastdev.utils;
 
-import com.zcwfeng.fastdev.MyApplication;
 import com.zcwfeng.fastdev.R;
 import com.zcwfeng.fastdev.basic.AppSettings;
+import com.zcwfeng.fastdev.basic.MyApplication;
 
 public class ThemeUtils {
 

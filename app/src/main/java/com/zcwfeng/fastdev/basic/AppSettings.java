@@ -4,7 +4,6 @@ import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
 import com.zcwfeng.componentlibs.surport.utils.ActivityHelper;
-import com.zcwfeng.fastdev.MyApplication;
 
 public class AppSettings {
 

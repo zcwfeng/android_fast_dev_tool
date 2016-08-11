@@ -8,6 +8,8 @@ buildscript {
         classpath 'com.android.tools.build:gradle:2.1.2'
         classpath 'me.tatarka:gradle-retrolambda:3.2.4'
         classpath "com.android.tools.build:gradle-experimental:0.6.0-alpha5"
+        classpath 'com.google.gms:google-services:3.0.0'
+
     }
 }
 
@@ -19,7 +21,6 @@ allprojects {
         }
     }
 
-
 }
 
 task clean(type: Delete) {
@@ -30,12 +31,12 @@ task clean(type: Delete) {
 ext {
     // Sdk and tools
     minSdkVersion = 16
-    targetSdkVersion = 24
-    compileSdkVersion = 24
-    buildToolsVersion = '24.0.0'
+    targetSdkVersion = 23
+    compileSdkVersion = 23
+    buildToolsVersion = '23.0.2'
 
     // App dependencies
-    supportLibraryVersion = '24.0.0'
+    supportLibraryVersion = '23.3.0'
     junitVersion = '4.12'
     mockitoVersion = '1.10.19'
     hamcrestVersion = '1.3'
