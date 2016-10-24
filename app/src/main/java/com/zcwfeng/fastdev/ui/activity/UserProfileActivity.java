@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.zcwfeng.componentlibs.ui.basic.BaseActivity;
+import com.zcwfeng.componentlibs.ui.basic.BaseActivity_deprecated;
 import com.zcwfeng.fastdev.R;
 import com.zcwfeng.fastdev.utils.ProjectUtils;
 
@@ -22,7 +22,7 @@ import com.zcwfeng.fastdev.utils.ProjectUtils;
  * ==========================================
  */
 //@ContentView(value = R.layout.activity_user_profile)
-public class UserProfileActivity extends BaseActivity {
+public class UserProfileActivity extends BaseActivity_deprecated {
 
     public static void launch(Activity from) {
         Intent intent = new Intent(from, UserProfileActivity.class);

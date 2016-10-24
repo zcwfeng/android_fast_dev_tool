@@ -8,7 +8,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.zcwfeng.componentlibs.ui.basic.BaseActivity;
+import com.zcwfeng.componentlibs.ui.basic.BaseActivity_deprecated;
 import com.zcwfeng.fastdev.R;
 import com.zcwfeng.fastdev.ui.widget.refresh.RefreshLayout;
 
@@ -18,7 +18,7 @@ import java.util.ArrayList;
  * Created by David.zhang on 16/4/16.
  * Description：
  */
-public class RefreshTestActivity extends BaseActivity {
+public class RefreshTestActivity extends BaseActivity_deprecated {
     RefreshLayout mOuterRefresh;
 
     public static void launch(Context from) {

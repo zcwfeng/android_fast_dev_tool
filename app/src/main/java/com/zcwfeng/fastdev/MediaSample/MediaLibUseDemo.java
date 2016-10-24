@@ -22,7 +22,7 @@ import com.google.android.exoplayer.util.Util;
 import com.yinyuetai.videolib.PlayerProxy;
 import com.yinyuetai.videolib.YYTVideoView;
 import com.zcwfeng.componentlibs.surport.utils.MediaUtils;
-import com.zcwfeng.componentlibs.ui.basic.BaseActivity;
+import com.zcwfeng.componentlibs.ui.basic.BaseActivity_deprecated;
 import com.zcwfeng.fastdev.R;
 
 import java.util.ArrayList;
@@ -38,7 +38,7 @@ import java.util.ArrayList;
  * ==========================================
  */
 //@ContentView(value = R.layout.activity_media_sample)
-public class MediaLibUseDemo extends BaseActivity implements View.OnClickListener {
+public class MediaLibUseDemo extends BaseActivity_deprecated implements View.OnClickListener {
 
 //    @ViewInject(id = R.id.video_player_item_1)
 //    private SuperVideoPlayer mSuperVideoPlayer;

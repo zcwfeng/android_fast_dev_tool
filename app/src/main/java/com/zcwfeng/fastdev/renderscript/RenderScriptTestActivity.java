@@ -5,14 +5,14 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
-import com.zcwfeng.componentlibs.ui.basic.BaseActivity;
+import com.zcwfeng.componentlibs.ui.basic.BaseActivity_deprecated;
 import com.zcwfeng.fastdev.R;
 
 /**
  * Created by David.zhang on 16/5/6.
  * Description：
  */
-public class RenderScriptTestActivity extends BaseActivity {
+public class RenderScriptTestActivity extends BaseActivity_deprecated {
     private static int PICKER_REQUEST_CODE = 1;
     private static int EDIT_RESULT = 2;
 

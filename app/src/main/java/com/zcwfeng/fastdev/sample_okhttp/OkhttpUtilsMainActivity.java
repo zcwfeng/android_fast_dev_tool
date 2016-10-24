@@ -13,22 +13,26 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
-import com.squareup.okhttp.Request;
-import com.zcwfeng.componentlibs.ui.basic.BaseActivity;
+import com.zcwfeng.componentlibs.ui.basic.BaseActivity_deprecated;
 import com.zcwfeng.fastdev.R;
 import com.zcwfeng.fastdev.service.MyService;
-import com.zcwfeng.httplibs.okhttp.OkHttpUtils;
-import com.zcwfeng.httplibs.okhttp.callback.BitmapCallback;
-import com.zcwfeng.httplibs.okhttp.callback.FileCallBack;
-import com.zcwfeng.httplibs.okhttp.callback.StringCallback;
+import com.zhy.http.okhttp.OkHttpUtils;
+import com.zhy.http.okhttp.callback.BitmapCallback;
+import com.zhy.http.okhttp.callback.FileCallBack;
+import com.zhy.http.okhttp.callback.StringCallback;
 
 import java.io.File;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import okhttp3.Call;
+import okhttp3.Request;
+import okhttp3.Response;
+
+
 //@ContentView(value = R.layout.activity_okhttp_main)
-public class OkhttpUtilsMainActivity extends BaseActivity {
+public class OkhttpUtilsMainActivity extends BaseActivity_deprecated {
 
     public static void launch(Context context) {
         Intent intent = new Intent(context, OkhttpUtilsMainActivity.class);
@@ -52,29 +56,31 @@ public class OkhttpUtilsMainActivity extends BaseActivity {
 
     public class MyStringCallback extends StringCallback {
         @Override
-        public void onBefore(Request request) {
-            super.onBefore(request);
+        public void onBefore(Request request, int id) {
+            super.onBefore(request,id);
             setTitle("loading...");
         }
 
         @Override
-        public void onAfter() {
-            super.onAfter();
+        public void onAfter(int id) {
+            super.onAfter(id);
             setTitle("Sample-okHttp");
         }
 
         @Override
-        public void onError(Request request, Exception e) {
+        public void onError(Call call, Exception e, int id) {
             mTv.setText("onError:" + e.getMessage());
+
         }
 
         @Override
-        public void onResponse(String response) {
+        public void onResponse(String response,int id) {
             mTv.setText("onResponse:" + response);
         }
 
+
         @Override
-        public void inProgress(float progress) {
+        public void inProgress(float progress, long total, int id) {
             Log.e(TAG, "inProgress:" + progress);
             mProgressBar.setProgress((int) (100 * progress));
         }
@@ -137,13 +143,15 @@ public class OkhttpUtilsMainActivity extends BaseActivity {
                 .addParams("password", "123")//
                 .build()//
                 .execute(new UserCallback() {
+
                     @Override
-                    public void onError(Request request, Exception e) {
+                    public void onError(Call call, Exception e, int id) {
                         mTv.setText("onError:" + e.getMessage());
+
                     }
 
                     @Override
-                    public void onResponse(User response) {
+                    public void onResponse(User response,int id) {
                         mTv.setText("onResponse:" + response.username);
                     }
                 });
@@ -162,14 +170,22 @@ public class OkhttpUtilsMainActivity extends BaseActivity {
                 .execute(new ListUserCallback()//
                 {
                     @Override
-                    public void onError(Request request, Exception e) {
-                        mTv.setText("onError:" + e.getMessage());
+                    public List<User> parseNetworkResponse(Response response, int id)  {
+                        return null;
                     }
 
                     @Override
-                    public void onResponse(List<User> response) {
+                    public void onError(Call call, Exception e, int id) {
+                        mTv.setText("onError:" + e.getMessage());
+
+                    }
+
+                    @Override
+                    public void onResponse(List<User> response, int id) {
                         mTv.setText("onResponse:" + response);
                     }
+
+
                 });
     }
 
@@ -204,13 +220,15 @@ public class OkhttpUtilsMainActivity extends BaseActivity {
                 .writeTimeOut(20000)
                 .execute(new BitmapCallback() {
                     @Override
-                    public void onError(Request request, Exception e) {
+                    public void onError(Call call, Exception e, int id) {
                         mTv.setText("onError:" + e.getMessage());
+
                     }
 
                     @Override
-                    public void onResponse(Bitmap bitmap) {
+                    public void onResponse(Bitmap bitmap, int id) {
                         mImageView.setImageBitmap(bitmap);
+
                     }
                 });
     }
@@ -275,22 +293,23 @@ public class OkhttpUtilsMainActivity extends BaseActivity {
                 {
 
                     @Override
-                    public void onBefore(Request request) {
-                        super.onBefore(request);
+                    public void onBefore(Request request,int id) {
+                        super.onBefore(request,id);
                     }
 
                     @Override
-                    public void inProgress(float progress) {
-                        mProgressBar.setProgress((int) (100 * progress));
-                    }
-
-                    @Override
-                    public void onError(Request request, Exception e) {
+                    public void onError(Call call, Exception e, int id) {
                         Log.e(TAG, "onError :" + e.getMessage());
                     }
 
                     @Override
-                    public void onResponse(File file) {
+                    public void inProgress(float progress,long l,int id) {
+                        mProgressBar.setProgress((int) (100 * progress));
+                    }
+
+
+                    @Override
+                    public void onResponse(File file,int id) {
                         Log.e(TAG, "onResponse :" + file.getAbsolutePath());
                     }
                 });

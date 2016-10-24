@@ -5,9 +5,12 @@ import android.content.Intent;
 import android.os.IBinder;
 import android.util.Log;
 
-import com.squareup.okhttp.Request;
-import com.zcwfeng.httplibs.okhttp.OkHttpUtils;
-import com.zcwfeng.httplibs.okhttp.callback.StringCallback;
+import com.zhy.http.okhttp.OkHttpUtils;
+import com.zhy.http.okhttp.callback.StringCallback;
+
+import okhttp3.Call;
+import okhttp3.Request;
+
 
 public class MyService extends Service {
     public MyService() {
@@ -44,14 +47,14 @@ public class MyService extends Service {
 
     class MyStringCallback extends StringCallback {
         @Override
-        public void onBefore(Request request) {
-            super.onBefore(request);
+        public void onBefore(Request request,int id) {
+            super.onBefore(request,id);
             Log.e("zcw", "loading...");
         }
 
         @Override
-        public void onAfter() {
-            super.onAfter();
+        public void onAfter(int id) {
+            super.onAfter(id);
             Log.e("zcw", "Sample-okHttp");
 //            OkHttpUtils
 //                    .get()//
@@ -61,17 +64,17 @@ public class MyService extends Service {
         }
 
         @Override
-        public void onError(Request request, Exception e) {
+        public void onError(Call call, Exception e, int id) {
             Log.e("zcw", "onError:" + e.getMessage());
         }
 
         @Override
-        public void onResponse(String response) {
+        public void onResponse(String response,int id) {
             Log.e("zcw", "onResponse:" + response);
         }
 
         @Override
-        public void inProgress(float progress) {
+        public void inProgress(float progress,long l,int id) {
             Log.e("zcw", "inProgress:" + progress);
         }
     }

@@ -1,6 +1,5 @@
 package com.zcwfeng.fastdev.basic;
 
-import com.firebase.client.Firebase;
 import com.zcwfeng.componentlibs.BaseApplication;
 
 /**
@@ -18,7 +17,7 @@ public class MyApplication extends BaseApplication {
     public void onCreate() {
         super.onCreate();
         mApplacation = this;
-        Firebase.setAndroidContext(this);
+//        Firebase.setAndroidContext(this);
 
     }
 

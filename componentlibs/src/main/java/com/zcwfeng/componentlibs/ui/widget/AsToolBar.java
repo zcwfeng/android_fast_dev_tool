@@ -6,7 +6,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 
-import com.zcwfeng.componentlibs.ui.basic.BaseActivity;
+import com.zcwfeng.componentlibs.ui.basic.BaseActivity_deprecated;
 
 /**
  * ==========================================
@@ -98,7 +98,7 @@ public class AsToolBar extends Toolbar {
         if (ev.getAction() == MotionEvent.ACTION_UP) {
             if (lastClickTime != 0) {
                 if (System.currentTimeMillis() - lastClickTime <= 500) {
-                    BaseActivity activity = BaseActivity.getRunningActivity();
+                    BaseActivity_deprecated activity = BaseActivity_deprecated.getRunningActivity();
                     if (activity != null && activity instanceof OnToolbarDoubleClick)
                         ((OnToolbarDoubleClick) activity).onToolbarDoubleClick();
                 }

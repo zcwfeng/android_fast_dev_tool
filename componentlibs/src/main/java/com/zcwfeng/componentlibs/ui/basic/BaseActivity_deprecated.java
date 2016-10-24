@@ -16,9 +16,9 @@ import com.zcwfeng.componentlibs.common.setting.SettingUtility;
  * Modified Content:
  * ==========================================
  */
-public class BaseActivity extends AppCompatActivity {
+public class BaseActivity_deprecated extends AppCompatActivity {
 
-    private static BaseActivity runningActivity;
+    private static BaseActivity_deprecated runningActivity;
 
     private BaseActivityHelper mHelper;
 
@@ -29,11 +29,11 @@ public class BaseActivity extends AppCompatActivity {
     }
 
 
-    public static BaseActivity getRunningActivity() {
+    public static BaseActivity_deprecated getRunningActivity() {
         return runningActivity;
     }
 
-    public static void setRunningActivity(BaseActivity activity) {
+    public static void setRunningActivity(BaseActivity_deprecated activity) {
         runningActivity = activity;
     }
 
@@ -70,24 +70,6 @@ public class BaseActivity extends AppCompatActivity {
         return -1;
     }
 
-//    @Override
-//    public void setContentView(View view) {
-//        super.setContentView(view, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
-//        InjectUtility.inject(this);
-//
-//    }
-//
-//    @Override
-//    public void setContentView(int layoutResID) {
-//        setContentView(View.inflate(this, layoutResID, null));
-//    }
-//
-//
-//    @Override
-//    public void setContentView(View view, ViewGroup.LayoutParams params) {
-//        super.setContentView(view, params);
-//        InjectUtility.inject(this);
-//    }
 
 
 }

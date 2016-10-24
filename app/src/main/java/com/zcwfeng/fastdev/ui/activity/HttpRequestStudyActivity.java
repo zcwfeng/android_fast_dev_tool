@@ -10,7 +10,7 @@ import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.zcwfeng.componentlibs.ui.basic.BaseActivity;
+import com.zcwfeng.componentlibs.ui.basic.BaseActivity_deprecated;
 import com.zcwfeng.fastdev.R;
 import com.zcwfeng.httplibs.retrofit.api.httpsapi.ApiService;
 import com.zcwfeng.httplibs.retrofit.api.response.GetIpInfoResponse;
@@ -26,7 +26,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
  * Created by zcw on 16/6/27.
  */
 
-public class HttpRequestStudyActivity extends BaseActivity {
+public class HttpRequestStudyActivity extends BaseActivity_deprecated {
     private static final String ENDPOINT = "http://ip.taobao.com";
     private TextView mTvContent;
     private ProgressBar mProgressBar;

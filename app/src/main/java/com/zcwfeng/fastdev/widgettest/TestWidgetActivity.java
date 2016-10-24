@@ -8,7 +8,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.zcwfeng.componentlibs.ui.basic.BaseActivity;
+import com.zcwfeng.componentlibs.ui.basic.BaseActivity_deprecated;
 import com.zcwfeng.fastdev.R;
 import com.zcwfeng.fastdev.ui.widget.CalendarView;
 
@@ -20,7 +20,7 @@ import java.util.Date;
  * Created by David.zhang on 16/1/19.
  * Description：
  */
-public class TestWidgetActivity extends BaseActivity {
+public class TestWidgetActivity extends BaseActivity_deprecated {
     public static void launch(Context from) {
         Intent intent = new Intent(from, TestWidgetActivity.class);
         from.startActivity(intent);

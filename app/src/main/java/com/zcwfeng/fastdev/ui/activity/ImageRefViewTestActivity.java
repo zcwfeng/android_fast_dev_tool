@@ -5,14 +5,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ImageView;
 
-import com.zcwfeng.componentlibs.ui.basic.BaseActivity;
+import com.zcwfeng.componentlibs.ui.basic.BaseActivity_deprecated;
 import com.zcwfeng.fastdev.R;
 
 /**
  * Created by zcw on 16/6/30.
  */
 
-public class ImageRefViewTestActivity extends BaseActivity {
+public class ImageRefViewTestActivity extends BaseActivity_deprecated {
 
 
     public static void launch(Context from){

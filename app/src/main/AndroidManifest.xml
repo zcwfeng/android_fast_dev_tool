@@ -10,16 +10,16 @@
     <uses-permission android:name="com.android.vending.BILLING" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
     <uses-permission android:name="android.permission.BLUETOOTH" />
+
     <application
         android:name=".basic.MyApplication"
         android:allowBackup="true"
-        android:icon="@drawable/ic_launcher"
+        android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <activity
-            android:name=".ScrollingActivity"
+            android:name=".ui.activity.SplashActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -28,6 +28,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".ui.activity.MainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.NewFutureApi24Activity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".sample_okhttp.OkhttpUtilsMainActivity"
             android:screenOrientation="portrait" />
@@ -58,36 +64,27 @@
         <activity
             android:name=".renderscript.RenderScriptTestActivity"
             android:screenOrientation="portrait" />
-
         <activity
             android:name=".renderscript.EditPictureActivity"
             android:screenOrientation="portrait" />
-
         <activity
             android:name=".binder.AIDLTestActivity"
             android:screenOrientation="portrait" />
-
         <activity
             android:name=".glide.GlideLibDemos"
-            android:screenOrientation="portrait">
-
-        </activity>
-
+            android:screenOrientation="portrait" />
         <activity
             android:name=".secure.skb.ExamplesRSA_DESActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".secure.skb.binding.ExamplesActivity"
             android:screenOrientation="portrait" />
-
         <activity
             android:name=".ui.activity.DampingScrollActivity"
             android:screenOrientation="portrait" />
-
         <activity
             android:name=".flyrefresh.FlyRefreshActivity"
             android:screenOrientation="portrait" />
-
         <activity
             android:name=".ui.activity.HttpRequestStudyActivity"
             android:screenOrientation="portrait" />
@@ -98,21 +95,18 @@
             android:name=".ui.activity.ImageRefViewTestActivity"
             android:screenOrientation="portrait" />
 
-        <service android:name="com.zcwfeng.fastdev.binder.AIDLTestService">
+        <service android:name=".binder.AIDLTestService">
             <intent-filter>
                 <action android:name="com.zcwfeng.fastdev.binder.AIDLTestService" />
             </intent-filter>
         </service>
-
-
         <service
             android:name=".service.MyIntentService"
             android:exported="false" />
         <service
             android:name=".service.MyService"
             android:enabled="true"
-            android:exported="true"/>
-
+            android:exported="true" />
 
         <!-- Enables the Android Pay API -->
         <meta-data
@@ -123,17 +117,16 @@
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
-        <!--Include the AdActivity configChanges and theme. -->
+        <!-- Include the AdActivity configChanges and theme. -->
         <activity
             android:name="com.google.android.gms.ads.AdActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
             android:theme="@android:style/Theme.Translucent" />
 
-        <!--应用内购买广告 -->
+        <!-- 应用内购买广告 -->
         <activity
             android:name="com.google.android.gms.ads.purchase.InAppPurchaseActivity"
             android:theme="@style/Theme.IAPTheme" />
-
 
         <service
             android:name=".service.RobMoney"
@@ -150,6 +143,10 @@
                 android:resource="@xml/accessibility" />
         </service>
         <!-- end -->
+        <activity
+            android:name=".ui.activity.BaseActivity"
+            android:label="@string/title_activity_base"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

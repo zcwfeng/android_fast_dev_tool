@@ -25,7 +25,7 @@ import android.util.Log;
 
 import com.cryptanium.skb.SecureData;
 import com.cryptanium.skb.provider.SkbProvider;
-import com.zcwfeng.componentlibs.ui.basic.BaseActivity;
+import com.zcwfeng.componentlibs.ui.basic.BaseActivity_deprecated;
 import com.zcwfeng.fastdev.R;
 import com.zcwfeng.fastdev.secure.skb.rsa.SKBRsa;
 import com.zcwfeng.fastdev.secure.test.TestUtils;
@@ -45,7 +45,7 @@ import javax.crypto.NoSuchPaddingException;
 /**
  * 测试加解密
  */
-public class ExamplesRSA_DESActivity extends BaseActivity
+public class ExamplesRSA_DESActivity extends BaseActivity_deprecated
 
 
 {

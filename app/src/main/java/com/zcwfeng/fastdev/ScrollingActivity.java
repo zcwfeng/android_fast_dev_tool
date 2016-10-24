@@ -20,7 +20,7 @@ import com.firebase.client.ValueEventListener;
 import com.zcwfeng.componentlibs.BaseApplication;
 import com.zcwfeng.componentlibs.surport.utils.AntiEmulator;
 import com.zcwfeng.componentlibs.surport.utils.SystemUtils;
-import com.zcwfeng.componentlibs.ui.basic.BaseActivity;
+import com.zcwfeng.componentlibs.ui.basic.BaseActivity_deprecated;
 import com.zcwfeng.fastdev.BindingData.MvvmDemoActivity;
 import com.zcwfeng.fastdev.MediaSample.MediaLibUseDemo;
 import com.zcwfeng.fastdev.binder.AIDLTestActivity;
@@ -40,7 +40,7 @@ import com.zcwfeng.fastdev.ui.activity.SlideHRecyclerViewTestActivity;
 import com.zcwfeng.fastdev.ui.activity.UserProfileActivity;
 import com.zcwfeng.fastdev.widgettest.TestWidgetActivity;
 
-public class ScrollingActivity extends BaseActivity{
+public class ScrollingActivity extends BaseActivity_deprecated {
 
     //自定义注解开发。
     @Override
@@ -57,7 +57,11 @@ public class ScrollingActivity extends BaseActivity{
 
         systemTest();
 
-        firebase();
+//        try {
+//            firebase();
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
 
     }
 

@@ -5,7 +5,7 @@ import android.view.Window;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.zcwfeng.componentlibs.ui.basic.BaseActivity;
+import com.zcwfeng.componentlibs.ui.basic.BaseActivity_deprecated;
 import com.zcwfeng.fastdev.R;
 import com.zcwfeng.fastdev.ui.widget.MyScrollView;
 
@@ -13,7 +13,7 @@ import com.zcwfeng.fastdev.ui.widget.MyScrollView;
  * Created by David.zhang on 16/5/19.
  * Description：
  */
-public class DampingScrollActivity extends BaseActivity implements MyScrollView.OnHeaderRefreshListener {
+public class DampingScrollActivity extends BaseActivity_deprecated implements MyScrollView.OnHeaderRefreshListener {
     private ImageView mBackgroundImageView = null;
     private MyScrollView mScrollView = null;
 

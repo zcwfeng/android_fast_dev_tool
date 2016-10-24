@@ -7,14 +7,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.GridView;
 
-import com.zcwfeng.componentlibs.ui.basic.BaseActivity;
+import com.zcwfeng.componentlibs.ui.basic.BaseActivity_deprecated;
 import com.zcwfeng.fastdev.R;
 
 /**
  * Created by David.zhang on 16/5/11.
  * Description：
  */
-public class GlideLibDemos extends BaseActivity implements View.OnClickListener{
+public class GlideLibDemos extends BaseActivity_deprecated implements View.OnClickListener{
 
     private View testSwitchLayout;
 

@@ -4,17 +4,16 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.MenuItem;
-import android.view.View;
 
 public class BaseActivityHelper {
 
-    private BaseActivity mActivity;
+    private BaseActivity_deprecated mActivity;
 
-    protected void bindActivity(BaseActivity activity) {
+    protected void bindActivity(BaseActivity_deprecated activity) {
         this.mActivity = activity;
     }
 
-    protected BaseActivity getActivity() {
+    protected BaseActivity_deprecated getActivity() {
         return mActivity;
     }
 
@@ -26,9 +25,6 @@ public class BaseActivityHelper {
 
     }
 
-    public View findViewById(int id) {
-        return mActivity.findViewById(id);
-    }
 
     protected void onStart() {
 
@@ -66,18 +62,6 @@ public class BaseActivityHelper {
 
     }
 
-    // 这三个方法暂不支持
-//    public void setContentView(int layoutResID) {
-//
-//    }
-//
-//    public void setContentView(View view) {
-//
-//    }
-//
-//    public void setContentView(View view, ViewGroup.LayoutParams params) {
-//
-//    }
 
     protected boolean onHomeClick() {
         return false;

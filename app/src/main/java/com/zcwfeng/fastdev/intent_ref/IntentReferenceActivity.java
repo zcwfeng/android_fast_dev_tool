@@ -8,7 +8,7 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.widget.Toast;
 
-import com.zcwfeng.componentlibs.ui.basic.BaseActivity;
+import com.zcwfeng.componentlibs.ui.basic.BaseActivity_deprecated;
 import com.zcwfeng.fastdev.R;
 
 import java.util.List;
@@ -17,7 +17,7 @@ import java.util.List;
  * Created by David.zhang on 16/3/9.
  * Description：
  */
-public class IntentReferenceActivity extends BaseActivity {
+public class IntentReferenceActivity extends BaseActivity_deprecated {
     public static void launch(Context from) {
         Intent intent = new Intent(from, IntentReferenceActivity.class);
         from.startActivity(intent);

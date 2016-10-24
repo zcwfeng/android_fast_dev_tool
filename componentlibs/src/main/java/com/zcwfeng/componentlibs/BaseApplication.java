@@ -1,11 +1,9 @@
 package com.zcwfeng.componentlibs;
 
 
-import android.app.Application;
+import android.support.multidex.MultiDexApplication;
 
 import com.zcwfeng.componentlibs.common.setting.SettingUtility;
-import com.zcwfeng.componentlibs.surport.utils.ActivityHelper;
-import com.zcwfeng.componentlibs.surport.utils.Logger;
 import com.zcwfeng.componentlibs.surport.utils.SdcardUtils;
 import com.zcwfeng.componentlibs.surport.utils.UIUtils;
 
@@ -25,7 +23,7 @@ import java.io.File;
  * Modified Content:
  * ==========================================
  */
-public class BaseApplication extends Application {
+public class BaseApplication extends MultiDexApplication {
     public static BaseApplication app;
 
     @Override
@@ -34,7 +32,7 @@ public class BaseApplication extends Application {
         app = this;
 
         // 初始化ActivityHelper
-        ActivityHelper.config(this);
+//        ActivityHelper.config(this);
 
         // 初始化设置
 //        SettingUtility.setSettingUtility();
@@ -42,7 +40,7 @@ public class BaseApplication extends Application {
         //
         UIUtils.initScreenWH();
 
-        Logger.DEBUG = SettingUtility.getBooleanSetting("debug");
+//        Logger.DEBUG = SettingUtility.getBooleanSetting("debug");
     }
 
     public static BaseApplication getInstance(){

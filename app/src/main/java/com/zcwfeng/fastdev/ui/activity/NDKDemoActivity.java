@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-import com.zcwfeng.componentlibs.ui.basic.BaseActivity;
+import com.zcwfeng.componentlibs.ui.basic.BaseActivity_deprecated;
 import com.zcwfeng.fastdev.R;
 import com.zcwfeng.fastdev.ndk.NdkJniUtils;
 
@@ -14,7 +14,7 @@ import com.zcwfeng.fastdev.ndk.NdkJniUtils;
  * Created by David.zhang on 16/4/26.
  * Description：
  */
-public class NDKDemoActivity extends BaseActivity {
+public class NDKDemoActivity extends BaseActivity_deprecated {
 
 
 

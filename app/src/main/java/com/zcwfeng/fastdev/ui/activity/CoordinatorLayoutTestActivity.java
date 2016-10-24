@@ -6,7 +6,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.ViewGroup;
 
-import com.zcwfeng.componentlibs.ui.basic.BaseActivity;
+import com.zcwfeng.componentlibs.ui.basic.BaseActivity_deprecated;
 import com.zcwfeng.fastdev.R;
 import com.zcwfeng.fastdev.ui.widget.coordinatorlayout.CustomSwipeRefreshLayout;
 
@@ -14,7 +14,7 @@ import com.zcwfeng.fastdev.ui.widget.coordinatorlayout.CustomSwipeRefreshLayout;
  * Created by David.zhang on 16/3/11.
  * Description：
  */
-public class CoordinatorLayoutTestActivity extends BaseActivity {
+public class CoordinatorLayoutTestActivity extends BaseActivity_deprecated {
     private CustomSwipeRefreshLayout refreshLayout;
     private RecyclerView mRecyclerView;
 

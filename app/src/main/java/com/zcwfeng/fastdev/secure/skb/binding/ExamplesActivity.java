@@ -22,9 +22,9 @@ import android.os.Bundle;
 import android.util.Log;
 
 import com.cryptanium.skb.SecureData;
-import com.zcwfeng.componentlibs.ui.basic.BaseActivity;
+import com.zcwfeng.componentlibs.ui.basic.BaseActivity_deprecated;
 
-public class ExamplesActivity extends BaseActivity
+public class ExamplesActivity extends BaseActivity_deprecated
 {
     
     public static final String TAG = "SkbJavaExamples";
