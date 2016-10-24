@@ -25,7 +25,7 @@ import rx.Observable;
  */
 public interface BaseApiService {
 
-    public static final String Base_URL = "http://ip.taobao.com/";
+    String Base_URL = "http://ip.taobao.com";
     /**
      *普通写法
      */

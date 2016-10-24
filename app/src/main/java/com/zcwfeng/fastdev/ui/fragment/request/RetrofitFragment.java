@@ -79,13 +79,14 @@ public class RetrofitFragment extends BaseFragment {
 
                     @Override
                     public void onError(ExceptionHandle.ResponeThrowable e) {
-                        Log.e("Lyk", e.code + " "+ e.message);
+                        Log.e("zcw", e.code + " "+ e.message);
                         Toast.makeText(getActivity(), e.message, Toast.LENGTH_LONG).show();
 
                     }
 
                     @Override
                     public void onNext(IpResult responseBody) {
+                        Log.e("zcw",responseBody.toString());
                         Toast.makeText(getActivity(), responseBody.toString(), Toast.LENGTH_LONG).show();
                     }
                 }, "21.22.11.33");
@@ -110,13 +111,14 @@ public class RetrofitFragment extends BaseFragment {
                             public void onError(ExceptionHandle.ResponeThrowable e) {
 
 
-                                Log.e("Lyk", e.getMessage());
+                                Log.e("zcw", e.getMessage());
                                 Toast.makeText(getActivity(), e.getMessage(), Toast.LENGTH_LONG).show();
 
                             }
 
                             @Override
                             public void onNext(IpResult responseBody) {
+                                Log.e("zcw",responseBody.toString());
 
                                 Toast.makeText(getActivity(), responseBody.toString(), Toast.LENGTH_LONG).show();
                             }
@@ -138,13 +140,15 @@ public class RetrofitFragment extends BaseFragment {
 
                             @Override
                             public void onError(ExceptionHandle.ResponeThrowable e) {
-                                Log.e("Lyk", e.getMessage());
+                                Log.e("zcw", e.getMessage());
                                 Toast.makeText(getActivity(), e.getMessage(), Toast.LENGTH_LONG).show();
 
                             }
 
                             @Override
                             public void onNext(ResponseBody responseBody) {
+                                Log.e("zcw",responseBody.toString());
+
                                 Toast.makeText(getActivity(), responseBody.toString(), Toast.LENGTH_LONG).show();
                             }
                         });

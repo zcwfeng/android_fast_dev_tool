@@ -4,7 +4,6 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
 
-import com.zcwfeng.fastdev.ui.fragment.request.demo2.DownLoadManager;
 import com.zcwfeng.fastdev.ui.fragment.request.demo2.IpResult;
 
 import java.io.File;

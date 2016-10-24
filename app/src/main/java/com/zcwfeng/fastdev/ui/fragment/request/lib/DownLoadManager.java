@@ -1,11 +1,9 @@
-package com.zcwfeng.fastdev.ui.fragment.request.demo2;
+package com.zcwfeng.fastdev.ui.fragment.request.lib;
 
 import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
-
-import com.zcwfeng.fastdev.ui.fragment.request.lib.CallBack;
 
 import java.io.File;
 import java.io.FileOutputStream;
