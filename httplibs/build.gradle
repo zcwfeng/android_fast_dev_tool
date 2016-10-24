@@ -35,6 +35,10 @@ dependencies {
     // Retrofit & OkHttp
     compile 'com.squareup.retrofit2:retrofit:2.1.0'
     compile 'com.squareup.retrofit2:converter-gson:2.1.0'
+    // setho
+    compile 'com.facebook.stetho:stetho:1.3.1'
+    compile 'com.facebook.stetho:stetho-okhttp3:1.3.1'
+    compile 'com.squareup.okhttp3:logging-interceptor:3.3.1'
 
 
     compile project(path: ':componentlibs')

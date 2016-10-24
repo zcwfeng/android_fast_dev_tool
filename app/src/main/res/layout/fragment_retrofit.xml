@@ -4,4 +4,46 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <Button
+        android:id="@+id/bt_getdata"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="getIP" />
+
+    <Button
+        android:id="@+id/bt_get"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="GET" />
+
+    <Button
+        android:id="@+id/bt_post"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="POST" />
+
+    <Button
+        android:id="@+id/bt_upload"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="UP_LOAD" />
+
+    <Button
+        android:id="@+id/bt_download"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="DOWN_LOAD" />
+
+    <Button
+        android:id="@+id/bt_my_api"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="execute MyApi1" />
+
+    <Button
+        android:id="@+id/bt_changeHostApi"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="execute MyApi2" />
+
 </LinearLayout>
