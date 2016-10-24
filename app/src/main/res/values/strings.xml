@@ -104,4 +104,12 @@
     <string name="desc">WebChat Get RedMoney</string>
     <string name="title_activity_base">BaseActivity</string>
 
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string-array name="lib_index">
+        <item>网络请求</item>
+        <item>图片库</item>
+    </string-array>
+
 </resources>

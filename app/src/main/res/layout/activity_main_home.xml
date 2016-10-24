@@ -36,28 +36,28 @@
 
 
             <ImageView
-                android:id="@+id/itinerary_icon"
+                android:id="@+id/chat_icon"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:padding="5dp"
-                android:src="@drawable/main_selecter" />
+                android:src="@drawable/main_2_selecter" />
 
             <ImageView
-                android:id="@+id/channel_icon"
+                android:id="@+id/video_icon"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:padding="5dp"
-                android:src="@drawable/main_selecter" />
+                android:src="@drawable/main_3_selecter" />
 
             <ImageView
-                android:id="@+id/activitiy_icon"
+                android:id="@+id/component_icon"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:padding="5dp"
-                android:src="@drawable/main_selecter" />
+                android:src="@drawable/main_4_selecter" />
         </LinearLayout>
     </LinearLayout>
 </RelativeLayout>

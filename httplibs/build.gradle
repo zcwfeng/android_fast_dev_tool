@@ -26,11 +26,15 @@ dependencies {
 
     compile 'io.reactivex:rxjava:1.1.0'//Rx的包
     compile 'io.reactivex:rxandroid:1.1.0'//Rx的包
-    compile 'com.squareup.retrofit2:retrofit:2.0.0-beta4'//Retrofit2所需要的包
-    compile 'com.squareup.retrofit2:converter-gson:2.0.0-beta4'//ConverterFactory的Gson依赖包
+//    compile 'com.squareup.retrofit2:retrofit:2.0.0-beta4'//Retrofit2所需要的包
+//    compile 'com.squareup.retrofit2:converter-gson:2.0.0-beta4'//ConverterFactory的Gson依赖包
     compile 'com.squareup.retrofit2:adapter-rxjava:2.0.0-beta4'//CallAdapterFactory的Rx依赖包
     compile 'com.squareup.retrofit2:converter-scalars:2.0.0-beta4'//ConverterFactory的String依赖包
     compile 'com.google.code.gson:gson:2.6.2'//Gosn解析包
+
+    // Retrofit & OkHttp
+    compile 'com.squareup.retrofit2:retrofit:2.1.0'
+    compile 'com.squareup.retrofit2:converter-gson:2.1.0'
 
 
     compile project(path: ':componentlibs')

@@ -6,17 +6,11 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
-import com.firebase.client.AuthData;
-import com.firebase.client.DataSnapshot;
-import com.firebase.client.Firebase;
-import com.firebase.client.FirebaseError;
-import com.firebase.client.ValueEventListener;
 import com.zcwfeng.componentlibs.BaseApplication;
 import com.zcwfeng.componentlibs.surport.utils.AntiEmulator;
 import com.zcwfeng.componentlibs.surport.utils.SystemUtils;
@@ -65,42 +59,6 @@ public class ScrollingActivity extends BaseActivity_deprecated {
 
     }
 
-    private void firebase() {
-
-        Firebase myFirebaseRef = new Firebase("https://zcwblog.firebaseio.com/");
-        myFirebaseRef.child("message").setValue("Do you have data? You'll love Firebase.");
-        myFirebaseRef.child("message").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot snapshot) {
-                System.out.println(snapshot.getValue());  //prints "Do you have data? You'll love Firebase."
-            }
-            @Override public void onCancelled(FirebaseError error) { }
-        });
-
-
-//        myFirebaseRef.createUser("zcwfeng@google.com", "qwly_2001_Google", new Firebase.ValueResultHandler<Map<String, Object>>() {
-//            @Override
-//            public void onSuccess(Map<String, Object> result) {
-//                System.out.println("Successfully created user account with uid: " + result.get("uid"));
-//            }
-//            @Override
-//            public void onError(FirebaseError firebaseError) {
-//                // there was an error
-//            }
-//        });
-
-        myFirebaseRef.authWithPassword("zcwfeng@google.com", "qwly_2001_Google", new Firebase.AuthResultHandler() {
-            @Override
-            public void onAuthenticated(AuthData authData) {
-                System.out.println("User ID: " + authData.getUid() + ", Provider: " + authData.getProvider());
-            }
-            @Override
-            public void onAuthenticationError(FirebaseError firebaseError) {
-                // there was an error
-                Log.e("firebase",firebaseError.getDetails());
-            }
-        });
-    }
 
     private void systemTest() {
         if (SystemUtils.isEmulator(this)) {

@@ -42,9 +42,9 @@
     </style>
 
     <style name="splite_style">
-        <item name="android:width">match_parent</item>
+        <item name="android:layout_width">match_parent</item>
         <item name="android:background">@color/eaeaea</item>
-        <item name="android:height">1px</item>
+        <item name="android:layout_height">1px</item>
     </style>
 
     <declare-styleable name="PullHeaderLayout">

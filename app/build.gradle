@@ -71,16 +71,7 @@ dependencies {
     compile project(':glidlibrary')
     compile "com.android.support:recyclerview-v7:$rootProject.ext.supportLibraryVersion"
     compile "com.android.support:appcompat-v7:$rootProject.ext.supportLibraryVersion"
-    compile 'com.android.support:design:23.1.1'
-    compile 'com.google.code.gson:gson:2.4'
-    compile 'com.facebook.fresco:fresco:0.8.1'
-    compile 'jp.wasabeef:recyclerview-animators:2.2.3'
-    compile 'com.yinyuetai.android.lib:video_player:1.1.15'
-    compile 'com.firebase:firebase-client-android:2.5.2+'
-    compile 'com.google.firebase:firebase-core:9.0.0'
-    compile 'com.google.firebase:firebase-ads:9.0.0'
-    compile 'com.google.firebase:firebase-crash:9.0.0'
-//    testCompile 'org.assertj:assertj-core:3.3.0'
+    //    testCompile 'org.assertj:assertj-core:3.3.0'
 //    testCompile "junit:junit:$rootProject.ext.junitVersion"
 //    testCompile "org.mockito:mockito-all:$rootProject.ext.mockitoVersion"
 //    testCompile "org.hamcrest:hamcrest-all:$rootProject.ext.hamcrestVersion"
@@ -100,6 +91,17 @@ dependencies {
 //    androidTestCompile "com.android.support:support-annotations:$rootProject.supportLibraryVersion"
 //    androidTestCompile "com.android.support:support-v4:$rootProject.supportLibraryVersion"
 //    androidTestCompile "com.android.support:recyclerview-v7:$rootProject.supportLibraryVersion"
+    compile 'com.android.support:design:23.4.0'
+    compile 'com.google.code.gson:gson:2.4'
+    compile 'com.facebook.fresco:fresco:0.8.1'
+    compile 'jp.wasabeef:recyclerview-animators:2.2.3'
+    compile 'com.yinyuetai.android.lib:video_player:1.1.15'
+//    compile 'com.firebase:firebase-client-android:2.5.2.+'
+    compile 'com.google.firebase:firebase-core:9.0.0'
+    compile 'com.google.firebase:firebase-ads:9.0.0'
+    compile 'com.google.firebase:firebase-crash:9.0.0'
+    compile 'com.android.support:support-v4:23.4.0'
+    compile 'com.android.support:recyclerview-v7:23.4.0'
 }
 
 apply plugin: 'com.google.gms.google-services'

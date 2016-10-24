@@ -32,6 +32,9 @@
             android:name=".ui.activity.MainActivity"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".ScrollingActivity"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".ui.activity.NewFutureApi24Activity"
             android:screenOrientation="portrait" />
         <activity
@@ -147,6 +150,7 @@
             android:name=".ui.activity.BaseActivity"
             android:label="@string/title_activity_base"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".ui.activity.RequestActivity"></activity>
     </application>
 
 </manifest>
