@@ -7,21 +7,21 @@ import android.support.v4.view.ViewPager;
 import com.zcwfeng.fastdev.R;
 import com.zcwfeng.fastdev.ui.adapter.MyViewPagerAdapter;
 import com.zcwfeng.fastdev.ui.fragment.BaseFragment;
-import com.zcwfeng.fastdev.ui.fragment.request.OkHttpFragment;
-import com.zcwfeng.fastdev.ui.fragment.request.RetrofitFragment;
+import com.zcwfeng.fastdev.ui.fragment.image.FrescoFragment;
+import com.zcwfeng.fastdev.ui.fragment.image.GlideFragment;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.WeakHashMap;
 
-public class RequestActivity extends BaseActivity {
+public class ImageLibActivity extends BaseActivity {
     private TabLayout mTabTitle;
     private ViewPager mViewPager;
     private MyViewPagerAdapter mAdapter;
     private List<String> mListTitle;//tab名称列表
     private WeakHashMap<String, BaseFragment> mListFragments;
-    private RetrofitFragment mRetrofitFrgment;
-    private OkHttpFragment mOkHttpFragment;
+    private GlideFragment mGlideFragment;
+    private FrescoFragment mFrescoFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,13 +33,13 @@ public class RequestActivity extends BaseActivity {
 
     private void initViews() {
         mListTitle = new ArrayList<>();
-        mListTitle.add("Retrofit");
-        mListTitle.add("Okhttp");
-        mRetrofitFrgment = RetrofitFragment.newInstance();
-        mOkHttpFragment = OkHttpFragment.newInstance().newInstance();
+        mListTitle.add("Glide");
+        mListTitle.add("Fresco");
+        mGlideFragment = GlideFragment.newInstance();
+        mFrescoFragment = FrescoFragment.newInstance();
         mListFragments = new WeakHashMap<>();
-        mListFragments.put(mListTitle.get(0), mRetrofitFrgment);
-        mListFragments.put(mListTitle.get(1), mOkHttpFragment);
+        mListFragments.put(mListTitle.get(0), mGlideFragment);
+        mListFragments.put(mListTitle.get(1), mFrescoFragment);
         mTabTitle = (TabLayout) findViewById(R.id.sliding_tabs);
         mAdapter = new MyViewPagerAdapter(getSupportFragmentManager(), mListFragments, mListTitle);
         mViewPager = (ViewPager) findViewById(R.id.retrofit_viewpager);

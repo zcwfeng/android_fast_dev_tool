@@ -1,4 +1,4 @@
-package com.zcwfeng.fastdev.ui.fragment.retrofit;
+package com.zcwfeng.fastdev.ui.fragment.image;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -13,15 +13,15 @@ import com.zcwfeng.fastdev.ui.fragment.BaseFragment;
  * Created by David.zhang on 2016/10/24.
  * Description：
  */
-public class RetrofitFragment extends BaseFragment {
+public class GlideFragment extends BaseFragment {
 
     private View rootView;
 
-    public static RetrofitFragment newInstance() {
+    public static GlideFragment newInstance() {
 
         Bundle args = new Bundle();
 
-        RetrofitFragment fragment = new RetrofitFragment();
+        GlideFragment fragment = new GlideFragment();
         fragment.setArguments(args);
         return fragment;
     }
@@ -29,7 +29,7 @@ public class RetrofitFragment extends BaseFragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        rootView = inflater.inflate(R.layout.fragment_retrofit, container, false);
+        rootView = inflater.inflate(R.layout.fragment_okhttp, container, false);
         return rootView;
     }
 }

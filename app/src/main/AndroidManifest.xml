@@ -32,6 +32,9 @@
             android:name=".ui.activity.MainActivity"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".ui.activity.ImageLibActivity"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".ScrollingActivity"
             android:screenOrientation="portrait" />
         <activity

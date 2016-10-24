@@ -126,6 +126,7 @@ public class MainActivity extends BaseActivity implements HomeFragment.OnListFra
                 BaseActivity.launch(MainActivity.this,RequestActivity.class);
                 break;
             case "2":
+                BaseActivity.launch(MainActivity.this,ImageLibActivity.class);
                 break;
         }
     }
