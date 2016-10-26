@@ -135,7 +135,6 @@ public class RetrofitClient {
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .baseUrl(url)
                 .build();
-
     }
 
    /**

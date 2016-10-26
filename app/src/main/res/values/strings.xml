@@ -112,4 +112,13 @@
         <item>图片库</item>
     </string-array>
 
+    <string name="glide_single_img_url">http://img4.c.yinyuetai.com/others/admin/161024/0/-M-b2dbb69766cfa7624547b9fe2d18822a_0x0.jpg</string>
+    <string name="glide_single_img_gif_url">http://img.cdn.gn00.com/forum/201506/05/180503wcobzzrobbtp5xpv.gif</string>
+    <string name="glide_single_img_uri_url">http://pic.4j4j.cn/upload/pic/20130815/31e652fe2d.jpg</string>
+
+
+
+    <string name="demo_video_path">/storage/emulated/0/Pictures/mv.mp4</string>
+
+
 </resources>
