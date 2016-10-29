@@ -1,26 +1,41 @@
 package com.zcwfeng.fastdev.ui.fragment.image;
 
+import android.app.Notification;
+import android.app.NotificationManager;
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v7.app.NotificationCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RemoteViews;
 
+import com.bumptech.glide.DrawableRequestBuilder;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.Priority;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.load.resource.drawable.GlideDrawable;
+import com.bumptech.glide.request.RequestListener;
+import com.bumptech.glide.request.animation.GlideAnimation;
+import com.bumptech.glide.request.target.NotificationTarget;
+import com.bumptech.glide.request.target.SimpleTarget;
+import com.bumptech.glide.request.target.Target;
+import com.bumptech.glide.request.target.ViewTarget;
 import com.zcwfeng.fastdev.R;
 import com.zcwfeng.fastdev.ui.fragment.BaseFragment;
+import com.zcwfeng.fastdev.ui.fragment.image.glide.FutureStudioView;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Random;
 
 /**
  * Created by David.zhang on 2016/10/24.
@@ -34,8 +49,14 @@ public class GlideFragment extends BaseFragment {
     private ImageView mImageView3;
     private ImageView mImageView4;
     private ImageView mImageView5;
+    private ImageView mImageView6;
+    private ImageView mImageView7;
+    private ImageView mImageView8;
     private ImageView mImageViewVideo;
     private ImageView mImageViewFile;
+    private ImageView mImageViewDebuging;
+
+    private NotificationTarget notificationTarget;
 
     public static GlideFragment newInstance() {
 
@@ -61,6 +82,11 @@ public class GlideFragment extends BaseFragment {
         mImageView3 = (ImageView) rootView.findViewById(R.id.list_item_bg3);
         mImageView4 = (ImageView) rootView.findViewById(R.id.list_item_bg_4);
         mImageView5 = (ImageView) rootView.findViewById(R.id.list_item_bg_5);
+        mImageView6 = (ImageView) rootView.findViewById(R.id.list_item_bg_6);
+        mImageView7 = (ImageView) rootView.findViewById(R.id.list_item_bg_7);
+        mImageView8 = (ImageView) rootView.findViewById(R.id.list_item_bg_8);
+        mImageViewDebuging = (ImageView) rootView.findViewById(R.id.list_item_bg_debuging);
+
         mImageViewVideo = (ImageView) rootView.findViewById(R.id.list_item_bg_video);
 
 
@@ -118,11 +144,94 @@ public class GlideFragment extends BaseFragment {
                 .skipMemoryCache(true)
                 .priority(Priority.LOW)
                 .into(mImageViewVideo);
+
+
+        // thumbnail
+        loadImageThumbnailRequest();
+
+        // simple target
+        loadImageSimpleTarget();
+        loadImageSimpleTargetApplicationContext();
+        loadImageViewTarget();
+
+        // NotificationTarget
+        notifyTarget();
+
+        glideDebugingTest();
+    }
+
+    private void loadImageThumbnailRequest() {
+        // setup Glide request without the into() method
+        DrawableRequestBuilder<String> thumbnailRequest = Glide
+                .with(getActivity().getApplicationContext())
+                .load(getResources().getString(R.string.glide_thumbnail_url));
+
+        // pass the request as a a parameter to the thumbnail request
+        Glide
+                .with(getActivity().getApplicationContext())
+                .load(getResources().getString(R.string.glide_single_img_url))
+//                .thumbnail(thumbnailRequest)
+                .thumbnail(0.5f)
+                .into(mImageView6);
     }
 
 
+    private SimpleTarget target = new SimpleTarget<Bitmap>() {
+        @Override
+        public void onResourceReady(Bitmap bitmap, GlideAnimation glideAnimation) {
+            // do something with the bitmap
+            // for demonstration purposes, let's just set it to an ImageView
+            mImageView7.setImageBitmap(bitmap);
+        }
+    };
+
+    private void loadImageSimpleTarget() {
+        Glide
+                .with(getActivity().getApplicationContext()) // could be an issue!
+                .load(getResources().getString(R.string.glide_target_url_1))
+                .asBitmap()
+                .into(target);
+    }
+
+    private void glideDebugingTest() {
+        Glide.with(getActivity().getApplicationContext()).load(getResources().getString(R.string.glide_single_img_debug_url))
+                .listener(requestListener)
+                .error(R.drawable.bg)
+                .into(mImageViewDebuging);
+    }
 
 
+    private SimpleTarget target2 = new SimpleTarget<Bitmap>(250, 250) {
+        @Override
+        public void onResourceReady(Bitmap bitmap, GlideAnimation glideAnimation) {
+            mImageView8.setImageBitmap(bitmap);
+        }
+    };
+
+    private void loadImageSimpleTargetApplicationContext() {
+        Glide
+                .with(getActivity().getApplicationContext()) // safer!
+                .load(getResources().getString(R.string.glide_target_url_2))
+                .asBitmap()
+                .into(target2);
+    }
+
+
+    private void loadImageViewTarget() {
+        FutureStudioView customView = (FutureStudioView) rootView.findViewById(R.id.custom_view);
+
+        ViewTarget viewTarget = new ViewTarget<FutureStudioView, GlideDrawable>(customView) {
+            @Override
+            public void onResourceReady(GlideDrawable resource, GlideAnimation<? super GlideDrawable> glideAnimation) {
+                this.view.setImage(resource.getCurrent());
+            }
+        };
+
+        Glide
+                .with(getActivity().getApplicationContext()) // safer!
+                .load(getResources().getString(R.string.glide_target_url_3))
+                .into(viewTarget);
+    }
 
 
 //    public class IntegerVersionSignature implements Key {
@@ -182,6 +291,67 @@ public class GlideFragment extends BaseFragment {
         return cacheFile.getAbsolutePath();
     }
 
+
+    private void notifyTarget() {
+        final RemoteViews rv = new RemoteViews(getActivity().getPackageName(), R.layout.remoteview_notification);
+
+        rv.setImageViewResource(R.id.remoteview_notification_icon, R.mipmap.ic_launcher);
+
+        rv.setTextViewText(R.id.remoteview_notification_headline, "Headline");
+        rv.setTextViewText(R.id.remoteview_notification_short_message, "Short Message");
+
+        // build notification
+        NotificationCompat.Builder mBuilder =
+                (NotificationCompat.Builder) new NotificationCompat.Builder(getActivity())
+                        .setSmallIcon(R.mipmap.ic_launcher)
+                        .setContentTitle("Content Title")
+                        .setContentText("Content Text")
+                        .setContent(rv)
+                        .setPriority(NotificationCompat.PRIORITY_MIN);
+        final Notification notification = mBuilder.build();
+
+
+// set big content view for newer androids
+        if (android.os.Build.VERSION.SDK_INT >= 16) {
+            notification.bigContentView = rv;
+        }
+
+
+        int NOTIFICATION_ID = new Random().nextInt();
+
+        NotificationManager mNotificationManager = (NotificationManager) getActivity().getSystemService(Context.NOTIFICATION_SERVICE);
+        mNotificationManager.notify(NOTIFICATION_ID, notification);
+
+
+        notificationTarget = new NotificationTarget(
+                getActivity(),
+                rv,
+                R.id.remoteview_notification_icon,
+                notification,
+                NOTIFICATION_ID);
+
+        Glide
+                .with(getActivity().getApplicationContext()) // safer!
+                .load(getResources().getString(R.string.glide_target_url_3))
+                .asBitmap()
+                .into(notificationTarget);
+    }
+
+
+    private RequestListener<String, GlideDrawable> requestListener = new RequestListener<String, GlideDrawable>() {
+        @Override
+        public boolean onException(Exception e, String model, Target<GlideDrawable> target, boolean isFirstResource) {
+            // todo log exception
+
+            // important to return false so the error placeholder can be placed
+            return false;
+        }
+
+        @Override
+        public boolean onResourceReady(GlideDrawable resource, String model, Target<GlideDrawable> target, boolean isFromMemoryCache, boolean isFirstResource) {
+            return false;
+        }
+    };
 
     public static final String ANDROID_RESOURCE = "android.resource://";
     public static final String FOREWARD_SLASH = "/";

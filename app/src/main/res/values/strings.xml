@@ -110,12 +110,18 @@
     <string-array name="lib_index">
         <item>网络请求</item>
         <item>图片库</item>
+        <item>数据库</item>
     </string-array>
 
+    <string name="glide_single_img_debug_url">http://f.hiphotos.baidu.com/image/pic/item/7af40ad162d9f2d39a1046e1abec8a136327ccbf.jpg</string>
     <string name="glide_single_img_url">http://img4.c.yinyuetai.com/others/admin/161024/0/-M-b2dbb69766cfa7624547b9fe2d18822a_0x0.jpg</string>
+    <string name="glide_thumbnail_url">http://img2.3lian.com/2014/f4/102/d/91.jpg</string>
     <string name="glide_single_img_gif_url">http://img.cdn.gn00.com/forum/201506/05/180503wcobzzrobbtp5xpv.gif</string>
     <string name="glide_single_img_uri_url">http://pic.4j4j.cn/upload/pic/20130815/31e652fe2d.jpg</string>
-
+    <string name="glide_single_img_url_2">http://image.tianjimedia.com/uploadImages/2015/085/30/PWM888SB76FY_1000x500.jpg</string>
+    <string name="glide_target_url_1">http://h.hiphotos.baidu.com/image/pic/item/a2cc7cd98d1001e9460fd63bbd0e7bec54e797d7.jpg</string>
+    <string name="glide_target_url_2">http://d.hiphotos.baidu.com/image/pic/item/962bd40735fae6cd908368650db30f2442a70ffb.jpg</string>
+    <string name="glide_target_url_3">http://a.hiphotos.baidu.com/image/pic/item/8326cffc1e178a82a16fa2a9f403738da977e86c.jpg</string>
 
 
     <string name="demo_video_path">/storage/emulated/0/Pictures/mv.mp4</string>

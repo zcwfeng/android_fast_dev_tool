@@ -21,6 +21,7 @@
         <activity
             android:name=".ui.activity.SplashActivity"
             android:label="@string/app_name"
+            android:launchMode="standard"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -153,7 +154,16 @@
             android:name=".ui.activity.BaseActivity"
             android:label="@string/title_activity_base"
             android:theme="@style/AppTheme.NoActionBar" />
+
         <activity android:name=".ui.activity.RequestActivity"></activity>
+
+        <receiver android:name=".ui.fragment.image.glide.FSAppWidgetProvider">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"></action>
+            </intent-filter>
+        </receiver>
+
     </application>
+
 
 </manifest>

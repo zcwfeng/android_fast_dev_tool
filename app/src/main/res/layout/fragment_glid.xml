@@ -18,6 +18,55 @@
                 android:layout_height="200dp">
 
                 <ImageView
+                    android:id="@+id/list_item_bg_debuging"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop" />
+            </RelativeLayout>
+
+
+            <com.zcwfeng.fastdev.ui.fragment.image.glide.FutureStudioView
+                android:id="@+id/custom_view"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp">
+
+                <ImageView
+                    android:id="@+id/list_item_bg_8"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp">
+
+                <ImageView
+                    android:id="@+id/list_item_bg_7"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop" />
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp">
+
+                <ImageView
+                    android:id="@+id/list_item_bg_6"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp">
+
+                <ImageView
                     android:id="@+id/list_item_bg"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -89,6 +138,8 @@
                     android:layout_height="match_parent"
                     android:scaleType="centerCrop" />
             </RelativeLayout>
+
+
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>
 </LinearLayout>
