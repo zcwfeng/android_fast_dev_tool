@@ -125,6 +125,7 @@
     <string name="glide_transmation_url_1">http://e.hiphotos.baidu.com/image/pic/item/29381f30e924b8995d7368d66a061d950b7bf695.jpg</string>
     <string name="glide_transmation_url_2">http://f.hiphotos.baidu.com/image/pic/item/5ab5c9ea15ce36d358d27ee43ef33a87e850b114.jpg</string>
     <string name="glide_transmation_url_3">http://a.hiphotos.baidu.com/image/pic/item/e7cd7b899e510fb3a78c787fdd33c895d0430c44.jpg</string>
+    <string name="glide_transmation_url_anim">http://img.51ztzj.com/upload/image/20160123/201601235_670x419.jpg</string>
 
 
     <string name="demo_video_path">/storage/emulated/0/Pictures/mv.mp4</string>

@@ -1,5 +1,6 @@
 package com.zcwfeng.fastdev.ui.fragment.image;
 
+import android.animation.ObjectAnimator;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.content.Context;
@@ -24,6 +25,7 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.load.resource.drawable.GlideDrawable;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.animation.GlideAnimation;
+import com.bumptech.glide.request.animation.ViewPropertyAnimation;
 import com.bumptech.glide.request.target.NotificationTarget;
 import com.bumptech.glide.request.target.SimpleTarget;
 import com.bumptech.glide.request.target.Target;
@@ -65,6 +67,7 @@ public class GlideFragment extends BaseFragment {
     private ImageView mImageViewTransmation;
     private ImageView mImageViewTransmation2;
     private ImageView mImageViewTransmation3;
+    private ImageView mImageViewAnim;
 
     private NotificationTarget notificationTarget;
 
@@ -100,6 +103,7 @@ public class GlideFragment extends BaseFragment {
         mImageViewTransmation = (ImageView) rootView.findViewById(R.id.list_item_bg_transformation1);
         mImageViewTransmation2 = (ImageView) rootView.findViewById(R.id.list_item_bg_transformation2);
         mImageViewTransmation3 = (ImageView) rootView.findViewById(R.id.list_item_bg_transformation3);
+        mImageViewAnim = (ImageView) rootView.findViewById(R.id.list_item_bg_anim);
 
 
         with(getContext().getApplicationContext()).load(getResources().getString(R.string.glide_single_img_url))
@@ -110,20 +114,20 @@ public class GlideFragment extends BaseFragment {
                 .into(mImageView);
         with(getContext().getApplicationContext()).load(R.drawable.bg).into(mImageView2);
 
-
+        // load file
         File file = new File(Environment.getExternalStorageDirectory(), "duola.jpeg");
-//        File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES), "duola.jpeg");
-//        File file = new File(getAssetsCacheFile(getActivity()));
+        //File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES), "duola.jpeg");
+        // File file = new File(getAssetsCacheFile(getActivity()));
         with(getActivity().getApplicationContext()).load(file)
                 .placeholder(getResources().getDrawable(R.mipmap.demo_mn))
                 .error(getResources().getDrawable(R.drawable.biz_video_list_play_icon_big))
                 .into(mImageViewFile);
 
 
-        // this could be any Uri. for demonstration purposes we're just creating an Uri pointing to a launcher icon
-//        Uri uri = resourceIdToUri(getActivity(), R.mipmap.ic_launcher);
+        // load uri
+        // Uri uri = resourceIdToUri(getActivity(), R.mipmap.ic_launcher);
         Uri uri = Uri.parse(getResources().getString(R.string.glide_single_img_uri_url));
-//      override 和crossFade放一块,最好加上dontAnimate
+        // override 和crossFade放一块,最好加上dontAnimate
         with(getActivity().getApplicationContext()).load(uri)
 //                .crossFade(2000)
                 .dontAnimate()
@@ -185,23 +189,52 @@ public class GlideFragment extends BaseFragment {
                 .into(mImageViewTransmation2);
 
         // Usage of Glide Transformations
-        Glide.with(getActivity().getApplicationContext())
+        with(getActivity().getApplicationContext())
                 .load(getResources().getString(R.string.glide_transmation_url_3))
                 .bitmapTransform(new jp.wasabeef.glide.transformations.BlurTransformation(getActivity(), 25))
                 .into(mImageViewTransmation3);
+
+        // animation
+//        Animation anim = AnimationUtils.loadAnimation(getContext(), R.anim.animation_small_enlarge);
+//        Glide.with(getActivity().getApplicationContext())
+//                .load(getResources().getString(R.string.glide_transmation_url_anim))
+//                .animate(anim) // or R.anim.zoom_in
+//                .into(mImageViewAnim);
+
+        Glide
+                .with(getActivity().getApplicationContext())
+                .load(getResources().getString(R.string.glide_transmation_url_anim))
+                .animate(animationObject)
+                .into(mImageViewAnim);
+
     }
+
+
+    ViewPropertyAnimation.Animator animationObject = new ViewPropertyAnimation.Animator() {
+        @Override
+        public void animate(View view) {
+            // if it's a custom view class, cast it here
+            // then find subviews and do the animations
+            // here, we just use the entire view for the fade animation
+            view.setAlpha(0f);
+
+            ObjectAnimator fadeAnim = ObjectAnimator.ofFloat(view, "alpha", 0f, 1f);
+            fadeAnim.setDuration(2500);
+            fadeAnim.start();
+        }
+    };
 
     private void loadImageThumbnailRequest() {
         // setup Glide request without the into() method
         DrawableRequestBuilder<String> thumbnailRequest =
-                with(getActivity().getApplicationContext())
-                .load(getResources().getString(R.string.glide_thumbnail_url));
+                Glide.with(getActivity().getApplicationContext())
+                        .load(getResources().getString(R.string.glide_thumbnail_url));
 
         // pass the request as a a parameter to the thumbnail request
-        with(getActivity().getApplicationContext())
+        Glide.with(getActivity().getApplicationContext())
                 .load(getResources().getString(R.string.glide_single_img_url))
-//                .thumbnail(thumbnailRequest)
-                .thumbnail(0.5f)
+                .thumbnail(thumbnailRequest)
+//                .thumbnail(0.5f)
                 .into(mImageView6);
     }
 
@@ -338,7 +371,7 @@ public class GlideFragment extends BaseFragment {
         final Notification notification = mBuilder.build();
 
 
-// set big content view for newer androids
+        // set big content view for newer androids
         if (android.os.Build.VERSION.SDK_INT >= 16) {
             notification.bigContentView = rv;
         }
