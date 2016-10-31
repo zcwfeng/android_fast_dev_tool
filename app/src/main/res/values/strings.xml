@@ -122,6 +122,9 @@
     <string name="glide_target_url_1">http://h.hiphotos.baidu.com/image/pic/item/a2cc7cd98d1001e9460fd63bbd0e7bec54e797d7.jpg</string>
     <string name="glide_target_url_2">http://d.hiphotos.baidu.com/image/pic/item/962bd40735fae6cd908368650db30f2442a70ffb.jpg</string>
     <string name="glide_target_url_3">http://a.hiphotos.baidu.com/image/pic/item/8326cffc1e178a82a16fa2a9f403738da977e86c.jpg</string>
+    <string name="glide_transmation_url_1">http://e.hiphotos.baidu.com/image/pic/item/29381f30e924b8995d7368d66a061d950b7bf695.jpg</string>
+    <string name="glide_transmation_url_2">http://f.hiphotos.baidu.com/image/pic/item/5ab5c9ea15ce36d358d27ee43ef33a87e850b114.jpg</string>
+    <string name="glide_transmation_url_3">http://a.hiphotos.baidu.com/image/pic/item/e7cd7b899e510fb3a78c787fdd33c895d0430c44.jpg</string>
 
 
     <string name="demo_video_path">/storage/emulated/0/Pictures/mv.mp4</string>

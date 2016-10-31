@@ -19,6 +19,7 @@ import android.widget.RemoteViews;
 import com.bumptech.glide.DrawableRequestBuilder;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.Priority;
+import com.bumptech.glide.load.Key;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.load.resource.drawable.GlideDrawable;
 import com.bumptech.glide.request.RequestListener;
@@ -29,13 +30,19 @@ import com.bumptech.glide.request.target.Target;
 import com.bumptech.glide.request.target.ViewTarget;
 import com.zcwfeng.fastdev.R;
 import com.zcwfeng.fastdev.ui.fragment.BaseFragment;
+import com.zcwfeng.fastdev.ui.fragment.image.glide.BlurTransformation;
 import com.zcwfeng.fastdev.ui.fragment.image.glide.FutureStudioView;
+import com.zcwfeng.fastdev.ui.fragment.image.glide.GreyscaleTransformation;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.security.MessageDigest;
 import java.util.Random;
+
+import static com.bumptech.glide.Glide.with;
+
 
 /**
  * Created by David.zhang on 2016/10/24.
@@ -55,6 +62,9 @@ public class GlideFragment extends BaseFragment {
     private ImageView mImageViewVideo;
     private ImageView mImageViewFile;
     private ImageView mImageViewDebuging;
+    private ImageView mImageViewTransmation;
+    private ImageView mImageViewTransmation2;
+    private ImageView mImageViewTransmation3;
 
     private NotificationTarget notificationTarget;
 
@@ -86,23 +96,25 @@ public class GlideFragment extends BaseFragment {
         mImageView7 = (ImageView) rootView.findViewById(R.id.list_item_bg_7);
         mImageView8 = (ImageView) rootView.findViewById(R.id.list_item_bg_8);
         mImageViewDebuging = (ImageView) rootView.findViewById(R.id.list_item_bg_debuging);
-
         mImageViewVideo = (ImageView) rootView.findViewById(R.id.list_item_bg_video);
+        mImageViewTransmation = (ImageView) rootView.findViewById(R.id.list_item_bg_transformation1);
+        mImageViewTransmation2 = (ImageView) rootView.findViewById(R.id.list_item_bg_transformation2);
+        mImageViewTransmation3 = (ImageView) rootView.findViewById(R.id.list_item_bg_transformation3);
 
 
-        Glide.with(getContext().getApplicationContext()).load(getResources().getString(R.string.glide_single_img_url))
+        with(getContext().getApplicationContext()).load(getResources().getString(R.string.glide_single_img_url))
                 .placeholder(getResources().getDrawable(R.mipmap.demo_mn))
                 .error(getResources().getDrawable(R.drawable.biz_video_list_play_icon_big))
                 .dontAnimate()
                 .priority(Priority.LOW)
                 .into(mImageView);
-        Glide.with(getContext().getApplicationContext()).load(R.drawable.bg).into(mImageView2);
+        with(getContext().getApplicationContext()).load(R.drawable.bg).into(mImageView2);
 
 
         File file = new File(Environment.getExternalStorageDirectory(), "duola.jpeg");
 //        File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES), "duola.jpeg");
 //        File file = new File(getAssetsCacheFile(getActivity()));
-        Glide.with(getActivity().getApplicationContext()).load(file)
+        with(getActivity().getApplicationContext()).load(file)
                 .placeholder(getResources().getDrawable(R.mipmap.demo_mn))
                 .error(getResources().getDrawable(R.drawable.biz_video_list_play_icon_big))
                 .into(mImageViewFile);
@@ -112,7 +124,7 @@ public class GlideFragment extends BaseFragment {
 //        Uri uri = resourceIdToUri(getActivity(), R.mipmap.ic_launcher);
         Uri uri = Uri.parse(getResources().getString(R.string.glide_single_img_uri_url));
 //      override 和crossFade放一块,最好加上dontAnimate
-        Glide.with(getActivity().getApplicationContext()).load(uri)
+        with(getActivity().getApplicationContext()).load(uri)
 //                .crossFade(2000)
                 .dontAnimate()
                 .override(600, 200)
@@ -123,19 +135,19 @@ public class GlideFragment extends BaseFragment {
 
 
         // gif
-        Glide.with(getActivity().getApplicationContext()).load(getResources().getString(R.string.glide_single_img_gif_url))
+        with(getActivity().getApplicationContext()).load(getResources().getString(R.string.glide_single_img_gif_url))
 //                .asGif()
                 .priority(Priority.LOW)
                 .into(mImageView4);
 
         // gif as bitmap
-        Glide.with(getActivity().getApplicationContext()).load(getResources().getString(R.string.glide_single_img_gif_url))
+        with(getActivity().getApplicationContext()).load(getResources().getString(R.string.glide_single_img_gif_url))
                 .asBitmap()
                 .priority(Priority.LOW)
                 .into(mImageView5);
 
         // video cache and diskStoryCache
-        Glide.with(getActivity().getApplicationContext()).load(Uri.fromFile(new File(getResources().getString(R.string.demo_video_path))))
+        with(getActivity().getApplicationContext()).load(Uri.fromFile(new File(getResources().getString(R.string.demo_video_path))))
 //                .diskCacheStrategy(DiskCacheStrategy.NONE)
 //                .diskCacheStrategy(DiskCacheStrategy.SOURCE)
 //                .diskCacheStrategy(DiskCacheStrategy.ALL)
@@ -158,17 +170,35 @@ public class GlideFragment extends BaseFragment {
         notifyTarget();
 
         glideDebugingTest();
+
+        // Apply a Single Transformation
+        with(getActivity().getApplicationContext())
+                .load(getResources().getString(R.string.glide_transmation_url_1))
+                .transform(new BlurTransformation(getActivity()))
+                //.bitmapTransform( new BlurTransformation( context ) ) // this would work too!
+                .into(mImageViewTransmation);
+
+        // Apply Multiple Transformations
+        with(getActivity().getApplicationContext())
+                .load(getResources().getString(R.string.glide_transmation_url_2))
+                .transform(new GreyscaleTransformation(getActivity()), new BlurTransformation(getActivity()))
+                .into(mImageViewTransmation2);
+
+        // Usage of Glide Transformations
+        Glide.with(getActivity().getApplicationContext())
+                .load(getResources().getString(R.string.glide_transmation_url_3))
+                .bitmapTransform(new jp.wasabeef.glide.transformations.BlurTransformation(getActivity(), 25))
+                .into(mImageViewTransmation3);
     }
 
     private void loadImageThumbnailRequest() {
         // setup Glide request without the into() method
-        DrawableRequestBuilder<String> thumbnailRequest = Glide
-                .with(getActivity().getApplicationContext())
+        DrawableRequestBuilder<String> thumbnailRequest =
+                with(getActivity().getApplicationContext())
                 .load(getResources().getString(R.string.glide_thumbnail_url));
 
         // pass the request as a a parameter to the thumbnail request
-        Glide
-                .with(getActivity().getApplicationContext())
+        with(getActivity().getApplicationContext())
                 .load(getResources().getString(R.string.glide_single_img_url))
 //                .thumbnail(thumbnailRequest)
                 .thumbnail(0.5f)
@@ -186,15 +216,14 @@ public class GlideFragment extends BaseFragment {
     };
 
     private void loadImageSimpleTarget() {
-        Glide
-                .with(getActivity().getApplicationContext()) // could be an issue!
+        with(getActivity().getApplicationContext()) // could be an issue!
                 .load(getResources().getString(R.string.glide_target_url_1))
                 .asBitmap()
                 .into(target);
     }
 
     private void glideDebugingTest() {
-        Glide.with(getActivity().getApplicationContext()).load(getResources().getString(R.string.glide_single_img_debug_url))
+        with(getActivity().getApplicationContext()).load(getResources().getString(R.string.glide_single_img_debug_url))
                 .listener(requestListener)
                 .error(R.drawable.bg)
                 .into(mImageViewDebuging);
@@ -209,8 +238,7 @@ public class GlideFragment extends BaseFragment {
     };
 
     private void loadImageSimpleTargetApplicationContext() {
-        Glide
-                .with(getActivity().getApplicationContext()) // safer!
+        with(getActivity().getApplicationContext()) // safer!
                 .load(getResources().getString(R.string.glide_target_url_2))
                 .asBitmap()
                 .into(target2);
@@ -227,39 +255,38 @@ public class GlideFragment extends BaseFragment {
             }
         };
 
-        Glide
-                .with(getActivity().getApplicationContext()) // safer!
+        with(getActivity().getApplicationContext()) // safer!
                 .load(getResources().getString(R.string.glide_target_url_3))
                 .into(viewTarget);
     }
 
 
-//    public class IntegerVersionSignature implements Key {
-//        private int currentVersion;
-//
-//        public IntegerVersionSignature(int currentVersion) {
-//            this.currentVersion = currentVersion;
-//        }
-//
-//        @Override
-//        public boolean equals(Object o) {
-//            if (o instanceof IntegerVersionSignature) {
-//                IntegerVersionSignature other = (IntegerVersionSignature) o;
-//                return currentVersion = other.currentVersion;
-//            }
-//            return false;
-//        }
-//
-//        @Override
-//        public int hashCode() {
-//            return currentVersion;
-//        }
-//
-//        @Override
-//        public void updateDiskCacheKey(MessageDigest md) {
+    public class IntegerVersionSignature implements Key {
+        private int currentVersion;
+
+        public IntegerVersionSignature(int currentVersion) {
+            this.currentVersion = currentVersion;
+        }
+
+        @Override
+        public boolean equals(Object o) {
+            if (o instanceof IntegerVersionSignature) {
+                IntegerVersionSignature other = (IntegerVersionSignature) o;
+                return currentVersion == other.currentVersion;
+            }
+            return false;
+        }
+
+        @Override
+        public int hashCode() {
+            return currentVersion;
+        }
+
+        @Override
+        public void updateDiskCacheKey(MessageDigest md) {
 //            messageDigest.update(ByteBuffer.allocate(Integer.SIZE).putInt(signature).array());
-//        }
-//    }
+        }
+    }
 
     @NonNull
     private String getAssetsCacheFile(Context mContext) {
@@ -330,8 +357,7 @@ public class GlideFragment extends BaseFragment {
                 notification,
                 NOTIFICATION_ID);
 
-        Glide
-                .with(getActivity().getApplicationContext()) // safer!
+        with(getActivity().getApplicationContext()) // safer!
                 .load(getResources().getString(R.string.glide_target_url_3))
                 .asBitmap()
                 .into(notificationTarget);
@@ -352,6 +378,7 @@ public class GlideFragment extends BaseFragment {
             return false;
         }
     };
+
 
     public static final String ANDROID_RESOURCE = "android.resource://";
     public static final String FOREWARD_SLASH = "/";
