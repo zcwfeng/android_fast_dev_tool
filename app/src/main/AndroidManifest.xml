@@ -165,7 +165,7 @@
 
 
         <meta-data
-            android:name="com.zcwfeng.fastdev.ui.fragment.image.glide.SimpleGlideModule"
+            android:name="com.zcwfeng.fastdev.ui.fragment.image.glide.CustomImageSizeGlideModule"
             android:value="GlideModule" />
     </application>
 

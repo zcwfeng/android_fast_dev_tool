@@ -72,3 +72,22 @@ ARG8888有更高的图像质量的优势和能力来存储一个alpha通道。
 
 ```
 
+## Cache 缓存策略
+
+* Memory cache needs to implement: MemoryCache
+* Bitmap pool needs to implement BitmapPool
+* Disk cache needs to implement: DiskCache
+
+## Rotate 旋转图片相关
+
+* android.graphics.Matrix
+一般来说 旋转一个图片的写法如下:
+```
+Bitmap toTransform = ... // your bitmap source
+
+Matrix matrix = new Matrix();  
+matrix.postRotate(rotateRotationAngle);
+
+Bitmap.createBitmap(toTransform, 0, 0, toTransform.getWidth(), toTransform.getHeight(), matrix, true);  
+
+```

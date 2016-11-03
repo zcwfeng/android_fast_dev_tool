@@ -33,8 +33,11 @@ import com.bumptech.glide.request.target.ViewTarget;
 import com.zcwfeng.fastdev.R;
 import com.zcwfeng.fastdev.ui.fragment.BaseFragment;
 import com.zcwfeng.fastdev.ui.fragment.image.glide.BlurTransformation;
+import com.zcwfeng.fastdev.ui.fragment.image.glide.CustomImageSizeModel;
+import com.zcwfeng.fastdev.ui.fragment.image.glide.CustomImageSizeModelFutureStudio;
 import com.zcwfeng.fastdev.ui.fragment.image.glide.FutureStudioView;
 import com.zcwfeng.fastdev.ui.fragment.image.glide.GreyscaleTransformation;
+import com.zcwfeng.fastdev.ui.fragment.image.glide.RotateTransformation;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -68,6 +71,9 @@ public class GlideFragment extends BaseFragment {
     private ImageView mImageViewTransmation2;
     private ImageView mImageViewTransmation3;
     private ImageView mImageViewAnim;
+    private ImageView mImageViewGlideModel;
+    private ImageView mImageViewOrigin;
+    private ImageView mImageViewRotate;
 
     private NotificationTarget notificationTarget;
 
@@ -104,8 +110,12 @@ public class GlideFragment extends BaseFragment {
         mImageViewTransmation2 = (ImageView) rootView.findViewById(R.id.list_item_bg_transformation2);
         mImageViewTransmation3 = (ImageView) rootView.findViewById(R.id.list_item_bg_transformation3);
         mImageViewAnim = (ImageView) rootView.findViewById(R.id.list_item_bg_anim);
+        mImageViewGlideModel = (ImageView) rootView.findViewById(R.id.list_item_bg_glidemodel);
+        mImageViewOrigin = (ImageView) rootView.findViewById(R.id.list_item_origin);
+        mImageViewRotate = (ImageView) rootView.findViewById(R.id.list_item_rotate);
 
 
+        //1 normal
         with(getContext().getApplicationContext()).load(getResources().getString(R.string.glide_single_img_url))
                 .placeholder(getResources().getDrawable(R.mipmap.demo_mn))
                 .error(getResources().getDrawable(R.drawable.biz_video_list_play_icon_big))
@@ -114,7 +124,7 @@ public class GlideFragment extends BaseFragment {
                 .into(mImageView);
         with(getContext().getApplicationContext()).load(R.drawable.bg).into(mImageView2);
 
-        // load file
+        //2 load file
         File file = new File(Environment.getExternalStorageDirectory(), "duola.jpeg");
         //File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES), "duola.jpeg");
         // File file = new File(getAssetsCacheFile(getActivity()));
@@ -124,7 +134,7 @@ public class GlideFragment extends BaseFragment {
                 .into(mImageViewFile);
 
 
-        // load uri
+        //3 load uri
         // Uri uri = resourceIdToUri(getActivity(), R.mipmap.ic_launcher);
         Uri uri = Uri.parse(getResources().getString(R.string.glide_single_img_uri_url));
         // override 和crossFade放一块,最好加上dontAnimate
@@ -138,7 +148,7 @@ public class GlideFragment extends BaseFragment {
                 .into(mImageView3);
 
 
-        // gif
+        //4  gif
         with(getActivity().getApplicationContext()).load(getResources().getString(R.string.glide_single_img_gif_url))
 //                .asGif()
                 .priority(Priority.LOW)
@@ -161,40 +171,39 @@ public class GlideFragment extends BaseFragment {
                 .priority(Priority.LOW)
                 .into(mImageViewVideo);
 
-
-        // thumbnail
+        //5 thumbnail
         loadImageThumbnailRequest();
 
-        // simple target
+        //6 simple target
         loadImageSimpleTarget();
         loadImageSimpleTargetApplicationContext();
         loadImageViewTarget();
 
-        // NotificationTarget
+        //7 NotificationTarget
         notifyTarget();
 
         glideDebugingTest();
 
-        // Apply a Single Transformation
+        //8 Apply a Single Transformation
         with(getActivity().getApplicationContext())
                 .load(getResources().getString(R.string.glide_transmation_url_1))
                 .transform(new BlurTransformation(getActivity()))
                 //.bitmapTransform( new BlurTransformation( context ) ) // this would work too!
                 .into(mImageViewTransmation);
 
-        // Apply Multiple Transformations
+        //9 Apply Multiple Transformations
         with(getActivity().getApplicationContext())
                 .load(getResources().getString(R.string.glide_transmation_url_2))
                 .transform(new GreyscaleTransformation(getActivity()), new BlurTransformation(getActivity()))
                 .into(mImageViewTransmation2);
 
-        // Usage of Glide Transformations
+        //10 Usage of Glide Transformations
         with(getActivity().getApplicationContext())
                 .load(getResources().getString(R.string.glide_transmation_url_3))
                 .bitmapTransform(new jp.wasabeef.glide.transformations.BlurTransformation(getActivity(), 25))
                 .into(mImageViewTransmation3);
 
-        // animation
+        //11 animation
 //        Animation anim = AnimationUtils.loadAnimation(getContext(), R.anim.animation_small_enlarge);
 //        Glide.with(getActivity().getApplicationContext())
 //                .load(getResources().getString(R.string.glide_transmation_url_anim))
@@ -204,10 +213,31 @@ public class GlideFragment extends BaseFragment {
         Glide
                 .with(getActivity().getApplicationContext())
                 .load(getResources().getString(R.string.glide_transmation_url_anim))
-                .animate(animationObject)
+                .animate(animationObject).diskCacheStrategy(DiskCacheStrategy.ALL)
                 .into(mImageViewAnim);
 
+
+        // 12 CustomModel Use
+        String baseImageUrl = getResources().getString(R.string.glide_single_img_custom_glidemodel);
+        CustomImageSizeModel customImageRequest = new CustomImageSizeModelFutureStudio(baseImageUrl);
+        Glide
+                .with(getActivity().getApplicationContext())
+                .load(customImageRequest)
+                .into(mImageViewGlideModel);
+
+        // 13 rotate
+        loadImageOriginal();
+        loadImageRotated();
+
     }
+
+
+    /**
+     * demo=================method=================================
+     */
+
+
+
 
 
     ViewPropertyAnimation.Animator animationObject = new ViewPropertyAnimation.Animator() {
@@ -291,6 +321,8 @@ public class GlideFragment extends BaseFragment {
         with(getActivity().getApplicationContext()) // safer!
                 .load(getResources().getString(R.string.glide_target_url_3))
                 .into(viewTarget);
+
+
     }
 
 
@@ -351,7 +383,9 @@ public class GlideFragment extends BaseFragment {
         return cacheFile.getAbsolutePath();
     }
 
-
+    /**
+     * demo 7
+     */
     private void notifyTarget() {
         final RemoteViews rv = new RemoteViews(getActivity().getPackageName(), R.layout.remoteview_notification);
 
@@ -412,6 +446,27 @@ public class GlideFragment extends BaseFragment {
         }
     };
 
+
+    /**
+     * rotate demo 1
+     */
+    private void loadImageOriginal() {
+        Glide
+                .with(getActivity().getApplicationContext())
+                .load(getResources().getString(R.string.glide_single_img_rotate))
+                .into(mImageViewOrigin);
+    }
+
+    /**
+     * rotate demo 2
+     */
+    private void loadImageRotated() {
+        Glide
+                .with(getActivity().getApplicationContext())
+                .load(getResources().getString(R.string.glide_single_img_rotate))
+                .transform(new RotateTransformation(getActivity().getApplicationContext(), 90f))
+                .into(mImageViewRotate);
+    }
 
     public static final String ANDROID_RESOURCE = "android.resource://";
     public static final String FOREWARD_SLASH = "/";
