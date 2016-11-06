@@ -64,6 +64,7 @@ public class HomeFragment extends BaseFragment{
             }
             recyclerView.setAdapter(new MyItemRecyclerViewAdapter(DummyContent.ITEMS, mListener));
         }
+
         return view;
     }
 

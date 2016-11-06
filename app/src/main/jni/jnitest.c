@@ -122,3 +122,24 @@ JNIEXPORT void JNICALL Java_com_zcwfeng_fastdev_ndk_NdkJniUtils_openServer(void)
     printf("Exiting on signal %d\n", s_sig_num);
 
 }
+
+JNIEXPORT jboolean JNICALL
+Java_com_zcwfeng_fastdev_ndk_NdkJniUtils_Authenticate(JNIEnv *env, jobject instance) {
+
+    // TODO
+
+}
+
+JNIEXPORT jstring JNICALL
+Java_com_zcwfeng_fastdev_ndk_NdkJniUtils_getStringFromC(JNIEnv *env, jobject instance, jstring key_,
+                                                        jstring value_) {
+    const char *key = (*env)->GetStringUTFChars(env, key_, 0);
+    const char *value = (*env)->GetStringUTFChars(env, value_, 0);
+
+    // TODO
+
+    (*env)->ReleaseStringUTFChars(env, key_, key);
+    (*env)->ReleaseStringUTFChars(env, value_, value);
+
+    return (*env)->NewStringUTF(env, "HelloWorld");
+}

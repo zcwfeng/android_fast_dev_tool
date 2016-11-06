@@ -12,10 +12,11 @@ android {
         versionName rootProject.ext.versionName
         renderscriptTargetApi 18
         renderscriptSupportModeEnabled true
+
         ndk {
             moduleName "ZcwfengJniLibName"         //生成的so名字
             ldLibs "log", "z", "m"
-            abiFilters "armeabi", "armeabi-v7a", "x86"  //输出指定三种abi体系结构下的so库。目前可有可无。
+            abiFilters "armeabi", "armeabi-v7a", "x86","arm64-v8a" //输出指定三种abi体系结构下的so库。目前可有可无。
         }
         multiDexEnabled true
 
@@ -71,37 +72,17 @@ dependencies {
     compile project(':glidlibrary')
     compile "com.android.support:recyclerview-v7:$rootProject.ext.supportLibraryVersion"
     compile "com.android.support:appcompat-v7:$rootProject.ext.supportLibraryVersion"
-    //    testCompile 'org.assertj:assertj-core:3.3.0'
-//    testCompile "junit:junit:$rootProject.ext.junitVersion"
-//    testCompile "org.mockito:mockito-all:$rootProject.ext.mockitoVersion"
-//    testCompile "org.hamcrest:hamcrest-all:$rootProject.ext.hamcrestVersion"
-//    // Android Testing Support Library's runner and rules
-//    androidTestCompile "com.android.support.test:runner:$rootProject.ext.runnerVersion"
-//    androidTestCompile "com.android.support.test:rules:$rootProject.ext.runnerVersion"
-//    // Dependencies for Android unit tests
-//    androidTestCompile "junit:junit:$rootProject.ext.junitVersion"
-//    androidTestCompile "org.mockito:mockito-core:$rootProject.ext.mockitoVersion"
-//    androidTestCompile 'com.google.dexmaker:dexmaker:1.2'
-//    androidTestCompile 'com.google.dexmaker:dexmaker-mockito:1.2'
-//    // Espresso UI Testing
-//    androidTestCompile "com.android.support.test.espresso:espresso-core:$rootProject.espressoVersion"
-//    androidTestCompile "com.android.support.test.espresso:espresso-contrib:$rootProject.espressoVersion"
-//    androidTestCompile "com.android.support.test.espresso:espresso-intents:$rootProject.espressoVersion"
-//    // Resolve conflicts between main and test APK:
-//    androidTestCompile "com.android.support:support-annotations:$rootProject.supportLibraryVersion"
-//    androidTestCompile "com.android.support:support-v4:$rootProject.supportLibraryVersion"
-//    androidTestCompile "com.android.support:recyclerview-v7:$rootProject.supportLibraryVersion"
     compile 'com.android.support:design:23.4.0'
+    compile 'com.android.support:support-v4:23.4.0'
+//    compile 'com.android.support:recyclerview-v7:23.4.0'
     compile 'com.google.code.gson:gson:2.4'
     compile 'com.facebook.fresco:fresco:0.8.1'
     compile 'jp.wasabeef:recyclerview-animators:2.2.3'
     compile 'com.yinyuetai.android.lib:video_player:1.1.15'
 //    compile 'com.firebase:firebase-client-android:2.5.2.+'
-    compile 'com.google.firebase:firebase-core:9.0.0'
-    compile 'com.google.firebase:firebase-ads:9.0.0'
-    compile 'com.google.firebase:firebase-crash:9.0.0'
-    compile 'com.android.support:support-v4:23.4.0'
-    compile 'com.android.support:recyclerview-v7:23.4.0'
+//    compile 'com.google.firebase:firebase-core:9.0.0'
+//    compile 'com.google.firebase:firebase-ads:9.0.0'
+//    compile 'com.google.firebase:firebase-crash:9.0.0'
 }
 
-apply plugin: 'com.google.gms.google-services'
+//apply plugin: 'com.google.gms.google-services'

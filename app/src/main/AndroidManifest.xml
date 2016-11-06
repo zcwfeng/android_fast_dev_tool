@@ -116,26 +116,26 @@
             android:exported="true" />
 
         <!-- Enables the Android Pay API -->
-        <meta-data
+        <!--<meta-data
             android:name="com.google.android.gms.wallet.api.enabled"
-            android:value="true" />
+            android:value="true" />-->
         <!-- ad refrence -->
-        <meta-data
+        <!--<meta-data
             android:name="com.google.android.gms.version"
-            android:value="@integer/google_play_services_version" />
+            android:value="@integer/google_play_services_version" />-->
 
         <!-- Include the AdActivity configChanges and theme. -->
-        <activity
+        <!--<activity
             android:name="com.google.android.gms.ads.AdActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
-            android:theme="@android:style/Theme.Translucent" />
+            android:theme="@android:style/Theme.Translucent" />-->
 
         <!-- 应用内购买广告 -->
-        <activity
+        <!--<activity
             android:name="com.google.android.gms.ads.purchase.InAppPurchaseActivity"
-            android:theme="@style/Theme.IAPTheme" />
+            android:theme="@style/Theme.IAPTheme" />-->
 
-        <service
+        <!--<service
             android:name=".service.RobMoney"
             android:enabled="true"
             android:exported="true"
@@ -148,7 +148,7 @@
             <meta-data
                 android:name="android.accessibilityservice"
                 android:resource="@xml/accessibility" />
-        </service>
+        </service>-->
         <!-- end -->
         <activity
             android:name=".ui.activity.BaseActivity"

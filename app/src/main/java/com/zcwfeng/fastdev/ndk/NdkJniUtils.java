@@ -2,8 +2,21 @@ package com.zcwfeng.fastdev.ndk;
 
 public class NdkJniUtils {
 
+    private static NdkJniUtils instance;
+
+    public NdkJniUtils(){
+
+    }
+
+    public static NdkJniUtils getInstance(){
+        if(instance == null){
+            instance = new NdkJniUtils();
+        }
+        return instance;
+    }
+
+
     static {
-        System.loadLibrary("authenticate");
         System.loadLibrary("ZcwfengJniLibName");   //defaultConfig.ndk.moduleName
 
     }
@@ -13,4 +26,9 @@ public class NdkJniUtils {
 
 
     public native boolean Authenticate();
+
+
+    public native String getStringFromC(String key,String value);
+
+
 }
