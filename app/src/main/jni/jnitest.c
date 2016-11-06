@@ -3,8 +3,9 @@
 //
 #include "com_zcwfeng_fastdev_ndk_NdkJniUtils.h"
 #include "db_plugin.h"
-
-
+#include "android/log.h"
+#define TAG "NATIVEZCW"
+#define LOGV(...) __android_log_print(ANDROID_LOG_ERROR, TAG, __VA_ARGS__)
 static const char *s_http_port = "8000";
 static struct mg_serve_http_opts s_http_server_opts;
 static int s_sig_num = 0;
@@ -135,9 +136,7 @@ Java_com_zcwfeng_fastdev_ndk_NdkJniUtils_getStringFromC(JNIEnv *env, jobject ins
                                                         jstring value_) {
     const char *key = (*env)->GetStringUTFChars(env, key_, 0);
     const char *value = (*env)->GetStringUTFChars(env, value_, 0);
-
-    // TODO
-
+    LOGV("from native c value,%s",value);
     (*env)->ReleaseStringUTFChars(env, key_, key);
     (*env)->ReleaseStringUTFChars(env, value_, value);
 

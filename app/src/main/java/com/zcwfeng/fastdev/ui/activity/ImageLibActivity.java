@@ -59,7 +59,7 @@ public class ImageLibActivity extends BaseActivity {
         mTabTitle.setupWithViewPager(mViewPager);
         mTabTitle.setClipToPadding(true);
 
-        Logger.e("jni", NdkJniUtils.getInstance().getStringFromC("", ""));
+        Logger.e("jni", NdkJniUtils.getInstance().getStringFromC("Hellow", "Worldzcwfeng"));
 
     }
 
