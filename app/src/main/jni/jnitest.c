@@ -142,3 +142,21 @@ Java_com_zcwfeng_fastdev_ndk_NdkJniUtils_getStringFromC(JNIEnv *env, jobject ins
 
     return (*env)->NewStringUTF(env, "HelloWorld");
 }
+
+JNIEXPORT jintArray JNICALL
+Java_com_zcwfeng_fastdev_ndk_NdkJniUtils_getIntArrayFromC(JNIEnv *env, jobject instance,
+                                                          jintArray array_) {
+//    jint *array = (*env)->GetIntArrayElements(env, array_, NULL);
+
+    jint nativeArray[5];
+    (*env)->GetIntArrayRegion(env,array_,0,5,nativeArray);
+    int j;
+    for(j=0;j< 5;j++) {
+        nativeArray[j] += 5;
+        LOGV("from native c j=%d",nativeArray[j]);
+    }
+
+//    (*env)->ReleaseIntArrayElements(env, array_, array, 0);
+    (*env)->SetIntArrayRegion(env,array_,0,5,nativeArray);
+    return array_;
+}
