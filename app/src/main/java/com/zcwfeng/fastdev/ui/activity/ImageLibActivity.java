@@ -3,6 +3,7 @@ package com.zcwfeng.fastdev.ui.activity;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 
 import com.zcwfeng.componentlibs.surport.utils.Logger;
 import com.zcwfeng.fastdev.R;
@@ -59,8 +60,17 @@ public class ImageLibActivity extends BaseActivity {
         mTabTitle.setupWithViewPager(mViewPager);
         mTabTitle.setClipToPadding(true);
 
-        Logger.e("jni", NdkJniUtils.getInstance().getStringFromC("Hellow", "Worldzcwfeng"));
 
+        NdkJniUtils instance = NdkJniUtils.getInstance();
+
+        Logger.e("jni", instance.getStringFromC("Hellow", "Worldzcwfeng"));
+
+
+        int data[] = {1,2,3,4,5};
+        int result[] = instance.getIntArrayFromC(data);
+        for(int i=0;i<result.length;i++) {
+            Log.e("java_from_c","i==>"+result[i]);
+        }
     }
 
 

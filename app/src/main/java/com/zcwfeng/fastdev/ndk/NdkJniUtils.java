@@ -30,5 +30,7 @@ public class NdkJniUtils {
 
     public native String getStringFromC(String key,String value);
 
+    public native int[] getIntArrayFromC(int[] array);
+
 
 }
