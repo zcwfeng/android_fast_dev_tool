@@ -140,6 +140,7 @@ public class MainActivity extends BaseActivity implements OnListFragmentInteract
         } else if (type == 3) {
             switch (item.id) {
                 case "1":
+                    BaseActivity.launch(MainActivity.this,CustomViewActivity.class);
                     break;
                 case "2":
                     break;

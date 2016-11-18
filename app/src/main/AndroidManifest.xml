@@ -102,6 +102,11 @@
             android:name=".ui.activity.ImageRefViewTestActivity"
             android:screenOrientation="portrait" />
 
+        <activity
+            android:name=".ui.activity.CustomViewActivity"
+            android:screenOrientation="portrait" />
+
+
         <service android:name=".binder.AIDLTestService">
             <intent-filter>
                 <action android:name="com.zcwfeng.fastdev.binder.AIDLTestService" />
