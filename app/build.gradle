@@ -15,9 +15,18 @@ android {
 
         ndk {
             moduleName "ZcwfengJniLibName"         //生成的so名字
-            ldLibs "log", "z", "m"
-            abiFilters "armeabi", "armeabi-v7a", "x86","arm64-v8a" //输出指定三种abi体系结构下的so库。目前可有可无。
+            ldLibs "log", "z", "m" , "dl"//,"EGL", "GLESv3" Link with these libraries! 在这里添加你原先在makefile里ldlibs所链接的库
+            abiFilters "armeabi", "armeabi-v7a", "x86","arm64-v8a"//输出指定三种abi体系结构下的so库。目前可有可无。
+            //stl "stlport_shared"                      // Use shared stlport library
         }
+
+//        用到时候在打开,暂时用不到jni相关
+//        externalNativeBuild{
+//            cmake {
+//                arguments '-DANDROID_PLATFORM=android-19',
+//                        '-DANDROID_TOOLCHAIN=clang', '-DANDROID_STL=gnustl_static'
+//            }
+//        }
         multiDexEnabled true
 
     }

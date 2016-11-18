@@ -14,8 +14,9 @@ import com.zcwfeng.fastdev.ui.fragment.ComponentFragment;
 import com.zcwfeng.fastdev.ui.fragment.HomeFragment;
 import com.zcwfeng.fastdev.ui.fragment.VideoFragment;
 import com.zcwfeng.fastdev.ui.fragment.dummy.DummyContent;
+import com.zcwfeng.fastdev.ui.fragment.myinterface.OnListFragmentInteractionListener;
 
-public class MainActivity extends BaseActivity implements HomeFragment.OnListFragmentInteractionListener{
+public class MainActivity extends BaseActivity implements OnListFragmentInteractionListener {
     private int[] mainBottomIds = new int[]{
             R.id.main_icon,
             R.id.chat_icon,
@@ -106,7 +107,8 @@ public class MainActivity extends BaseActivity implements HomeFragment.OnListFra
                     baseFragments[selectItem] = VideoFragment.newInstance();
                     break;
                 case 3:
-                    baseFragments[selectItem] = ComponentFragment.newInstance();
+                    baseFragments[selectItem] = ComponentFragment.newInstance(0);
+                    ((ComponentFragment) baseFragments[selectItem]).setmListener(this);
                     break;
             }
             mTransaction.add(R.id.layContent, baseFragments[selectItem]);
@@ -120,14 +122,31 @@ public class MainActivity extends BaseActivity implements HomeFragment.OnListFra
     }
 
     @Override
-    public void onListFragmentInteraction(DummyContent.DummyItem item) {
-        switch (item.id){
-            case "1":
-                BaseActivity.launch(MainActivity.this,RequestActivity.class);
-                break;
-            case "2":
-                BaseActivity.launch(MainActivity.this,ImageLibActivity.class);
-                break;
+    public void onListFragmentInteraction(DummyContent.DummyItem item, int type) {
+
+        if (type == 0) {
+            switch (item.id) {
+                case "1":
+                    BaseActivity.launch(MainActivity.this, RequestActivity.class);
+                    break;
+                case "2":
+                    BaseActivity.launch(MainActivity.this, ImageLibActivity.class);
+                    break;
+            }
+        } else if (type == 1) {
+
+        } else if (type == 2) {
+
+        } else if (type == 3) {
+            switch (item.id) {
+                case "1":
+                    break;
+                case "2":
+                    break;
+            }
         }
+
     }
+
+
 }

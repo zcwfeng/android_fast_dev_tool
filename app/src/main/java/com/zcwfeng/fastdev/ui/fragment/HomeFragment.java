@@ -11,10 +11,12 @@ import android.view.ViewGroup;
 
 import com.zcwfeng.fastdev.R;
 import com.zcwfeng.fastdev.ui.fragment.dummy.DummyContent;
-import com.zcwfeng.fastdev.ui.fragment.dummy.DummyContent.DummyItem;
+import com.zcwfeng.fastdev.ui.fragment.myinterface.OnListFragmentInteractionListener;
 
 
 public class HomeFragment extends BaseFragment{
+
+    DummyContent dummyContent;
 
     // TODO: Customize parameter argument names
     private static final String ARG_COLUMN_COUNT = "column-count";
@@ -42,7 +44,7 @@ public class HomeFragment extends BaseFragment{
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        dummyContent = new DummyContent(getResources().getStringArray(R.array.lib_index));
         if (getArguments() != null) {
             mColumnCount = getArguments().getInt(ARG_COLUMN_COUNT);
         }
@@ -62,7 +64,7 @@ public class HomeFragment extends BaseFragment{
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            recyclerView.setAdapter(new MyItemRecyclerViewAdapter(DummyContent.ITEMS, mListener));
+            recyclerView.setAdapter(new MyItemRecyclerViewAdapter(dummyContent.ITEMS, mListener,0));
         }
 
         return view;
@@ -77,20 +79,7 @@ public class HomeFragment extends BaseFragment{
     }
 
 
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
-    public interface OnListFragmentInteractionListener {
-        // TODO: Update argument type and name
-        void onListFragmentInteraction(DummyItem item);
-    }
+
 
     public void setmListener(OnListFragmentInteractionListener lsn){
         mListener = lsn;

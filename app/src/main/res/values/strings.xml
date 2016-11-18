@@ -113,6 +113,13 @@
         <item>数据库</item>
     </string-array>
 
+
+    <string-array name="component_index">
+        <item>自定义ViewUI</item>
+        <item>Demo1</item>
+        <item>Demo2</item>
+    </string-array>
+
     <string name="glide_single_img_debug_url">http://f.hiphotos.baidu.com/image/pic/item/7af40ad162d9f2d39a1046e1abec8a136327ccbf.jpg</string>
     <string name="glide_single_img_url">http://img4.c.yinyuetai.com/others/admin/161024/0/-M-b2dbb69766cfa7624547b9fe2d18822a_0x0.jpg</string>
     <string name="glide_thumbnail_url">http://img2.3lian.com/2014/f4/102/d/91.jpg</string>
@@ -128,6 +135,9 @@
     <string name="glide_transmation_url_anim">http://img.51ztzj.com/upload/image/20160123/201601235_670x419.jpg</string>
     <string name="glide_single_img_custom_glidemodel">http://img.bizhi.sogou.com/images/2012/04/30/173333.jpg</string>
     <string name="glide_single_img_rotate">http://g.hiphotos.baidu.com/image/pic/item/8ad4b31c8701a18b516e1da79a2f07082938fe55.jpg</string>
+
+
+    <string name="glide_single_img_https">https://img7.c.yinyuetai.com/20160629_213/1467183487282EkyGz_JPEG/upload_Untitled-3.jpg</string>
 
     <string name="demo_video_path">/storage/emulated/0/Pictures/mv.mp4</string>
 
