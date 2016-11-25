@@ -9,6 +9,7 @@ buildscript {
         classpath 'me.tatarka:gradle-retrolambda:3.2.4'
         classpath "com.android.tools.build:gradle-experimental:0.6.0-alpha5"
         classpath 'com.google.gms:google-services:3.0.0'
+        classpath "io.realm:realm-gradle-plugin:2.2.0"// database realm
 
     }
 }
@@ -46,4 +47,5 @@ ext {
     // package
     versionCode = 1
     versionName = '1.0.0'
+    appId = 10208011
 }

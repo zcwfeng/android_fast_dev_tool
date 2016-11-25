@@ -7,6 +7,7 @@
     android:background="@color/white"
     android:orientation="vertical"
     app:layout_behavior="@string/appbar_scrolling_view_behavior">
+    <include layout="@layout/toolbar"></include>
 
     <android.support.design.widget.TabLayout
         android:id="@+id/sliding_tabs"

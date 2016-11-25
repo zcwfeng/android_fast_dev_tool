@@ -15,7 +15,6 @@ public class SplashActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
         requestREAD_PHONE_STATEPermissions();
-        Glide.with(getApplicationContext()).load(getResources().getString(R.string.glide_single_img_uri_url)).into((ImageView) findViewById(R.id.splash_bg));
 
         new Handler() {
             @Override
@@ -23,7 +22,7 @@ public class SplashActivity extends BaseActivity {
                 BaseActivity.launch(SplashActivity.this, MainActivity.class);
                 finish();
             }
-        }.sendEmptyMessageDelayed(0, 1000);
+        }.sendEmptyMessageDelayed(0, 3000);
 
     }
 
@@ -41,6 +40,8 @@ public class SplashActivity extends BaseActivity {
     @Override
     public void onGetREAD_PHONE_STATEPermissions() {
         super.onGetREAD_PHONE_STATEPermissions();
+        Glide.with(getApplicationContext()).load(getResources().getString(R.string.glide_single_img_uri_url)).into((ImageView) findViewById(R.id.splash_bg));
+
     }
 
     @Override

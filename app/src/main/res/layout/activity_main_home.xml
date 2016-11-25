@@ -2,21 +2,18 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
-    <RelativeLayout
-        android:id="@+id/layContent"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginBottom="53dp"
-        android:orientation="vertical" />
+    <include layout="@layout/toolbar" />
 
     <LinearLayout
+        android:layout_gravity="bottom"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:layout_alignBottom="@+id/layContent"
         android:layout_alignParentBottom="true"
         android:background="@color/white"
         android:orientation="vertical">
+
+
 
         <View style="@style/splite_style" />
 
@@ -60,4 +57,16 @@
                 android:src="@drawable/main_4_selecter" />
         </LinearLayout>
     </LinearLayout>
+
+
+    <RelativeLayout
+        android:layout_below="@+id/toolBar"
+        android:id="@+id/layContent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="55dp"
+
+        />
+
+
 </RelativeLayout>

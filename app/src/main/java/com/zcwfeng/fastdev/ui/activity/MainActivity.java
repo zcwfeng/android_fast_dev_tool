@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -17,6 +18,7 @@ import com.zcwfeng.fastdev.ui.fragment.dummy.DummyContent;
 import com.zcwfeng.fastdev.ui.fragment.myinterface.OnListFragmentInteractionListener;
 
 public class MainActivity extends BaseActivity implements OnListFragmentInteractionListener {
+    Toolbar mToolBar;
     private int[] mainBottomIds = new int[]{
             R.id.main_icon,
             R.id.chat_icon,
@@ -44,6 +46,8 @@ public class MainActivity extends BaseActivity implements OnListFragmentInteract
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        mToolBar = (Toolbar) findViewById(R.id.toolBar);
+        setToolbar(mToolBar,"快速开发库");
         initUIView();
         check4Update();
     }
@@ -131,6 +135,9 @@ public class MainActivity extends BaseActivity implements OnListFragmentInteract
                     break;
                 case "2":
                     BaseActivity.launch(MainActivity.this, ImageLibActivity.class);
+                    break;
+                case "3":
+                    DatabasesActivity.launch(MainActivity.this,DatabasesActivity.class);
                     break;
             }
         } else if (type == 1) {

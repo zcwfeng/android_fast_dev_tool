@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <include layout="@layout/activity_main_home" />
+        <include layout="@layout/activity_main_home"/>
     </FrameLayout>
 
     <android.support.design.widget.NavigationView

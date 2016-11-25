@@ -1,5 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'me.tatarka.retrolambda'
+apply plugin: 'realm-android'
+
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
     buildToolsVersion rootProject.ext.buildToolsVersion
@@ -13,6 +15,13 @@ android {
         renderscriptTargetApi 18
         renderscriptSupportModeEnabled true
 
+        manifestPlaceholders = [
+//                GETUI_APP_ID    : "dcqR5BVBvL7GbSMu7EDpb3",
+//                GETUI_APP_KEY   : "ZRJpCa9II56TR8FZ1Db86",
+//                GETUI_APP_SECRET: "HMn1hsC9Tl7vdYuP8dCY91",
+//                PACKAGE_NAME    : applicationId,
+                M_APPID     : rootProject.ext.appId
+        ]
         ndk {
             moduleName "ZcwfengJniLibName"         //生成的so名字
             ldLibs "log", "z", "m" , "dl"//,"EGL", "GLESv3" Link with these libraries! 在这里添加你原先在makefile里ldlibs所链接的库
@@ -71,6 +80,20 @@ android {
         resolutionStrategy.force 'com.google.code.findbugs:jsr305:1.3.9'
     }
 
+
+
+    productFlavors {
+
+        "1" {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "1"]//主站
+        }
+
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+
 }
 
 dependencies {
@@ -81,9 +104,9 @@ dependencies {
     compile project(':glidlibrary')
     compile "com.android.support:recyclerview-v7:$rootProject.ext.supportLibraryVersion"
     compile "com.android.support:appcompat-v7:$rootProject.ext.supportLibraryVersion"
+    compile "com.android.support:cardview-v7:$rootProject.ext.supportLibraryVersion"
     compile 'com.android.support:design:23.4.0'
     compile 'com.android.support:support-v4:23.4.0'
-//    compile 'com.android.support:recyclerview-v7:23.4.0'
     compile 'com.google.code.gson:gson:2.4'
     compile 'com.facebook.fresco:fresco:0.8.1'
     compile 'jp.wasabeef:recyclerview-animators:2.2.3'

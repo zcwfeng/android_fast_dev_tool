@@ -1,6 +1,10 @@
 package com.zcwfeng.fastdev.basic;
 
 import com.zcwfeng.componentlibs.BaseApplication;
+import com.zcwfeng.fastdev.demos.demorealm.util.RealmHelper;
+
+import io.realm.Realm;
+import io.realm.RealmConfiguration;
 
 /**
  * Created by David.zhang on 16/3/18.
@@ -18,6 +22,12 @@ public class MyApplication extends BaseApplication {
         super.onCreate();
         mApplacation = this;
 //        Firebase.setAndroidContext(this);
+        Realm.init(this);
+        RealmConfiguration configuration=new RealmConfiguration.Builder()
+                .name(RealmHelper.DB_NAME)
+                .deleteRealmIfMigrationNeeded()
+                .build();
+        Realm.setDefaultConfiguration(configuration);
 
     }
 

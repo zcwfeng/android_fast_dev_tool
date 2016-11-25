@@ -3,6 +3,7 @@ package com.zcwfeng.fastdev.ui.activity;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
+import android.support.v7.widget.Toolbar;
 
 import com.zcwfeng.fastdev.R;
 import com.zcwfeng.fastdev.ui.adapter.MyViewPagerAdapter;
@@ -27,9 +28,11 @@ public class CustomViewActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fragment_container_template);
-
+        setToolbar((Toolbar) findViewById(R.id.toolBar),"");
         initViews();
     }
+
+
 
     private void initViews() {
         mListTitle = new ArrayList<>();

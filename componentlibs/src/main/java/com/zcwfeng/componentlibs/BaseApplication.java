@@ -41,12 +41,17 @@ public class BaseApplication extends MultiDexApplication {
         UIUtils.initScreenWH();
 
 //        Logger.DEBUG = SettingUtility.getBooleanSetting("debug");
+
     }
 
     public static BaseApplication getInstance(){
         return app;
     }
 
+//    static {
+//        AppCompatDelegate.setDefaultNightMode(
+//                AppCompatDelegate.MODE_NIGHT_YES);
+//    }
 
 
     /**

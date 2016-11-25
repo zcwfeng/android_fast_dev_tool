@@ -27,4 +27,6 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile "com.android.support:appcompat-v7:$rootProject.ext.supportLibraryVersion"
     compile 'com.alibaba:fastjson:1.2.10'
+    compile 'com.umeng.analytics:analytics:latest.integration'// 友盟 统计
+
 }

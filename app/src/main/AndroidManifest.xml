@@ -3,6 +3,7 @@
     package="com.zcwfeng.fastdev">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -106,10 +107,30 @@
         <activity
             android:name=".ui.activity.CustomViewActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.DatabasesActivity"
+            android:screenOrientation="portrait" />
+
+
+
+
+        <activity android:name=".demos.demorealm.activity.RealmDemoMainActivity" />
+        <activity android:name=".demos.demorealm.activity.DogListActivity" />
+        <activity android:name=".demos.demorealm.activity.QueryActivity" />
+        <activity android:name=".demos.demorealm.activity.AllDogActivity" />
+        <activity android:name=".demos.demorealm.activity.ConditionQueryActivity" />
+        <activity android:name=".demos.demorealm.activity.UpdateActivity" />
+        <activity android:name=".demos.demorealm.activity.OtherQueryActivity" />
+        <activity android:name=".demos.demorealm.async.AsyncActivity" />
+        <activity android:name=".demos.demorealm.async.AddDeleteActivity" />
+        <activity android:name=".demos.demorealm.async.AsyncQueryActivity" />
+        <activity android:name=".demos.demorealm.async.UpdateCatActivity"></activity>
+
+
 
 
         <service android:name=".binder.AIDLTestService">
-            <intent-filter>
+            <intent-filter>M
                 <action android:name="com.zcwfeng.fastdev.binder.AIDLTestService" />
             </intent-filter>
         </service>
@@ -120,6 +141,18 @@
             android:name=".service.MyService"
             android:enabled="true"
             android:exported="true" />
+
+
+        <!-- 元数据 -->
+        <meta-data
+            android:name="APPID"
+            android:value="${M_APPID}" />
+        <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="${UMENG_CHANNEL_VALUE}" />
+        <meta-datai
+            android:name="UMENG_APPKEY"
+            android:value="5836ac9af43e482b58001896" />
 
         <!-- Enables the Android Pay API -->
         <!--<meta-data
