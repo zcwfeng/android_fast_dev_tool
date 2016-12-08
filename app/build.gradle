@@ -14,12 +14,11 @@ android {
         versionName rootProject.ext.versionName
         renderscriptTargetApi 18
         renderscriptSupportModeEnabled true
-
         manifestPlaceholders = [
-//                GETUI_APP_ID    : "dcqR5BVBvL7GbSMu7EDpb3",
-//                GETUI_APP_KEY   : "ZRJpCa9II56TR8FZ1Db86",
-//                GETUI_APP_SECRET: "HMn1hsC9Tl7vdYuP8dCY91",
-//                PACKAGE_NAME    : applicationId,
+                GETUI_APP_ID    : "dcqR5BVBvL7GbSMu7EDpb3",
+                GETUI_APP_KEY   : "ZRJpCa9II56TR8FZ1Db86",
+                GETUI_APP_SECRET: "HMn1hsC9Tl7vdYuP8dCY91",
+                PACKAGE_NAME    : applicationId,
                 M_APPID     : rootProject.ext.appId
         ]
         ndk {
@@ -28,16 +27,7 @@ android {
             abiFilters "armeabi", "armeabi-v7a", "x86","arm64-v8a"//输出指定三种abi体系结构下的so库。目前可有可无。
             //stl "stlport_shared"                      // Use shared stlport library
         }
-
-//        用到时候在打开,暂时用不到jni相关
-//        externalNativeBuild{
-//            cmake {
-//                arguments '-DANDROID_PLATFORM=android-19',
-//                        '-DANDROID_TOOLCHAIN=clang', '-DANDROID_STL=gnustl_static'
-//            }
-//        }
         multiDexEnabled true
-
     }
 
 

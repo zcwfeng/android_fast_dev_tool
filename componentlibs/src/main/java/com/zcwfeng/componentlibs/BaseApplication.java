@@ -1,6 +1,8 @@
 package com.zcwfeng.componentlibs;
 
 
+import android.content.Context;
+import android.support.multidex.MultiDex;
 import android.support.multidex.MultiDexApplication;
 
 import com.zcwfeng.componentlibs.common.setting.SettingUtility;
@@ -65,5 +67,11 @@ public class BaseApplication extends MultiDexApplication {
             return getExternalCacheDir().getAbsolutePath() + File.separator;
 
         return SdcardUtils.getSdcardPath() + File.separator + SettingUtility.getStringSetting("root_path") + File.separator;
+    }
+
+
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(base);
+        MultiDex.install(this);
     }
 }

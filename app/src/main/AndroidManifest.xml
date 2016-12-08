@@ -128,11 +128,11 @@
         <activity android:name=".demos.demorealm.async.AsyncActivity" />
         <activity android:name=".demos.demorealm.async.AddDeleteActivity" />
         <activity android:name=".demos.demorealm.async.AsyncQueryActivity" />
-        <activity android:name=".demos.demorealm.async.UpdateCatActivity"></activity>
+        <activity android:name=".demos.demorealm.async.UpdateCatActivity"/>
 
 
-        <service android:name=".binder.AIDLTestService">
-            <intent-filter>M
+        <service android:name=".binder.AIDLTestService" android:exported="true">
+            <intent-filter>
                 <action android:name="com.zcwfeng.fastdev.binder.AIDLTestService" />
             </intent-filter>
         </service>
