@@ -2,12 +2,15 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.zcwfeng.fastdev">
 
+
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <!-- AD -->
     <uses-permission android:name="com.android.vending.BILLING" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
@@ -110,8 +113,9 @@
         <activity
             android:name=".ui.activity.DatabasesActivity"
             android:screenOrientation="portrait" />
-
-
+        <activity
+            android:name=".ui.activity.ServiceActivity"
+            android:screenOrientation="portrait" />
 
 
         <activity android:name=".demos.demorealm.activity.RealmDemoMainActivity" />
@@ -125,8 +129,6 @@
         <activity android:name=".demos.demorealm.async.AddDeleteActivity" />
         <activity android:name=".demos.demorealm.async.AsyncQueryActivity" />
         <activity android:name=".demos.demorealm.async.UpdateCatActivity"></activity>
-
-
 
 
         <service android:name=".binder.AIDLTestService">
@@ -143,6 +145,11 @@
             android:exported="true" />
 
 
+        <service android:name=".service.BackGroupService" />
+        <service android:name=".service.ForegroundService" />
+        <service android:name=".service.TheIntentService" />
+
+
         <!-- 元数据 -->
         <meta-data
             android:name="APPID"
@@ -150,6 +157,7 @@
         <meta-data
             android:name="UMENG_CHANNEL"
             android:value="${UMENG_CHANNEL_VALUE}" />
+
         <meta-datai
             android:name="UMENG_APPKEY"
             android:value="5836ac9af43e482b58001896" />

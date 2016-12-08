@@ -47,6 +47,13 @@
         <item name="android:layout_height">1px</item>
     </style>
 
+    <style name="theme_content_textstyle">
+        <item name="android:textColor">@color/c666666</item>
+        <item name="android:textSize">@dimen/sp_16</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
     <declare-styleable name="PullHeaderLayout">
         <attr name="phl_header_height" format="dimension" />
         <attr name="phl_header_expand_height" format="dimension" />
@@ -55,4 +62,6 @@
         <attr name="phl_content" format="reference" />
         <attr name="phl_action" format="reference" />
     </declare-styleable>
+
+
 </resources>

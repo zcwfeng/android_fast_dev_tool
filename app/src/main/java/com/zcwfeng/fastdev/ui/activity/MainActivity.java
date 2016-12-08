@@ -3,12 +3,20 @@ package com.zcwfeng.fastdev.ui.activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
+import com.zcwfeng.componentlibs.BaseApplication;
 import com.zcwfeng.fastdev.R;
+import com.zcwfeng.fastdev.ui.adapter.custom_type1.ExCommonAdapter;
+import com.zcwfeng.fastdev.ui.adapter.custom_type1.ExViewHolder;
 import com.zcwfeng.fastdev.ui.fragment.BaseFragment;
 import com.zcwfeng.fastdev.ui.fragment.ChatFragment;
 import com.zcwfeng.fastdev.ui.fragment.ComponentFragment;
@@ -17,7 +25,13 @@ import com.zcwfeng.fastdev.ui.fragment.VideoFragment;
 import com.zcwfeng.fastdev.ui.fragment.dummy.DummyContent;
 import com.zcwfeng.fastdev.ui.fragment.myinterface.OnListFragmentInteractionListener;
 
-public class MainActivity extends BaseActivity implements OnListFragmentInteractionListener {
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.WeakHashMap;
+
+public class MainActivity extends BaseActivity implements OnListFragmentInteractionListener,DrawerLayout.DrawerListener {
     Toolbar mToolBar;
     private int[] mainBottomIds = new int[]{
             R.id.main_icon,
@@ -36,10 +50,53 @@ public class MainActivity extends BaseActivity implements OnListFragmentInteract
     private ImageView[] mainBottomLayouts = new ImageView[4];
     private BaseFragment[] baseFragments = new BaseFragment[4];
 
+
+    private RecyclerView mSlideRecyclerView;
+    private ExCommonAdapter mSlideAdapter;
+
+    private String[] githubKey= {
+            "zcwfeng/zcw_ijkplayer",
+            "zcwfeng/StarTV",
+            "ReactiveX/RxJava",
+            "square/retrofit",
+            "square/okhttp"
+//            "bumptech / glide",
+//            "ReactiveX / RxAndroid",
+//            "loopj / android-async-http",
+//            "nickbutcher / plaid",
+//            "navasmdc / MaterialDesignLibrary",
+//            "alibaba / fastjson",
+//            "liaohuqiu / android-Ultra-Pull-To-Refresh",
+//            "realm / realm-java",
+//            "alibaba / dubbo",
+//            "JetBrains / kotlin",
+//            "facebook / stetho",
+//            "google / dagger",
+//            "google / flexbox-layout",
+//            "wasabeef / recyclerview-animators",
+//            "DroidPluginTeam / DroidPlugin",
+//            "hongyangAndroid / okhttputils",
+//            "JackyAndroid / AndroidInterview-Q-A",
+//            "singwhatiwanna / dynamic-load-apk"
+
+    };
+    private String[] githubValue= {
+            "https://github.com/zcwfeng/zcw_ijkplayer",
+            "https://github.com/zcwfeng/StarTV",
+            "https://github.com/ReactiveX/RxJava",
+            "https://github.com/square/retrofit",
+            "https://github.com/square/okhttp"
+    };
+    private WeakHashMap weakHashMap;
+    private HashMap githubMap = new HashMap();
+
+    private NavigationView mNavView;
+
     public static void launch(Context context) {
         Intent intent = new Intent(context, MainActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
         context.startActivity(intent);
+
     }
 
     @Override
@@ -50,6 +107,19 @@ public class MainActivity extends BaseActivity implements OnListFragmentInteract
         setToolbar(mToolBar,"快速开发库");
         initUIView();
         check4Update();
+
+        initSlideData();
+    }
+
+    private void initSlideData() {
+        for(int i= 0;i<githubKey.length;i++) {
+            githubMap.put(githubKey[i],githubValue[i]);
+        }
+        weakHashMap = new WeakHashMap(githubMap);
+        weakHashMap.put("github",githubMap);
+        List githubs = new ArrayList<String>();
+        Collections.addAll(githubs,githubKey);
+        mSlideAdapter.setData(githubs);
     }
 
 
@@ -64,6 +134,30 @@ public class MainActivity extends BaseActivity implements OnListFragmentInteract
 
 
     private void initUIView() {
+
+        mSlideRecyclerView = (RecyclerView) findViewById(R.id.main_draw_rv);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        mSlideRecyclerView.setLayoutManager(linearLayoutManager);
+        mSlideRecyclerView.setAdapter(mSlideAdapter = new ExCommonAdapter<String>(this,R.layout.item_slide) {
+            @Override
+            protected void convert(ExViewHolder viewHolder, String item) {
+                viewHolder.setText(R.id.title,item);
+                ImageView view = viewHolder.getView(R.id.slide_head_icon);
+//                if(item.contains("zcwfeng")){
+//                    Glide.with(MainActivity.this).load("https://avatars0.githubusercontent.com/u/927238?v=3&u=f842420a412475b68237f479ff287ebd70c0fada&s=400")
+//                            .into((ImageView) viewHolder.getView(R.id.head));
+//                }else {
+//                    Glide.with(MainActivity.this).load(getResources().getDrawable(R.drawable.head))
+//                            .into((ImageView) viewHolder.getView(R.id.head));
+//                }
+
+                Glide.with(BaseApplication.getInstance()).load("").placeholder(getResources().getDrawable(R.drawable.head)).into(view);
+            }
+        });
+
+
+        mNavView = (NavigationView) findViewById(R.id.nav_view);
+
         for (int i = 0; i < mainBottomIds.length; i++) {
             mainBottomLayouts[i] = (ImageView) findViewById(mainBottomIds[i]);
             final int finalI = i;
@@ -150,6 +244,7 @@ public class MainActivity extends BaseActivity implements OnListFragmentInteract
                     BaseActivity.launch(MainActivity.this,CustomViewActivity.class);
                     break;
                 case "2":
+                    BaseActivity.launch(MainActivity.this,ServiceActivity.class);
                     break;
             }
         }
@@ -157,4 +252,25 @@ public class MainActivity extends BaseActivity implements OnListFragmentInteract
     }
 
 
+    @Override
+    public void onDrawerSlide(View drawerView, float slideOffset) {
+
+    }
+
+    @Override
+    public void onDrawerOpened(View drawerView) {
+        List githubs = new ArrayList<String>();
+        Collections.addAll(githubs,githubKey);
+        mSlideAdapter.setData(githubs);
+    }
+
+    @Override
+    public void onDrawerClosed(View drawerView) {
+
+    }
+
+    @Override
+    public void onDrawerStateChanged(int newState) {
+
+    }
 }

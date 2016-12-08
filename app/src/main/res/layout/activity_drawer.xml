@@ -1,6 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
 
-</LinearLayout>
+    <ImageView
+        android:id="@+id/head"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="10dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/head" />
+
+    <LinearLayout
+        android:id="@+id/desc"
+        android:paddingRight="30dp"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/head"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView
+            android:textStyle="bold"
+            android:textColor="@color/c666666"
+            android:textSize="@dimen/sp_16"
+            android:text="作者:David.Zhang"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:textStyle="bold|italic"
+            android:textColor="@color/c666666"
+            android:textSize="@dimen/sp_16"
+            android:text="Github:zcwfeng"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <View android:id="@+id/splite"  android:layout_below="@id/desc" style="@style/splite_style"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/splite"
+        android:id="@+id/main_draw_rv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</RelativeLayout>

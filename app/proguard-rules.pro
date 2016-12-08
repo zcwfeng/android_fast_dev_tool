@@ -180,6 +180,9 @@
 #我是以libaray的形式引用了一个图片加载框架,如果不想混淆 keep 掉
 -keep class com.nostra13.universalimageloader.** { *; }
 
+#友盟
+-keep class com.umeng.**
+-keep class com.umeng.**{*;}
 
 #retrofit
 -keep class sun.misc.Unsafe { *; }

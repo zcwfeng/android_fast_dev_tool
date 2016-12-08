@@ -116,7 +116,7 @@
 
     <string-array name="component_index">
         <item>自定义ViewUI</item>
-        <item>Demo1</item>
+        <item>Services</item>
         <item>Demo2</item>
     </string-array>
 
@@ -140,6 +140,7 @@
     <string name="glide_single_img_https">https://img7.c.yinyuetai.com/20160629_213/1467183487282EkyGz_JPEG/upload_Untitled-3.jpg</string>
 
     <string name="demo_video_path">/storage/emulated/0/Pictures/mv.mp4</string>
+
 
 
 </resources>

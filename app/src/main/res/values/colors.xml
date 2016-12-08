@@ -7,6 +7,7 @@
 
     <color name="base_background">#f7f7f7</color>
 
+    <color name="c666666">#666666</color>
 
     <!--适配Materail Design后添加的颜色-->
     <color name="text_100">#ff000000</color>
