@@ -116,6 +116,9 @@
         <activity
             android:name=".ui.activity.ServiceActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.WebActivity"
+            android:screenOrientation="portrait" />
 
 
         <activity android:name=".demos.demorealm.activity.RealmDemoMainActivity" />

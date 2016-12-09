@@ -100,10 +100,10 @@ dependencies {
     compile 'com.facebook.fresco:fresco:0.8.1'
     compile 'jp.wasabeef:recyclerview-animators:2.2.3'
     compile 'com.yinyuetai.android.lib:video_player:1.1.15'
-//    compile 'com.firebase:firebase-client-android:2.5.2.+'
-//    compile 'com.google.firebase:firebase-core:9.0.0'
-//    compile 'com.google.firebase:firebase-ads:9.0.0'
-//    compile 'com.google.firebase:firebase-crash:9.0.0'
+    //    compile 'com.firebase:firebase-client-android:2.5.2.+'
+    //    compile 'com.google.firebase:firebase-core:9.0.0'
+    //    compile 'com.google.firebase:firebase-ads:9.0.0'
+    //    compile 'com.google.firebase:firebase-crash:9.0.0'
 }
 
 //apply plugin: 'com.google.gms.google-services'

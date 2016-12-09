@@ -152,8 +152,17 @@ public class MainActivity extends BaseActivity implements OnListFragmentInteract
 //                }
 
                 Glide.with(BaseApplication.getInstance()).load("").placeholder(getResources().getDrawable(R.drawable.head)).into(view);
+
+                viewHolder.setOnClickListener(R.id.title, new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        WebActivity.launch(MainActivity.this, (String) githubMap.get(item));
+                    }
+                });
             }
         });
+
+
 
 
         mNavView = (NavigationView) findViewById(R.id.nav_view);
