@@ -17,6 +17,10 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <style name="translucent" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowBackground">@color/dd000000</item>
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
 
     <style name="main_bar_text_style">
         <item name="android:textColor">@color/ffffff</item>

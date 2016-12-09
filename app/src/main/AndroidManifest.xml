@@ -128,10 +128,15 @@
         <activity android:name=".demos.demorealm.async.AsyncActivity" />
         <activity android:name=".demos.demorealm.async.AddDeleteActivity" />
         <activity android:name=".demos.demorealm.async.AsyncQueryActivity" />
-        <activity android:name=".demos.demorealm.async.UpdateCatActivity"/>
+        <activity android:name=".demos.demorealm.async.UpdateCatActivity" />
+        <activity
+            android:name=".demos.zoomimageheader.activity.ZoomImageHeaderActivity"
+            android:theme="@style/translucent" />
+        <activity android:name=".demos.zoomimageheader.activity.HomeActivity"/>
 
-
-        <service android:name=".binder.AIDLTestService" android:exported="true">
+        <service
+            android:name=".binder.AIDLTestService"
+            android:exported="true">
             <intent-filter>
                 <action android:name="com.zcwfeng.fastdev.binder.AIDLTestService" />
             </intent-filter>

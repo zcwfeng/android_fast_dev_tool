@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
+    <Button
+        android:id="@+id/zoom_img_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/default_bg"
+        android:padding="4dp"
+        android:text="高仿饿了吗效果"
+        android:textColor="@color/white"
+        android:textSize="@dimen/sp_16"
+        android:textStyle="bold" />
 </LinearLayout>

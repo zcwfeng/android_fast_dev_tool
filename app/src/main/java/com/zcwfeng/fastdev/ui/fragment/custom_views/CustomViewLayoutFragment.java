@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.zcwfeng.fastdev.R;
+import com.zcwfeng.fastdev.demos.zoomimageheader.activity.ZoomImageHeaderActivity;
 import com.zcwfeng.fastdev.ui.fragment.BaseFragment;
 
 /**
@@ -16,7 +17,7 @@ import com.zcwfeng.fastdev.ui.fragment.BaseFragment;
 public class CustomViewLayoutFragment extends BaseFragment {
 
     private View rootView;
-
+    private View mZoomImgHeaderBtn;
     public static CustomViewLayoutFragment newInstance() {
 
         Bundle args = new Bundle();
@@ -30,6 +31,13 @@ public class CustomViewLayoutFragment extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         rootView = inflater.inflate(R.layout.fragment_customview_layout, container, false);
+        mZoomImgHeaderBtn = rootView.findViewById(R.id.zoom_img_header);
+        mZoomImgHeaderBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ZoomImageHeaderActivity.launch(getActivity(),ZoomImageHeaderActivity.class);
+            }
+        });
         return rootView;
     }
 }

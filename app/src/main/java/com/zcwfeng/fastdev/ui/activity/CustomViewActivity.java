@@ -36,17 +36,16 @@ public class CustomViewActivity extends BaseActivity {
 
     private void initViews() {
         mListTitle = new ArrayList<>();
+        mListTitle.add("搜集的效果");
         mListTitle.add("芝麻信用评分");
-        mListTitle.add("自定义布局");
         mCustomViewChartFragment = CustomViewChartFragment.newInstance();
         mCustomViewLayoutFragment = CustomViewLayoutFragment.newInstance();
         mListFragments = new WeakHashMap<>();
-        mListFragments.put(mListTitle.get(0), mCustomViewChartFragment);
-        mListFragments.put(mListTitle.get(1), mCustomViewLayoutFragment);
+        mListFragments.put(mListTitle.get(0), mCustomViewLayoutFragment);
+        mListFragments.put(mListTitle.get(1), mCustomViewChartFragment);
         mTabTitle = (TabLayout) findViewById(R.id.sliding_tabs);
         mAdapter = new MyViewPagerAdapter(getSupportFragmentManager(), mListFragments, mListTitle);
         mViewPager = (ViewPager) findViewById(R.id.template_viewpager);
-        mViewPager.setOffscreenPageLimit(2);
         mViewPager.setAdapter(mAdapter);
         mTabTitle.setTabMode(TabLayout.MODE_FIXED);
         mTabTitle.addTab(mTabTitle.newTab().setText(mListTitle.get(0)));
