@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.Display;
 import android.view.WindowManager;
 
+import com.baidu.mapapi.SDKInitializer;
 import com.tencent.smtt.sdk.QbSdk;
 import com.zcwfeng.componentlibs.BaseApplication;
 import com.zcwfeng.fastdev.demos.demorealm.util.RealmHelper;
@@ -71,6 +72,10 @@ public class MyApplication extends BaseApplication {
                 .deleteRealmIfMigrationNeeded()
                 .build();
         Realm.setDefaultConfiguration(configuration);
+
+        //初始化百度
+        SDKInitializer.initialize(getApplicationContext());
+
 
     }
 

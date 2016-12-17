@@ -115,9 +115,16 @@
 
 
     <string-array name="component_index">
-        <item>自定义ViewUI</item>
+        <item>ViewUI</item>
         <item>Services</item>
-        <item>Demo2</item>
+        <item>地图LBS</item>
+        <item>推送</item>
+
+
+    </string-array>
+    
+    <string-array name="news_historical_relic">
+        <item>百辟刀</item>
     </string-array>
 
     <string name="glide_single_img_debug_url">http://f.hiphotos.baidu.com/image/pic/item/7af40ad162d9f2d39a1046e1abec8a136327ccbf.jpg</string>

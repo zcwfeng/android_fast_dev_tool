@@ -43,6 +43,12 @@ ext {
     hamcrestVersion = '1.3'
     runnerVersion = '0.4.1'
     espressoVersion = '2.2.1'
+    frescoVersion = '1.0'
+    fresco_webpsupportVersion='1.0'
+    fresco_animated_gifVersion='1.0'
+    fresco_animated_basesupportVersion='1.0'
+    fresco_animated_webpVersion='1.0'
+    fresco_animated_gifVersion='1.0'
 
     // package
     versionCode = 1

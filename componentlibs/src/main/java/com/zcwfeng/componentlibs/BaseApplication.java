@@ -5,6 +5,7 @@ import android.content.Context;
 import android.support.multidex.MultiDex;
 import android.support.multidex.MultiDexApplication;
 
+import com.facebook.drawee.backends.pipeline.Fresco;
 import com.zcwfeng.componentlibs.common.setting.SettingUtility;
 import com.zcwfeng.componentlibs.surport.utils.SdcardUtils;
 import com.zcwfeng.componentlibs.surport.utils.UIUtils;
@@ -32,6 +33,9 @@ public class BaseApplication extends MultiDexApplication {
     public void onCreate() {
         super.onCreate();
         app = this;
+
+        //初始化Fresco库
+        Fresco.initialize(this);
 
         // 初始化ActivityHelper
 //        ActivityHelper.config(this);

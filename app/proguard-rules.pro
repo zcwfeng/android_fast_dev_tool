@@ -211,6 +211,10 @@
 -keep class jp.wasabeef.recyclerview.animators.**
 -keep class jp.wasabeef.recyclerview.animators.** { *; }
 
+# 百度相关
+-keep class com.baidu.** {*;}
+-keep class vi.com.** {*;}
+-dontwarn com.baidu.**
 
 #################################################################
 

@@ -29,4 +29,15 @@ dependencies {
     compile 'com.alibaba:fastjson:1.2.10'
     compile 'com.umeng.analytics:analytics:latest.integration'// 友盟 统计
 
+    // 其他依赖
+    compile "com.facebook.fresco:fresco:$rootProject.ext.frescoVersion"
+    // 在 API < 14 上的机器支持 WebP 时，需要添加
+    compile "com.facebook.fresco:animated-base-support:$rootProject.ext.fresco_animated_basesupportVersion"
+    // 支持 GIF 动图，需要添加
+    compile "com.facebook.fresco:animated-gif:$rootProject.ext.fresco_animated_gifVersion"
+    // 支持 WebP （静态图+动图），需要添加
+    compile "com.facebook.fresco:animated-webp:$rootProject.ext.fresco_animated_webpVersion"
+    // 仅支持 WebP 静态图，需要添加
+    compile "com.facebook.fresco:webpsupport:$rootProject.ext.fresco_webpsupportVersion"
+
 }

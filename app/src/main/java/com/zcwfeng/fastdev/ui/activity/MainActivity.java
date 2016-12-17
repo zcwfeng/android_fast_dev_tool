@@ -81,7 +81,8 @@ public class MainActivity extends BaseActivity implements OnListFragmentInteract
 
     };
     private String[] githubValue= {
-            "https://github.com/zcwfeng/zcw_ijkplayer",
+//            "https://github.com/zcwfeng/zcw_ijkplayer",
+            "http://www.iqiyi.com/a_19rrh9swyh.html",
             "https://github.com/zcwfeng/StarTV",
             "https://github.com/ReactiveX/RxJava",
             "https://github.com/square/retrofit",
@@ -254,6 +255,9 @@ public class MainActivity extends BaseActivity implements OnListFragmentInteract
                     break;
                 case "2":
                     BaseActivity.launch(MainActivity.this,ServiceActivity.class);
+                    break;
+                case "3":
+                    BaseActivity.launch(MainActivity.this,LBSMapActivity.class);
                     break;
             }
         }
