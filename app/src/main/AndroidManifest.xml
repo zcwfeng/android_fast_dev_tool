@@ -146,6 +146,56 @@
             android:theme="@style/translucent" />
         <activity android:name=".demos.zoomimageheader.activity.HomeActivity"/>
 
+
+        <activity
+            android:name=".demos.demo_amap.AmapStartActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            >
+        </activity>
+        <activity
+            android:name=".demos.demo_amap.Location_Activity"
+            android:windowSoftInputMode="adjustResize|stateHidden"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            >
+        </activity>
+        <activity
+            android:name=".demos.demo_amap.LastLocation_Activity"
+            android:windowSoftInputMode="adjustResize|stateHidden"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            >
+        </activity>
+        <activity
+            android:name=".demos.demo_amap.GeoFence_Activity"
+            android:windowSoftInputMode="adjustResize|stateHidden"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            >
+        </activity>
+        <activity
+            android:name=".demos.demo_amap.Assistant_Location_Activity"
+            android:windowSoftInputMode="adjustResize|stateHidden"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            >
+        </activity>
+        <activity
+            android:name=".demos.demo_amap.Alarm_Location_Activity"
+            android:windowSoftInputMode="adjustResize|stateHidden"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            >
+        </activity>
+        <activity
+            android:name=".demos.demo_amap.ErrorCode_Activity"
+            android:windowSoftInputMode="adjustResize|stateHidden"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            >
+        </activity>
+        <activity
+            android:name=".demos.demo_amap.Tools_Activity"
+            android:windowSoftInputMode="adjustResize|stateHidden"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            >
+        </activity>
+        
+
         <service
             android:name=".binder.AIDLTestService"
             android:exported="true">
@@ -187,6 +237,12 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyBHfk2gpQY0b4ljxxlwxsndIF_lulI78Lk"/>
+        <!-- 设置key -->
+        <meta-data
+            android:name="com.amap.api.v2.apikey"
+            android:value="请输入你申请的KEY" />
+        <!-- 定位需要的服务 -->
+        <service android:name="com.amap.api.location.APSService" />
 
         <!-- Enables the Android Pay API -->
         <!--<meta-data

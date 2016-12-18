@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.zcwfeng.fastdev.R;
+import com.zcwfeng.fastdev.demos.demo_amap.AmapStartActivity;
 import com.zcwfeng.fastdev.ui.fragment.BaseFragment;
 
 
@@ -36,6 +37,12 @@ public class GaoDeLbsFragment extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         rootView = inflater.inflate(R.layout.fragment_lbs_map_amap, container, false);
+        rootView.findViewById(R.id.amap_demos).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AmapStartActivity.launch(getActivity());
+            }
+        });
         return rootView;
     }
 

@@ -67,5 +67,12 @@
         <attr name="phl_action" format="reference" />
     </declare-styleable>
 
+    <style name="demo_button">
+        <item name="android:layout_margin">4dp</item>
+        <item name="android:background">@color/comm_gray</item>
+        <item name="android:textSize">@dimen/sp_16</item>
+        <item name="android:textColor">@color/ffffff</item>
+    </style>
+
 
 </resources>
