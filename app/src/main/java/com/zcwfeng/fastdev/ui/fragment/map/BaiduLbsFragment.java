@@ -13,7 +13,7 @@ import com.zcwfeng.fastdev.ui.fragment.BaseFragment;
 
 /**
  * Created by David.zhang on 2016/10/24.
- * Description：
+ * Description：api key = ezXEx7aVgik1TY3teulwXhcaxGFPctZs
  */
 public class BaiduLbsFragment extends BaseFragment {
 

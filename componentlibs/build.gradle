@@ -26,8 +26,11 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
     compile "com.android.support:appcompat-v7:$rootProject.ext.supportLibraryVersion"
-    compile 'com.alibaba:fastjson:1.2.10'
-    compile 'com.umeng.analytics:analytics:latest.integration'// 友盟 统计
+    compile "com.alibaba:fastjson:$rootProject.ext.fastjsonVersion"
+    compile "com.umeng.analytics:analytics:$rootProject.ext.umengVersion"// 友盟 统计
+
+    //google map place
+    compile "com.google.android.gms:play-services:$rootProject.ext.google_gsm_play_services"
 
     // 其他依赖
     compile "com.facebook.fresco:fresco:$rootProject.ext.frescoVersion"

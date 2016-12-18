@@ -5,7 +5,7 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
 
-import com.zcwfeng.componentlibs.surport.utils.Logger;
+import com.zcwfeng.componentlibs.surport.utils.LogFormater;
 import com.zcwfeng.fastdev.R;
 import com.zcwfeng.fastdev.ndk.NdkJniUtils;
 import com.zcwfeng.fastdev.ui.adapter.MyViewPagerAdapter;
@@ -63,7 +63,7 @@ public class ImageLibActivity extends BaseActivity {
 
         NdkJniUtils instance = NdkJniUtils.getInstance();
 
-        Logger.e("jni", instance.getStringFromC("Hellow", "Worldzcwfeng"));
+        LogFormater.e("jni", instance.getStringFromC("Hellow", "Worldzcwfeng"));
 
 
         int data[] = {1,2,3,4,5};

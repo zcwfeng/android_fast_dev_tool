@@ -5,7 +5,7 @@ import android.os.Build;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
 
-import com.zcwfeng.componentlibs.surport.utils.Logger;
+import com.zcwfeng.componentlibs.surport.utils.LogFormater;
 import com.zcwfeng.componentlibs.surport.utils.SystemBarUtils;
 
 
@@ -30,7 +30,7 @@ public class KitkatProfileViewGroup extends FrameLayout {
 
     private void setInit() {
         if (Build.VERSION.SDK_INT == Build.VERSION_CODES.KITKAT) {
-            Logger.w(TAG,"setPadding-KitkatViewGroup");
+            LogFormater.w(TAG,"setPadding-KitkatViewGroup");
             setPadding(getPaddingLeft(),
                         getPaddingTop(),
                         getPaddingRight(),

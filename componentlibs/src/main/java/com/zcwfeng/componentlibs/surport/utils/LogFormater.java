@@ -4,7 +4,7 @@ import android.util.Log;
 
 import com.alibaba.fastjson.JSON;
 
-public class Logger {
+public class LogFormater {
 
 	private final static String TAG = "Logger";
 
