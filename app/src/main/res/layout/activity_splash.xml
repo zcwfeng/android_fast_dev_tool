@@ -1,12 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white">
+    android:gravity="center"
+    android:background="@color/colorPrimary">
 
-    <ImageView
-        android:id="@+id/splash_bg"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_centerInParent="true" />
+   <com.eftimoff.androipathview.PathView
+       android:layout_centerHorizontal="true"
+       android:layout_marginTop="100dp"
+       android:id="@+id/pathView_iron"
+       android:layout_width="350dp"
+       android:layout_height="350dp"
+       app:svg="@raw/ironman_white"
+       app:pathColor="@android:color/white"
+       app:pathWidth="2dp"/>
+
+   <com.eftimoff.androipathview.PathView
+       android:layout_below="@id/pathView_iron"
+       android:layout_centerHorizontal="true"
+        android:id="@+id/pathView"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        app:svg="@raw/monitor"
+        app:pathColor="@android:color/white"
+        app:pathWidth="2dp"/>
+
+
 </RelativeLayout>

@@ -15,7 +15,9 @@ import com.zcwfeng.fastdev.ui.fragment.request.demo.GitHubClient;
 import com.zcwfeng.fastdev.ui.fragment.request.demo.ServiceGenerator;
 import com.zcwfeng.fastdev.ui.fragment.request.demo2.IpResult;
 import com.zcwfeng.fastdev.ui.fragment.request.demo2.MyApiService;
+import com.zcwfeng.fastdev.ui.fragment.request.demo2.SkyService;
 import com.zcwfeng.fastdev.ui.fragment.request.demo2.SouguBean;
+import com.zcwfeng.fastdev.ui.fragment.request.demo2.WeatherDemo;
 import com.zcwfeng.fastdev.ui.fragment.request.lib.BaseResponse;
 import com.zcwfeng.fastdev.ui.fragment.request.lib.BaseSubscriber;
 import com.zcwfeng.fastdev.ui.fragment.request.lib.CallBack;
@@ -37,11 +39,13 @@ import retrofit2.Call;
 public class RetrofitFragment extends BaseFragment {
 
     private View rootView;
-    private View btn, btn_get, btn_post, btn_download, btn_upload, btn_myApi, btn_changeHostApi;
+    private View btn, btn_get, btn_post, btn_download, btn_upload, btn_myApi, btn_changeHostApi,btn_skyApi;
 
     String url1 = "http://img0.imgtn.bdimg.com/it/u=205441424,1768829584&fm=21&gp=0.jpg";
     String url2 = "http://wap.dl.pinyin.sogou.com/wapdl/hole/201607/05/SogouInput_android_v8.3_sweb.apk?frm=new_pcjs_index";
     String url3 = "http://apk.hiapk.com/web/api.do?qt=8051&id=723";
+
+    String url4 = "http://www.weather.com.cn/data/sk/101010100.html";
     public static RetrofitFragment newInstance() {
         Bundle args = new Bundle();
         RetrofitFragment fragment = new RetrofitFragment();
@@ -67,6 +71,7 @@ public class RetrofitFragment extends BaseFragment {
         btn_upload = rootView.findViewById(R.id.bt_upload);
         btn_myApi = rootView.findViewById(R.id.bt_my_api);
         btn_changeHostApi = rootView.findViewById(R.id.bt_changeHostApi);
+        btn_skyApi = rootView.findViewById(R.id.bt_sky_api);
 
 
         btn.setOnClickListener(new View.OnClickListener() {
@@ -255,6 +260,40 @@ public class RetrofitFragment extends BaseFragment {
                             }
                             @Override
                             public void onNext(SouguBean souguBean) {
+
+                                Toast.makeText(getActivity(), souguBean.toString(), Toast.LENGTH_LONG).show();
+
+                            }
+                        });
+            }
+        });
+
+
+
+        btn_skyApi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //create  you APiService
+                RetrofitClient client =  RetrofitClient.getInstance(getActivity(), "http://www.weather.com.cn/");
+                client.changeApiHeader(new HashMap());
+                SkyService service =  client.create(SkyService.class);
+
+
+                // execute and add observable to RxJava
+                RetrofitClient.getInstance(getActivity(), "http://www.weather.com.cn/").execute(
+                        service.getSkyDemo(), new BaseSubscriber<WeatherDemo>(getActivity()) {
+
+
+
+                            @Override
+                            public void onError(ExceptionHandle.ResponeThrowable e) {
+                                Toast.makeText(getActivity(), e.getMessage(), Toast.LENGTH_LONG).show();
+
+                            }
+
+
+                            @Override
+                            public void onNext(WeatherDemo souguBean) {
 
                                 Toast.makeText(getActivity(), souguBean.toString(), Toast.LENGTH_LONG).show();
 

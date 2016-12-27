@@ -29,6 +29,9 @@ dependencies {
     compile "com.alibaba:fastjson:$rootProject.ext.fastjsonVersion"
     compile "com.umeng.analytics:analytics:$rootProject.ext.umengVersion"// 友盟 统计
 
+    //svg https://github.com/geftimov/android-pathview
+    compile 'com.eftimoff:android-pathview:1.0.8@aar'
+
     //google map place
     compile "com.google.android.gms:play-services:$rootProject.ext.google_gsm_play_services"
 

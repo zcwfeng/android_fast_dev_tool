@@ -46,4 +46,11 @@
         android:layout_height="wrap_content"
         android:text="execute MyApi2" />
 
+
+    <Button
+        android:id="@+id/bt_sky_api"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="execute Api 天气" />
+
 </LinearLayout>
