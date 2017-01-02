@@ -115,12 +115,32 @@
 
 
     <string-array name="component_index">
+        <!--http://www.voidcn.com/blog/u013210620/article/p-4898601.html-->
+        <!--ElevationDrag-->
+        <!--CGE DEMO-->
         <item>ViewUI</item>
         <item>Services</item>
         <item>地图LBS</item>
         <item>推送</item>
+        <item>人脸识别</item><!--opencv-->
+        <item>SurfaceView</item>
+        <item>报表</item>
+    </string-array>
 
+    <string-array name="chat_index">
+        <item>腾讯云</item>
+        <item>云信</item>
+        <item>环信</item>
+        <item>网易蜂巢</item>
+    </string-array>
 
+    <string-array name="video_index">
+        <item>VR</item>
+        <item>AR</item>
+        <item>EXOPlayer</item>
+        <item>MediaPlayer</item>
+        <item>Bilibili</item><!--opencv-->
+        <item>FFmpeg</item>
     </string-array>
     
     <string-array name="news_historical_relic">

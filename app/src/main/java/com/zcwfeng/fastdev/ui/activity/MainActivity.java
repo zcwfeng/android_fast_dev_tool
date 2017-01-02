@@ -210,9 +210,12 @@ public class MainActivity extends BaseActivity implements OnListFragmentInteract
                     break;
                 case 1:
                     baseFragments[selectItem] = ChatFragment.newInstance();
+                    ((ChatFragment) baseFragments[selectItem]).setmListener(this);
+
                     break;
                 case 2:
                     baseFragments[selectItem] = VideoFragment.newInstance();
+                    ((VideoFragment) baseFragments[selectItem]).setmListener(this);
                     break;
                 case 3:
                     baseFragments[selectItem] = ComponentFragment.newInstance(0);
@@ -245,9 +248,23 @@ public class MainActivity extends BaseActivity implements OnListFragmentInteract
                     break;
             }
         } else if (type == 1) {
-
+            switch (item.id) {
+                case "1":
+                    break;
+                case "2":
+                    break;
+                case "3":
+                    break;
+            }
         } else if (type == 2) {
-
+            switch (item.id) {
+                case "1":
+                    break;
+                case "2":
+                    break;
+                case "3":
+                    break;
+            }
         } else if (type == 3) {
             switch (item.id) {
                 case "1":
@@ -286,4 +303,6 @@ public class MainActivity extends BaseActivity implements OnListFragmentInteract
     public void onDrawerStateChanged(int newState) {
 
     }
+
+
 }
