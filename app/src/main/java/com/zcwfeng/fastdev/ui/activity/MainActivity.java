@@ -276,6 +276,9 @@ public class MainActivity extends BaseActivity implements OnListFragmentInteract
                 case "3":
                     BaseActivity.launch(MainActivity.this,LBSMapActivity.class);
                     break;
+                case "4":
+                    BaseActivity.launch(MainActivity.this,PushActivity.class);
+                    break;
             }
         }
 

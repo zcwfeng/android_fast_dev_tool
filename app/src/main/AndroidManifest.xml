@@ -127,6 +127,9 @@
         <activity
             android:name=".ui.activity.LBSMapActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.PushActivity"
+            android:screenOrientation="portrait" />
 
 
 

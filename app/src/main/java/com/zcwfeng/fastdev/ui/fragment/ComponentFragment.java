@@ -19,11 +19,6 @@ import com.zcwfeng.fastdev.ui.fragment.myinterface.OnListFragmentInteractionList
  */
 public class ComponentFragment extends BaseFragment {
     private DummyContent dummyContent;
-
-
-
-
-
     // TODO: Customize parameter argument names
     private static final String ARG_COLUMN_COUNT = "column-count";
     // TODO: Customize parameters
@@ -77,15 +72,11 @@ public class ComponentFragment extends BaseFragment {
         return view;
     }
 
-
-
     @Override
     public void onDetach() {
         super.onDetach();
         mListener = null;
     }
-
-
 
     public void setmListener(OnListFragmentInteractionListener lsn){
         mListener = lsn;

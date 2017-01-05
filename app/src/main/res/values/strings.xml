@@ -111,6 +111,10 @@
         <item>网络请求</item>
         <item>图片库</item>
         <item>数据库</item>
+        <item>WeeX</item>
+        <item>ReactNative</item>
+        <item>热更新</item>
+
     </string-array>
 
 
@@ -125,6 +129,11 @@
         <item>人脸识别</item><!--opencv-->
         <item>SurfaceView</item>
         <item>报表</item>
+        <item>分享</item>
+        <item>搜索</item>
+        <item>下载</item>
+        <item>支付</item>
+        <item>扫码</item>
     </string-array>
 
     <string-array name="chat_index">
@@ -145,6 +154,8 @@
     
     <string-array name="news_historical_relic">
         <item>百辟刀</item>
+        <item>秦剑</item>
+        <item>却邪剑</item>
     </string-array>
 
     <string name="glide_single_img_debug_url">http://f.hiphotos.baidu.com/image/pic/item/7af40ad162d9f2d39a1046e1abec8a136327ccbf.jpg</string>

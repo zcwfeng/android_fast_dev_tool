@@ -3,51 +3,52 @@ package com.zcwfeng.fastdev.ui.activity;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
+import android.support.v7.widget.Toolbar;
 
 import com.zcwfeng.fastdev.R;
 import com.zcwfeng.fastdev.ui.adapter.MyViewPagerAdapter;
 import com.zcwfeng.fastdev.ui.fragment.BaseFragment;
-import com.zcwfeng.fastdev.ui.fragment.request.OkHttpFragment;
-import com.zcwfeng.fastdev.ui.fragment.request.RetrofitFragment;
-import com.zcwfeng.fastdev.ui.fragment.request.VolleyFragment;
+import com.zcwfeng.fastdev.ui.fragment.push.BaiduPushFragment;
+import com.zcwfeng.fastdev.ui.fragment.push.JpushFragment;
+import com.zcwfeng.fastdev.ui.fragment.push.LocalPushFragment;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.WeakHashMap;
 
-public class RequestActivity extends BaseActivity {
+public class PushActivity extends BaseActivity {
     private TabLayout mTabTitle;
     private ViewPager mViewPager;
     private MyViewPagerAdapter mAdapter;
     private List<String> mListTitle;//tab名称列表
     private WeakHashMap<String, BaseFragment> mListFragments;
-    private RetrofitFragment mRetrofitFrgment;
-    private OkHttpFragment mOkHttpFragment;
-    private VolleyFragment mVolleyFragment;
+    private JpushFragment mJpushFrgment;
+    private BaiduPushFragment mBaiduPushFragment;
+    private LocalPushFragment mLocalPushFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_retrofit);
-        setToolbar(null,"");
+        setContentView(R.layout.activity_fragment_container_template);
+        setToolbar((Toolbar) findViewById(R.id.toolBar),"");
         initViews();
     }
 
     private void initViews() {
         mListTitle = new ArrayList<>();
-        mListTitle.add("Retrofit");
-        mListTitle.add("Okhttp");
-        mListTitle.add("Volley");
-        mRetrofitFrgment = RetrofitFragment.newInstance();
-        mOkHttpFragment = OkHttpFragment.newInstance().newInstance();
-        mVolleyFragment = VolleyFragment.newInstance();
+        mListTitle.add("极光推送");
+        mListTitle.add("百度推送");
+        mListTitle.add("本地推送");
+        mJpushFrgment = JpushFragment.newInstance();
+        mBaiduPushFragment = BaiduPushFragment.newInstance();
+        mLocalPushFragment = LocalPushFragment.newInstance();
         mListFragments = new WeakHashMap<>();
-        mListFragments.put(mListTitle.get(0), mRetrofitFrgment);
-        mListFragments.put(mListTitle.get(1), mOkHttpFragment);
-        mListFragments.put(mListTitle.get(2), mVolleyFragment);
+        mListFragments.put(mListTitle.get(0), mJpushFrgment);
+        mListFragments.put(mListTitle.get(1), mBaiduPushFragment);
+        mListFragments.put(mListTitle.get(2), mLocalPushFragment);
         mTabTitle = (TabLayout) findViewById(R.id.sliding_tabs);
         mAdapter = new MyViewPagerAdapter(getSupportFragmentManager(), mListFragments, mListTitle);
-        mViewPager = (ViewPager) findViewById(R.id.retrofit_viewpager);
+        mViewPager = (ViewPager) findViewById(R.id.template_viewpager);
         mViewPager.setAdapter(mAdapter);
         mTabTitle.setTabMode(TabLayout.MODE_FIXED);
         mTabTitle.addTab(mTabTitle.newTab().setText(mListTitle.get(0)));
