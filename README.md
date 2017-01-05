@@ -35,7 +35,8 @@ AndroidFastDevTool, A pure tools App based on Android and so on,to help develope
 * utils 的整理 [待整理]
 * 功能与代码结构的整理 [待整理]
 
-
+##效果
+![](https://github.com/zcwfeng/android_fast_dev_tool/raw/master/art/androidfastdev.gif)
 
 
 ``` xml
