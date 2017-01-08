@@ -7,7 +7,7 @@ AndroidFastDevTool, A pure tools App based on Android and so on,to help develope
 本项目还在测试阶段，发现bug或有好的建议欢迎[issue](https://github.com/zcwfeng/android_fast_dev_tool/issues)、email(zcwfeng@gmail.com)、PR，如果感觉对你有帮助也欢迎点个star、fork，本项目仅做学习交流使用，相关API数据内容所有权归原作公司所有，请勿用于其他用途
 
 
-> 转载和拉代码请注明出处，代码不辛苦但是所属人很重要
+> 转载和拉代码请注明出处
 
 
 ## 用到的知识点
@@ -49,8 +49,22 @@ AndroidFastDevTool, A pure tools App based on Android and so on,to help develope
 * https://github.com/yangfuhai/ASimpleCache
 * https://github.com/zcwfeng/AndroidViewHover
 * https://github.com/zcwfeng/huanxin_chatuidemo
-
-
+* https://github.com/zcwfeng/ViewInspector
+* https://github.com/zcwfeng/DraggerStudy
+* https://github.com/xiongwei-git/AndroidVideoPlayer
+* https://github.com/googlesamples/android-UniversalMusicPlayer
+* https://github.com/zcwfeng/Android-PullToRefreshRecyclerView
+* https://github.com/zcwfeng/AisenWeiBo
+* https://github.com/zcwfeng/AndroidSourceStudyStudio
+* https://github.com/facebook/fresco
+* https://github.com/alibaba/AndFix
+* https://github.com/dodola/HotFix
+* https://github.com/dodola/RocooFix
+* https://github.com/zcwfeng/vlc-android-demo
+* https://github.com/zcwfeng/zcw_ijkplayer
+* https://github.com/Bilibili/ijkplayer
+* https://github.com/geftimov/android-pathview
+* https://github.com/PhilJay/MPAndroidChart
 
 ``` xml
 MIT License
