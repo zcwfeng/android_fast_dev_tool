@@ -37,6 +37,18 @@ AndroidFastDevTool, A pure tools App based on Android and so on,to help develope
 
 > 一些比较好但是不好整理的Demo
 * https://github.com/florent37/MaterialViewPager
+* https://github.com/zcwfeng/android-image-utils
+* [leakcanary] https://github.com/square/leakcanary
+* https://github.com/zcwfeng/afinal
+* https://github.com/EyalBira/loading-dots
+* https://github.com/kikoso/android-stackblur
+* https://github.com/googlesamples/android-SynchronizedNotifications.git
+* https://github.com/jdamcd/android-crop
+* https://github.com/chrisbanes/cheesesquare
+* https://github.com/navasmdc/MaterialDesignLibrary
+* https://github.com/yangfuhai/ASimpleCache
+* https://github.com/zcwfeng/AndroidViewHover
+* https://github.com/zcwfeng/huanxin_chatuidemo
 
 
 
