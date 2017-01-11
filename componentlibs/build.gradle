@@ -28,13 +28,10 @@ dependencies {
     compile "com.android.support:appcompat-v7:$rootProject.ext.supportLibraryVersion"
     compile "com.alibaba:fastjson:$rootProject.ext.fastjsonVersion"
     compile "com.umeng.analytics:analytics:$rootProject.ext.umengVersion"// 友盟 统计
-
     //svg https://github.com/geftimov/android-pathview
     compile 'com.eftimoff:android-pathview:1.0.8@aar'
-
     //google map place
     compile "com.google.android.gms:play-services:$rootProject.ext.google_gsm_play_services"
-
     // 其他依赖
     compile "com.facebook.fresco:fresco:$rootProject.ext.frescoVersion"
     // 在 API < 14 上的机器支持 WebP 时，需要添加
@@ -45,5 +42,9 @@ dependencies {
     compile "com.facebook.fresco:animated-webp:$rootProject.ext.fresco_animated_webpVersion"
     // 仅支持 WebP 静态图，需要添加
     compile "com.facebook.fresco:webpsupport:$rootProject.ext.fresco_webpsupportVersion"
+    //android-gif-drawable - github/https://github.com/koral--/android-gif-drawable
+    compile "pl.droidsonroids.gif:android-gif-drawable:$rootProject.ext.android_gif_drawable_version"
+    // GifView -github/https://github.com/Cutta/GifView
+    compile "com.github.Cutta:GifView:$rootProject.ext.GifView_version"
 
 }

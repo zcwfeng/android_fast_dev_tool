@@ -279,6 +279,9 @@ public class MainActivity extends BaseActivity implements OnListFragmentInteract
                 case "4":
                     BaseActivity.launch(MainActivity.this,PushActivity.class);
                     break;
+                case "5":
+                    BaseActivity.launch(MainActivity.this,SkillActivity.class);
+                    break;
             }
         }
 

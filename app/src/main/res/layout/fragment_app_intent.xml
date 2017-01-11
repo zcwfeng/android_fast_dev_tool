@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/intent_startv_play"
+        android:text="跳转StarTV播放页"
+        style="@style/demo_button" />
+
+    <TextView
+        android:id="@+id/intent_startv_main"
+        android:text="跳转StarTV首页"
+        style="@style/demo_button" />
+
+</LinearLayout>

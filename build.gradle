@@ -20,6 +20,9 @@ allprojects {
         maven {
             url "http://nexus.rd.yinyuetai.com/content/repositories/releases/"
         }
+        maven {
+            url "https://jitpack.io"
+        }
     }
 
 }
@@ -50,6 +53,10 @@ ext {
     fresco_animated_basesupportVersion='1.0'
     fresco_animated_webpVersion='1.0'
     fresco_animated_gifVersion='1.0'
+
+    android_gif_drawable_version='1.2.3'
+
+    GifView_version="1.1"
 
     google_gsm_play_services='10.0.0'
 

@@ -126,6 +126,7 @@
         <item>Services</item>
         <item>地图LBS</item>
         <item>推送</item>
+        <item>小技巧</item>
         <item>人脸识别</item><!--opencv-->
         <item>SurfaceView</item>
         <item>报表</item>

@@ -85,7 +85,11 @@ public class GlideFragment extends BaseFragment {
         fragment.setArguments(args);
         return fragment;
     }
+//        Uri uri = Utils.getUriFromId(R.drawable.refresh_pull);
+//        Glide.with(BaseApplication.getInstance()).load("http://b.hiphotos.bdimg.com/album/s%3D1000%3Bq%3D90/sign=405001e9574e9258a23482eeacb2ea29/7af40ad162d9f2d31e5fcd62a8ec8a136227ccf5.jpg?v=tbs").asGif().into(imageView);
+//        Glide.with(BaseApplication.getInstance()).load(uri).into(imageView);
 
+    //        view2.addView(imageView);
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -235,9 +239,6 @@ public class GlideFragment extends BaseFragment {
     /**
      * demo=================method=================================
      */
-
-
-
 
 
     ViewPropertyAnimation.Animator animationObject = new ViewPropertyAnimation.Animator() {

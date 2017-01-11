@@ -11,6 +11,7 @@ AndroidFastDevTool, A pure tools App based on Android and so on,to help develope
 
 
 ## 用到的知识点
+
 * RenderScript [待整理]
 * OKHttp [待整理]
 * JNI NDK [待整理]
@@ -36,6 +37,7 @@ AndroidFastDevTool, A pure tools App based on Android and so on,to help develope
 * 功能与代码结构的整理 [待整理]
 
 > 一些比较好但是不好整理的Demo
+
 * https://github.com/florent37/MaterialViewPager
 * https://github.com/zcwfeng/android-image-utils
 * [leakcanary] https://github.com/square/leakcanary
@@ -65,6 +67,11 @@ AndroidFastDevTool, A pure tools App based on Android and so on,to help develope
 * https://github.com/Bilibili/ijkplayer
 * https://github.com/geftimov/android-pathview
 * https://github.com/PhilJay/MPAndroidChart
+* https://github.com/koral--/android-gif-drawable[GIF]
+* https://github.com/koral--/android-gif-drawable-sample
+* https://github.com/Cutta/GifView[GIF]
+* https://github.com/bumptech/glide
+* https://github.com/sbakhtiarov/gif-movie-view
 
 ``` xml
 MIT License
