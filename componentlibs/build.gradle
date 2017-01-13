@@ -47,4 +47,13 @@ dependencies {
     // GifView -github/https://github.com/Cutta/GifView
     compile "com.github.Cutta:GifView:$rootProject.ext.GifView_version"
 
+    //若使用annotation需要单独引用,对于tinker的其他库都无需再引用
+//    provided("com.tencent.tinker:tinker-android-anno:1.7.6")
+//    compile("com.tinkerpatch.sdk:tinkerpatch-android-sdk:1.0.3")
+
+    // 内存泄露监测
+    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.4'
+    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.4'
+    testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.4'
+
 }

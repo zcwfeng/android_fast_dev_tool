@@ -159,6 +159,23 @@
         <item>却邪剑</item>
     </string-array>
 
+    <!--pullUrl = "http://cdn.duitang.com/uploads/item/201504/14/20150414H5937_GnVZ5.thumb.224_0.gif";
+    waitUrl = "http://attimg.dospy.com/img/day_111013/20111013_4d563de4bee78ec2f1a96tcg7meZMi4K.gif";-->
+
+
+    <string-array name="sources">
+        <item>asset file</item>
+        <item>drawable resource</item>
+        <item>byte array</item>
+        <item>file descriptor</item>
+        <item>file path</item>
+        <item>File</item>
+        <item>AssetFileDescriptor</item>
+        <item>ByteBuffer</item>
+        <item>Uri</item>
+        <item>InputStream</item>
+    </string-array>
+
     <string name="glide_single_img_debug_url">http://f.hiphotos.baidu.com/image/pic/item/7af40ad162d9f2d39a1046e1abec8a136327ccbf.jpg</string>
     <string name="glide_single_img_url">http://img4.c.yinyuetai.com/others/admin/161024/0/-M-b2dbb69766cfa7624547b9fe2d18822a_0x0.jpg</string>
     <string name="glide_thumbnail_url">http://img2.3lian.com/2014/f4/102/d/91.jpg</string>

@@ -30,6 +30,7 @@ AndroidFastDevTool, A pure tools App based on Android and so on,to help develope
 * 使用Fresco做图片的处理和加载 [待整理]
 * 使用Picasso做图片的处理和加载 [待整理]
 * 使用x5WebView做阅览页，比原生WebView体验更佳
+* TinkerPatch 热更新 [待整理]
 
 > 待整理的代码
 
@@ -72,6 +73,10 @@ AndroidFastDevTool, A pure tools App based on Android and so on,to help develope
 * https://github.com/Cutta/GifView[GIF]
 * https://github.com/bumptech/glide
 * https://github.com/sbakhtiarov/gif-movie-view
+* http://tinkerpatch.com/Docs/SDK[TinkerPatch 热更新]
+* https://github.com/TinkerPatch/tinkerpatch-sample/blob/master/app/tinkerpatch.gradle
+* https://github.com/Tencent/tinker/wiki/Tinker-%E6%8E%A5%E5%85%A5%E6%8C%87%E5%8D%97
+* http://tinkerpatch.com/apps/detail/id/843
 
 ``` xml
 MIT License

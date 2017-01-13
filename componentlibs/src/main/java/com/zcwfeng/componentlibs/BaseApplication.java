@@ -77,5 +77,8 @@ public class BaseApplication extends MultiDexApplication {
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(base);
         MultiDex.install(this);
+//        TinkerPatch.init(TinkerPatchApplicationLike.getTinkerPatchApplicationLike());
     }
+
+
 }

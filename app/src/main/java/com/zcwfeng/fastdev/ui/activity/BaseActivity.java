@@ -4,12 +4,16 @@ import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
+import com.squareup.leakcanary.LeakCanary;
+import com.squareup.leakcanary.RefWatcher;
 import com.umeng.analytics.MobclickAgent;
 import com.zcwfeng.fastdev.R;
 
@@ -17,6 +21,8 @@ import com.zcwfeng.fastdev.R;
  * @author zcw
  */
 public class BaseActivity extends AppCompatActivity {
+
+    private RefWatcher mRefWatcher;
 
     private static String[] PERMISSIONS_EXTERNAL = {Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE};
     public static final int REQUEST_EXTERNAL = 110;
@@ -111,12 +117,19 @@ public class BaseActivity extends AppCompatActivity {
 
     }
 
+    public RefWatcher getRefWatcher() {
+        return mRefWatcher;
+    }
 
     protected void setLayoutId(int id) {
         setContentView(id);
     }
 
-
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        mRefWatcher = LeakCanary.install(getApplication());
+        super.onCreate(savedInstanceState);
+    }
 
     @Override
     protected void onResume() {
