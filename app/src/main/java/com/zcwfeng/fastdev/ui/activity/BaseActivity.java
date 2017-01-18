@@ -10,10 +10,9 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.view.View;
 
-import com.squareup.leakcanary.LeakCanary;
-import com.squareup.leakcanary.RefWatcher;
 import com.umeng.analytics.MobclickAgent;
 import com.zcwfeng.fastdev.R;
 
@@ -22,7 +21,6 @@ import com.zcwfeng.fastdev.R;
  */
 public class BaseActivity extends AppCompatActivity {
 
-    private RefWatcher mRefWatcher;
 
     private static String[] PERMISSIONS_EXTERNAL = {Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE};
     public static final int REQUEST_EXTERNAL = 110;
@@ -97,7 +95,8 @@ public class BaseActivity extends AppCompatActivity {
     protected void setToolbar(Toolbar toolbar, String title){
         if(toolbar == null) {
             Toolbar mToolBar = (Toolbar) findViewById(R.id.toolBar);
-            setToolbar(mToolBar,"快速开发库");
+            String str = TextUtils.isEmpty(title)?"快速开发库":title;
+            setToolbar(mToolBar,str);
         }else {
             toolbar.setTitle(title);
             setSupportActionBar(toolbar);
@@ -117,9 +116,6 @@ public class BaseActivity extends AppCompatActivity {
 
     }
 
-    public RefWatcher getRefWatcher() {
-        return mRefWatcher;
-    }
 
     protected void setLayoutId(int id) {
         setContentView(id);
@@ -127,7 +123,6 @@ public class BaseActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-        mRefWatcher = LeakCanary.install(getApplication());
         super.onCreate(savedInstanceState);
     }
 

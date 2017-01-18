@@ -7,6 +7,8 @@ import android.content.res.AssetManager;
 import android.content.res.Resources;
 import android.net.Uri;
 
+import com.zcwfeng.fastdev.R;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -44,7 +46,7 @@ class GifSourcesResolver {
                 builder.from(mAssetManager, "Animated-Flag-Finland.gif");
                 break;
             case 1: //resource
-//                builder.from(mResources, R.drawable.anim_flag_england);
+                builder.from(mResources, R.drawable.anim_flag_england);
                 break;
             case 2: //byte[]
                 builder.from(mByteArray);
@@ -59,7 +61,7 @@ class GifSourcesResolver {
                 builder.from(mFile);
                 break;
             case 6: //AssetFileDescriptor
-//                builder.from(mResources.openRawResourceFd(R.raw.anim_flag_hungary));
+                builder.from(mResources.openRawResourceFd(R.raw.anim_flag_hungary));
                 break;
             case 7: //ByteBuffer
                 builder.from(mByteBuffer);

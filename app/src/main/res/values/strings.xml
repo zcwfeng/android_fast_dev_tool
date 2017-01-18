@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">AndroidFastDevTool</string>
     <string name="banner_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
     <string name="compute_time">Compute time :</string>
@@ -108,6 +108,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <string-array name="lib_index">
+        <!--http://blog.csdn.net/hehe307/article/details/51733709-->
         <item>网络请求</item>
         <item>图片库</item>
         <item>数据库</item>
@@ -152,29 +153,43 @@
         <item>Bilibili</item><!--opencv-->
         <item>FFmpeg</item>
     </string-array>
-    
+
     <string-array name="news_historical_relic">
+        <!--上古十大神剑-->
+        <item>轩辕夏禹剑</item>
+        <item>湛卢剑</item>
+        <item>赤霄剑</item>
+        <item>太阿剑</item>
+        <item>七星龙渊剑</item>
+        <item>干将、莫邪剑</item>
+        <item>鱼肠剑</item>
+        <item>纯钧剑</item>
+        <item>承影剑</item>
+
+
+        <!--汉末三国时期宝刀名三国 魏 曹操 制-->
         <item>百辟刀</item>
         <item>秦剑</item>
-        <item>却邪剑</item>
+
+        <item>惊蛰剑</item>
+
+
+        <!--勾践长剑-->
+        <item>掩日：春秋时期越王勾践所督铸的八把长剑之一。</item>
+        <item>断水：春秋时期越王勾践所督铸的八把长剑之二。</item>
+        <item>转魄：春秋时期越王勾践所督铸的八把长剑之三。</item>
+        <item>悬翦：春秋时期越王勾践所督造的八把长剑之四。</item>
+        <item>惊鲵：春秋时期越王勾践所督铸的八把长剑之五。</item>
+        <item>灭魂：春秋时期越王勾践所督铸的八把长剑之六。</item>
+        <item>却邪：春秋时期越王勾践所督铸的八把长剑之七。</item>
+        <item>真刚：春秋时期越王勾践所督铸的八把长剑之八。</item>
     </string-array>
 
     <!--pullUrl = "http://cdn.duitang.com/uploads/item/201504/14/20150414H5937_GnVZ5.thumb.224_0.gif";
     waitUrl = "http://attimg.dospy.com/img/day_111013/20111013_4d563de4bee78ec2f1a96tcg7meZMi4K.gif";-->
 
 
-    <string-array name="sources">
-        <item>asset file</item>
-        <item>drawable resource</item>
-        <item>byte array</item>
-        <item>file descriptor</item>
-        <item>file path</item>
-        <item>File</item>
-        <item>AssetFileDescriptor</item>
-        <item>ByteBuffer</item>
-        <item>Uri</item>
-        <item>InputStream</item>
-    </string-array>
+
 
     <string name="glide_single_img_debug_url">http://f.hiphotos.baidu.com/image/pic/item/7af40ad162d9f2d39a1046e1abec8a136327ccbf.jpg</string>
     <string name="glide_single_img_url">http://img4.c.yinyuetai.com/others/admin/161024/0/-M-b2dbb69766cfa7624547b9fe2d18822a_0x0.jpg</string>
@@ -288,5 +303,43 @@
 	    11	定位时的基站信息错误。	请检查是否安装SIM卡，设备很有可能连入了伪基站网络\n
 	    12	缺少定位权限。	请在设备的设置中开启app的定位权限\n
 	</string>
+
+    <!--android gif drawable-->
+    <string name="about_text" tools:ignore="TypographyDashes">This is a sample of android-gif-drawable Library:
+        https://github.com/koral--/android-gif-drawable\nUsed icons are public domain or licensed under CC, GFDL.</string>
+    <string name="compound_text">This is a TextView with animated compound drawables</string>
+    <string name="gif_texture_view_stub_api_level">GifTextureView is available in API level 14+</string>
+    <string name="gif_texture_view_stub_acceleration">GifTextureView requires hardware acceleration</string>
+    <string name="gif_texture_view_loading_failed">Could not load GIF: %s. Tap to try again.</string>
+    <string name="reset_animation">Reset animation</string>
+    <string name="animation_running">Animation running</string>
+    <string name="animation_stopped">Animation stopped</string>
+    <string name="toggle_label">Click button below to toggle animation</string>
+    <string name="animation_loop_completed" tools:ignore="PluralsCandidate">Animation loop #%1$d completed</string>
+    <string name="gles2_not_supported">GifTexImage2D requires OpenGL ES 2 or newer</string>
+
+
+    <string-array name="sources">
+        <item>asset file</item>
+        <item>drawable resource</item>
+        <item>byte array</item>
+        <item>file descriptor</item>
+        <item>file path</item>
+        <item>File</item>
+        <item>AssetFileDescriptor</item>
+        <item>ByteBuffer</item>
+        <item>Uri</item>
+        <item>InputStream</item>
+    </string-array>
+    <string-array name="pages">
+        <item>GIFs loaded from various sources, reused GifDrawables</item>
+        <item>GIFs as compound drawables</item>
+        <item>GIF in TextureView vs ImageView</item>
+        <item>GIF in ImageSpan</item>
+        <item>Basic animation control</item>
+        <item>GifTextureView and HTTP</item>
+        <item>GifTexImage2D</item>
+        <item>About</item>
+    </string-array>
 
 </resources>

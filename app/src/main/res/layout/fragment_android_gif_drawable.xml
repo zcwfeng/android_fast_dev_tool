@@ -1,25 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:text="GifDrawable库例子"
+        android:id="@+id/GifShowActivity"
+        style="@style/demo_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
+</LinearLayout>-->
+
+<android.support.v4.view.ViewPager
+    android:id="@+id/main_pager"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <pl.droidsonroids.gif.GifImageView
-        android:visibility="visible"
+    <android.support.v4.view.PagerTabStrip
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@drawable/robot_w"
-        android:background="@drawable/robot"
-        />
-
-<!--
-    <pl.droidsonroids.gif.GifTextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:drawableTop="@drawable/left_anim"
-        android:drawableStart="@drawable/left_anim"
-        android:background="@drawable/bg_anim"
-        />-->
-
-
-
-</LinearLayout>
+        android:layout_height="wrap_content" />
+</android.support.v4.view.ViewPager>

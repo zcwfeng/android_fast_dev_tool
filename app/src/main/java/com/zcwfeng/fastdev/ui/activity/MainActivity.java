@@ -9,12 +9,14 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 import com.zcwfeng.componentlibs.BaseApplication;
 import com.zcwfeng.fastdev.R;
+import com.zcwfeng.fastdev.demos.demorealm.util.ToastUtil;
 import com.zcwfeng.fastdev.ui.adapter.custom_type1.ExCommonAdapter;
 import com.zcwfeng.fastdev.ui.adapter.custom_type1.ExViewHolder;
 import com.zcwfeng.fastdev.ui.fragment.BaseFragment;
@@ -24,12 +26,18 @@ import com.zcwfeng.fastdev.ui.fragment.HomeFragment;
 import com.zcwfeng.fastdev.ui.fragment.VideoFragment;
 import com.zcwfeng.fastdev.ui.fragment.dummy.DummyContent;
 import com.zcwfeng.fastdev.ui.fragment.myinterface.OnListFragmentInteractionListener;
+import com.zhy.http.okhttp.OkHttpUtils;
+import com.zhy.http.okhttp.callback.FileCallBack;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.WeakHashMap;
+
+import okhttp3.Call;
 
 public class MainActivity extends BaseActivity implements OnListFragmentInteractionListener,DrawerLayout.DrawerListener {
     Toolbar mToolBar;
@@ -280,6 +288,54 @@ public class MainActivity extends BaseActivity implements OnListFragmentInteract
                     BaseActivity.launch(MainActivity.this,PushActivity.class);
                     break;
                 case "5":
+                    BaseActivity.launch(MainActivity.this,SkillActivity.class);
+                    break;
+                case "6":
+                    BaseActivity.launch(MainActivity.this,SkillActivity.class);
+                    break;
+                case "7":
+                    BaseActivity.launch(MainActivity.this,SkillActivity.class);
+                    break;
+                case "8":
+                    BaseActivity.launch(MainActivity.this,SkillActivity.class);
+                    break;
+                case "9":
+                    BaseActivity.launch(MainActivity.this,SkillActivity.class);
+                    break;
+                case "10":
+                    BaseActivity.launch(MainActivity.this,SkillActivity.class);
+                    break;
+                case "11":
+                    ToastUtil.showShortToast(this,"下载");
+                    String parent = BaseApplication.getInstance().getExternalFilesDir(null).getPath()+"/fastdev";
+                    File file = new File(parent);
+                    if (!file.exists()) {
+                        file.mkdirs();
+                    }
+                    Map map = new HashMap();
+                    map.put("User-Agent","Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.95 Mobile Safari/537.36");
+                    String name = "main.png";
+                    OkHttpUtils.get()
+                            .headers(map)
+                            .url("http://img4.c.yinyuetai.com/others/admin/170112/0/-M-8e1c7a07b0026623a516e2a82991301a_0x0.png")
+                            .build()
+                            .execute(new FileCallBack(parent, name) {
+
+                                @Override
+                                public void onError(Call call, Exception e, int id) {
+                                    Log.e("zcw", "imgs dowonoad error"+e.getMessage());
+                                }
+
+                                @Override
+                                public void onResponse(File response, int id) {
+                                    Log.e("zcw", "imgs dowonoad success" + id);
+                                }
+                            });
+                    break;
+                case "12":
+                    BaseActivity.launch(MainActivity.this,SkillActivity.class);
+                    break;
+                case "13":
                     BaseActivity.launch(MainActivity.this,SkillActivity.class);
                     break;
             }

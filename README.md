@@ -31,6 +31,9 @@ AndroidFastDevTool, A pure tools App based on Android and so on,to help develope
 * 使用Picasso做图片的处理和加载 [待整理]
 * 使用x5WebView做阅览页，比原生WebView体验更佳
 * TinkerPatch 热更新 [待整理]
+* Dagger,Dagger2 [待加入]
+* Weex [待加入]
+* React [待加入]
 
 > 待整理的代码
 
@@ -77,6 +80,34 @@ AndroidFastDevTool, A pure tools App based on Android and so on,to help develope
 * https://github.com/TinkerPatch/tinkerpatch-sample/blob/master/app/tinkerpatch.gradle
 * https://github.com/Tencent/tinker/wiki/Tinker-%E6%8E%A5%E5%85%A5%E6%8C%87%E5%8D%97
 * http://tinkerpatch.com/apps/detail/id/843
+
+## Glide bug 通常解决方案
+
+* Android使用Glide加载Gif.解决Glide加载Gif非常慢问题
+Glide.with(MainActivity.this).load(url).asGif().diskCacheStrategy(DiskCacheStrategy.SOURCE).into(imageView);
+为其添加缓存策略,其中缓存策略可以为:Source及None,None及为不缓存,Source缓存原型.如果为ALL和Result就不行
+
+* https://github.com/bumptech/glide/issues/513
+
+* https://github.com/bumptech/glide/issues/281
+
+* https://github.com/bumptech/glide/issues/600
+
+
+## android 一些特殊声明周期和问题研究
+
+* 延时共享问题
+
+```
+http://www.androiddesignpatterns.com/2014/12/activity-fragment-transitions-in-android-lollipop-part1.html
+http://www.androiddesignpatterns.com/2014/12/activity-fragment-content-transitions-in-depth-part2.html
+http://www.androiddesignpatterns.com/2015/03/activity-postponed-shared-element-transitions-part3b.html
+```
+
+
+* Activity 声明周期 OnActivityReenter
+ActivityTransition: OnActivityReenter: onPreDraw never called
+
 
 ``` xml
 MIT License

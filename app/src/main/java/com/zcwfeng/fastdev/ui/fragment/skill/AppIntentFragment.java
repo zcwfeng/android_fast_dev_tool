@@ -56,7 +56,7 @@ public class AppIntentFragment extends BaseFragment implements View.OnClickListe
 
         mIntent.putExtra(VIDEO_ID, 30000836);
         mIntent.putExtra(MULTI_SETA, false);
-        mIntent.putExtra(SCREEN_ORIENTAION, "VERTICIAL");
+        mIntent.putExtra(SCREEN_ORIENTAION, "VERTICAL");
         mIntent.putExtra("ACTIVITY_ACTION","android.intent.action.LivePlayerHorizontalActivity");
         mComp = new ComponentName("com.yinyuetai.live","com.yinyuetai.live.ui.activity.start.SplashActivity");//注意AcitivityName(目标应用程序)要完整的，带包名的PackageName的
         mIntent.setComponent(mComp);

@@ -62,7 +62,6 @@ public class ImageLibActivity extends BaseActivity {
 
         mAdapter = new MyViewPagerAdapter(getSupportFragmentManager(), mListFragments, mListTitle);
         mViewPager = (ViewPager) findViewById(R.id.retrofit_viewpager);
-        mViewPager.setOffscreenPageLimit(1);
         mViewPager.setAdapter(mAdapter);
         mTabTitle.setTabMode(TabLayout.MODE_FIXED);
         mTabTitle.addTab(mTabTitle.newTab().setText(mListTitle.get(0)));
