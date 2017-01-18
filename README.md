@@ -107,6 +107,9 @@ http://www.androiddesignpatterns.com/2015/03/activity-postponed-shared-element-t
 
 * Activity 声明周期 OnActivityReenter
 ActivityTransition: OnActivityReenter: onPreDraw never called
+##效果
+![](https://github.com/zcwfeng/android_fast_dev_tool/raw/master/art/androidfastdev.gif)
+>>>>>>> d5dfae2b1b1a6709a4b6638bc01bebfb0a3dc3fc
 
 
 ``` xml
