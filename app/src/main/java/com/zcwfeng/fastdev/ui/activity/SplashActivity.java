@@ -14,7 +14,6 @@ import com.zcwfeng.fastdev.R;
 
 public class SplashActivity extends BaseActivity {
     ImageView mSplashBg;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,6 +72,9 @@ public class SplashActivity extends BaseActivity {
         path.close();
         return path;
     }
+
+
+
 
     @Override
     public void onGetCAMERAPermissions() {

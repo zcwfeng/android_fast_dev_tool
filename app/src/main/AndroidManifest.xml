@@ -42,6 +42,37 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity-alias
+            android:name=".ui.activity.Splash_s11"
+            android:enabled="false"
+            android:icon="@mipmap/ic_launcher_s11"
+            android:label="双11"
+            android:targetActivity=".ui.activity.SplashActivity"
+            android:launchMode="standard"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity-alias>
+
+        <activity-alias
+            android:name=".ui.activity.Splash_s12"
+            android:enabled="false"
+            android:icon="@mipmap/ic_launcher_s12"
+            android:label="双12"
+            android:launchMode="standard"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:targetActivity=".ui.activity.SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity-alias>
+
         <activity
             android:name=".ui.activity.MainActivity"
             android:screenOrientation="portrait" />
@@ -202,7 +233,7 @@
             android:configChanges="keyboardHidden|orientation|screenSize"
             >
         </activity>
-        
+
 
         <service
             android:name=".binder.AIDLTestService"
