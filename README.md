@@ -118,7 +118,7 @@ ActivityTransition: OnActivityReenter: onPreDraw never called
 
 或者
 
-![扫描二维码]()
+![扫描二维码](https://github.com/zcwfeng/android_fast_dev_tool/raw/master/art/下载.png)
 
 
 
