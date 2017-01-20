@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'me.tatarka.retrolambda'
 apply plugin: 'realm-android'
 apply plugin: 'org.greenrobot.greendao'
-
+\
 //apply plugin: 'tinkerpatch-support'
 //
 //def bakPath = file("${buildDir}/bakApk/")
@@ -119,6 +119,15 @@ android {
     buildTypes {
         release {
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+            applicationVariants.all { variant ->
+                variant.outputs.each { output ->
+                    def outputFile = output.outputFile
+                    if (outputFile != nulwl && outputFile.name.endsWith('.apk')) {
+                        def fileName = "zcw_android_fast_dev_tool_${rootProject.ext.versionCode}_${rootProject.ext.appId}_${defaultConfig.versionName}_${variant.productFlavors[0].name}.apk"
+                        output.outputFile = new File(outputFile.parent, fileName)
+                    }
+                }
+            }
         }
     }
 

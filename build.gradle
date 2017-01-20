@@ -74,6 +74,6 @@ ext {
 
     // package
     versionCode = 1
-    versionName = '1.0.0'
-    appId = 10208011
+    versionName = '0.0.1'
+    appId = 12315
 }
