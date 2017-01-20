@@ -56,4 +56,10 @@ dependencies {
     releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.4'
     testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.4'
 
+    //weex
+    compile "com.taobao.android:weex_sdk:$rootProject.ext.weex_sdk_version"
+
+    //greendao依赖
+    compile "org.greenrobot:greendao:$rootProject.ext.greendao_version"
+
 }

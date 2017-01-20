@@ -166,6 +166,12 @@
         <activity
             android:name=".ui.activity.PushActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.DownloadActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.TempActivity"
+            android:screenOrientation="portrait" />
 
 
 

@@ -10,8 +10,11 @@ buildscript {
         classpath "com.android.tools.build:gradle-experimental:0.6.0-alpha5"
         classpath 'com.google.gms:google-services:3.0.0'
         classpath "io.realm:realm-gradle-plugin:2.2.0"// database realm
+        classpath 'org.greenrobot:greendao-gradle-plugin:3.2.1' //GreenDao3依赖
+
         // TinkerPatch 插件
 //        classpath "com.tinkerpatch.sdk:tinkerpatch-gradle-plugin:1.0.3"
+
     }
 }
 
@@ -64,6 +67,10 @@ ext {
     fastjsonVersion='1.2.10'
 
     umengVersion='latest.integration'
+
+    weex_sdk_version="0.5.1@aar"
+
+    greendao_version="3.2.0"
 
     // package
     versionCode = 1

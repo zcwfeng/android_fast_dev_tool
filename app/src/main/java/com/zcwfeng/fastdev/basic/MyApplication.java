@@ -1,15 +1,21 @@
 package com.zcwfeng.fastdev.basic;
 
 import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Display;
 import android.view.WindowManager;
 
 import com.baidu.mapapi.SDKInitializer;
+import com.taobao.weex.InitConfig;
+import com.taobao.weex.WXSDKEngine;
 import com.tencent.smtt.sdk.QbSdk;
 import com.zcwfeng.componentlibs.BaseApplication;
+import com.zcwfeng.fastdev.demos.demo_greendao.bean.DaoMaster;
+import com.zcwfeng.fastdev.demos.demo_greendao.bean.DaoSession;
 import com.zcwfeng.fastdev.demos.demorealm.util.RealmHelper;
+import com.zcwfeng.fastdev.ui.fragment.download.ImageAdapter;
 
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
@@ -21,6 +27,7 @@ import io.realm.RealmConfiguration;
  */
 public class MyApplication extends BaseApplication {
     static MyApplication mApplacation;
+    private static DaoSession daoSession;
 
     public static int SCREEN_WIDTH = -1;
     public static int SCREEN_HEIGHT = -1;
@@ -43,8 +50,6 @@ public class MyApplication extends BaseApplication {
 //        Firebase.setAndroidContext(this);
 
 
-
-
         // init x5 WebView
         QbSdk.PreInitCallback cb = new QbSdk.PreInitCallback() {
 
@@ -60,14 +65,12 @@ public class MyApplication extends BaseApplication {
 
             }
         };
-        QbSdk.initX5Environment(getApplicationContext(),cb);
-
-
+        QbSdk.initX5Environment(getApplicationContext(), cb);
 
 
         // Realm Database Init
         Realm.init(this);
-        RealmConfiguration configuration=new RealmConfiguration.Builder()
+        RealmConfiguration configuration = new RealmConfiguration.Builder()
                 .name(RealmHelper.DB_NAME)
                 .deleteRealmIfMigrationNeeded()
                 .build();
@@ -77,12 +80,34 @@ public class MyApplication extends BaseApplication {
         SDKInitializer.initialize(getApplicationContext());
 
 
+        //初始化weex
+        InitConfig config = new InitConfig.Builder().setImgAdapter(new ImageAdapter()).build();
+        WXSDKEngine.initialize(this, config);
+
+        //配置数据库
+        setupDatabase();
     }
 
+    /**
+     * 配置数据库
+     */
+    private void setupDatabase() {
+        //创建数据库shop.db"
+        DaoMaster.DevOpenHelper helper = new DaoMaster.DevOpenHelper(this, "shop.db", null);
+        //获取可写数据库
+        SQLiteDatabase db = helper.getWritableDatabase();
+        //获取数据库对象
+        DaoMaster daoMaster = new DaoMaster(db);
+        //获取Dao对象管理者
+        daoSession = daoMaster.newSession();
+    }
 
+    public static DaoSession getDaoInstant() {
+        return daoSession;
+    }
 
     private void getScreenSize() {
-        WindowManager windowManager = (WindowManager)this.getSystemService(Context.WINDOW_SERVICE);
+        WindowManager windowManager = (WindowManager) this.getSystemService(Context.WINDOW_SERVICE);
         DisplayMetrics dm = new DisplayMetrics();
         Display display = windowManager.getDefaultDisplay();
         display.getMetrics(dm);
@@ -90,7 +115,7 @@ public class MyApplication extends BaseApplication {
         DIMEN_DPI = dm.densityDpi;
         SCREEN_WIDTH = dm.widthPixels;
         SCREEN_HEIGHT = dm.heightPixels;
-        if(SCREEN_WIDTH > SCREEN_HEIGHT) {
+        if (SCREEN_WIDTH > SCREEN_HEIGHT) {
             int t = SCREEN_HEIGHT;
             SCREEN_HEIGHT = SCREEN_WIDTH;
             SCREEN_WIDTH = t;
