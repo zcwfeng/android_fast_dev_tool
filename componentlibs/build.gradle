@@ -62,4 +62,7 @@ dependencies {
     //greendao依赖
     compile "org.greenrobot:greendao:$rootProject.ext.greendao_version"
 
+    //ContraintLayout
+    compile "com.android.support.constraint:constraint-layout:1.0.0-beta4"
+
 }

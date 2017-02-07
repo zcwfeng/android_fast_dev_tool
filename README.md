@@ -107,10 +107,22 @@ http://www.androiddesignpatterns.com/2015/03/activity-postponed-shared-element-t
 
 * Activity 声明周期 OnActivityReenter
 ActivityTransition: OnActivityReenter: onPreDraw never called
+
+
 ##效果
 ![](https://github.com/zcwfeng/android_fast_dev_tool/raw/master/art/androidfastdev.gif)
 
 
+## ConstrantLayout 依赖无法使用解决
+
+```
+a. 点击Tools>Android>SDK Manager
+b. 点击SDK Tools标签
+c.选择show pack details，找到support repository->constraintlayout for android下面可以看到现在你的系统中安装了
+    constraint-layout:1.0.0-alpha4没有
+d.选择你想安装的版本，点apply,会出现下载安装有界面。
+
+```
 
 ##下载Demo
 

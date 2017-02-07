@@ -8,6 +8,7 @@ import android.support.v7.widget.Toolbar;
 import com.zcwfeng.fastdev.R;
 import com.zcwfeng.fastdev.ui.adapter.MyViewPagerAdapter;
 import com.zcwfeng.fastdev.ui.fragment.BaseFragment;
+import com.zcwfeng.fastdev.ui.fragment.custom_views.ConstraintLayoutFragment;
 import com.zcwfeng.fastdev.ui.fragment.custom_views.CustomViewChartFragment;
 import com.zcwfeng.fastdev.ui.fragment.custom_views.CustomViewLayoutFragment;
 
@@ -23,6 +24,7 @@ public class CustomViewActivity extends BaseActivity {
     private WeakHashMap<String, BaseFragment> mListFragments;
     private CustomViewChartFragment mCustomViewChartFragment;
     private CustomViewLayoutFragment mCustomViewLayoutFragment;
+    private ConstraintLayoutFragment mConstraintLayoutFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,11 +40,14 @@ public class CustomViewActivity extends BaseActivity {
         mListTitle = new ArrayList<>();
         mListTitle.add("搜集的效果");
         mListTitle.add("芝麻信用评分");
+        mListTitle.add("测试ConstantLalyout");
         mCustomViewChartFragment = CustomViewChartFragment.newInstance();
         mCustomViewLayoutFragment = CustomViewLayoutFragment.newInstance();
+        mConstraintLayoutFragment = ConstraintLayoutFragment.newInstance();
         mListFragments = new WeakHashMap<>();
         mListFragments.put(mListTitle.get(0), mCustomViewLayoutFragment);
         mListFragments.put(mListTitle.get(1), mCustomViewChartFragment);
+        mListFragments.put(mListTitle.get(2), mConstraintLayoutFragment);
         mTabTitle = (TabLayout) findViewById(R.id.sliding_tabs);
         mAdapter = new MyViewPagerAdapter(getSupportFragmentManager(), mListFragments, mListTitle);
         mViewPager = (ViewPager) findViewById(R.id.template_viewpager);
@@ -50,6 +55,7 @@ public class CustomViewActivity extends BaseActivity {
         mTabTitle.setTabMode(TabLayout.MODE_FIXED);
         mTabTitle.addTab(mTabTitle.newTab().setText(mListTitle.get(0)));
         mTabTitle.addTab(mTabTitle.newTab().setText(mListTitle.get(1)));
+        mTabTitle.addTab(mTabTitle.newTab().setText(mListTitle.get(2)));
         mTabTitle.setupWithViewPager(mViewPager);
         mTabTitle.setClipToPadding(true);
     }
