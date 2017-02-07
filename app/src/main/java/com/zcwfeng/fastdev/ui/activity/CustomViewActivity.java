@@ -35,7 +35,6 @@ public class CustomViewActivity extends BaseActivity {
     }
 
 
-
     private void initViews() {
         mListTitle = new ArrayList<>();
         mListTitle.add("搜集的效果");
