@@ -1,0 +1,12 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <string-array name="lib_index">
+        <!--http://blog.csdn.net/hehe307/article/details/51733709-->
+        <item>Network Requests</item>
+        <item>Image Library</item>
+        <item>data base set</item>
+        <item>WeeX</item>
+        <item>ReactNative</item>
+        <item>hot-update</item>
+    </string-array>
+</resources>

@@ -1,0 +1,48 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <string name="error_pic_load_faild">獲取失敗</string>
+    <string name="title_user_profile">用戶信息</string>
+    <string-array name="lib_index">
+        <!--http://blog.csdn.net/hehe307/article/details/51733709-->
+        <item>網絡請求</item>
+        <item>圖片庫</item>
+        <item>數據庫</item>
+        <item>WeeX</item>
+        <item>ReactNative</item>
+        <item>熱更新</item>
+
+    </string-array>
+
+
+    <string-array name="component_index">
+        <item>ViewUI</item>
+        <item>Services</item>
+        <item>地圖LBS</item>
+        <item>推送</item>
+        <item>小技巧</item>
+        <item>人臉識別</item><!--opencv-->
+        <item>SurfaceView</item>
+        <item>報表</item>
+        <item>分享</item>
+        <item>搜索</item>
+        <item>下載</item>
+        <item>支付</item>
+        <item>掃碼</item>
+    </string-array>
+
+    <string-array name="chat_index">
+        <item>騰訊云</item>
+        <item>雲信</item>
+        <item>環信</item>
+        <item>網易風巢</item>
+    </string-array>
+
+
+
+
+
+
+
+
+
+</resources>
