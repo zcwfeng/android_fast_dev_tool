@@ -34,6 +34,8 @@ AndroidFastDevTool, A pure tools App based on Android and so on,to help develope
 * Dagger,Dagger2 [待加入]
 * Weex [待加入]
 * React [待加入]
+* ConstraintLayout的简单实用例子
+* 代码检测lint
 
 > 待整理的代码
 
@@ -121,6 +123,13 @@ b. 点击SDK Tools标签
 c.选择show pack details，找到support repository->constraintlayout for android下面可以看到现在你的系统中安装了
     constraint-layout:1.0.0-alpha4没有
 d.选择你想安装的版本，点apply,会出现下载安装有界面。
+
+```
+
+## 检测代码 lint
+
+```
+.gradlew lint
 
 ```
 

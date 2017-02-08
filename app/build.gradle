@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'me.tatarka.retrolambda'
 apply plugin: 'realm-android'
 apply plugin: 'org.greenrobot.greendao'
-\
+apply plugin: 'findbugs'
 //apply plugin: 'tinkerpatch-support'
 //
 //def bakPath = file("${buildDir}/bakApk/")
@@ -94,6 +94,10 @@ android {
         javaMaxHeapSize "2g"
     }
 
+    lintOptions {
+        abortOnError false
+    }
+
     dataBinding {
         enabled = true
     }
@@ -147,9 +151,7 @@ android {
 
     }
 
-    lintOptions {
-        abortOnError false
-    }
+
 
 }
 
@@ -177,3 +179,54 @@ dependencies {
 
 //apply plugin: 'com.google.gms.google-services'
 //apply from: 'tinkerpatch.gradle'
+
+
+
+
+//task findbugs(type: FindBugs, dependsOn: "assembleDebug"){
+//    ignoreFailures = true
+//    effort = "max"
+//    reportLevel = "high"
+//    excludeFilter = new File("${project.rootDir}/findbugs/findbugs-filter.xml")
+//    classes = files("${project.rootDir}/app/build/intermediates/classes")
+//
+//    source 'src'
+//    include '**/*.java'
+//    exclude '**/gen/**'
+//
+//    reports {
+//        xml enabled = false
+//        html enabled = true
+//        xml {
+//            destination "$reportsDir/findbugs/findbugs.xml"
+//        }
+//
+//        html {
+//            destination "$reportsDir/findbugs/findbugs.html"
+//        }
+//    }
+//
+//    classpath = files()
+//}
+
+
+
+task findbugs(type: FindBugs) {
+    ignoreFailures = false
+    effort = "default"
+    reportLevel = "medium"
+    excludeFilter = new File("${project.rootDir}/findbugs/findbugs-filter.xml")
+    classes = files("${project.rootDir}/app/build/intermediates/classes")
+    source = fileTree('src/main/java/')
+    classpath = files()
+    reports {
+        xml.enabled = false
+        html.enabled = true
+        xml {
+            destination "$project.buildDir/findbugs/findbugs-output.xml"
+        }
+        html {
+            destination "$project.buildDir/findbugs/findbugs-output.html"
+        }
+    }
+}
