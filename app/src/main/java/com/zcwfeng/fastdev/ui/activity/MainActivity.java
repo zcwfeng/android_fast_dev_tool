@@ -246,6 +246,11 @@ public class MainActivity extends BaseActivity implements OnListFragmentInteract
                 case "3":
                     DatabasesActivity.launch(MainActivity.this,DatabasesActivity.class);
                     break;
+                case "4":
+                    break;
+                case "5":
+                    MyReactActivity.launch(MainActivity.this);
+                    break;
             }
         } else if (type == 1) {
             switch (item.id) {

@@ -33,7 +33,7 @@ AndroidFastDevTool, A pure tools App based on Android and so on,to help develope
 * TinkerPatch 热更新 [待整理]
 * Dagger,Dagger2 [待加入]
 * Weex [待加入]
-* React [待加入]
+* ReactNative
 * ConstraintLayout的简单实用例子
 * 代码检测lint
 
@@ -133,8 +133,123 @@ d.选择你想安装的版本，点apply,会出现下载安装有界面。
 
 ```
 
+## 检测代码 findBugs
+
+详见app/gradle
+
+## 检测代码 QAPlugin-PMD
+
 ##下载Demo
 
+## 构建本应用说明
+
+* ReactNative构建
+
+首先当然要了解你要植入的React Native组件。
+在Android项目根目录中使用npm来安装react-native ，这样同时会创建一个node_modules/的目录。
+创建js文件，编写React Native组件的js代码。
+在build.gradle文件中添加com.facebook.react:react-native:+，以及一个指向node_nodules/目录中的react-native预编译库的maven路径。
+创建一个React Native专属的Activity，在其中再创建ReactRootView。
+启动React Native的Packager服务，运行应用。
+根据需要添加更多React Native的组件。
+在真机上运行、调试。
+打包。
+> 在项目的根目录中运行：
+
+```
+$ npm init
+$ npm install --save react react-native
+$ curl -o .flowconfig https://raw.githubusercontent.com/facebook/react-native/master/.flowconfig
+```
+
+> 在package.json下面，scripts:标签内添加
+
+```
+"start": "node node_modules/react-native/local-cli/cli.js start"
+```
+
+> 编写 index.android.js，和你的RN的java代码入口保持一致
+
+> 修改app 中的build.gradle
+
+如果不行，可以修改+，替换成你指定的版本
+
+```
+ dependencies {
+     ...
+     compile "com.facebook.react:react-native:+" // From node_modules.
+ }
+```
+
+> 在项目下的 build.gradle 添加
+
+```
+allprojects {
+    repositories {
+        ...
+        maven {
+            // All of React Native (JS, Android binaries) is installed from npm
+            url "$rootDir/../node_modules/react-native/android"
+        }
+    }
+    ...
+}
+```
+
+确保你的路径正确，不会再Android Studio编译后出现类似 “Failed to resolve: com.facebook.react:react-native:0.x.x" 的错误
+
+> 在AndroidManifest.xml检查权限，配置debug 配置activity
+
+```
+<uses-permission android:name="android.permission.INTERNET" />
+
+<activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
+```
+
+> 原生代码编写
+
+两种方式，带研究。。。(涉及到了android的版本问题，这里比较让人头疼，包括很多人也是纠结这个问题)
+
+```
+public class MyReactActivity extends Activity implements DefaultHardwareBackBtnHandler
+
+public class MyReactActivity extends ReactActivity
+```
+
+注意BuildConfig类导入的时候使用的是你app里面的，不是react的
+
+注册Activity
+
+```
+ <activity
+   android:name=".MyReactActivity"
+   android:label="@string/app_name"
+   android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+ </activity>
+```
+
+> 运行应用首先需要启动开发服务器（Packager）。你只需在项目根目录中执行以下命令即可：
+
+```
+npm start
+```
+
+android 用 AS或者命令./gradlew installDebug安装都行
+
+在此之前 确保安装了watchman，可以保持监听通信
+
+> 在Android Studio中打包
+
+```
+react-native bundle --platform android --dev false --entry-file index.android.js --bundle-output android/com/your-company-name/app-package-name/src/main/assets/index.android.bundle --assets-dest android/com/your-company-name/app-package-name/src/main/res/
+```
+本项目，可以测试打包
+
+```
+react-native bundle --platform android --dev false --entry-file index.android.js \
+  --bundle-output app/src/main/assets/index.android.bundle \
+  --assets-dest app/src/main/res/
+```
 #[浏览应用网页](https://fir.im/2973)
 
 或者

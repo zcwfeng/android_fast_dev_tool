@@ -26,7 +26,7 @@ import java.io.File;
  * Modified Content:
  * ==========================================
  */
-public class BaseApplication extends MultiDexApplication {
+public class BaseApplication extends MultiDexApplication{
     public static BaseApplication app;
 
     @Override

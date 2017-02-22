@@ -25,7 +25,7 @@ import io.realm.RealmConfiguration;
  * Created by David.zhang on 16/3/18.
  * Description：
  */
-public class MyApplication extends BaseApplication {
+public class MyApplication extends BaseApplication{
     static MyApplication mApplacation;
     private static DaoSession daoSession;
 

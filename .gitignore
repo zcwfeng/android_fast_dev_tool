@@ -32,11 +32,7 @@ gen/
 /.idea/libraries
 /build
 /captures
-
-
-
-
-
+node_modules/
 
 
 

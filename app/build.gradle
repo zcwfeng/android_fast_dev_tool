@@ -3,6 +3,10 @@ apply plugin: 'me.tatarka.retrolambda'
 apply plugin: 'realm-android'
 apply plugin: 'org.greenrobot.greendao'
 apply plugin: 'findbugs'
+apply plugin: 'pmd'
+apply plugin: 'checkstyle'
+
+
 //apply plugin: 'tinkerpatch-support'
 //
 //def bakPath = file("${buildDir}/bakApk/")
@@ -81,7 +85,7 @@ android {
         ndk {
             moduleName "ZcwfengJniLibName"         //生成的so名字
             ldLibs "log", "z", "m", "dl"
-//,"EGL", "GLESv3" Link with these libraries! 在这里添加你原先在makefile里ldlibs所链接的库
+            //,"EGL", "GLESv3" Link with these libraries! 在这里添加你原先在makefile里ldlibs所链接的库
             abiFilters "armeabi", "armeabi-v7a", "x86", "arm64-v8a"//输出指定三种abi体系结构下的so库。目前可有可无。
             //stl "stlport_shared"                      // Use shared stlport library
         }
@@ -108,6 +112,7 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 
+
     packagingOptions {
         exclude 'META-INF/LICENSE'
         exclude 'META-INF/LICENSE-FIREBASE.txt'
@@ -122,8 +127,24 @@ android {
         }
     }
 
+    signingConfigs {
+        release {
+            storeFile file("/Users/zcw/dev/keystore/demo.jks")
+            storePassword "123456"
+            keyAlias "zcw"
+            keyPassword "123456"
+        }
+        debug {
+            storeFile file("/Users/zcw/dev/keystore/demo.jks")
+            storePassword "123456"
+            keyAlias "zcw"
+            keyPassword "123456"
+        }
+    }
+
     buildTypes {
         release {
+
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
             applicationVariants.all { variant ->
                 variant.outputs.each { output ->
@@ -134,14 +155,16 @@ android {
                     }
                 }
             }
+
+
         }
     }
 
-    configurations.all {
-        resolutionStrategy.force 'com.google.code.findbugs:jsr305:1.3.9'
-    }
+//    configurations.all {
+//        resolutionStrategy.force 'com.google.code.findbugs:jsr305:1.3.9'
+//    }
 
-
+    configurations { all*.exclude group: 'com.facebook.proguard', module: 'support-v4' }
 
     productFlavors {
 
@@ -164,50 +187,17 @@ dependencies {
     compile "com.android.support:recyclerview-v7:$rootProject.ext.supportLibraryVersion"
     compile "com.android.support:appcompat-v7:$rootProject.ext.supportLibraryVersion"
     compile "com.android.support:cardview-v7:$rootProject.ext.supportLibraryVersion"
-    compile 'com.android.support:design:23.4.0'
-    compile 'com.android.support:support-v4:23.4.0'
-    compile 'com.google.code.gson:gson:2.4'
-    compile 'com.facebook.fresco:fresco:0.8.1'
-    compile 'jp.wasabeef:recyclerview-animators:2.2.3'
-    compile 'com.yinyuetai.android.lib:video_player:1.1.15'
+
     //    compile 'com.firebase:firebase-client-android:2.5.2.+'
     //    compile 'com.google.firebase:firebase-core:9.0.0'
     //    compile 'com.google.firebase:firebase-ads:9.0.0'
     //    compile 'com.google.firebase:firebase-crash:9.0.0'
-    compile 'com.android.support.constraint:constraint-layout:1.0.0-beta4'
+
 }
 
 //apply plugin: 'com.google.gms.google-services'
 //apply from: 'tinkerpatch.gradle'
 
-
-
-
-//task findbugs(type: FindBugs, dependsOn: "assembleDebug"){
-//    ignoreFailures = true
-//    effort = "max"
-//    reportLevel = "high"
-//    excludeFilter = new File("${project.rootDir}/findbugs/findbugs-filter.xml")
-//    classes = files("${project.rootDir}/app/build/intermediates/classes")
-//
-//    source 'src'
-//    include '**/*.java'
-//    exclude '**/gen/**'
-//
-//    reports {
-//        xml enabled = false
-//        html enabled = true
-//        xml {
-//            destination "$reportsDir/findbugs/findbugs.xml"
-//        }
-//
-//        html {
-//            destination "$reportsDir/findbugs/findbugs.html"
-//        }
-//    }
-//
-//    classpath = files()
-//}
 
 
 
@@ -230,3 +220,59 @@ task findbugs(type: FindBugs) {
         }
     }
 }
+
+//task pmd(type: Pmd) {
+//    ruleSetFiles = files("${project.rootDir}/pmd/pmd-ruleset.xml")
+//    ignoreFailures = false
+//    ruleSets = []
+//
+//    source 'src'
+//    include '**/*.java'
+//    exclude '**/gen/**'
+//
+//    reports {
+//        xml.enabled = false
+//        html.enabled = true
+//        xml {
+//            destination "$project.buildDir/reports/pmd/pmd.xml"
+//        }
+//        html {
+//            destination "$project.buildDir/reports/pmd/pmd.html"
+//        }
+//    }
+//}
+
+
+//task checkstyle(type: Checkstyle) {
+//    ruleSetFiles = files("${project.rootDir}/checkstyle/zcw-checkstyle.xml")
+//    ignoreFailures = false
+//    ruleSets = []
+//
+//    source 'src'
+//    include '**/*.java'
+//    exclude '**/gen/**'
+//    exclude 'androidTest/**'
+//    exclude 'test/**'
+//
+//}
+
+
+//final def TARGET_BUNDLE_DIR = 'app/src/main/assets/'
+//final def TARGET_BUNDLE_FILE = 'index.android.js'
+//final def DOWNLOAD_URL = 'http://localhost:8081/index.android.bundle?platform=android'
+//
+//task downloadJSBundle << {
+//    def dir = new File(TARGET_BUNDLE_DIR)
+//    if (!dir.exists()) {
+//        dir.mkdirs()
+//    }
+//    def f = new File(TARGET_BUNDLE_DIR + TARGET_BUNDLE_FILE)
+//    if (f.exists()) {
+//        f.delete()
+//    }
+//    new URL(DOWNLOAD_URL).withInputStream{ i -> f.withOutputStream{ it << i }}
+//}
+//// 保证每次编译之前，先下载 JS 文件
+//preBuild.dependsOn downloadJSBundle
+
+

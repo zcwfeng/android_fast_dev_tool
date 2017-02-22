@@ -331,6 +331,15 @@
 
         <activity android:name=".ui.activity.RequestActivity"></activity>
 
+        <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
+
+        <activity
+            android:name=".ui.activity.MyReactActivity"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        </activity>
+
+
         <receiver android:name=".ui.fragment.image.glide.FSAppWidgetProvider">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE"></action>
