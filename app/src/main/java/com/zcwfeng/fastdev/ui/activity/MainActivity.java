@@ -251,6 +251,12 @@ public class MainActivity extends BaseActivity implements OnListFragmentInteract
                 case "5":
                     MyReactActivity.launch(MainActivity.this);
                     break;
+                case "6":
+                    MyReactActivity.launch(MainActivity.this);
+                    break;
+                case "7":
+                    MySecurityActivity.launch(MainActivity.this);
+                    break;
             }
         } else if (type == 1) {
             switch (item.id) {

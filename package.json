@@ -4,8 +4,23 @@
   "description": "Android Fast Dev Facebook ReactNative",
   "main": "index.android.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "start": "node node_modules/react-native/local-cli/cli.js start"
+  },
+  "jest": {
+    "scriptPreprocessor": "node_modules/react-native/jestSupport/preprocessor.js",
+    "setupEnvScriptFile": "node_modules/react-native/jestSupport/env.js",
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "packager/react-packager/src/Activity/"
+    ],
+    "testFileExtensions": [
+      "js"
+    ],
+    "unmockedModulePathPatterns": [
+      "promise",
+      "source-map"
+    ]
   },
   "repository": {
     "type": "git",
@@ -19,6 +34,10 @@
   "homepage": "https://github.com/zcwfeng/android_fast_dev_tool#readme",
   "dependencies": {
     "react": "^15.4.2",
-    "react-native": "^0.41.2"
+    "react-native": "^0.41.2",
+    "react-timer-mixin": "^0.13.3"
+  },
+  "devDependencies": {
+    "jest": "^19.0.1"
   }
 }

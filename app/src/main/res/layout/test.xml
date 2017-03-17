@@ -1,21 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    >
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#00ff00">
 
+    </LinearLayout>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="#ff0000"
+        android:text="clickme" />
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#99ffff"></LinearLayout>
 
         <TextView
-            android:layout_centerInParent="true"
-            android:background="@drawable/test"
             android:layout_width="92dp"
             android:layout_height="92dp"
+            android:layout_centerInParent="true"
+            android:background="@drawable/test"
             android:gravity="center"
             android:text="8"
             android:textColor="#ff0000"
             android:textSize="80dp"
             android:textStyle="bold"
             android:typeface="sans" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="#ff0000"
+            android:text="clickme" />
+    </FrameLayout>
+
+
 
 
 </RelativeLayout>
