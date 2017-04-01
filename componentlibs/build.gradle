@@ -30,6 +30,8 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile "com.android.support:appcompat-v7:$rootProject.ext.supportLibraryVersion"
+    compile "com.android.support:design:$rootProject.ext.supportLibraryVersion"
+    compile "com.zhy:okhttputils:$rootProject.ext.okhttputils_version"
     compile "com.alibaba:fastjson:$rootProject.ext.fastjsonVersion"
     compile "com.umeng.analytics:analytics:$rootProject.ext.umengVersion"// 友盟 统计
     //svg https://github.com/geftimov/android-pathview
@@ -54,30 +56,38 @@ dependencies {
     //若使用annotation需要单独引用,对于tinker的其他库都无需再引用
 //    provided("com.tencent.tinker:tinker-android-anno:1.7.6")
 //    compile("com.tinkerpatch.sdk:tinkerpatch-android-sdk:1.0.3")
-
     // 内存泄露监测
-    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.4'
-    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.4'
-    testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.4'
-
+    debugCompile "com.squareup.leakcanary:leakcanary-android:$rootProject.ext.leakcanary_android_version"
+    releaseCompile "com.squareup.leakcanary:leakcanary-android-no-op:$rootProject.ext.leakcanary_android_no_op_version_release"
+    testCompile "com.squareup.leakcanary:leakcanary-android-no-op:$rootProject.ext.leakcanary_android_no_op_version"
     //weex
     compile "com.taobao.android:weex_sdk:$rootProject.ext.weex_sdk_version"
-
     //greendao依赖
     compile "org.greenrobot:greendao:$rootProject.ext.greendao_version"
-
     //ContraintLayout
-    compile "com.android.support.constraint:constraint-layout:1.0.0-beta4"
-
-    compile 'com.google.code.gson:gson:2.4'
-
-    compile 'com.android.support.constraint:constraint-layout:1.0.0-beta4'
-
+    compile "com.android.support.constraint:constraint-layout:$rootProject.ext.constraint_layout_version"
+    compile "jp.wasabeef:recyclerview-animators:$rootProject.ext.recyclerview_animators_version"
+    compile "com.yinyuetai.android.lib:video_player:$rootProject.ext.video_player_version"
     compile "com.facebook.react:react-native:+"
+    //Gosn解析包
+    compile "com.google.code.gson:gson:$rootProject.ext.gson_version"
+    // Retrofit & OkHttp
+    compile "com.squareup.retrofit2:retrofit:$rootProject.ext.retrofit_version"
+    compile "com.squareup.retrofit2:converter-gson:$rootProject.ext.converter_gson_version"
+    //ConverterFactory的String依赖包
+    compile "com.squareup.retrofit2:converter-scalars:$rootProject.ext.converter_scalars_version"
+    //CallAdapterFactory的Rx依赖包
+    compile "com.squareup.retrofit2:adapter-rxjava:$rootProject.ext.adapter_rxjava_version"
+    // setho
+    compile "com.facebook.stetho:stetho:$rootProject.ext.stetho_version"
+    compile "com.facebook.stetho:stetho-okhttp3:$rootProject.ext.stetho_okhttp3_version"
+    compile "com.squareup.okhttp3:logging-interceptor:$rootProject.ext.logging_interceptor_version"
+    compile "com.squareup.okhttp3:okhttp:$rootProject.ext.okhttp_version"
 
-    compile "com.android.support:design:$rootProject.ext.supportLibraryVersion"
-    compile 'com.android.support:support-v4:23.4.0'
-    compile 'jp.wasabeef:recyclerview-animators:2.2.3'
-    compile 'com.yinyuetai.android.lib:video_player:1.1.15'
+    // rxjava android
+    compile 'io.reactivex:rxjava:1.0.14'
+    compile 'io.reactivex:rxandroid:1.0.1'
+
+
 
 }

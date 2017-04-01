@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android"
+    android:oneshot="true">
+    <!--<item android:drawable="@drawable/gift_cup1" android:duration="100"></item>
+    <item android:drawable="@drawable/gift_cup2" android:duration="100"></item>
+    <item android:drawable="@drawable/gift_cup3" android:duration="100"></item>
+    <item android:drawable="@drawable/gift_cup4" android:duration="100"></item>
+    <item android:drawable="@drawable/gift_cup5" android:duration="100"></item>
+    <item android:drawable="@drawable/gift_cup6" android:duration="100"></item>
+    <item android:drawable="@drawable/gift_cup7" android:duration="100"></item>
+    <item android:drawable="@drawable/gift_cup8" android:duration="100"></item>
+    <item android:drawable="@drawable/gift_cup9" android:duration="100"></item>
+    <item android:drawable="@drawable/gift_cup10" android:duration="100"></item>
+    <item android:drawable="@drawable/gift_cup11" android:duration="100"></item>
+    <item android:drawable="@drawable/gift_cup12" android:duration="100"></item>-->
+
+    <item android:drawable="@drawable/gift_cup13" android:duration="100"></item>
+    <item android:drawable="@drawable/gift_cup14" android:duration="100"></item>
+    <item android:drawable="@drawable/gift_cup15" android:duration="100"></item>
+    <item android:drawable="@drawable/gift_cup16" android:duration="100"></item>
+    <item android:drawable="@drawable/gift_cup17" android:duration="100"></item>
+    <item android:drawable="@drawable/gift_cup18" android:duration="100"></item>
+    <item android:drawable="@drawable/gift_cup19" android:duration="100"></item>
+    <item android:drawable="@drawable/gift_cup20" android:duration="100"></item>
+    <item android:drawable="@drawable/gift_cup21" android:duration="100"></item>
+    <item android:drawable="@drawable/gift_cup22" android:duration="100"></item>
+    <item android:drawable="@drawable/gift_cup23" android:duration="100"></item>
+    <item android:drawable="@drawable/gift_cup24" android:duration="100"></item>
+
+    <!-- <item android:drawable="@drawable/gift_cup25" android:duration="100"></item>
+     <item android:drawable="@drawable/gift_cup26" android:duration="100"></item>
+     <item android:drawable="@drawable/gift_cup27" android:duration="100"></item>
+     <item android:drawable="@drawable/gift_cup28" android:duration="100"></item>
+     <item android:drawable="@drawable/gift_cup29" android:duration="100"></item>
+     <item android:drawable="@drawable/gift_cup30" android:duration="100"></item>
+     <item android:drawable="@drawable/gift_cup31" android:duration="100"></item>
+     <item android:drawable="@drawable/gift_cup32" android:duration="100"></item>
+     <item android:drawable="@drawable/gift_cup33" android:duration="100"></item>
+     <item android:drawable="@drawable/gift_cup34" android:duration="100"></item>
+     <item android:drawable="@drawable/gift_cup35" android:duration="100"></item>
+     <item android:drawable="@drawable/gift_cup36" android:duration="100"></item>
+     <item android:drawable="@drawable/gift_cup37" android:duration="100"></item>
+     <item android:drawable="@drawable/gift_cup38" android:duration="100"></item>
+     <item android:drawable="@drawable/gift_cup39" android:duration="100"></item>
+     <item android:drawable="@drawable/gift_cup40" android:duration="100"></item>
+     <item android:drawable="@drawable/gift_cup41" android:duration="100"></item>
+     <item android:drawable="@drawable/gift_cup42" android:duration="100"></item>
+     <item android:drawable="@drawable/gift_cup43" android:duration="100"></item>
+     <item android:drawable="@drawable/gift_cup44" android:duration="100"></item>
+     <item android:drawable="@drawable/gift_cup45" android:duration="100"></item>
+     <item android:drawable="@drawable/gift_cup46" android:duration="100"></item>
+     <item android:drawable="@drawable/gift_cup47" android:duration="100"></item>
+     <item android:drawable="@drawable/gift_cup48" android:duration="100"></item>
+     <item android:drawable="@drawable/gift_cup49" android:duration="100"></item>
+     <item android:drawable="@drawable/gift_cup50" android:duration="100"></item>
+     <item android:drawable="@drawable/gift_cup51" android:duration="100"></item>
+     <item android:drawable="@drawable/gift_cup52" android:duration="100"></item>
+     <item android:drawable="@drawable/gift_cup53" android:duration="100"></item>
+     <item android:drawable="@drawable/gift_cup54" android:duration="100"></item>
+     <item android:drawable="@drawable/gift_cup55" android:duration="100"></item>
+     <item android:drawable="@drawable/gift_cup56" android:duration="100"></item>-->
+
+ </animation-list>

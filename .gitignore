@@ -14,7 +14,7 @@
 .project
 .idea
 .metadata
-
+.externalNativeBuild/*
 *.iml
 *.dex
 *.apk

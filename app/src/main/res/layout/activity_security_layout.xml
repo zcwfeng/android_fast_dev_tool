@@ -1,11 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <TextView
-        android:text="安全"
         style="@style/theme_content_textstyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="安全" />
+
+    <LinearLayout
+        android:layout_margin="10dp"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:background="#ff0099"
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+        <EditText
+            android:id="@+id/et_imooc_mid"
+            android:layout_margin="2dp"
+            android:background="@color/white"
+            android:textColorHint="#000000"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="粘贴课程编号"
+            android:textColor="@color/red"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/imooc_read_local_ts"
+        style="@style/theme_content_textstyle"
+        android:text="播放本地ts"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 

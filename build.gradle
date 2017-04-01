@@ -5,7 +5,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.2.3'
+        classpath 'com.android.tools.build:gradle:2.4.0-alpha3'
         classpath 'me.tatarka:gradle-retrolambda:3.2.4'
         classpath "com.android.tools.build:gradle-experimental:0.6.0-alpha5"
         classpath 'com.google.gms:google-services:3.0.0'
@@ -45,7 +45,7 @@ ext {
     minSdkVersion = 16
     targetSdkVersion = 23
     compileSdkVersion = 23
-    buildToolsVersion = '23.0.2'
+    buildToolsVersion = '25.0.2'
 
     // App dependencies
     supportLibraryVersion = '23.3.0'
@@ -61,20 +61,38 @@ ext {
     fresco_animated_basesupportVersion='1.0'
     fresco_animated_webpVersion='1.0'
     fresco_animated_gifVersion='1.0'
-
     android_gif_drawable_version='1.2.3'
-
     GifView_version="1.1"
-
     google_gsm_play_services='10.0.0'
-
     fastjsonVersion='1.2.10'
-
     umengVersion='latest.integration'
-
     weex_sdk_version="0.5.1@aar"
-
     greendao_version="3.2.0"
+    glide_version="3.7.0"
+    glide_transformations_version="2.0.0"
+    gpuimage_library_version="1.3.0"
+
+    gson_version="2.6.2"
+    retrofit_version="2.1.0"
+    converter_gson_version="2.1.0"
+    converter_scalars_version="2.1.0"
+    adapter_rxjava_version="2.1.0"
+    stetho_version="1.3.1"
+    stetho_okhttp3_version="1.3.1"
+    logging_interceptor_version="3.3.1"
+    okhttp_version="3.3.1"
+
+    okhttputils_version="2.6.2"
+
+    leakcanary_android_version="1.4"
+    leakcanary_android_no_op_version_release="1.4"
+    leakcanary_android_no_op_version="1.4"
+    test_espresso_core_version="2.2.2"
+
+
+    constraint_layout_version="1.0.2"
+    recyclerview_animators_version="2.2.3"
+    video_player_version="1.1.15"
 
     // package
     versionCode = 1

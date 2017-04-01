@@ -37,14 +37,57 @@ public class AndroidDrawableFragment extends BaseFragment {
         rootView = inflater.inflate(R.layout.fragment_gif_androiddrawable_layout, container, false);
         mImg = (ImageView) rootView.findViewById(R.id.img_androiddrawable);
         mBtn = (Button) rootView.findViewById(R.id.start_gif);
-        mBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mImg.setImageDrawable(getResources().getDrawable(R.drawable.gif_v520));
-                final AnimationDrawable animationDrawable = (AnimationDrawable) mImg.getDrawable();
-                animationDrawable.start();
+        mBtn.setOnClickListener(v -> {
+            mImg.setImageDrawable(getResources().getDrawable(R.drawable.gift_trophy1));
+            AnimationDrawable animationDrawable = (AnimationDrawable) mImg.getDrawable();
+            animationDrawable.start();
+            mImg.postDelayed(() -> {
+                mImg.clearAnimation();
+                mImg.destroyDrawingCache();
+            },12 * 100 );
 
-            }
+
+            //2
+            mImg.postDelayed(() -> {
+                mImg.setImageDrawable(getResources().getDrawable(R.drawable.gift_trophy2));
+                AnimationDrawable animationDrawable2 = (AnimationDrawable) mImg.getDrawable();
+                animationDrawable2.start();
+            },12 * 100 );
+
+
+            mImg.postDelayed(() -> {
+                mImg.clearAnimation();
+                mImg.destroyDrawingCache();
+            },24 * 100 );
+
+
+            //3
+            mImg.postDelayed(() -> {
+                mImg.setImageDrawable(getResources().getDrawable(R.drawable.gift_trophy3));
+                AnimationDrawable animationDrawable2 = (AnimationDrawable) mImg.getDrawable();
+                animationDrawable2.start();
+            },40 * 100 );
+
+
+            mImg.postDelayed(() -> {
+                mImg.clearAnimation();
+                mImg.destroyDrawingCache();
+            },40 * 100 );
+
+
+            //4
+            mImg.postDelayed(() -> {
+                mImg.setImageDrawable(getResources().getDrawable(R.drawable.gift_trophy4));
+                AnimationDrawable animationDrawable2 = (AnimationDrawable) mImg.getDrawable();
+                animationDrawable2.start();
+            },40 * 100 );
+
+
+            mImg.postDelayed(() -> {
+                mImg.clearAnimation();
+                mImg.destroyDrawingCache();
+            },56 * 100 );
+
         });
         return rootView;
     }

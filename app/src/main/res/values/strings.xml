@@ -153,6 +153,7 @@
         <item>MediaPlayer</item>
         <item>Bilibili</item><!--opencv-->
         <item>FFmpeg</item>
+        <item>破解ts读取器</item>
     </string-array>
 
     <string-array name="news_historical_relic">

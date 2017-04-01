@@ -1,0 +1,65 @@
+
+{
+	"buildFiles" : 
+	[
+		"/Users/zcw/workspace/AndroidFastDevTool/app/src/main/cpp/CMakeLists.txt"
+	],
+	"cFileExtensions" : [ "c" ],
+	"cleanCommands" : 
+	[
+		"/Users/zcw/Android/android_SDK/sdk/cmake/3.6.3155560/bin/cmake --build /Users/zcw/workspace/AndroidFastDevTool/app/.externalNativeBuild/cmake/1Release/mips --target clean"
+	],
+	"libraries" : 
+	{
+		"ZcwfengJniLibName-Release-mips" : 
+		{
+			"abi" : "mips",
+			"artifactName" : "ZcwfengJniLibName",
+			"buildCommand" : "/Users/zcw/Android/android_SDK/sdk/cmake/3.6.3155560/bin/cmake --build /Users/zcw/workspace/AndroidFastDevTool/app/.externalNativeBuild/cmake/1Release/mips --target ZcwfengJniLibName",
+			"buildType" : "release",
+			"files" : 
+			[
+				
+				{
+					"flags" : "  --target=mipsel-none-linux-android --gcc-toolchain=/Users/zcw/Android/android_SDK/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64 --sysroot=/Users/zcw/Android/android_SDK/sdk/ndk-bundle/platforms/android-14/arch-mips -DZcwfengJniLibName_EXPORTS  -g -DANDROID -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mips32 -Wa,--noexecstack -Wformat -Werror=format-security -g -DANDROID -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mips32 -Wa,--noexecstack -Wformat -Werror=format-security  -Wall -UNDEBUG -O2 -DNDEBUG -O2 -DNDEBUG  -fPIC      -c ",
+					"src" : "/Users/zcw/workspace/AndroidFastDevTool/app/src/main/jni/api_server.c",
+					"workingDirectory" : "/Users/zcw/workspace/AndroidFastDevTool/app/.externalNativeBuild/cmake/1Release/mips"
+				},
+				
+				{
+					"flags" : "  --target=mipsel-none-linux-android --gcc-toolchain=/Users/zcw/Android/android_SDK/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64 --sysroot=/Users/zcw/Android/android_SDK/sdk/ndk-bundle/platforms/android-14/arch-mips -DZcwfengJniLibName_EXPORTS  -g -DANDROID -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mips32 -Wa,--noexecstack -Wformat -Werror=format-security -g -DANDROID -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mips32 -Wa,--noexecstack -Wformat -Werror=format-security  -Wall -UNDEBUG -O2 -DNDEBUG -O2 -DNDEBUG  -fPIC      -c ",
+					"src" : "/Users/zcw/workspace/AndroidFastDevTool/app/src/main/jni/db_plugin_sqlite.c",
+					"workingDirectory" : "/Users/zcw/workspace/AndroidFastDevTool/app/.externalNativeBuild/cmake/1Release/mips"
+				},
+				
+				{
+					"flags" : "  --target=mipsel-none-linux-android --gcc-toolchain=/Users/zcw/Android/android_SDK/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64 --sysroot=/Users/zcw/Android/android_SDK/sdk/ndk-bundle/platforms/android-14/arch-mips -DZcwfengJniLibName_EXPORTS  -g -DANDROID -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mips32 -Wa,--noexecstack -Wformat -Werror=format-security -g -DANDROID -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mips32 -Wa,--noexecstack -Wformat -Werror=format-security  -Wall -UNDEBUG -O2 -DNDEBUG -O2 -DNDEBUG  -fPIC      -c ",
+					"src" : "/Users/zcw/workspace/AndroidFastDevTool/app/src/main/jni/jnitest.c",
+					"workingDirectory" : "/Users/zcw/workspace/AndroidFastDevTool/app/.externalNativeBuild/cmake/1Release/mips"
+				},
+				
+				{
+					"flags" : "  --target=mipsel-none-linux-android --gcc-toolchain=/Users/zcw/Android/android_SDK/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64 --sysroot=/Users/zcw/Android/android_SDK/sdk/ndk-bundle/platforms/android-14/arch-mips -DZcwfengJniLibName_EXPORTS  -g -DANDROID -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mips32 -Wa,--noexecstack -Wformat -Werror=format-security -g -DANDROID -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mips32 -Wa,--noexecstack -Wformat -Werror=format-security  -Wall -UNDEBUG -O2 -DNDEBUG -O2 -DNDEBUG  -fPIC      -c ",
+					"src" : "/Users/zcw/workspace/AndroidFastDevTool/app/src/main/jni/mongoose.c",
+					"workingDirectory" : "/Users/zcw/workspace/AndroidFastDevTool/app/.externalNativeBuild/cmake/1Release/mips"
+				},
+				
+				{
+					"flags" : "  --target=mipsel-none-linux-android --gcc-toolchain=/Users/zcw/Android/android_SDK/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/darwin-x86_64 --sysroot=/Users/zcw/Android/android_SDK/sdk/ndk-bundle/platforms/android-14/arch-mips -DZcwfengJniLibName_EXPORTS  -g -DANDROID -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mips32 -Wa,--noexecstack -Wformat -Werror=format-security -g -DANDROID -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mips32 -Wa,--noexecstack -Wformat -Werror=format-security  -Wall -UNDEBUG -O2 -DNDEBUG -O2 -DNDEBUG  -fPIC      -c ",
+					"src" : "/Users/zcw/workspace/AndroidFastDevTool/app/src/main/jni/sqlite3.c",
+					"workingDirectory" : "/Users/zcw/workspace/AndroidFastDevTool/app/.externalNativeBuild/cmake/1Release/mips"
+				}
+			],
+			"output" : "/Users/zcw/workspace/AndroidFastDevTool/app/build/intermediates/cmake/1/release/obj/mips/libZcwfengJniLibName.so",
+			"toolchain" : "3498689934033032196"
+		}
+	},
+	"toolchains" : 
+	{
+		"3498689934033032196" : 
+		{
+			"cCompilerExecutable" : "/Users/zcw/Android/android_SDK/sdk/ndk-bundle/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang",
+			"cppCompilerExecutable" : "/Users/zcw/Android/android_SDK/sdk/ndk-bundle/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang++"
+		}
+	}
+}

@@ -275,6 +275,16 @@ public class MainActivity extends BaseActivity implements OnListFragmentInteract
                     break;
                 case "3":
                     break;
+                case "4":
+                    break;
+                case "5":
+                    break;
+                case "6":
+                    break;
+                case "7":
+//                    http://www.imooc.com/course/ajaxmediainfo/?mid=12141&mode=flash
+
+                    break;
             }
         } else if (type == 3) {
             switch (item.id) {
