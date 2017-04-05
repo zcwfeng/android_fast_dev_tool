@@ -16,8 +16,6 @@ import android.view.ViewGroup;
 import com.zcwfeng.fastdev.R;
 import com.zcwfeng.fastdev.ui.fragment.BaseFragment;
 
-import static android.content.Context.WIFI_SERVICE;
-
 /**
  * Created by David.zhang on 2016/10/24.
  * Description：
@@ -46,12 +44,12 @@ public class ServiceTwoFragment extends BaseFragment {
 
 
     public void isWifi() {
-        WifiManager wm = (WifiManager) getActivity().getSystemService(Context.WIFI_SERVICE);
+        WifiManager wm = (WifiManager) getActivity().getApplicationContext().getSystemService(Context.WIFI_SERVICE);
         boolean enabled = wm.isWifiEnabled();
     }
 
     public void getMaxAudio() {
-       AudioManager am = (AudioManager) getActivity().getSystemService(Context.AUDIO_SERVICE);
+       AudioManager am = (AudioManager) getActivity().getApplicationContext().getSystemService(Context.AUDIO_SERVICE);
         int max = am.getStreamMaxVolume(AudioManager.STREAM_SYSTEM);
 
         int current = am.getStreamMaxVolume(AudioManager.STREAM_RING);
@@ -59,7 +57,7 @@ public class ServiceTwoFragment extends BaseFragment {
 
     @TargetApi(Build.VERSION_CODES.M)
     public void isConnect() {
-        ConnectivityManager cm = (ConnectivityManager) getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
+        ConnectivityManager cm = (ConnectivityManager) getActivity().getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo info = cm.getActiveNetworkInfo();
         boolean isAvailable = info.isAvailable();
     }

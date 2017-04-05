@@ -256,7 +256,20 @@ react-native bundle --platform android --dev false --entry-file index.android.js
 
 ![扫描二维码](https://github.com/zcwfeng/android_fast_dev_tool/raw/master/art/下载.png)
 
+# TODO
+```
+图片
+https://github.com/glassLake/CropUtils/blob/master/CropUtils.java
+https://github.com/Yalantis/uCrop
+https://github.com/glassLake/PhotoPicker
 
+上传
+https://github.com/Curzibn/Luban
+https://github.com/glassLake/ServerPicUtils
+
+https://github.com/Commit451/NativeStackBlur
+https://github.com/wasabeef/fresco-processors
+```
 
 ``` xml
 MIT License

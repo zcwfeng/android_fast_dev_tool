@@ -12,6 +12,7 @@ import com.zcwfeng.fastdev.ui.fragment.custom_views.AndroidDrawableFragment;
 import com.zcwfeng.fastdev.ui.fragment.custom_views.ConstraintLayoutFragment;
 import com.zcwfeng.fastdev.ui.fragment.custom_views.CustomViewChartFragment;
 import com.zcwfeng.fastdev.ui.fragment.custom_views.CustomViewLayoutFragment;
+import com.zcwfeng.fastdev.ui.fragment.custom_views.CustomViewRainFragment;
 import com.zcwfeng.fastdev.ui.fragment.custom_views.CustomViewSnowFragment;
 
 import java.util.ArrayList;
@@ -29,6 +30,7 @@ public class CustomViewActivity extends BaseActivity {
     private ConstraintLayoutFragment mConstraintLayoutFragment;
     private AndroidDrawableFragment mAndroidDrawableFragment;
     private CustomViewSnowFragment mCustomViewSnowFragment;
+    private CustomViewRainFragment mCustomViewRainFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,21 +44,24 @@ public class CustomViewActivity extends BaseActivity {
     private void initViews() {
         mListTitle = new ArrayList<>();
         mListTitle.add("搜集的效果");
-        mListTitle.add("芝麻信用评分");
-        mListTitle.add("测试ConstantLalyout");
-        mListTitle.add("自带AndroidDrawable动画");
+        mListTitle.add("芝麻信用");
+        mListTitle.add("ConstantLalyout");
+        mListTitle.add("自带AndroidDrawable");
+        mListTitle.add("漫天雪花");
         mListTitle.add("雨打沙滩");
         mCustomViewChartFragment = CustomViewChartFragment.newInstance();
         mCustomViewLayoutFragment = CustomViewLayoutFragment.newInstance();
         mConstraintLayoutFragment = ConstraintLayoutFragment.newInstance();
         mAndroidDrawableFragment = AndroidDrawableFragment.newInstance();
         mCustomViewSnowFragment = CustomViewSnowFragment.newInstance();
+        mCustomViewRainFragment = CustomViewRainFragment.newInstance();
         mListFragments = new WeakHashMap<>();
         mListFragments.put(mListTitle.get(0), mCustomViewLayoutFragment);
         mListFragments.put(mListTitle.get(1), mCustomViewChartFragment);
         mListFragments.put(mListTitle.get(2), mConstraintLayoutFragment);
         mListFragments.put(mListTitle.get(3), mAndroidDrawableFragment);
         mListFragments.put(mListTitle.get(4), mCustomViewSnowFragment);
+        mListFragments.put(mListTitle.get(5), mCustomViewRainFragment);
         mTabTitle = (TabLayout) findViewById(R.id.sliding_tabs);
         mAdapter = new MyViewPagerAdapter(getSupportFragmentManager(), mListFragments, mListTitle);
         mViewPager = (ViewPager) findViewById(R.id.template_viewpager);
@@ -67,6 +72,7 @@ public class CustomViewActivity extends BaseActivity {
         mTabTitle.addTab(mTabTitle.newTab().setText(mListTitle.get(2)));
         mTabTitle.addTab(mTabTitle.newTab().setText(mListTitle.get(3)));
         mTabTitle.addTab(mTabTitle.newTab().setText(mListTitle.get(4)));
+        mTabTitle.addTab(mTabTitle.newTab().setText(mListTitle.get(5)));
         mTabTitle.setupWithViewPager(mViewPager);
         mTabTitle.setClipToPadding(true);
     }
