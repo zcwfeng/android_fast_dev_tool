@@ -137,6 +137,8 @@
         <item>下载</item>
         <item>支付</item>
         <item>扫码</item>
+        <item>Camera2</item>
+        <item>Activity</item>
     </string-array>
 
     <string-array name="chat_index">

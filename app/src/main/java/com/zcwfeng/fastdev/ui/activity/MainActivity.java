@@ -327,6 +327,12 @@ public class MainActivity extends BaseActivity implements OnListFragmentInteract
                 case "13":
                     BaseActivity.launch(MainActivity.this,SkillActivity.class);
                     break;
+                case "14":
+                    BaseActivity.launch(MainActivity.this,CameraActivity.class);
+                    break;
+                case "15":
+                    BaseActivity.launch(MainActivity.this,LifeCycleActivity.class);
+                    break;
             }
         }
 

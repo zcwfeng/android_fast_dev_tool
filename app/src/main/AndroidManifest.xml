@@ -4,11 +4,11 @@
     package="com.zcwfeng.fastdev">
 
     <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
-    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
     <uses-permission android:name="android.permission.GET_TASKS" />
 
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -17,13 +17,22 @@
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <!-- camera -->
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-feature android:name = "android.hardware.camera" />
+    <uses-feature android:name = "android.hardware.camera.autofocus" />
+
+    <!-- record -->
+ <!--   <uses-permission android:name="android.permission.RECORD_VIDEO"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>-->
     <!-- AD -->
     <uses-permission android:name="com.android.vending.BILLING" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
     <uses-permission android:name="android.permission.BLUETOOTH" />
+
     <uses-feature
         android:glEsVersion="0x00020000"
-        android:required="false"/>
+        android:required="false" />
     <application
         android:name=".basic.MyApplication"
         android:allowBackup="true"
@@ -48,13 +57,13 @@
             android:enabled="false"
             android:icon="@mipmap/ic_launcher_s11"
             android:label="双11"
-            android:targetActivity=".ui.activity.SplashActivity"
             android:launchMode="standard"
+            android:targetActivity=".ui.activity.SplashActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity-alias>
 
@@ -64,12 +73,12 @@
             android:icon="@mipmap/ic_launcher_s12"
             android:label="双12"
             android:launchMode="standard"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:targetActivity=".ui.activity.SplashActivity">
+            android:targetActivity=".ui.activity.SplashActivity"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity-alias>
 
@@ -79,8 +88,9 @@
         <activity
             android:name=".ui.activity.ImageLibActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".ui.activity.SkillActivity"
-            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ui.activity.SkillActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ScrollingActivity"
             android:screenOrientation="portrait" />
@@ -178,8 +188,6 @@
             android:screenOrientation="portrait" />
 
 
-
-
         <activity android:name=".demos.demorealm.activity.RealmDemoMainActivity" />
         <activity android:name=".demos.demorealm.activity.DogListActivity" />
         <activity android:name=".demos.demorealm.activity.QueryActivity" />
@@ -194,57 +202,49 @@
         <activity
             android:name=".demos.zoomimageheader.activity.ZoomImageHeaderActivity"
             android:theme="@style/translucent" />
-        <activity android:name=".demos.zoomimageheader.activity.HomeActivity"/>
+        <activity android:name=".demos.zoomimageheader.activity.HomeActivity" />
 
 
         <activity
             android:name=".demos.demo_amap.AmapStartActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            >
-        </activity>
+            android:configChanges="keyboardHidden|orientation|screenSize"></activity>
         <activity
             android:name=".demos.demo_amap.Location_Activity"
-            android:windowSoftInputMode="adjustResize|stateHidden"
             android:configChanges="keyboardHidden|orientation|screenSize"
-            >
-        </activity>
+            android:windowSoftInputMode="adjustResize|stateHidden"></activity>
         <activity
             android:name=".demos.demo_amap.LastLocation_Activity"
-            android:windowSoftInputMode="adjustResize|stateHidden"
             android:configChanges="keyboardHidden|orientation|screenSize"
-            >
-        </activity>
+            android:windowSoftInputMode="adjustResize|stateHidden"></activity>
         <activity
             android:name=".demos.demo_amap.GeoFence_Activity"
-            android:windowSoftInputMode="adjustResize|stateHidden"
             android:configChanges="keyboardHidden|orientation|screenSize"
-            >
-        </activity>
+            android:windowSoftInputMode="adjustResize|stateHidden"></activity>
         <activity
             android:name=".demos.demo_amap.Assistant_Location_Activity"
-            android:windowSoftInputMode="adjustResize|stateHidden"
             android:configChanges="keyboardHidden|orientation|screenSize"
-            >
-        </activity>
+            android:windowSoftInputMode="adjustResize|stateHidden"></activity>
         <activity
             android:name=".demos.demo_amap.Alarm_Location_Activity"
-            android:windowSoftInputMode="adjustResize|stateHidden"
             android:configChanges="keyboardHidden|orientation|screenSize"
-            >
-        </activity>
+            android:windowSoftInputMode="adjustResize|stateHidden"></activity>
         <activity
             android:name=".demos.demo_amap.ErrorCode_Activity"
-            android:windowSoftInputMode="adjustResize|stateHidden"
             android:configChanges="keyboardHidden|orientation|screenSize"
-            >
-        </activity>
+            android:windowSoftInputMode="adjustResize|stateHidden"></activity>
         <activity
             android:name=".demos.demo_amap.Tools_Activity"
-            android:windowSoftInputMode="adjustResize|stateHidden"
             android:configChanges="keyboardHidden|orientation|screenSize"
-            >
-        </activity>
+            android:windowSoftInputMode="adjustResize|stateHidden"></activity>
+        <activity
+            android:name=".ui.activity.CameraActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:windowSoftInputMode="adjustResize|stateHidden"></activity>
 
+        <activity
+            android:name=".ui.activity.LifeCycleActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:windowSoftInputMode="adjustResize|stateHidden"></activity>
 
         <service
             android:name=".binder.AIDLTestService"
@@ -286,7 +286,7 @@
         <!--谷歌-->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyBHfk2gpQY0b4ljxxlwxsndIF_lulI78Lk"/>
+            android:value="AIzaSyBHfk2gpQY0b4ljxxlwxsndIF_lulI78Lk" />
         <!-- 设置key -->
         <meta-data
             android:name="com.amap.api.v2.apikey"
@@ -341,8 +341,7 @@
         <activity
             android:name=".ui.activity.MyReactActivity"
             android:label="@string/app_name"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        </activity>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
 
 
         <receiver android:name=".ui.fragment.image.glide.FSAppWidgetProvider">
