@@ -18,9 +18,9 @@ import com.android.tedcoder.wkvideoplayer.model.VideoUrl;
 import com.android.tedcoder.wkvideoplayer.util.DensityUtil;
 import com.android.tedcoder.wkvideoplayer.view.MediaController;
 import com.android.tedcoder.wkvideoplayer.view.SuperVideoPlayer;
-import com.google.android.exoplayer.util.Util;
-import com.yinyuetai.videolib.PlayerProxy;
-import com.yinyuetai.videolib.YYTVideoView;
+//import com.google.android.exoplayer.util.Util;
+//import com.yinyuetai.videolib.PlayerProxy;
+//import com.yinyuetai.videolib.YYTVideoView;
 import com.zcwfeng.componentlibs.surport.utils.MediaUtils;
 import com.zcwfeng.componentlibs.ui.basic.BaseActivity_deprecated;
 import com.zcwfeng.fastdev.R;
@@ -52,7 +52,7 @@ public class MediaLibUseDemo extends BaseActivity_deprecated implements View.OnC
     private SuperVideoPlayer mSuperVideoPlayer;
     private View mPlayBtnView;
     private View mCoverBgView;
-    private YYTVideoView mYYTVideoView;
+//    private YYTVideoView mYYTVideoView;
 
     public static void launch(Context context, Object... params) {
         Intent intent = new Intent(context, MediaLibUseDemo.class);
@@ -66,7 +66,7 @@ public class MediaLibUseDemo extends BaseActivity_deprecated implements View.OnC
         mSuperVideoPlayer = (SuperVideoPlayer) findViewById(R.id.video_player_item_1);
         mPlayBtnView = findViewById(R.id.play_btn);
         mCoverBgView = findViewById(R.id.cover_video_bg);
-        mYYTVideoView = (YYTVideoView) findViewById(R.id.video_player_item_2);
+//        mYYTVideoView = (YYTVideoView) findViewById(R.id.video_player_item_2);
 
         mPlayBtnView.setOnClickListener(this);
 
@@ -92,8 +92,8 @@ public class MediaLibUseDemo extends BaseActivity_deprecated implements View.OnC
             e.printStackTrace();
         }
 
-        mYYTVideoView.setVisibility(View.VISIBLE);
-        mYYTVideoView.playVideo(PlayerProxy.PLAYER_VR,"http://video-player.720yun.com/@/5c529czdwua/pc_1469596419.mp4", Util.TYPE_OTHER,0);
+//        mYYTVideoView.setVisibility(View.VISIBLE);
+//        mYYTVideoView.playVideo(PlayerProxy.PLAYER_VR,"http://video-player.720yun.com/@/5c529czdwua/pc_1469596419.mp4", Util.TYPE_OTHER,0);
 
     }
 
@@ -206,8 +206,8 @@ public class MediaLibUseDemo extends BaseActivity_deprecated implements View.OnC
     protected void onDestroy() {
         super.onDestroy();
         stopDLNAService();
-        mYYTVideoView.pause();
-        mYYTVideoView.destroyDrawingCache();
+//        mYYTVideoView.pause();
+//        mYYTVideoView.destroyDrawingCache();
     }
 
     /***

@@ -1,3 +1,0 @@
-/Users/zcw/workspace/AndroidFastDevTool/app/.externalNativeBuild/cmake/x86_64Release/x86_64/CMakeFiles/edit_cache.dir
-/Users/zcw/workspace/AndroidFastDevTool/app/.externalNativeBuild/cmake/x86_64Release/x86_64/CMakeFiles/rebuild_cache.dir
-/Users/zcw/workspace/AndroidFastDevTool/app/.externalNativeBuild/cmake/x86_64Release/x86_64/CMakeFiles/ZcwfengJniLibName.dir

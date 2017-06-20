@@ -1,4 +1,19 @@
+buildscript {
+    repositories {
+        maven { url 'https://maven.fabric.io/public' }
+    }
+
+    dependencies {
+        classpath 'io.fabric.tools:gradle:1.+'
+    }
+}
 apply plugin: 'com.android.application'
+apply plugin: 'io.fabric'
+
+repositories {
+    maven { url 'https://maven.fabric.io/public' }
+}
+
 apply plugin: 'me.tatarka.retrolambda'
 apply plugin: 'realm-android'
 apply plugin: 'org.greenrobot.greendao'
@@ -144,13 +159,13 @@ android {
 
     signingConfigs {
         release {
-            storeFile file("/Users/zcw/dev/keystore/demo.jks")
+            storeFile file("/Users/zcw/dev/apk/keystore/test.jks")
             storePassword "123456"
             keyAlias "zcw"
             keyPassword "123456"
         }
         debug {
-            storeFile file("/Users/zcw/dev/keystore/demo.jks")
+            storeFile file("/Users/zcw/dev/apk/keystore/test.jks")
             storePassword "123456"
             keyAlias "zcw"
             keyPassword "123456"
@@ -206,6 +221,9 @@ dependencies {
     //    compile 'com.google.firebase:firebase-core:9.0.0'
     //    compile 'com.google.firebase:firebase-ads:9.0.0'
     //    compile 'com.google.firebase:firebase-crash:9.0.0'
+    compile('com.crashlytics.sdk.android:crashlytics:2.6.8@aar') {
+        transitive = true;
+    }
 
 }
 

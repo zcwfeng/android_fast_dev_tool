@@ -67,7 +67,7 @@ dependencies {
     //ContraintLayout
     compile "com.android.support.constraint:constraint-layout:$rootProject.ext.constraint_layout_version"
     compile "jp.wasabeef:recyclerview-animators:$rootProject.ext.recyclerview_animators_version"
-    compile "com.yinyuetai.android.lib:video_player:$rootProject.ext.video_player_version"
+//    compile "com.yinyuetai.android.lib:video_player:$rootProject.ext.video_player_version"
     compile "com.facebook.react:react-native:+"
     //Gosn解析包
     compile "com.google.code.gson:gson:$rootProject.ext.gson_version"

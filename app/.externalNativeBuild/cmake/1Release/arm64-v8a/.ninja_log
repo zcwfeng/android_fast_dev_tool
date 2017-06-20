@@ -1,7 +1,0 @@
-# ninja log v5
-0	361	0	CMakeFiles/ZcwfengJniLibName.dir/Users/zcw/workspace/AndroidFastDevTool/app/src/main/jni/api_server.c.o	bad9dfe763fc2728
-1	362	0	CMakeFiles/ZcwfengJniLibName.dir/Users/zcw/workspace/AndroidFastDevTool/app/src/main/jni/db_plugin_sqlite.c.o	938320decc160e0f
-1	382	0	CMakeFiles/ZcwfengJniLibName.dir/Users/zcw/workspace/AndroidFastDevTool/app/src/main/jni/jnitest.c.o	7355eed604e44bfe
-2	4055	0	CMakeFiles/ZcwfengJniLibName.dir/Users/zcw/workspace/AndroidFastDevTool/app/src/main/jni/mongoose.c.o	2258c398ac45ccd0
-3	42157	0	CMakeFiles/ZcwfengJniLibName.dir/Users/zcw/workspace/AndroidFastDevTool/app/src/main/jni/sqlite3.c.o	fe65f56349035b99
-42158	42385	0	/Users/zcw/workspace/AndroidFastDevTool/app/build/intermediates/cmake/1/release/obj/arm64-v8a/libZcwfengJniLibName.so	76dc97a237e5847a

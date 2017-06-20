@@ -29,12 +29,12 @@
     </FrameLayout>
 
 
-    <com.yinyuetai.videolib.YYTVideoView
+    <!--<com.yinyuetai.videolib.YYTVideoView
         android:id="@+id/video_player_item_2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="20dp"
-        android:visibility="visible"/>
+        android:visibility="visible"/>-->
 
 
 </LinearLayout>

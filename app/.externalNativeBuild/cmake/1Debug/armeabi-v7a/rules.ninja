@@ -25,7 +25,7 @@ rule CUSTOM_COMMAND
 rule C_COMPILER__ZcwfengJniLibName
   depfile = $DEP_FILE
   deps = gcc
-  command = /Users/zcw/Android/android_SDK/sdk/ndk-bundle/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang  --target=armv7-none-linux-androideabi --gcc-toolchain=/Users/zcw/Android/android_SDK/sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/darwin-x86_64 --sysroot=/Users/zcw/Android/android_SDK/sdk/ndk-bundle/platforms/android-14/arch-arm $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out   -c $IN_ABS
+  command = /Users/zcw/android/android-ndk-r13b/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang  -target armv7-none-linux-androideabi -gcc-toolchain /Users/zcw/android/android-ndk-r13b/toolchains/arm-linux-androideabi-4.9/prebuilt/darwin-x86_64 --sysroot=/Users/zcw/android/android-ndk-r13b/platforms/android-14/arch-arm $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out   -c $IN_ABS
   description = Building C object $out
 
 
@@ -33,7 +33,7 @@ rule C_COMPILER__ZcwfengJniLibName
 # Rule for linking C shared library.
 
 rule C_SHARED_LIBRARY_LINKER__ZcwfengJniLibName
-  command = $PRE_LINK && /Users/zcw/Android/android_SDK/sdk/ndk-bundle/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang  --target=armv7-none-linux-androideabi --gcc-toolchain=/Users/zcw/Android/android_SDK/sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/darwin-x86_64 --sysroot=/Users/zcw/Android/android_SDK/sdk/ndk-bundle/platforms/android-14/arch-arm -fPIC $LANGUAGE_COMPILE_FLAGS $ARCH_FLAGS $LINK_FLAGS -shared $SONAME_FLAG$SONAME -o $TARGET_FILE $in $LINK_PATH $LINK_LIBRARIES && $POST_BUILD
+  command = $PRE_LINK && /Users/zcw/android/android-ndk-r13b/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang  -target armv7-none-linux-androideabi -gcc-toolchain /Users/zcw/android/android-ndk-r13b/toolchains/arm-linux-androideabi-4.9/prebuilt/darwin-x86_64 --sysroot=/Users/zcw/android/android-ndk-r13b/platforms/android-14/arch-arm -fPIC $LANGUAGE_COMPILE_FLAGS $ARCH_FLAGS $LINK_FLAGS -shared $SONAME_FLAG$SONAME -o $TARGET_FILE $in $LINK_PATH $LINK_LIBRARIES && $POST_BUILD
   description = Linking C shared library $TARGET_FILE
   restat = $RESTAT
 
@@ -42,7 +42,7 @@ rule C_SHARED_LIBRARY_LINKER__ZcwfengJniLibName
 # Rule for re-running cmake.
 
 rule RERUN_CMAKE
-  command = /Users/zcw/Android/android_SDK/sdk/cmake/3.6.3155560/bin/cmake -H/Users/zcw/workspace/AndroidFastDevTool/app/src/main/cpp -B/Users/zcw/workspace/AndroidFastDevTool/app/.externalNativeBuild/cmake/1Debug/armeabi-v7a
+  command = /Users/zcw/android/android-sdk-macosx/cmake/3.6.3155560/bin/cmake -H/Users/zcw/workspace/android_fast_dev_tool/app/src/main/cpp -B/Users/zcw/workspace/android_fast_dev_tool/app/.externalNativeBuild/cmake/1Debug/armeabi-v7a
   description = Re-running CMake...
   generator = 1
 
@@ -51,7 +51,7 @@ rule RERUN_CMAKE
 # Rule for cleaning all built files.
 
 rule CLEAN
-  command = /Users/zcw/Android/android_SDK/sdk/cmake/3.6.3155560/bin/ninja -t clean
+  command = /Users/zcw/android/android-sdk-macosx/cmake/3.6.3155560/bin/ninja -t clean
   description = Cleaning all built files...
 
 
@@ -59,6 +59,6 @@ rule CLEAN
 # Rule for printing all primary targets available.
 
 rule HELP
-  command = /Users/zcw/Android/android_SDK/sdk/cmake/3.6.3155560/bin/ninja -t targets
+  command = /Users/zcw/android/android-sdk-macosx/cmake/3.6.3155560/bin/ninja -t targets
   description = All primary targets available:
 

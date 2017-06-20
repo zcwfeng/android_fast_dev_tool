@@ -8,6 +8,7 @@ import android.view.Display;
 import android.view.WindowManager;
 
 import com.baidu.mapapi.SDKInitializer;
+import com.crashlytics.android.Crashlytics;
 import com.taobao.weex.InitConfig;
 import com.taobao.weex.WXSDKEngine;
 import com.tencent.smtt.sdk.QbSdk;
@@ -17,6 +18,7 @@ import com.zcwfeng.fastdev.demos.demo_greendao.bean.DaoSession;
 import com.zcwfeng.fastdev.demos.demorealm.util.RealmHelper;
 import com.zcwfeng.fastdev.ui.fragment.download.ImageAdapter;
 
+import io.fabric.sdk.android.Fabric;
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
 
@@ -41,6 +43,7 @@ public class MyApplication extends BaseApplication{
     @Override
     public void onCreate() {
         super.onCreate();
+        Fabric.with(this, new Crashlytics());
         mApplacation = this;
 
 

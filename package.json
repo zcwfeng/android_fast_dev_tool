@@ -1,5 +1,5 @@
 {
-  "name": "androidfastdevtool",
+  "name": "android_fast_dev_tool",
   "version": "1.0.0",
   "description": "Android Fast Dev Facebook ReactNative",
   "main": "index.android.js",
@@ -33,7 +33,7 @@
   },
   "homepage": "https://github.com/zcwfeng/android_fast_dev_tool#readme",
   "dependencies": {
-    "react": "^15.4.2",
+    "react": "^15.6.1",
     "react-native": "^0.41.2",
     "react-timer-mixin": "^0.13.3"
   },

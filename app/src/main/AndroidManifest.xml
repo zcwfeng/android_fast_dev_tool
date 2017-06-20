@@ -354,6 +354,9 @@
         <meta-data
             android:name="com.zcwfeng.fastdev.ui.fragment.image.glide.CustomImageSizeGlideModule"
             android:value="GlideModule" />
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="57e6cae325ea343bba72ee0abd950d4af4bd8349" />
     </application>
 
 
