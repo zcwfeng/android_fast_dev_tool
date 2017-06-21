@@ -46,7 +46,7 @@ AndroidFastDevTool, A pure tools App based on Android and so on,to help develope
 
 * https://github.com/florent37/MaterialViewPager
 * https://github.com/zcwfeng/android-image-utils
-* [leakcanary] https://github.com/square/leakcanary
+* [leakcanary](https://github.com/square/leakcanary)
 * https://github.com/zcwfeng/afinal
 * https://github.com/EyalBira/loading-dots
 * https://github.com/kikoso/android-stackblur
@@ -73,15 +73,17 @@ AndroidFastDevTool, A pure tools App based on Android and so on,to help develope
 * https://github.com/Bilibili/ijkplayer
 * https://github.com/geftimov/android-pathview
 * https://github.com/PhilJay/MPAndroidChart
-* https://github.com/koral--/android-gif-drawable[GIF]
+* [GIF android-gif-drawable](https://github.com/koral--/android-gif-drawable)
 * https://github.com/koral--/android-gif-drawable-sample
-* https://github.com/Cutta/GifView[GIF]
+* [GIFView](https://github.com/Cutta/GifView)
 * https://github.com/bumptech/glide
 * https://github.com/sbakhtiarov/gif-movie-view
-* http://tinkerpatch.com/Docs/SDK[TinkerPatch 热更新]
+* [TinkerPatch 热更新](http://tinkerpatch.com/Docs/SDK)
 * https://github.com/TinkerPatch/tinkerpatch-sample/blob/master/app/tinkerpatch.gradle
 * https://github.com/Tencent/tinker/wiki/Tinker-%E6%8E%A5%E5%85%A5%E6%8C%87%E5%8D%97
 * http://tinkerpatch.com/apps/detail/id/843
+* [ReLinker 降低加载so的出错的几率](https://github.com/KeepSafe/ReLinker) 
+* Flurry 和 Fabric 添加。具体网上可查，科学上网
 
 ## Glide bug 通常解决方案
 

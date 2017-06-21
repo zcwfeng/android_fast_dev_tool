@@ -1,1 +1,1 @@
-include ':app', ':httplibs', ':componentlibs', ':wkvideoplayer', ':glidlibrary'
+include ':app', ':httplibs', ':componentlibs', ':wkvideoplayer', ':glidlibrary', ':relinker'

@@ -21,9 +21,9 @@ buildscript {
 allprojects {
     repositories {
         jcenter()
-        maven {
-            url "http://nexus.rd.yinyuetai.com/content/repositories/releases/"
-        }
+//        maven {
+//            url "http://nexus.rd.yinyuetai.com/content/repositories/releases/"
+//        }
         maven {
             url "https://jitpack.io"
         }

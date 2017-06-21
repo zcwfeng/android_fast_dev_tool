@@ -9,6 +9,7 @@ import android.view.WindowManager;
 
 import com.baidu.mapapi.SDKInitializer;
 import com.crashlytics.android.Crashlytics;
+import com.flurry.android.FlurryAgent;
 import com.taobao.weex.InitConfig;
 import com.taobao.weex.WXSDKEngine;
 import com.tencent.smtt.sdk.QbSdk;
@@ -44,6 +45,10 @@ public class MyApplication extends BaseApplication{
     public void onCreate() {
         super.onCreate();
         Fabric.with(this, new Crashlytics());
+
+        new FlurryAgent.Builder()
+                .withLogEnabled(true)
+                .build(this, "S8BWRCDF8QPH62NC5Z5F");
         mApplacation = this;
 
 
