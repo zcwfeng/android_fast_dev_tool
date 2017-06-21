@@ -10,6 +10,7 @@ import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.ImageView;
 
 import com.eftimoff.androipathview.PathView;
+import com.flurry.android.FlurryAgent;
 import com.zcwfeng.fastdev.R;
 
 public class SplashActivity extends BaseActivity {
@@ -74,7 +75,17 @@ public class SplashActivity extends BaseActivity {
     }
 
 
+    @Override
+    protected void onStart() {
+        FlurryAgent.onStartSession(this);
+        super.onStart();
+    }
 
+    @Override
+    protected void onStop() {
+        FlurryAgent.onEndSession(this);
+        super.onStop();
+    }
 
     @Override
     public void onGetCAMERAPermissions() {

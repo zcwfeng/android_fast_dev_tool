@@ -9,6 +9,10 @@ import android.view.WindowManager;
 
 import com.baidu.mapapi.SDKInitializer;
 import com.crashlytics.android.Crashlytics;
+import com.crashlytics.android.answers.Answers;
+import com.facebook.drawee.backends.pipeline.Fresco;
+import com.facebook.imagepipeline.backends.okhttp3.OkHttpImagePipelineConfigFactory;
+import com.facebook.imagepipeline.core.ImagePipelineConfig;
 import com.flurry.android.FlurryAgent;
 import com.taobao.weex.InitConfig;
 import com.taobao.weex.WXSDKEngine;
@@ -51,11 +55,11 @@ public class MyApplication extends BaseApplication{
                 .build(this, "S8BWRCDF8QPH62NC5Z5F");
         mApplacation = this;
 
-
         //初始化屏幕宽高
         getScreenSize();
 
 //        Firebase.setAndroidContext(this);
+        Fabric.with(this, new Crashlytics(), new Answers());
 
 
         // init x5 WebView
