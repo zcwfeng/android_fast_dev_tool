@@ -1,5 +1,8 @@
 #AndroidFastDevTool
 
+[![](https://jitpack.io/v/zcwfeng/android_fast_dev_tool.svg)](https://jitpack.io/#zcwfeng/android_fast_dev_tool)
+
+
 AndroidFastDevTool, A pure tools App based on Android and so on,to help developers use so fast and happy.
 
 安卓快速开发工具，一个纯粹基于android平台的快速开发整理的工具和一些库，方便开发者，搜集好的技术和工具，提供学习和快速开发使用
