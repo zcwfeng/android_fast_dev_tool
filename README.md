@@ -1,6 +1,9 @@
+[![](https://jitpack.io/v/zcwfeng/android_fast_dev_tool.svg)](https://jitpack.io/#zcwfeng/android_fast_dev_tool)
+
+
+
 #AndroidFastDevTool
 
-[![](https://jitpack.io/v/zcwfeng/android_fast_dev_tool.svg)](https://jitpack.io/#zcwfeng/android_fast_dev_tool)
 
 
 AndroidFastDevTool, A pure tools App based on Android and so on,to help developers use so fast and happy.
