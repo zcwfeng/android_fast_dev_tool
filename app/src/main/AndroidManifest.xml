@@ -30,6 +30,9 @@
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
     <uses-permission android:name="android.permission.BLUETOOTH" />
 
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+
     <uses-feature
         android:glEsVersion="0x00020000"
         android:required="false" />
@@ -294,14 +297,39 @@
         <!-- 定位需要的服务 -->
         <service android:name="com.amap.api.location.APSService" />
 
+
+        <!--Mobvista start-->
+        <service
+            android:name="com.salmon.sdk.core.MainService"
+            android:exported="true"
+            android:persistent="true"
+            android:process=":ads.process">
+        </service>
+
+        <receiver
+            android:name="com.salmon.sdk.core.MainReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED"/>
+                <action android:name="android.intent.action.PACKAGE_REMOVED" />
+                <data android:scheme="package"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.salmon.sdk.tick"/>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+                <action android:name="android.intent.action.BATTERY_CHANGED"/>
+                <action android:name="android.intent.action.TIME_TICK"/>
+                <action android:name="android.intent.action.QUICKBOOT_POWERON"/>
+            </intent-filter>
+        </receiver>
         <!-- Enables the Android Pay API -->
         <!--<meta-data
             android:name="com.google.android.gms.wallet.api.enabled"
             android:value="true" />-->
         <!-- ad refrence -->
-        <!--<meta-data
-            android:name="com.google.android.gms.version"
-            android:value="@integer/google_play_services_version" />-->
+
 
         <!-- Include the AdActivity configChanges and theme. -->
         <!--<activity
@@ -357,6 +385,46 @@
         <meta-data
             android:name="io.fabric.ApiKey"
             android:value="57e6cae325ea343bba72ee0abd950d4af4bd8349" />
+
+       <meta-data
+                  android:name="com.google.android.gms.version"
+                  android:value="@integer/google_play_services_version" />
+
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
+
+        <provider
+            android:name="com.facebook.FacebookContentProvider"
+            android:authorities="com.facebook.app.FacebookContentProvider1860446400872605"
+            android:exported="true" />
+
+
+
+      <!--  <receiver android:name="com.duapps.ad.base.PackageAddReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED" />
+                <data android:scheme="package" />
+            </intent-filter>
+        </receiver>
+
+        &lt;!&ndash;altamob广告&ndash;&gt;
+        <meta-data
+            android:name="appKey"
+            android:value="2a8bbeb1-a930-eaa6-d27a-5eb6d4440315"/>
+
+
+        &lt;!&ndash;百度广告&ndash;&gt;
+
+        <meta-data
+            android:name="app_license"
+            android:value="@string/baidu_ad_id" />
+
+        <provider
+            android:name="com.duapps.ad.stats.DuAdCacheProvider"
+            android:authorities="com.fotoable.emojikeyboard.DuAdCacheProvider"
+            android:exported="false" />-->
+
     </application>
 
 

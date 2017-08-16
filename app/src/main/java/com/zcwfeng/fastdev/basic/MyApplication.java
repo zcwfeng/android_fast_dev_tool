@@ -10,9 +10,7 @@ import android.view.WindowManager;
 import com.baidu.mapapi.SDKInitializer;
 import com.crashlytics.android.Crashlytics;
 import com.crashlytics.android.answers.Answers;
-import com.facebook.drawee.backends.pipeline.Fresco;
-import com.facebook.imagepipeline.backends.okhttp3.OkHttpImagePipelineConfigFactory;
-import com.facebook.imagepipeline.core.ImagePipelineConfig;
+import com.facebook.FacebookSdk;
 import com.flurry.android.FlurryAgent;
 import com.taobao.weex.InitConfig;
 import com.taobao.weex.WXSDKEngine;
@@ -98,6 +96,15 @@ public class MyApplication extends BaseApplication{
 
         //配置数据库
         setupDatabase();
+
+
+        FacebookSdk.sdkInitialize(getApplicationContext());
+
+//        AppEventsLogger.activateApp(this.getApplicationContext(),"1860446400872605");
+//        AdSettings.addTestDevice("d3439e8dea48a56c4095d25f037a3fdd");
+//        SDK.startSDK(this,33404,"475239399d1018409c3a5afb6a1d379f");
+
+
     }
 
     /**

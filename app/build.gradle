@@ -12,6 +12,9 @@ apply plugin: 'io.fabric'
 
 repositories {
     maven { url 'https://maven.fabric.io/public' }
+    flatDir {
+        dirs 'libs'
+    }
 }
 
 apply plugin: 'me.tatarka.retrolambda'
@@ -22,61 +25,7 @@ apply plugin: 'pmd'
 apply plugin: 'checkstyle'
 
 
-//apply plugin: 'tinkerpatch-support'
-//
-//def bakPath = file("${buildDir}/bakApk/")
-//
-//def appName = "app-1.0.0-1223-13-41-43"
-//
-///**
-// * 对于插件各参数的详细解析请参考
-// * http://tinkerpatch.com/Docs/SDK
-// */
-//tinkerpatchSupport {
-//    tinkerEnable = true
-//    appKey = "0c94ce9bf852fd25"
-//    appVersion = "1.0.0"
-//
-//    autoBackupApkPath = "${bakPath}"
-//
-//    baseApkFile = "${bakPath}/${appName}/app-debug.apk"
-//    baseProguardMappingFile = "${bakPath}/${appName}/app-debug-mapping.txt"
-//    baseResourceRFile = "${bakPath}/${appName}/app-debug-R.txt"
-//}
-//
-///**
-// * 一般来说,我们无需对下面的参数做任何的修改
-// * 对于各参数的详细介绍请参考:
-// * https://github.com/Tencent/tinker/wiki/Tinker-%E6%8E%A5%E5%85%A5%E6%8C%87%E5%8D%97
-// */
-//tinkerPatch {
-//    ignoreWarning = false
-//    useSign = true
-//    dex {
-//        dexMode = "jar"
-//        pattern = ["classes*.dex"]
-//        loader = []
-//    }
-//    lib {
-//        pattern = ["lib/*/*.so"]
-//    }
-//
-//    res {
-//        pattern = ["res/*", "r/*", "assets/*", "resources.arsc", "AndroidManifest.xml"]
-//        ignoreChange = []
-//        largeModSize = 100
-//    }
-//
-//    packageConfig {
-//    }
-//    sevenZip {
-//        zipArtifact = "com.tencent.mm:SevenZip:1.1.10"
-////        path = "/usr/local/bin/7za"
-//    }
-//    buildConfig {
-//        keepDexApply = false
-//    }
-//}
+
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
@@ -123,6 +72,7 @@ android {
     }
 
 
+
     dexOptions {
         maxProcessCount 4
         javaMaxHeapSize "2g"
@@ -147,13 +97,14 @@ android {
         exclude 'META-INF/LICENSE'
         exclude 'META-INF/LICENSE-FIREBASE.txt'
         exclude 'META-INF/NOTICE'
+        exclude 'META-INF/rxjava.properties'
     }
 
     sourceSets {
         main {
             jniLibs.srcDirs = ['src/main/jniLibs']
             aidl.srcDirs = ['src/main/java']
-            res.srcDirs = ['src/main/res', 'src/main/res/values-zh-rTW']
+            res.srcDirs = ['src/main/res','src/main/res_ads', 'src/main/res/values-zh-rTW']
         }
     }
 
@@ -213,106 +164,27 @@ dependencies {
     compile project(':wkvideoplayer')
     compile project(':httplibs')
     compile project(':glidlibrary')
+//    compile project(':adloadhelper')
     compile "com.android.support:recyclerview-v7:$rootProject.ext.supportLibraryVersion"
     compile "com.android.support:appcompat-v7:$rootProject.ext.supportLibraryVersion"
     compile "com.android.support:cardview-v7:$rootProject.ext.supportLibraryVersion"
+    // firebase
+    compile 'com.google.firebase:firebase-ads:10.0.0'
 
-    //    compile 'com.firebase:firebase-client-android:2.5.2.+'
-    //    compile 'com.google.firebase:firebase-core:9.0.0'
-    //    compile 'com.google.firebase:firebase-ads:9.0.0'
-    //    compile 'com.google.firebase:firebase-crash:9.0.0'
 
     // google fabric 的一个功能异常搜集
-    compile('com.crashlytics.sdk.android:crashlytics:2.6.8@aar') {
+        compile('com.crashlytics.sdk.android:crashlytics:2.6.8@aar') {
         transitive = true;
     }
-
-//    // Required for Flurry Analytics integration
-//    compile 'com.flurry.android:analytics:7.0.0@aar'
-//    // Optional - If you want to use the Ads SDK
-//    compile 'com.flurry.android:ads:7.0.0@aar'
     compile 'com.flurry.android:analytics:6.9.2'
+    compile 'com.facebook.android:facebook-android-sdk:4.25.0'
+    compile 'com.facebook.android:audience-network-sdk:4.25.0'
+    compile files('libs/Salmonads_SDK_SR.jar')
+
 
 }
 
-//apply plugin: 'com.google.gms.google-services'
-//apply from: 'tinkerpatch.gradle'
+apply plugin: 'com.google.gms.google-services'
 
-
-
-
-//task findbugs(type: FindBugs) {
-//    ignoreFailures = false
-//    effort = "default"
-//    reportLevel = "medium"
-//    excludeFilter = new File("${project.rootDir}/findbugs/findbugs-filter.xml")
-//    classes = files("${project.rootDir}/app/build/intermediates/classes")
-//    source = fileTree('src/main/java/')
-//    classpath = files()
-//    reports {
-//        xml.enabled = false
-//        html.enabled = true
-//        xml {
-//            destination "$project.buildDir/findbugs/findbugs-output.xml"
-//        }
-//        html {
-//            destination "$project.buildDir/findbugs/findbugs-output.html"
-//        }
-//    }
-//}
-
-//task pmd(type: Pmd) {
-//    ruleSetFiles = files("${project.rootDir}/pmd/pmd-ruleset.xml")
-//    ignoreFailures = false
-//    ruleSets = []
-//
-//    source 'src'
-//    include '**/*.java'
-//    exclude '**/gen/**'
-//
-//    reports {
-//        xml.enabled = false
-//        html.enabled = true
-//        xml {
-//            destination "$project.buildDir/reports/pmd/pmd.xml"
-//        }
-//        html {
-//            destination "$project.buildDir/reports/pmd/pmd.html"
-//        }
-//    }
-//}
-
-
-//task checkstyle(type: Checkstyle) {
-//    ruleSetFiles = files("${project.rootDir}/checkstyle/zcw-checkstyle.xml")
-//    ignoreFailures = false
-//    ruleSets = []
-//
-//    source 'src'
-//    include '**/*.java'
-//    exclude '**/gen/**'
-//    exclude 'androidTest/**'
-//    exclude 'test/**'
-//
-//}
-
-
-//final def TARGET_BUNDLE_DIR = 'app/src/main/assets/'
-//final def TARGET_BUNDLE_FILE = 'index.android.js'
-//final def DOWNLOAD_URL = 'http://localhost:8081/index.android.bundle?platform=android'
-//
-//task downloadJSBundle << {
-//    def dir = new File(TARGET_BUNDLE_DIR)
-//    if (!dir.exists()) {
-//        dir.mkdirs()
-//    }
-//    def f = new File(TARGET_BUNDLE_DIR + TARGET_BUNDLE_FILE)
-//    if (f.exists()) {
-//        f.delete()
-//    }
-//    new URL(DOWNLOAD_URL).withInputStream{ i -> f.withOutputStream{ it << i }}
-//}
-//// 保证每次编译之前，先下载 JS 文件
-//preBuild.dependsOn downloadJSBundle
 
 

@@ -27,12 +27,34 @@ public class BaseActivity extends AppCompatActivity {
     public static final int REQUEST_CAMERA = 111;
     public static final int REQUEST_PHONE_STATE = 112;
     public static final int REQUEST_RECORD_AUDIO = 113;
+    public static final int REQUEST_ACCESS_COARSE_LOCATION = 114;
+    public static final int REQUEST_ACCESS_FINE_LOCATION = 115;
 
     public static void launch(Context context,Class<?> clazz){
         Intent intent = new Intent();
         intent.setClass(context,clazz);
         context.startActivity(intent);
     }
+
+    public void requestACCESS_COARSE_LOCATIONPermissions() {
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager
+                .PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_COARSE_LOCATION},
+                    REQUEST_ACCESS_COARSE_LOCATION);
+        } else {
+            onGetACCESS_COARSE_LOCATIONPermissions();
+        }
+    }
+   public void requestACCESS_FINE_LOCATIONPermissions() {
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager
+                .PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
+                    REQUEST_ACCESS_FINE_LOCATION);
+        } else {
+            onGetACCESS_FINE_LOCATIONPermissions();
+        }
+    }
+
 
     public void requestREAD_PHONE_STATEPermissions() {
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE) != PackageManager
@@ -86,6 +108,15 @@ public class BaseActivity extends AppCompatActivity {
 
     }
 
+
+    public void onGetACCESS_COARSE_LOCATIONPermissions(){
+
+    }
+
+    public void onGetACCESS_FINE_LOCATIONPermissions(){
+
+    }
+
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
             super.onRequestPermissionsResult(requestCode, permissions, grantResults);
@@ -101,7 +132,7 @@ public class BaseActivity extends AppCompatActivity {
             toolbar.setTitle(title);
             setSupportActionBar(toolbar);
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-            getSupportActionBar().setDefaultDisplayHomeAsUpEnabled(true);
+//            getSupportActionBar().setDefaultDisplayHomeAsUpEnabled(true);
             toolbar.setNavigationOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

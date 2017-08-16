@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="facebook_app_id" translatable="false">1860446400872605</string>
+    <string name="baidu_ad_id" translatable="false">ba49c466b7c417c9e4a46ef73ac931f2</string>
+    <string name="baidu_ad_package_authority" translatable="false">com.fotoable.wallpapers.DuAdCacheProvider</string>
+    <string name="ad_unit_id">ca-app-pub-3940256099942544/1072772517</string>
+
+
+    <!--google zcwfeng@gmail.com-->
+    <string name="admob_banner_ad_unit_id">ca-app-pub-5553031321204081/4790796252</string>
+    <!--google demo admob-->
+    <string name="banner_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="interstitial_ad_unit_id">ca-app-pub-3940256099942544/1033173712</string>
+    <string name="rewarded_video_ad_unit_id">ca-app-pub-3940256099942544/5224354917</string>
+    <string name="native_express_small_ad_unit_id">ca-app-pub-3940256099942544/2793859312</string>
+    <string name="native_express_large_ad_unit_id">ca-app-pub-3940256099942544/2177258514</string>
+
+
+
+
+
+    <string name="google_test_demo_app_id">ca-app-pub-3940256099942544~3347511713</string>
+    <string name="my_app_admob_app_id">ca-app-pub-5553031321204081~3314063050</string>
+</resources>
