@@ -24,11 +24,12 @@ import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.gms.ads.MobileAds;
 import com.zcwfeng.fastdev.R;
+import com.zcwfeng.fastdev.basic.Config;
 
 import static com.baidu.mapapi.BMapManager.getContext;
 
 
-public class LifeCycleActivity extends BaseActivity implements View.OnClickListener {
+public class LifeCycleActivity extends BaseActivity implements View.OnClickListener,IntefaceChild {
     final String TAG = LifeCycleActivity.class.getSimpleName();
     //    private AnimateNativeAdViewLayout mCurrentNativeLayout;
     private LinearLayout adview_container;
@@ -72,10 +73,71 @@ public class LifeCycleActivity extends BaseActivity implements View.OnClickListe
 
         containerYeah =  (ViewGroup) findViewById(R.id.container_yeahmobi);
         adLayout = (ViewGroup)View.inflate(this,R.layout.advance_native_layout, null);
+        findViewById(R.id.yeahmobi_banner).setOnClickListener(this);
+        findViewById(R.id.yeahmobi_native).setOnClickListener(this);
+        findViewById(R.id.yeahmobi_interstitial).setOnClickListener(this);
+        findViewById(R.id.yeahmobi_video).setOnClickListener(this);
 
 
 
-        CTService.getAdvanceNative("252", this,CTImageRatioType.RATIO_19_TO_10,
+
+    }
+
+    private void initView() {
+        final RelativeLayout ad_close_layout = (RelativeLayout) LayoutInflater.from(getContext()).inflate(R.layout.ad_close_layout, null);
+
+
+        container.addView(ad_close_layout);
+        parent.addView(container);
+
+    }
+
+
+    @Override
+    public void onGetACCESS_FINE_LOCATIONPermissions() {
+        super.onGetACCESS_FINE_LOCATIONPermissions();
+
+
+    }
+
+    private void testFacebookAds() {
+//
+    }
+
+    private void testYeahmobiVideo(){
+
+
+
+    }
+
+    private void testYeahmobiInterstitial(){
+        CTService.preloadInterstitial(Config.slotIdInterstitial,true,false,this,
+                new MyCTAdEventListener(){
+
+                    @Override
+                    public void onInterstitialLoadSucceed(CTNative result) {
+                        super.onInterstitialLoadSucceed(result);
+                    }
+
+                    @Override
+                    public void onAdviewGotAdSucceed(CTNative result){
+                        if (result != null && result.isLoaded()){
+                            CTService.showInterstitial(result);
+                        }
+                        super.onAdviewGotAdSucceed(result);
+                    }
+
+                    @Override
+                    public void onAdviewClosed(CTNative result) {
+
+                        super.onAdviewClosed(result);
+                    }
+
+                });
+    }
+
+    private void testYeahmobiNative(){
+        CTService.getAdvanceNative(Config.slotIdNative, this, CTImageRatioType.RATIO_19_TO_10,
                 new MyCTAdEventListener(){
                     @Override
                     public void onAdviewGotAdSucceed(CTNative result) {
@@ -100,25 +162,35 @@ public class LifeCycleActivity extends BaseActivity implements View.OnClickListe
                 });
     }
 
-    private void initView() {
-        final RelativeLayout ad_close_layout = (RelativeLayout) LayoutInflater.from(getContext()).inflate(R.layout.ad_close_layout, null);
+    private void testYeahmobiBanner(){
+        CTService.getBanner(Config.slotIdBanner, false, this,
+                new MyCTAdEventListener(){
 
+                    @Override
+                    public void onAdviewGotAdSucceed(CTNative result) {
+                        if (result != null){
+                            containerYeah.removeAllViews();
+                            containerYeah.addView(result);
+                        }
+                        super.onAdviewGotAdSucceed(result);
+                    }
 
-        container.addView(ad_close_layout);
-        parent.addView(container);
+                    @Override
+                    public void onAdviewGotAdFail(CTNative result) {
+                        super.onAdviewGotAdFail(result);
+                    }
 
-    }
+                    @Override
+                    public void onAdviewClicked(CTNative result) {
+                        super.onAdviewClicked(result);
+                    }
 
-
-    @Override
-    public void onGetACCESS_FINE_LOCATIONPermissions() {
-        super.onGetACCESS_FINE_LOCATIONPermissions();
-
-
-    }
-
-    private void testFacebookAds() {
-//
+                    @Override
+                    public void onAdviewClosed(CTNative result) {
+                        containerYeah.removeAllViews();
+                        super.onAdviewClosed(result);
+                    }
+                });
     }
 
     private void testAdmob() {
@@ -210,7 +282,6 @@ public class LifeCycleActivity extends BaseActivity implements View.OnClickListe
                 testFacebookAds();
                 break;
             case R.id.baidu_ads:
-
                 break;
             case R.id.Admob_ads:
                 testAdmob();
@@ -222,6 +293,18 @@ public class LifeCycleActivity extends BaseActivity implements View.OnClickListe
                 break;
             case R.id.click_close:
                 reload();
+                break;
+            case R.id.yeahmobi_banner:
+                testYeahmobiBanner();
+                break;
+            case R.id.yeahmobi_native:
+                testYeahmobiNative();
+                break;
+            case R.id.yeahmobi_interstitial:
+                testYeahmobiInterstitial();
+                break;
+            case R.id.yeahmobi_video:
+                testYeahmobiVideo();
                 break;
         }
     }
@@ -318,6 +401,16 @@ public class LifeCycleActivity extends BaseActivity implements View.OnClickListe
 
         containerYeah.removeAllViews();
         containerYeah.addView(ctAdvanceNative);
+    }
+
+    @Override
+    public void testParent() {
+
+    }
+
+    @Override
+    public void testChild() {
+
     }
 
 

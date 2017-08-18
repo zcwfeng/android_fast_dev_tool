@@ -76,6 +76,44 @@
                     android:layout_weight="1"
                     android:text="Admob_video" />
             </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/yeahmobi_banner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="yeahmobi Banner" />
+
+                <Button
+                    android:id="@+id/yeahmobi_native"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="yeahmobi native" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/yeahmobi_interstitial"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="yeahmobi Interstitial" />
+
+                <Button
+                    android:id="@+id/yeahmobi_video"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="yeahmobi video" />
+            </LinearLayout>
         </LinearLayout>
 
         <Button
@@ -110,7 +148,7 @@
         <RelativeLayout
             android:id="@+id/container_yeahmobi"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="300dp"
             android:background="@android:color/white">
         </RelativeLayout>
 
