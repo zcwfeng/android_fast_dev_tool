@@ -8,6 +8,7 @@ import android.view.Display;
 import android.view.WindowManager;
 
 import com.baidu.mapapi.SDKInitializer;
+import com.cloudtech.ads.core.CTService;
 import com.crashlytics.android.Crashlytics;
 import com.crashlytics.android.answers.Answers;
 import com.facebook.FacebookSdk;
@@ -46,23 +47,25 @@ public class MyApplication extends BaseApplication{
     @Override
     public void onCreate() {
         super.onCreate();
-        Fabric.with(this, new Crashlytics());
+        mApplacation = this;
+        //初始化屏幕宽高
+        getScreenSize();
+        initSDK();
 
+
+
+    }
+
+    private void initSDK() {
+        Fabric.with(this, new Crashlytics());
         new FlurryAgent.Builder()
                 .withLogEnabled(true)
                 .build(this, "S8BWRCDF8QPH62NC5Z5F");
-        mApplacation = this;
-
-        //初始化屏幕宽高
-        getScreenSize();
-
 //        Firebase.setAndroidContext(this);
         Fabric.with(this, new Crashlytics(), new Answers());
 
-
         // init x5 WebView
         QbSdk.PreInitCallback cb = new QbSdk.PreInitCallback() {
-
             @Override
             public void onViewInitFinished(boolean arg0) {
                 // TODO Auto-generated method stub
@@ -76,7 +79,6 @@ public class MyApplication extends BaseApplication{
             }
         };
         QbSdk.initX5Environment(getApplicationContext(), cb);
-
 
         // Realm Database Init
         Realm.init(this);
@@ -94,15 +96,12 @@ public class MyApplication extends BaseApplication{
         InitConfig config = new InitConfig.Builder().setImgAdapter(new ImageAdapter()).build();
         WXSDKEngine.initialize(this, config);
 
+        FacebookSdk.sdkInitialize(getApplicationContext());
+
         //配置数据库
         setupDatabase();
 
-
-        FacebookSdk.sdkInitialize(getApplicationContext());
-
-//        AppEventsLogger.activateApp(this.getApplicationContext(),"1860446400872605");
-//        AdSettings.addTestDevice("d3439e8dea48a56c4095d25f037a3fdd");
-//        SDK.startSDK(this,33404,"475239399d1018409c3a5afb6a1d379f");
+        CTService.init(this, "252");
 
 
     }

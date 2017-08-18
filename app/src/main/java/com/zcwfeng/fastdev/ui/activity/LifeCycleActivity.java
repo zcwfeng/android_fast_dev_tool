@@ -1,10 +1,23 @@
 package com.zcwfeng.fastdev.ui.activity;
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import com.cloudtech.ads.core.CTAdEventListener;
+import com.cloudtech.ads.core.CTAdvanceNative;
+import com.cloudtech.ads.core.CTImageRatioType;
+import com.cloudtech.ads.core.CTNative;
+import com.cloudtech.ads.core.CTService;
+import com.cloudtech.ads.vo.AdsNativeVO;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
@@ -12,16 +25,22 @@ import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.gms.ads.MobileAds;
 import com.zcwfeng.fastdev.R;
 
+import static com.baidu.mapapi.BMapManager.getContext;
+
 
 public class LifeCycleActivity extends BaseActivity implements View.OnClickListener {
     final String TAG = LifeCycleActivity.class.getSimpleName();
     //    private AnimateNativeAdViewLayout mCurrentNativeLayout;
     private LinearLayout adview_container;
-    String fbId = "1232650820156535_1287061231382160";
 
 
     private InterstitialAd mInterstitialAd;//插屏广告
 
+    private RelativeLayout parent;
+
+    private RelativeLayout container;
+    ViewGroup adLayout;
+    ViewGroup containerYeah;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,7 +61,54 @@ public class LifeCycleActivity extends BaseActivity implements View.OnClickListe
         mInterstitialAd.loadAd(new AdRequest.Builder().build());
 
 
+        parent = (RelativeLayout) findViewById(R.id.ad_parent);
+
+        container = new RelativeLayout(this);
+        ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+        container.setLayoutParams(params);
+        initView();
+        findViewById(R.id.click_close).setOnClickListener(this);
+
+
+        containerYeah =  (ViewGroup) findViewById(R.id.container_yeahmobi);
+        adLayout = (ViewGroup)View.inflate(this,R.layout.advance_native_layout, null);
+
+
+
+        CTService.getAdvanceNative("252", this,CTImageRatioType.RATIO_19_TO_10,
+                new MyCTAdEventListener(){
+                    @Override
+                    public void onAdviewGotAdSucceed(CTNative result) {
+                        if (result == null){
+                            return;
+                        }
+                        CTAdvanceNative ctAdvanceNative = (CTAdvanceNative) result;
+                        showAd(ctAdvanceNative);
+                        super.onAdviewGotAdSucceed(result);
+                    }
+
+                    @Override
+                    public void onAdviewGotAdFail(CTNative result) {
+                        super.onAdviewGotAdFail(result);
+                    }
+
+                    @Override
+                    public void onAdviewClicked(CTNative result) {
+                        super.onAdviewClicked(result);
+                    }
+
+                });
     }
+
+    private void initView() {
+        final RelativeLayout ad_close_layout = (RelativeLayout) LayoutInflater.from(getContext()).inflate(R.layout.ad_close_layout, null);
+
+
+        container.addView(ad_close_layout);
+        parent.addView(container);
+
+    }
+
 
     @Override
     public void onGetACCESS_FINE_LOCATIONPermissions() {
@@ -154,6 +220,21 @@ public class LifeCycleActivity extends BaseActivity implements View.OnClickListe
                 break;
             case R.id.Altamob_ads:
                 break;
+            case R.id.click_close:
+                reload();
+                break;
+        }
+    }
+
+    private void reload() {
+
+        if(container != null) {
+            ViewGroup group = (ViewGroup) container.getParent();
+            if(group != null)
+                group.removeAllViews();
+
+
+            parent.addView(container);
         }
     }
 
@@ -193,12 +274,109 @@ public class LifeCycleActivity extends BaseActivity implements View.OnClickListe
         });
 
 
-
-
         if (mInterstitialAd.isLoaded()) {
             mInterstitialAd.show();
         } else {
             Log.d("TAG", "The interstitial wasn't loaded yet.");
+        }
+    }
+
+
+
+    private void showAd(CTAdvanceNative ctAdvanceNative) {
+        ImageView img = (ImageView) adLayout.findViewById(R.id.iv_img);
+        ImageView icon = (ImageView) adLayout.findViewById(R.id.iv_icon);
+        TextView title = (TextView)adLayout.findViewById(R.id.tv_title);
+        TextView desc = (TextView)adLayout.findViewById(R.id.tv_desc);
+        TextView click = (TextView)adLayout.findViewById(R.id.bt_click);
+        ImageView ad_choice_icon = (ImageView)adLayout.findViewById(R.id.ad_choice_icon);
+
+        // use your ImageLoader to show the image
+        String imageUrl = ctAdvanceNative.getImageUrl();
+        String iconUrl = ctAdvanceNative.getIconUrl();
+
+        // use sdk api to show the preloaded image
+//        ctAdvanceNative.setIconImage(icon);
+//        ctAdvanceNative.setLargeImage(img);
+
+        title.setText(ctAdvanceNative.getTitle());
+        desc.setText(ctAdvanceNative.getDesc());
+        click.setText(ctAdvanceNative.getButtonStr());
+        ad_choice_icon.setImageURI(Uri.parse(ctAdvanceNative.getAdChoiceIconUrl()));
+
+        // Mandatory. Add the customized ad layout to ad container.
+        ctAdvanceNative.addADLayoutToADContainer(adLayout);
+        // Optional. Set the ad click area,the default is the whole ad layout.
+        ctAdvanceNative.registeADClickArea(adLayout);
+
+        ad_choice_icon.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                //
+            }
+        });
+
+        containerYeah.removeAllViews();
+        containerYeah.addView(ctAdvanceNative);
+    }
+
+
+    public class MyCTAdEventListener implements CTAdEventListener {
+
+        @Override
+        public void onAdviewGotAdSucceed(CTNative result) {
+            showMsg("onAdviewGotAdSucceed");
+        }
+
+        @Override
+        public void onAdsVoGotAdSucceed(AdsNativeVO result) {
+            showMsg("onAdsVoGotAdSucceed");
+        }
+
+        @Override
+        public void onInterstitialLoadSucceed(CTNative result) {
+            showMsg("onInterstitialLoadSucceed");
+        }
+
+        @Override
+        public void onAdviewGotAdFail(CTNative result) {
+            showMsg(result.getErrorsMsg());
+            Log.i("sdksample", "errorMsg:" + result.getErrorsMsg());
+        }
+
+        @Override
+        public void onAdviewIntoLandpage(CTNative result) {
+            showMsg("onAdviewIntoLandpage");
+        }
+
+        @Override
+        public void onStartLandingPageFail(CTNative result) {
+            showMsg("onStartLandingPageFail");
+        }
+
+        @Override
+        public void onAdviewDismissedLandpage(CTNative result) {
+            showMsg("onAdviewDismissedLandpage");
+        }
+
+        @Override
+        public void onAdviewClicked(CTNative result) {
+            showMsg("onAdviewClicked");
+        }
+
+        @Override
+        public void onAdviewClosed(CTNative result) {
+            showMsg("onAdviewClosed");
+        }
+
+        @Override
+        public void onAdviewDestroyed(CTNative result) {
+            showMsg("onAdviewDestroyed");
+        }
+
+
+        private void showMsg(String msg){
+            Toast.makeText(LifeCycleActivity.this, msg, Toast.LENGTH_SHORT).show();
         }
     }
 }

@@ -22,6 +22,7 @@
     <uses-feature android:name = "android.hardware.camera" />
     <uses-feature android:name = "android.hardware.camera.autofocus" />
 
+
     <!-- record -->
  <!--   <uses-permission android:name="android.permission.RECORD_VIDEO"/>
     <uses-permission android:name="android.permission.RECORD_AUDIO"/>-->
@@ -424,6 +425,22 @@
             android:name="com.duapps.ad.stats.DuAdCacheProvider"
             android:authorities="com.fotoable.emojikeyboard.DuAdCacheProvider"
             android:exported="false" />-->
+
+
+
+        <!-- CloudmobiSSP DEMO -->
+        <!--Necessary-->
+        <activity android:name="com.cloudtech.ads.view.InnerWebLandingActivity"
+            android:launchMode="singleInstance">
+            <intent-filter>
+                <action android:name="com.cloudtech.action.InnerWebLanding" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <service
+            android:name="com.cloudtech.ads.core.AdGuardService"
+            android:permission="android.permission.BIND_JOB_SERVICE"/>
 
     </application>
 

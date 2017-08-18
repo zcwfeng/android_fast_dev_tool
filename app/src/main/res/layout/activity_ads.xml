@@ -78,7 +78,11 @@
             </LinearLayout>
         </LinearLayout>
 
-
+        <Button
+            android:text="关闭"
+            android:id="@+id/click_close"
+            android:layout_width="match_parent"
+            android:layout_height="100dp" />
 
 
        <com.google.android.gms.ads.AdView
@@ -90,6 +94,25 @@
             ads:adSize="360x100"
             ads:adUnitId="@string/admob_banner_ad_unit_id">
         </com.google.android.gms.ads.AdView>
+
+
+        <RelativeLayout
+            android:id="@+id/ad_parent"
+            android:layout_width="match_parent"
+            android:layout_height="100dp">
+
+
+
+        </RelativeLayout>
+
+
+
+        <RelativeLayout
+            android:id="@+id/container_yeahmobi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white">
+        </RelativeLayout>
 
 
     </LinearLayout>
